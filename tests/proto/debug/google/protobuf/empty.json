@@ -1,0 +1,21 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "Empty",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "google.protobuf"
+}

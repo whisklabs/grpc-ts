@@ -1,0 +1,137 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [
+    {
+      "name": "NullValue",
+      "values": {
+        "NULL_VALUE": {
+          "value": 0,
+          "options": {}
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "Struct",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "fields",
+          "type": "map",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "Value"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Value",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "null_value",
+          "type": "NullValue",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        },
+        {
+          "name": "number_value",
+          "type": "double",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        },
+        {
+          "name": "string_value",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        },
+        {
+          "name": "bool_value",
+          "type": "bool",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        },
+        {
+          "name": "struct_value",
+          "type": "Struct",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        },
+        {
+          "name": "list_value",
+          "type": "ListValue",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "kind"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ListValue",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "values",
+          "type": "Value",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "google.protobuf"
+}

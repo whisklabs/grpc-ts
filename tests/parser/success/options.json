@@ -1,0 +1,54 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "OptionFields",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "type",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "mylist": "some,values, [here]"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "MoreOptionFields",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "values",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "mylist2": "[more, values], [here]"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": []
+}

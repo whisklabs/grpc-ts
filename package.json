@@ -1,0 +1,141 @@
+{
+  "name": "@whisklabs/grpc",
+  "version": "1.0.0-0",
+  "description": "gRPC generator and http library for typescript",
+  "license": "MIT",
+  "author": {
+    "name": "Whisk",
+    "url": "https://developers.whisk.com/"
+  },
+  "contributors": [
+    {
+      "name": "Kuzminov Alexander",
+      "url": "https://github.com/askuzminov",
+      "email": "askuzminov@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/whisklabs/grpc-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whisklabs/grpc-ts/issues"
+  },
+  "homepage": "https://github.com/whisklabs/grpc-ts#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "bin": {
+    "grpc-generator": "./dist/cjs/generator/cli.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "check-types:watch": "npm run check-types -- --watch",
+    "build:cjs": "tsc -p tsconfig.build.json",
+    "build:esm": "tsc -p tsconfig.build.json --module es2015 --outDir ./dist/esm/",
+    "build:types": "tsc -p tsconfig.build.json --outDir ./dist/types/ --declaration --emitDeclarationOnly",
+    "build:generator": "mkdir -p dist/generator && cp src/generator.json dist/generator/package.json",
+    "build:clean": "rimraf dist/**",
+    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types && npm run build:generator",
+    "pretest": "npm run build && npm run grpc:protobufjs && npm run gprc:generator",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "grpc:protobufjs": "PROTO_DIR=proto PROTO_OUT=tests/protobufjs ts-node src/generator/protobufjs.ts",
+    "gprc:generator": "PROTO_DIR=proto PROTO_OUT=tests/proto PROTO_VERSION=test PROTO_DEBUG=true ts-node src/generator/cli.ts",
+    "gprc:package": "PROTO_DIR=proto PROTO_OUT=tests/proto PROTO_PACKAGE_NAME=abc PROTO_PACKAGE_VERSION=0.1.10 ts-node src/generator/cli.ts",
+    "lint:prettier": "prettier --write \"@(packages)/**/*.{ts,tsx,js,json,css,md,html,yml}\"",
+    "lint:fix": "npm run eslint:fix && npm run lint:prettier",
+    "eslint": "eslint '**/*.{js,ts,tsx}'",
+    "eslint:fix": "npm run eslint -- --fix",
+    "lint": "npm run eslint",
+    "release": "simple-release"
+  },
+  "dependencies": {
+    "@whisklabs/deep-readonly": "^1.0.0",
+    "@whisklabs/typeguards": "^1.0.0",
+    "typescript": "~4.0.2"
+  },
+  "devDependencies": {
+    "@askuzminov/simple-release": "1.0.0",
+    "@types/jest": "26.0.13",
+    "@typescript-eslint/eslint-plugin": "3.10.1",
+    "@typescript-eslint/parser": "3.10.1",
+    "eslint": "7.7.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsdoc": "30.3.0",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-unicorn": "21.0.0",
+    "husky": "4.3.0",
+    "jest": "26.4.2",
+    "jest-junit": "11.0.1",
+    "lint-staged": "10.3.0",
+    "package-lock-check": "1.1.0",
+    "prettier": "2.1.1",
+    "prettier-eslint": "11.0.0",
+    "protobufjs": "6.9.0",
+    "rimraf": "3.0.2",
+    "ts-jest": "26.3.0",
+    "ts-node": "8.10.2",
+    "typescript": "4.0.2"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run check-types",
+      "pre-push": "package-lock-check && npm run lint && npm run test",
+      "commit-msg": "simple-release-lint"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,json,md,html,yml}": [
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest/presets/js-with-ts",
+    "testRegex": "spec\\.tsx?$",
+    "roots": [
+      "src",
+      "tests"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "GRPC tests",
+          "outputDirectory": "./coverage/grpc",
+          "outputName": "results.xml"
+        }
+      ]
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "tests/proto",
+      "tests/protobufjs",
+      "dist"
+    ]
+  }
+}

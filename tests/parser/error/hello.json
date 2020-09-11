@@ -1,0 +1,7 @@
+{
+  "name": "common",
+  "message": [["Unexpected token: hello", 0]],
+  "line": 1,
+  "column": 1,
+  "range": ["hello", "world"]
+}

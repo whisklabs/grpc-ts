@@ -1,0 +1,10 @@
+{
+  "name": "syntax",
+  "message": [
+    ["Token \"\" not equal \" string with quotes \"proto2\" or \"proto3\" \"", 2],
+    ["Token \"\" not equal \";\"", 3],
+    ["syntax, =", 0]
+  ],
+  "line": 1,
+  "range": ["syntax", "="]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "reserved",
+  "message": [["Field name \"bar\" in message \"Reserved\" is reserved", 0]],
+  "range": []
+}

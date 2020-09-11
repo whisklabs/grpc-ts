@@ -1,0 +1,3 @@
+message Message {
+  string type = 2 [mylist = some lk];
+}

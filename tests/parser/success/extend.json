@@ -1,0 +1,219 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "MsgNormal",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "field1",
+          "type": "int32",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "field2",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "field3",
+          "type": "int32",
+          "tag": 3,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "exField1",
+          "type": "int32",
+          "tag": 101,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "exField2",
+          "type": "string",
+          "tag": 102,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "MsgExtend",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "field1",
+          "type": "int32",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "field2",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "field3",
+          "type": "int32",
+          "tag": 3,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "exField1",
+          "type": "int32",
+          "tag": 101,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "exField2",
+          "type": "string",
+          "tag": 102,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [
+        {
+          "from": 100,
+          "to": 200
+        }
+      ],
+      "reserved": []
+    },
+    {
+      "name": "MsgMax",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "field1",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [
+        {
+          "from": 100,
+          "to": 536870911
+        }
+      ],
+      "reserved": []
+    },
+    {
+      "name": "Baz",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [
+        {
+          "name": "Foo",
+          "message": {
+            "name": "Foo",
+            "enums": [],
+            "options": {},
+            "messages": [],
+            "fields": [
+              {
+                "name": "bar",
+                "type": "int32",
+                "tag": 126,
+                "required": false,
+                "repeated": false,
+                "optional": true,
+                "options": {}
+              }
+            ],
+            "extends": [],
+            "extensions": [],
+            "reserved": []
+          }
+        }
+      ],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [
+    {
+      "name": "MsgExtend",
+      "message": {
+        "name": "MsgExtend",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "exField1",
+            "type": "int32",
+            "tag": 101,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          },
+          {
+            "name": "exField2",
+            "type": "string",
+            "tag": 102,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    }
+  ],
+  "services": []
+}

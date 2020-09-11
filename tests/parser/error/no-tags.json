@@ -1,0 +1,7 @@
+{
+  "name": "field",
+  "message": [["Missing tag number in message field: dollars", 0]],
+  "range": [";", "optional", "int32", "pesos", ";", "...", "required", "wallet", "wallet", ";", "}"],
+  "line": 2,
+  "column": 25
+}

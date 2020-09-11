@@ -1,0 +1,5 @@
+{
+  "name": "extends",
+  "message": [["MsgExtend does not declare 101 as an extension number", 0]],
+  "range": []
+}

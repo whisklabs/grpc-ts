@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    branches: [master, feature/*]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with: { fetch-depth: 0 }
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Set Branch
+        id: branch
+        run: |
+          BNAME="$(echo -n ${GITHUB_REF##*/} | sed 's#/#-#g' | tr '[:upper:]' '[:lower:]')"
+          BID="$GITHUB_RUN_NUMBER-$(date +%s)"
+          echo ::set-env name=BRANCH_NAME::$BNAME
+          echo ::set-env name=APP_BUILD::$BID-$GITHUB_SHA
+          echo ::set-env name=BUILD_ID::$BID
+      - name: Setup GIT
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com > ~/.ssh/known_hosts
+      - name: Setup NPM
+        run: |
+          echo "Setup NPM"
+          echo 'always-auth=true' > ~/.npmrc
+          echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> ~/.npmrc
+          echo '//npm.pkg.github.com/:_authToken=${GH_TOKEN}' >> ~/.npmrc
+      - name: Install dependencies
+        run: npm ci
+      - name: Check
+        run: |
+          npm run check-types
+          npm run lint
+          npm run test
+      - name: Build
+        run: npm run build
+      - name: Release GITHUB
+        run: |
+          if [[ $BRANCH_NAME == 'master' ]]; then
+            echo "Release production"
+            npm run release publish-github publish-npmjs
+          else
+            echo "Release canary"
+            npm run release -- publish-github prerelease=$BRANCH_NAME.$BUILD_ID
+          fi

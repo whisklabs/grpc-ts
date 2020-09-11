@@ -1,0 +1,7 @@
+{
+  "name": "syntax",
+  "message": [["must be on first line", 0]],
+  "line": 2,
+  "column": 1,
+  "range": ["syntax", "=", "\"proto3\"", ";"]
+}

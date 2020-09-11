@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+package whisk.api.user.v2;
+
+option go_package = "userv2";
+option java_package = "com.whisk.api.user.v2";
+
+import "google/api/annotations.proto";
+import "google/api/field_mask.proto";
+import "google/api/empty.proto";
+import "whisk/api/user/v2/user.proto";
+
+service UserAPI {
+  rpc GetMe(GetMeRequest) returns (GetMeResponse) {
+    option (google.api.http) = {
+      get: "/user/v2/me"
+    };
+  }
+  rpc Get(google.protobuf.Empty) returns (GetMeResponse); // Empty rpc
+  rpc UpdateSettings(UpdateSettingsRequest) returns (UpdateSettingsResponse) {
+    option (google.api.http) = {
+      patch: "/user/v2/settings"
+      body: "*"
+      additional_bindings: {
+        patch: "/user/v2/settings/{id}"
+        body: "*"
+      }
+      additional_bindings: {
+        put: "/user/v2/settings/{id}"
+        body: "*"
+      }
+      additional_bindings {
+        post: "/user/v2/settings/{id}"
+        body: "*"
+      }
+    };
+  }
+}
+
+message GetMeRequest {}
+
+message GetMeResponse {
+  User user = 1;
+}
+
+message UpdateSettingsRequest {
+  UserSettings settings = 1;
+  string id = 2;
+  google.protobuf.FieldMask mask = 3;
+}
+
+message UpdateSettingsResponse {
+  User user = 1;
+}
+
+// Mask tests
+message ExtractRecipeRequest {
+  string url = 1;
+  google.protobuf.FieldMask recipe_mask = 2;
+}
+
+message SaveRecipeRequest {
+  string recipe_id = 1;
+  repeated string collection_ids = 2;
+  string source_user_id = 3;
+  google.protobuf.FieldMask recipe_mask = 4;
+}
+
+message UpdateRecipeRequest {
+  string recipe_id = 1;
+  google.protobuf.FieldMask recipe_mask = 2;
+  // possible values: payload, collection_ids
+  google.protobuf.FieldMask update_mask = 3;
+  User payload = 4;
+  repeated string collection_ids = 5;
+}
+
+message UpdateListRequest {
+  message Fields {
+    string name = 1;
+    bool primary = 2;
+  }
+  string id = 1;
+  Fields fields = 2;
+  google.protobuf.FieldMask mask = 3;
+}
+
+message UpdateItemRequest {
+  string id = 1;
+  Fields fields = 2;
+  google.protobuf.FieldMask mask = 3;
+  int32 new_order = 4;
+
+  message Fields {
+    string name = 1;
+    double quantity = 2;
+    string unit = 3;
+    whisk.api.shared.v1.Date expiry_date = 4;
+    User user = 5;
+    int64 added_at = 6;
+  }
+}
+
+message UpdateSettingsRequestOld {
+  UserSettings settings = 1;
+  google.protobuf.FieldMask mask = 2;
+}
+
+message UpdateBusinessApp {
+  google.protobuf.FieldMask update_mask = 1;
+  string name = 3;
+  string description = 4;
+  User user = 5;
+  bool is_test = 7;
+  bool is_trial = 8;
+}
+
+message UserSettings2 {
+  google.protobuf.FieldMask non_default_mask = 1;
+  repeated string onboarding = 2;
+  string first_name = 3;
+  string last_name = 4;
+}

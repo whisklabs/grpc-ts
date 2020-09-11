@@ -1,0 +1,132 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "HelloRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "greeting",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "HelloResponse",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "reply",
+          "type": "string",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [
+    {
+      "name": "HelloService",
+      "methods": [
+        {
+          "name": "SayHello",
+          "inputType": "HelloRequest",
+          "outputType": "HelloResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/say-hello/echo/{greeting}",
+              "additional_bindings": [
+                {
+                  "post": "/v2/say-hello",
+                  "body": "greeting"
+                },
+                {
+                  "get": "/v2/say-hello"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "SayHello2",
+          "inputType": "HelloRequest",
+          "outputType": "HelloResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/say-hello/echo/{greeting}",
+              "additional_bindings": {
+                "post": "/v2/say-hello",
+                "body": "greeting"
+              }
+            }
+          }
+        },
+        {
+          "name": "LotsOfReplies",
+          "inputType": "HelloRequest",
+          "outputType": "HelloResponse",
+          "clientStreaming": false,
+          "serverStreaming": true,
+          "options": {}
+        },
+        {
+          "name": "LotsOfGreetings",
+          "inputType": "HelloRequest",
+          "outputType": "HelloResponse",
+          "clientStreaming": true,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/lots-of-greetings",
+              "body": "*",
+              "additional_bindings": [
+                {
+                  "post": "/v2/say-hello",
+                  "body": "greeting"
+                },
+                {
+                  "get": "/v2/say-hello"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "BidiHello",
+          "inputType": "HelloRequest",
+          "outputType": "HelloResponse",
+          "clientStreaming": true,
+          "serverStreaming": true,
+          "options": {}
+        }
+      ],
+      "options": {}
+    }
+  ]
+}

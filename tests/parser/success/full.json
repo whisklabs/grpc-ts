@@ -1,0 +1,450 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/api/annotations.proto",
+    "google/api/field_mask.proto",
+    "google/api/empty.proto",
+    "whisk/api/user/v2/user.proto"
+  ],
+  "enums": [
+    {
+      "name": "Gender",
+      "values": {
+        "GENDER_UNSPECIFIED": {
+          "value": 0,
+          "options": {}
+        },
+        "GENDER_MALE": {
+          "value": 1,
+          "options": {}
+        },
+        "GENDER_FEMALE": {
+          "value": 2,
+          "options": {}
+        }
+      },
+      "options": {},
+      "comment": " Gender is one or two."
+    },
+    {
+      "name": "NumericEnum",
+      "values": {
+        "ZERO": {
+          "value": 0,
+          "options": {},
+          "comment": " ZERO means 0"
+        },
+        "ONE": {
+          "value": 1,
+          "options": {},
+          "comment": " ONE means 1"
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "Test2",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Nested",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "thing",
+              "type": "bytes",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {},
+              "comment": " Line comment"
+            },
+            {
+              "name": "thing",
+              "type": "bytes",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {},
+              "comment": " Line comment2"
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "hello",
+          "type": "string",
+          "tag": 2,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [],
+      "comment": " example file\n example file"
+    },
+    {
+      "name": "Person",
+      "enums": [
+        {
+          "name": "PhoneType",
+          "values": {
+            "MOBILE": {
+              "value": 0,
+              "options": {
+                "enum_value_is_deprecated": true,
+                "some_second_option": "value1, value2, value3",
+                "some_third_option": "[value1, value2, value3]",
+                "comment": " option allow_alias = true;"
+              }
+            },
+            "HOME": {
+              "value": 1,
+              "options": {
+                "google": {
+                  "api": {
+                    "http": true
+                  }
+                },
+                "my_me": {
+                  "dg": {
+                    "dfg": "123"
+                  }
+                },
+                "my_method_option": {
+                  "df": {
+                    "df": "456"
+                  },
+                  "foo": {
+                    "df": {
+                      "df": "789"
+                    }
+                  },
+                  "bar": "Some string"
+                },
+                "comment": "\n      some text\n      multiline\n    "
+              }
+            },
+            "WORK": {
+              "value": 2,
+              "options": {}
+            },
+            "WORK2": {
+              "value": 22,
+              "options": {
+                "foo_options": {
+                  "opt1": "123",
+                  "opt2": "baz"
+                }
+              }
+            },
+            "WORK3": {
+              "value": 33,
+              "options": {
+                "foo_options": {
+                  "opt1": "123",
+                  "opt2": "baz"
+                }
+              }
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Test",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Nested",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "thing",
+              "type": "bytes",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "data",
+          "type": "map",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "string"
+          }
+        },
+        {
+          "name": "data3",
+          "type": "map",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "string"
+          }
+        },
+        {
+          "name": "hello",
+          "type": "string",
+          "tag": 2,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " example file"
+        },
+        {
+          "name": "age",
+          "type": "uint32",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "test"
+        },
+        {
+          "name": "year",
+          "type": "uint32",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "test"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "TestItem",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Required"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "description",
+          "type": "google.protobuf.StringValue",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Optional"
+        },
+        {
+          "name": "test",
+          "type": "google.protobuf.StringValue",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "array",
+          "type": "google.protobuf.StringValue",
+          "tag": 12,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "time",
+          "type": "whisk.api.shared.v1.Time",
+          "tag": 30,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " External message"
+        },
+        {
+          "name": "date",
+          "type": "whisk.api.shared.v1.Date",
+          "tag": 31,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "searches",
+          "type": "SearchRecipesResponse",
+          "tag": 40,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "map_search",
+          "type": "map",
+          "tag": 41,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "SearchRecipesResponse"
+          }
+        },
+        {
+          "name": "search",
+          "type": "SearchRecipesResponse",
+          "tag": 42,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          3,
+          15,
+          {
+            "from": 6,
+            "to": 9
+          },
+          {
+            "from": 60,
+            "to": 536870911
+          }
+        ],
+        ["FOO", "BAR"]
+      ]
+    }
+  ],
+  "options": {
+    "go_package": "userv2",
+    "java_package": "com.whisk.api.user.v2"
+  },
+  "extends": [],
+  "services": [
+    {
+      "name": "UserAPI",
+      "methods": [
+        {
+          "name": "GetMe",
+          "inputType": "GetMeRequest",
+          "outputType": "GetMeResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/user/v2/me"
+            }
+          }
+        },
+        {
+          "name": "Get",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "GetMeResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {},
+          "comment": " fgfg\n   \n Empty rpc"
+        },
+        {
+          "name": "UpdateSettings",
+          "inputType": "UpdateSettingsRequest",
+          "outputType": "UpdateSettingsResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "patch": "/user/v2/settings",
+              "body": "*",
+              "additional_bindings": [
+                {
+                  "patch": "/user/v2/settings/{id}",
+                  "body": "*"
+                },
+                {
+                  "put": "/user/v2/settings/{id}",
+                  "body": "*"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "options": {}
+    }
+  ],
+  "package": "whisk.api.user.v2"
+}

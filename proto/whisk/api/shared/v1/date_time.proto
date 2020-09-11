@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package whisk.api.shared.v1;
+
+message Date {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+}
+
+message Time {
+  // required
+  int64 time = 1;
+  // optional
+  google.protobuf.UInt32Value nano = 2;
+}

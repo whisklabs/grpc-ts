@@ -1,0 +1,108 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [
+    {
+      "name": "X",
+      "values": {},
+      "options": {},
+      "comment": "  }   { "
+    }
+  ],
+  "messages": [
+    {
+      "name": "Point",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "x",
+          "type": "int32",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "y",
+          "type": "int32",
+          "tag": 2,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Line",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "start",
+          "type": "Point",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": "Multi-line comment\n\n"
+        },
+        {
+          "name": "end",
+          "type": "Point",
+          "tag": 2,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": "df\n\n/df"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {},
+          "comment": "df\n"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "A",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": [],
+      "comment": "Comment after closing brace of last message"
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "comment": "Single-line comment"
+}

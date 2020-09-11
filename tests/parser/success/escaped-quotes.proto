@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Event {
+  EntityId id = 1 [(tagger.tags) = "bson:\"_id,omitempty\"" ];
+  EntityId next = 2 [(tagger.tags) = 'bson:\'_id,omitempty\'' ];
+}

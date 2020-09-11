@@ -1,0 +1,30 @@
+{
+  "syntax": 3,
+  "imports": ["./result.proto"],
+  "enums": [],
+  "messages": [
+    {
+      "name": "SearchResponse",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "result",
+          "type": "Result",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": []
+}

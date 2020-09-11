@@ -1,0 +1,51 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/protobuf/any.proto"
+  ],
+  "enums": [],
+  "messages": [
+    {
+      "name": "HttpBody",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "content_type",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "extensions",
+          "type": "google.protobuf.Any",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "google.api"
+}

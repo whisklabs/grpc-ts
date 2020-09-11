@@ -1,0 +1,1685 @@
+{
+  "syntax": 2,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "FileDescriptorSet",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "file",
+          "type": "FileDescriptorProto",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "FileDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "package",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "dependency",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "public_dependency",
+          "type": "int32",
+          "tag": 10,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "weak_dependency",
+          "type": "int32",
+          "tag": 11,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "message_type",
+          "type": "DescriptorProto",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "enum_type",
+          "type": "EnumDescriptorProto",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "service",
+          "type": "ServiceDescriptorProto",
+          "tag": 6,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "extension",
+          "type": "FieldDescriptorProto",
+          "tag": 7,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "FileOptions",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "source_code_info",
+          "type": "SourceCodeInfo",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "syntax",
+          "type": "string",
+          "tag": 12,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "DescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "ExtensionRange",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "start",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "end",
+              "type": "int32",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "options",
+              "type": "ExtensionRangeOptions",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "ReservedRange",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "start",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "end",
+              "type": "int32",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "field",
+          "type": "FieldDescriptorProto",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "extension",
+          "type": "FieldDescriptorProto",
+          "tag": 6,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "nested_type",
+          "type": "DescriptorProto",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "enum_type",
+          "type": "EnumDescriptorProto",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "extension_range",
+          "type": "ExtensionRange",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "oneof_decl",
+          "type": "OneofDescriptorProto",
+          "tag": 8,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "MessageOptions",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "reserved_range",
+          "type": "ReservedRange",
+          "tag": 9,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "reserved_name",
+          "type": "string",
+          "tag": 10,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ExtensionRangeOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "FieldDescriptorProto",
+      "enums": [
+        {
+          "name": "Type",
+          "values": {
+            "TYPE_DOUBLE": {
+              "value": 1,
+              "options": {}
+            },
+            "TYPE_FLOAT": {
+              "value": 2,
+              "options": {}
+            },
+            "TYPE_INT64": {
+              "value": 3,
+              "options": {}
+            },
+            "TYPE_UINT64": {
+              "value": 4,
+              "options": {}
+            },
+            "TYPE_INT32": {
+              "value": 5,
+              "options": {}
+            },
+            "TYPE_FIXED64": {
+              "value": 6,
+              "options": {}
+            },
+            "TYPE_FIXED32": {
+              "value": 7,
+              "options": {}
+            },
+            "TYPE_BOOL": {
+              "value": 8,
+              "options": {}
+            },
+            "TYPE_STRING": {
+              "value": 9,
+              "options": {}
+            },
+            "TYPE_GROUP": {
+              "value": 10,
+              "options": {}
+            },
+            "TYPE_MESSAGE": {
+              "value": 11,
+              "options": {}
+            },
+            "TYPE_BYTES": {
+              "value": 12,
+              "options": {}
+            },
+            "TYPE_UINT32": {
+              "value": 13,
+              "options": {}
+            },
+            "TYPE_ENUM": {
+              "value": 14,
+              "options": {}
+            },
+            "TYPE_SFIXED32": {
+              "value": 15,
+              "options": {}
+            },
+            "TYPE_SFIXED64": {
+              "value": 16,
+              "options": {}
+            },
+            "TYPE_SINT32": {
+              "value": 17,
+              "options": {}
+            },
+            "TYPE_SINT64": {
+              "value": 18,
+              "options": {}
+            }
+          },
+          "options": {}
+        },
+        {
+          "name": "Label",
+          "values": {
+            "LABEL_OPTIONAL": {
+              "value": 1,
+              "options": {}
+            },
+            "LABEL_REQUIRED": {
+              "value": 2,
+              "options": {}
+            },
+            "LABEL_REPEATED": {
+              "value": 3,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "number",
+          "type": "int32",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "label",
+          "type": "Label",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "type",
+          "type": "Type",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "type_name",
+          "type": "string",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "extendee",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "default_value",
+          "type": "string",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "oneof_index",
+          "type": "int32",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "json_name",
+          "type": "string",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "FieldOptions",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "proto3_optional",
+          "type": "bool",
+          "tag": 17,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "OneofDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "OneofOptions",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "EnumDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "EnumReservedRange",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "start",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "end",
+              "type": "int32",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "value",
+          "type": "EnumValueDescriptorProto",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "EnumOptions",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "reserved_range",
+          "type": "EnumReservedRange",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "reserved_name",
+          "type": "string",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "EnumValueDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "number",
+          "type": "int32",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "EnumValueOptions",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ServiceDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "method",
+          "type": "MethodDescriptorProto",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "ServiceOptions",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "MethodDescriptorProto",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "input_type",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "output_type",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "MethodOptions",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "client_streaming",
+          "type": "bool",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "server_streaming",
+          "type": "bool",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "FileOptions",
+      "enums": [
+        {
+          "name": "OptimizeMode",
+          "values": {
+            "SPEED": {
+              "value": 1,
+              "options": {}
+            },
+            "CODE_SIZE": {
+              "value": 2,
+              "options": {}
+            },
+            "LITE_RUNTIME": {
+              "value": 3,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "java_package",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "java_outer_classname",
+          "type": "string",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "java_multiple_files",
+          "type": "bool",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "java_generate_equals_and_hash",
+          "type": "bool",
+          "tag": 20,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "deprecated": true
+          }
+        },
+        {
+          "name": "java_string_check_utf8",
+          "type": "bool",
+          "tag": 27,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "optimize_for",
+          "type": "OptimizeMode",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": "SPEED"
+          }
+        },
+        {
+          "name": "go_package",
+          "type": "string",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "cc_generic_services",
+          "type": "bool",
+          "tag": 16,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "java_generic_services",
+          "type": "bool",
+          "tag": 17,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "py_generic_services",
+          "type": "bool",
+          "tag": 18,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "php_generic_services",
+          "type": "bool",
+          "tag": 42,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 23,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "cc_enable_arenas",
+          "type": "bool",
+          "tag": 31,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": true
+          }
+        },
+        {
+          "name": "objc_class_prefix",
+          "type": "string",
+          "tag": 36,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "csharp_namespace",
+          "type": "string",
+          "tag": 37,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "swift_prefix",
+          "type": "string",
+          "tag": 39,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "php_class_prefix",
+          "type": "string",
+          "tag": 40,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "php_namespace",
+          "type": "string",
+          "tag": 41,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "php_metadata_namespace",
+          "type": "string",
+          "tag": 44,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "ruby_package",
+          "type": "string",
+          "tag": 45,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          38
+        ]
+      ]
+    },
+    {
+      "name": "MessageOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "message_set_wire_format",
+          "type": "bool",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "no_standard_descriptor_accessor",
+          "type": "bool",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "map_entry",
+          "type": "bool",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ]
+    },
+    {
+      "name": "FieldOptions",
+      "enums": [
+        {
+          "name": "CType",
+          "values": {
+            "STRING": {
+              "value": 0,
+              "options": {}
+            },
+            "CORD": {
+              "value": 1,
+              "options": {}
+            },
+            "STRING_PIECE": {
+              "value": 2,
+              "options": {}
+            }
+          },
+          "options": {}
+        },
+        {
+          "name": "JSType",
+          "values": {
+            "JS_NORMAL": {
+              "value": 0,
+              "options": {}
+            },
+            "JS_STRING": {
+              "value": 1,
+              "options": {}
+            },
+            "JS_NUMBER": {
+              "value": 2,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "ctype",
+          "type": "CType",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": "STRING"
+          }
+        },
+        {
+          "name": "packed",
+          "type": "bool",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "jstype",
+          "type": "JSType",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": "JS_NORMAL"
+          }
+        },
+        {
+          "name": "lazy",
+          "type": "bool",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "weak",
+          "type": "bool",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          4
+        ]
+      ]
+    },
+    {
+      "name": "OneofOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "EnumOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "allow_alias",
+          "type": "bool",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          5
+        ]
+      ]
+    },
+    {
+      "name": "EnumValueOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ServiceOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 33,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "MethodOptions",
+      "enums": [
+        {
+          "name": "IdempotencyLevel",
+          "values": {
+            "IDEMPOTENCY_UNKNOWN": {
+              "value": 0,
+              "options": {}
+            },
+            "NO_SIDE_EFFECTS": {
+              "value": 1,
+              "options": {}
+            },
+            "IDEMPOTENT": {
+              "value": 2,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "deprecated",
+          "type": "bool",
+          "tag": 33,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": false
+          }
+        },
+        {
+          "name": "idempotency_level",
+          "type": "IdempotencyLevel",
+          "tag": 34,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "default": "IDEMPOTENCY_UNKNOWN"
+          }
+        },
+        {
+          "name": "uninterpreted_option",
+          "type": "UninterpretedOption",
+          "tag": 999,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UninterpretedOption",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "NamePart",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "name_part",
+              "type": "string",
+              "tag": 1,
+              "required": true,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "is_extension",
+              "type": "bool",
+              "tag": 2,
+              "required": true,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "name",
+          "type": "NamePart",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "identifier_value",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "positive_int_value",
+          "type": "uint64",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "negative_int_value",
+          "type": "int64",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "double_value",
+          "type": "double",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "string_value",
+          "type": "bytes",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "aggregate_value",
+          "type": "string",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "SourceCodeInfo",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Location",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "path",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {
+                "packed": true
+              }
+            },
+            {
+              "name": "span",
+              "type": "int32",
+              "tag": 2,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {
+                "packed": true
+              }
+            },
+            {
+              "name": "leading_comments",
+              "type": "string",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "trailing_comments",
+              "type": "string",
+              "tag": 4,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "leading_detached_comments",
+              "type": "string",
+              "tag": 6,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "location",
+          "type": "Location",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "GeneratedCodeInfo",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Annotation",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "path",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {
+                "packed": true
+              }
+            },
+            {
+              "name": "source_file",
+              "type": "string",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "begin",
+              "type": "int32",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            },
+            {
+              "name": "end",
+              "type": "int32",
+              "tag": 4,
+              "required": false,
+              "repeated": false,
+              "optional": true,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "annotation",
+          "type": "Annotation",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "google.protobuf"
+}

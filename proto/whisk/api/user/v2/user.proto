@@ -1,0 +1,246 @@
+syntax = "proto3";
+
+package whisk.api.user.v2;
+
+option go_package = "userv2";
+option java_package = "com.whisk.api.user.v2";
+
+import "whisk/api/shared/v1/labels.proto";
+
+message User {
+  string id = 1 [ required = true ];
+  string email = 2;
+  string phone = 3;
+  UserSettings user_settings = 4;
+  bool has_password = 5;
+  Recommendations recommendations = 6;
+  // Test maps
+  map<string, HealthGoal> map_health_goal = 7;
+  map<string, Ingredient> map_ingredient = 8;
+}
+
+message UserSettings {
+  PersonalDetails personal_details = 1;
+  FoodPreferences food_preferences = 2;
+  CookingPreferences cooking_preferences = 3;
+  ShoppingPreferences shopping_preferences = 4;
+}
+
+message PersonalDetails {
+  string first_name = 1;
+  string last_name = 2;
+  string photo_url = 3;
+  Gender gender = 4;
+  string country = 5;
+  string zipcode = 6;
+  string language = 7;
+  ActivityLevel activity_level = 8;
+  int32 age = 9 [ deprecated = true ]; // deprecated, use birth_date instead
+  Height height = 10;
+  Weight weight = 11;
+  HealthGoals health_goals = 12;
+  int32 year_of_birth = 13;
+
+  message HealthGoals { repeated HealthGoal list = 1; }
+}
+
+enum HealthGoal {
+  HEALTH_GOAL_INVALID = 0;
+  HEALTH_GOAL_WEIGHT_LOSS = 1;
+  HEALTH_GOAL_WEIGHT_GAIN = 2;
+  HEALTH_GOAL_BETTER_SLEEP = 3;
+  HEALTH_GOAL_INCREASE_ENERGY = 4;
+}
+
+message Height {
+  enum Unit {
+    UNIT_INVALID = 0;
+    UNIT_CM = 1;
+    UNIT_INCH = 2;
+  }
+
+  double value = 1;
+  Unit unit = 2;
+}
+
+message Weight {
+  enum Unit {
+    UNIT_INVALID = 0;
+    UNIT_KG = 1;
+    UNIT_POUND = 2;
+  }
+
+  double value = 1;
+  Unit unit = 2;
+}
+
+message FoodPreferences {
+  string diets = 1;
+  repeated string avoidance_list = 2;
+  Ingredients disliked_ingredients = 3;
+  OrganicPreference organic_preference = 4;
+  repeated double nutrition_preferences = 5;
+  Ingredients preferred_ingredients = 6;
+
+  message Dates { repeated whisk.api.shared.v1.Date list = 1; }
+
+  message Ingredients { repeated Ingredient list = 1; }
+}
+
+message CookingPreferences {
+  HouseholdMembers household_adults = 1;
+  HouseholdMembers household_children = 2;
+  CookingExperience cooking_experience = 4;
+  CookingMaxTime cooking_max_time = 5;
+  Devices user_devices = 6;
+
+  message HouseholdMembers { int32 size = 1; }
+
+  message CookingMaxTime { int32 time = 1; }
+
+  message Devices { Device list = 1; }
+}
+
+message Device {
+  enum DeviceType {
+    DEVICE_TYPE_INVALID = 0;
+    DEVICE_TYPE_STOVE = 1;
+    DEVICE_TYPE_OVEN = 2;
+    DEVICE_TYPE_AIR_FRYER = 3;
+    DEVICE_TYPE_FOOD_PROCESSOR = 4;
+    DEVICE_TYPE_SOUS_VIDE = 5;
+    DEVICE_TYPE_PRESSURE_COOKER = 6;
+    DEVICE_TYPE_SLOW_COOKER = 7;
+    DEVICE_TYPE_BLENDER = 8;
+    DEVICE_TYPE_SHAKER = 9;
+    DEVICE_TYPE_MICROWAVE = 10;
+    DEVICE_TYPE_DEEP_FRYER = 11;
+    DEVICE_TYPE_GRILL = 12;
+    DEVICE_TYPE_MIXER = 13;
+  }
+
+  oneof oneof {
+    DeviceType device_type = 1;
+    DeviceType custom_device = 2;
+  }
+}
+
+message ShoppingPreferences {
+  PreferredRetailers preferred_retailers = 1;
+  BudgetGoal budget_goal = 2;
+  EthicalPreferences ethical_preferences = 3;
+
+  message PreferredRetailers { repeated string retailers = 1; }
+
+  message EthicalPreferences { repeated EthicalPreference list = 1; }
+}
+
+enum ActivityLevel {
+  ACTIVITY_LEVEL_INVALID = 0;
+  ACTIVITY_LEVEL_VERY_LIGHT = 1;
+  ACTIVITY_LEVEL_LIGHT = 2;
+  ACTIVITY_LEVEL_MODERATE = 3;
+  ACTIVITY_LEVEL_ACTIVE = 4;
+  ACTIVITY_LEVEL_VERY_ACTIVE = 5;
+}
+
+enum Gender {
+  GENDER_UNSPECIFIED = 0;
+  GENDER_MALE = 1;
+  GENDER_FEMALE = 2;
+  GENDER_NON_BINARY = 3;
+  GENDER_UNDISCLOSED = 4;
+}
+
+message Ingredient {
+  string name = 1;
+  string canonical_name = 2;
+}
+
+enum OrganicPreference {
+  ORGANIC_PREFERENCE_INVALID = 0;
+  ORGANIC_PREFERENCE_ORGANIC = 1;
+  ORGANIC_PREFERENCE_DONT_CARE = 2;
+}
+
+enum CookingExperience {
+  COOKING_EXPERIENCE_INVALID = 0;
+  COOKING_EXPERIENCE_BEGINNER = 1;
+  COOKING_EXPERIENCE_INTERMEDIATE = 2;
+  COOKING_EXPERIENCE_ADVANCED = 3;
+}
+
+enum BudgetGoal {
+  BUDGET_GOAL_INVALID = 0;
+  BUDGET_GOAL_BUDGET_FRIENDLY = 1;
+  BUDGET_GOAL_AVERAGE_PRICE = 2;
+  BUDGET_GOAL_PREMIUM = 3;
+}
+
+enum EthicalPreference {
+  ETHICAL_PREFERENCE_INVALID = 0;
+  ETHICAL_PREFERENCE_ETHICAL_FISHED = 1;
+  ETHICAL_PREFERENCE_GM_FREE = 2;
+  ETHICAL_PREFERENCE_BUYING_LOCALLY = 3;
+  ETHICAL_PREFERENCE_FAIR_TRADE = 4;
+  ETHICAL_PREFERENCE_ENVIRONMENTAL_EFFECT = 5;
+  ETHICAL_PREFERENCE_LOW_WASTE_PRODUCTS = 6;
+}
+
+message Recommendations { int32 daily_calories = 1; }
+
+message TestItem {
+  // Required
+  string id = 1;
+  string name = 2 [ required = true ];
+  string surname = 3 [ (required) = false ];
+
+  // Optional
+  google.protobuf.StringValue description = 10;
+  google.protobuf.StringValue test = 11 [ required = true ];
+  repeated google.protobuf.StringValue array = 12;
+  optional string story = 13;
+
+  // External message
+  whisk.api.shared.v1.Time time = 30;
+  whisk.api.shared.v1.Date date = 31 [ (required) = true ];
+
+  repeated SearchRecipesResponse searches = 40;
+  map<string, SearchRecipesResponse> map_search = 41;
+  SearchRecipesResponse search = 42;
+  map<string, string> extra_information = 43;
+
+  reserved 4, 15, 6 to 9, 60 to max;
+  reserved "FOO", "BAR";
+}
+
+message TestOneof {
+  string id = 1;
+
+  oneof device {
+    EthicalPreference device_type = 11 [ required = true ];
+    string custom_device = 12;
+  }
+}
+
+message SearchRecipesResponse {
+  message MatchedIngredient { string name = 1; }
+
+  message Hit {
+    MatchedIngredient content = 1 [ deprecated = true ];
+    repeated MatchedIngredient ingredients = 2 [ required = true ];
+    map<string, MatchedIngredient> map_ingredients = 3;
+    map<string, TestItem> map_external = 4;
+  }
+
+  repeated Hit hit = 1;
+  whisk.api.shared.v1.Date date = 2;
+  repeated whisk.api.shared.v1.Date dates = 3;
+}
+
+message ApiUpdateBusinessApp {
+  string id = 1;
+  TestItem app_any = 2;
+  google.protobuf.FieldMask mask_any_name = 3
+      [ required = true, mask = app_any ];
+}

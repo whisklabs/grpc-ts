@@ -1,0 +1,1394 @@
+{
+  "syntax": 3,
+  "imports": [
+    "whisk/api/shared/v1/labels.proto"
+  ],
+  "enums": [
+    {
+      "name": "HealthGoal",
+      "values": {
+        "HEALTH_GOAL_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "HEALTH_GOAL_WEIGHT_LOSS": {
+          "value": 1,
+          "options": {}
+        },
+        "HEALTH_GOAL_WEIGHT_GAIN": {
+          "value": 2,
+          "options": {}
+        },
+        "HEALTH_GOAL_BETTER_SLEEP": {
+          "value": 3,
+          "options": {}
+        },
+        "HEALTH_GOAL_INCREASE_ENERGY": {
+          "value": 4,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "ActivityLevel",
+      "values": {
+        "ACTIVITY_LEVEL_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "ACTIVITY_LEVEL_VERY_LIGHT": {
+          "value": 1,
+          "options": {}
+        },
+        "ACTIVITY_LEVEL_LIGHT": {
+          "value": 2,
+          "options": {}
+        },
+        "ACTIVITY_LEVEL_MODERATE": {
+          "value": 3,
+          "options": {}
+        },
+        "ACTIVITY_LEVEL_ACTIVE": {
+          "value": 4,
+          "options": {}
+        },
+        "ACTIVITY_LEVEL_VERY_ACTIVE": {
+          "value": 5,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "Gender",
+      "values": {
+        "GENDER_UNSPECIFIED": {
+          "value": 0,
+          "options": {}
+        },
+        "GENDER_MALE": {
+          "value": 1,
+          "options": {}
+        },
+        "GENDER_FEMALE": {
+          "value": 2,
+          "options": {}
+        },
+        "GENDER_NON_BINARY": {
+          "value": 3,
+          "options": {}
+        },
+        "GENDER_UNDISCLOSED": {
+          "value": 4,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "OrganicPreference",
+      "values": {
+        "ORGANIC_PREFERENCE_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "ORGANIC_PREFERENCE_ORGANIC": {
+          "value": 1,
+          "options": {}
+        },
+        "ORGANIC_PREFERENCE_DONT_CARE": {
+          "value": 2,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "CookingExperience",
+      "values": {
+        "COOKING_EXPERIENCE_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "COOKING_EXPERIENCE_BEGINNER": {
+          "value": 1,
+          "options": {}
+        },
+        "COOKING_EXPERIENCE_INTERMEDIATE": {
+          "value": 2,
+          "options": {}
+        },
+        "COOKING_EXPERIENCE_ADVANCED": {
+          "value": 3,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "BudgetGoal",
+      "values": {
+        "BUDGET_GOAL_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "BUDGET_GOAL_BUDGET_FRIENDLY": {
+          "value": 1,
+          "options": {}
+        },
+        "BUDGET_GOAL_AVERAGE_PRICE": {
+          "value": 2,
+          "options": {}
+        },
+        "BUDGET_GOAL_PREMIUM": {
+          "value": 3,
+          "options": {}
+        }
+      },
+      "options": {}
+    },
+    {
+      "name": "EthicalPreference",
+      "values": {
+        "ETHICAL_PREFERENCE_INVALID": {
+          "value": 0,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_ETHICAL_FISHED": {
+          "value": 1,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_GM_FREE": {
+          "value": 2,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_BUYING_LOCALLY": {
+          "value": 3,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_FAIR_TRADE": {
+          "value": 4,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_ENVIRONMENTAL_EFFECT": {
+          "value": 5,
+          "options": {}
+        },
+        "ETHICAL_PREFERENCE_LOW_WASTE_PRODUCTS": {
+          "value": 6,
+          "options": {}
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "User",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "user_settings",
+          "type": "UserSettings",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "has_password",
+          "type": "bool",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "recommendations",
+          "type": "Recommendations",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "map_health_goal",
+          "type": "map",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "HealthGoal"
+          }
+        },
+        {
+          "name": "map_ingredient",
+          "type": "map",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "Ingredient"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [],
+      "comment": " Test maps"
+    },
+    {
+      "name": "UserSettings",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "personal_details",
+          "type": "PersonalDetails",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "food_preferences",
+          "type": "FoodPreferences",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "cooking_preferences",
+          "type": "CookingPreferences",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "shopping_preferences",
+          "type": "ShoppingPreferences",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "PersonalDetails",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "HealthGoals",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "list",
+              "type": "HealthGoal",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "last_name",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "photo_url",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "gender",
+          "type": "Gender",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "zipcode",
+          "type": "string",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "activity_level",
+          "type": "ActivityLevel",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "age",
+          "type": "int32",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "deprecated": true,
+            "comment": " deprecated, use birth_date instead"
+          }
+        },
+        {
+          "name": "height",
+          "type": "Height",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "weight",
+          "type": "Weight",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "health_goals",
+          "type": "HealthGoals",
+          "tag": 12,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "year_of_birth",
+          "type": "int32",
+          "tag": 13,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Height",
+      "enums": [
+        {
+          "name": "Unit",
+          "values": {
+            "UNIT_INVALID": {
+              "value": 0,
+              "options": {}
+            },
+            "UNIT_CM": {
+              "value": 1,
+              "options": {}
+            },
+            "UNIT_INCH": {
+              "value": 2,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "value",
+          "type": "double",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "unit",
+          "type": "Unit",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Weight",
+      "enums": [
+        {
+          "name": "Unit",
+          "values": {
+            "UNIT_INVALID": {
+              "value": 0,
+              "options": {}
+            },
+            "UNIT_KG": {
+              "value": 1,
+              "options": {}
+            },
+            "UNIT_POUND": {
+              "value": 2,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "value",
+          "type": "double",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "unit",
+          "type": "Unit",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "FoodPreferences",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Dates",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "list",
+              "type": "whisk.api.shared.v1.Date",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "Ingredients",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "list",
+              "type": "Ingredient",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "diets",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "avoidance_list",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "disliked_ingredients",
+          "type": "Ingredients",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "organic_preference",
+          "type": "OrganicPreference",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "nutrition_preferences",
+          "type": "double",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "preferred_ingredients",
+          "type": "Ingredients",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "CookingPreferences",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "HouseholdMembers",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "size",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "CookingMaxTime",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "time",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "Devices",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "list",
+              "type": "Device",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "household_adults",
+          "type": "HouseholdMembers",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "household_children",
+          "type": "HouseholdMembers",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "cooking_experience",
+          "type": "CookingExperience",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "cooking_max_time",
+          "type": "CookingMaxTime",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "user_devices",
+          "type": "Devices",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Device",
+      "enums": [
+        {
+          "name": "DeviceType",
+          "values": {
+            "DEVICE_TYPE_INVALID": {
+              "value": 0,
+              "options": {}
+            },
+            "DEVICE_TYPE_STOVE": {
+              "value": 1,
+              "options": {}
+            },
+            "DEVICE_TYPE_OVEN": {
+              "value": 2,
+              "options": {}
+            },
+            "DEVICE_TYPE_AIR_FRYER": {
+              "value": 3,
+              "options": {}
+            },
+            "DEVICE_TYPE_FOOD_PROCESSOR": {
+              "value": 4,
+              "options": {}
+            },
+            "DEVICE_TYPE_SOUS_VIDE": {
+              "value": 5,
+              "options": {}
+            },
+            "DEVICE_TYPE_PRESSURE_COOKER": {
+              "value": 6,
+              "options": {}
+            },
+            "DEVICE_TYPE_SLOW_COOKER": {
+              "value": 7,
+              "options": {}
+            },
+            "DEVICE_TYPE_BLENDER": {
+              "value": 8,
+              "options": {}
+            },
+            "DEVICE_TYPE_SHAKER": {
+              "value": 9,
+              "options": {}
+            },
+            "DEVICE_TYPE_MICROWAVE": {
+              "value": 10,
+              "options": {}
+            },
+            "DEVICE_TYPE_DEEP_FRYER": {
+              "value": 11,
+              "options": {}
+            },
+            "DEVICE_TYPE_GRILL": {
+              "value": 12,
+              "options": {}
+            },
+            "DEVICE_TYPE_MIXER": {
+              "value": 13,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "device_type",
+          "type": "DeviceType",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "oneof"
+        },
+        {
+          "name": "custom_device",
+          "type": "DeviceType",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "oneof"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ShoppingPreferences",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "PreferredRetailers",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "retailers",
+              "type": "string",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "EthicalPreferences",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "list",
+              "type": "EthicalPreference",
+              "tag": 1,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "preferred_retailers",
+          "type": "PreferredRetailers",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "budget_goal",
+          "type": "BudgetGoal",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "ethical_preferences",
+          "type": "EthicalPreferences",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Ingredient",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "canonical_name",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Recommendations",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "daily_calories",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "TestItem",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Required"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "surname",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "google.protobuf.StringValue",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Optional"
+        },
+        {
+          "name": "test",
+          "type": "google.protobuf.StringValue",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "array",
+          "type": "google.protobuf.StringValue",
+          "tag": 12,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "story",
+          "type": "string",
+          "tag": 13,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "time",
+          "type": "whisk.api.shared.v1.Time",
+          "tag": 30,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " External message"
+        },
+        {
+          "name": "date",
+          "type": "whisk.api.shared.v1.Date",
+          "tag": 31,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "name": "searches",
+          "type": "SearchRecipesResponse",
+          "tag": 40,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "map_search",
+          "type": "map",
+          "tag": 41,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "SearchRecipesResponse"
+          }
+        },
+        {
+          "name": "search",
+          "type": "SearchRecipesResponse",
+          "tag": 42,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "extra_information",
+          "type": "map",
+          "tag": 43,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "string"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [
+        [
+          4,
+          15,
+          {
+            "from": 6,
+            "to": 9
+          },
+          {
+            "from": 60,
+            "to": 536870911
+          }
+        ],
+        [
+          "FOO",
+          "BAR"
+        ]
+      ]
+    },
+    {
+      "name": "TestOneof",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "device_type",
+          "type": "EthicalPreference",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          },
+          "oneof": "device"
+        },
+        {
+          "name": "custom_device",
+          "type": "string",
+          "tag": 12,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "device"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "SearchRecipesResponse",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "MatchedIngredient",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "Hit",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "content",
+              "type": "MatchedIngredient",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {
+                "deprecated": true
+              }
+            },
+            {
+              "name": "ingredients",
+              "type": "MatchedIngredient",
+              "tag": 2,
+              "required": false,
+              "repeated": true,
+              "optional": false,
+              "options": {
+                "required": true
+              }
+            },
+            {
+              "name": "map_ingredients",
+              "type": "map",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {},
+              "map": {
+                "from": "string",
+                "to": "MatchedIngredient"
+              }
+            },
+            {
+              "name": "map_external",
+              "type": "map",
+              "tag": 4,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {},
+              "map": {
+                "from": "string",
+                "to": "TestItem"
+              }
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "hit",
+          "type": "Hit",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "date",
+          "type": "whisk.api.shared.v1.Date",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "dates",
+          "type": "whisk.api.shared.v1.Date",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ApiUpdateBusinessApp",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "app_any",
+          "type": "TestItem",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "mask_any_name",
+          "type": "google.protobuf.FieldMask",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true,
+            "mask": "app_any"
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {
+    "go_package": "userv2",
+    "java_package": "com.whisk.api.user.v2"
+  },
+  "extends": [],
+  "services": [],
+  "package": "whisk.api.user.v2"
+}

@@ -1,0 +1,423 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/protobuf/any.proto",
+    "google/protobuf/source_context.proto"
+  ],
+  "enums": [
+    {
+      "name": "Syntax",
+      "values": {
+        "SYNTAX_PROTO2": {
+          "value": 0,
+          "options": {}
+        },
+        "SYNTAX_PROTO3": {
+          "value": 1,
+          "options": {}
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "Type",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "fields",
+          "type": "Field",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "oneofs",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "Option",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "source_context",
+          "type": "SourceContext",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "syntax",
+          "type": "Syntax",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Field",
+      "enums": [
+        {
+          "name": "Kind",
+          "values": {
+            "TYPE_UNKNOWN": {
+              "value": 0,
+              "options": {}
+            },
+            "TYPE_DOUBLE": {
+              "value": 1,
+              "options": {}
+            },
+            "TYPE_FLOAT": {
+              "value": 2,
+              "options": {}
+            },
+            "TYPE_INT64": {
+              "value": 3,
+              "options": {}
+            },
+            "TYPE_UINT64": {
+              "value": 4,
+              "options": {}
+            },
+            "TYPE_INT32": {
+              "value": 5,
+              "options": {}
+            },
+            "TYPE_FIXED64": {
+              "value": 6,
+              "options": {}
+            },
+            "TYPE_FIXED32": {
+              "value": 7,
+              "options": {}
+            },
+            "TYPE_BOOL": {
+              "value": 8,
+              "options": {}
+            },
+            "TYPE_STRING": {
+              "value": 9,
+              "options": {}
+            },
+            "TYPE_GROUP": {
+              "value": 10,
+              "options": {}
+            },
+            "TYPE_MESSAGE": {
+              "value": 11,
+              "options": {}
+            },
+            "TYPE_BYTES": {
+              "value": 12,
+              "options": {}
+            },
+            "TYPE_UINT32": {
+              "value": 13,
+              "options": {}
+            },
+            "TYPE_ENUM": {
+              "value": 14,
+              "options": {}
+            },
+            "TYPE_SFIXED32": {
+              "value": 15,
+              "options": {}
+            },
+            "TYPE_SFIXED64": {
+              "value": 16,
+              "options": {}
+            },
+            "TYPE_SINT32": {
+              "value": 17,
+              "options": {}
+            },
+            "TYPE_SINT64": {
+              "value": 18,
+              "options": {}
+            }
+          },
+          "options": {}
+        },
+        {
+          "name": "Cardinality",
+          "values": {
+            "CARDINALITY_UNKNOWN": {
+              "value": 0,
+              "options": {}
+            },
+            "CARDINALITY_OPTIONAL": {
+              "value": 1,
+              "options": {}
+            },
+            "CARDINALITY_REQUIRED": {
+              "value": 2,
+              "options": {}
+            },
+            "CARDINALITY_REPEATED": {
+              "value": 3,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "kind",
+          "type": "Kind",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "cardinality",
+          "type": "Cardinality",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "number",
+          "type": "int32",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "type_url",
+          "type": "string",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "oneof_index",
+          "type": "int32",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "packed",
+          "type": "bool",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "Option",
+          "tag": 9,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "json_name",
+          "type": "string",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "default_value",
+          "type": "string",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Enum",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "enumvalue",
+          "type": "EnumValue",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "Option",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "source_context",
+          "type": "SourceContext",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "syntax",
+          "type": "Syntax",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "EnumValue",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "number",
+          "type": "int32",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "options",
+          "type": "Option",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Option",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "value",
+          "type": "Any",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "google.protobuf"
+}

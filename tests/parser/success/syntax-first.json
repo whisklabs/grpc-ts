@@ -1,0 +1,32 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "Foo",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "a",
+          "type": "int32",
+          "tag": 1,
+          "required": true,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " limitations under the License."
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "comment": " See the License for the specific language governing permissions and"
+}

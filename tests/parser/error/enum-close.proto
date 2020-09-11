@@ -1,0 +1,7 @@
+enum X {
+  AAA = 1;
+}
+
+enum Y {
+  AAA = 1 ;
+//}

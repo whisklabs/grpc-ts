@@ -1,0 +1,1510 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/api/annotations.proto",
+    "google/protobuf/field_mask.proto",
+    "google/protobuf/empty.proto",
+    "google/protobuf/duration.proto",
+    "google/protobuf/wrappers.proto",
+    "examples/internal/proto/pathenum/path_enum.proto",
+    "examples/internal/proto/sub/message.proto",
+    "examples/internal/proto/sub2/message.proto",
+    "google/protobuf/timestamp.proto",
+    "protoc-gen-swagger/options/annotations.proto"
+  ],
+  "enums": [
+    {
+      "name": "NumericEnum",
+      "values": {
+        "ZERO": {
+          "value": 0,
+          "options": {},
+          "comment": " NumericEnum is one or zero.\n ZERO means 0"
+        },
+        "ONE": {
+          "value": 1,
+          "options": {},
+          "comment": " ONE means 1"
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "ABitOfEverything",
+      "enums": [],
+      "options": {
+        "grpc.gateway.protoc_gen_swagger.options.openapiv2_schema": {
+          "json_schema": {
+            "title": "A bit of everything",
+            "description": "Intentionaly complicated message type to cover many features of Protobuf.",
+            "required": ["uuid", "int64_value", "double_value"]
+          },
+          "external_docs": {
+            "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+            "description": "Find out more about ABitOfEverything"
+          },
+          "example": {
+            "value": "{ \"uuid\": \"0cf361e1-4b44-483d-a159-54dabdf7e814\" }"
+          }
+        }
+      },
+      "messages": [
+        {
+          "name": "Nested",
+          "enums": [
+            {
+              "name": "DeepEnum",
+              "values": {
+                "FALSE": {
+                  "value": 0,
+                  "options": {},
+                  "comment": " DeepEnum is one or zero.\n FALSE is false."
+                },
+                "TRUE": {
+                  "value": 1,
+                  "options": {},
+                  "comment": " TRUE is true."
+                }
+              },
+              "options": {}
+            }
+          ],
+          "options": {
+            "grpc.gateway.protoc_gen_swagger.options.openapiv2_schema": {
+              "example": {
+                "value": "{ \"ok\": \"TRUE\" }"
+              }
+            }
+          },
+          "messages": [],
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {},
+              "comment": " Overwriting host entry breaks tests, so this is not done here.\n Intentionally complicated message type to cover many features of Protobuf.\n Nested is nested type.\n name is nested field."
+            },
+            {
+              "name": "amount",
+              "type": "uint32",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "ok",
+              "type": "DeepEnum",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {
+                "grpc": {
+                  "gateway": {
+                    "protoc_gen_swagger": {
+                      "options": {
+                        "openapiv2_field": {
+                          "description": "DeepEnum description."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "comment": " DeepEnum comment."
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "single_nested",
+          "type": "Nested",
+          "tag": 25,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "uuid",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+                      "min_length": "1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "nested",
+          "type": "Nested",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "float_value",
+          "type": "float",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "description": "Float value field",
+                      "default": "0.2",
+                      "required": ["float_value"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "double_value",
+          "type": "double",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "int64_value",
+          "type": "int64",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "uint64_value",
+          "type": "uint64",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "int32_value",
+          "type": "int32",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "fixed64_value",
+          "type": "fixed64",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "fixed32_value",
+          "type": "fixed32",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "bool_value",
+          "type": "bool",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "string_value",
+          "type": "string",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "bytes_value",
+          "type": "bytes",
+          "tag": 29,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "uint32_value",
+          "type": "uint32",
+          "tag": 13,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "enum_value",
+          "type": "NumericEnum",
+          "tag": 14,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_enum_value",
+          "type": "pathenum.PathEnum",
+          "tag": 30,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "nested_path_enum_value",
+          "type": "pathenum.MessagePathEnum.NestedPathEnum",
+          "tag": 31,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "sfixed32_value",
+          "type": "sfixed32",
+          "tag": 15,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "sfixed64_value",
+          "type": "sfixed64",
+          "tag": 16,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "sint32_value",
+          "type": "sint32",
+          "tag": 17,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "sint64_value",
+          "type": "sint64",
+          "tag": 18,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "repeated_string_value",
+          "type": "string",
+          "tag": 19,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "oneof_empty",
+          "type": "google.protobuf.Empty",
+          "tag": 20,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "oneof_value"
+        },
+        {
+          "name": "oneof_string",
+          "type": "string",
+          "tag": 21,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "oneof_value"
+        },
+        {
+          "name": "map_value",
+          "type": "map",
+          "tag": 22,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "NumericEnum"
+          }
+        },
+        {
+          "name": "mapped_string_value",
+          "type": "map",
+          "tag": 23,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "string"
+          }
+        },
+        {
+          "name": "mapped_nested_value",
+          "type": "map",
+          "tag": 24,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "Nested"
+          }
+        },
+        {
+          "name": "nonConventionalNameValue",
+          "type": "string",
+          "tag": 26,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "timestamp_value",
+          "type": "google.protobuf.Timestamp",
+          "tag": 27,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "repeated_enum_value",
+          "type": "NumericEnum",
+          "tag": 28,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {},
+          "comment": " repeated enum value. it is comma-separated in query"
+        },
+        {
+          "name": "repeated_enum_annotation",
+          "type": "NumericEnum",
+          "tag": 32,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "title": "Repeated numeric enum title",
+                      "description": "Repeated numeric enum description."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "comment": " repeated numeric enum comment (This comment is overridden by the field annotation)"
+        },
+        {
+          "name": "enum_value_annotation",
+          "type": "NumericEnum",
+          "tag": 33,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "title": "Numeric enum title",
+                      "description": "Numeric enum description."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "comment": " numeric enum comment (This comment is overridden by the field annotation)"
+        },
+        {
+          "name": "repeated_string_annotation",
+          "type": "string",
+          "tag": 34,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "title": "Repeated string title",
+                      "description": "Repeated string description."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "comment": " repeated string comment (This comment is overridden by the field annotation)"
+        },
+        {
+          "name": "repeated_nested_annotation",
+          "type": "Nested",
+          "tag": 35,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "title": "Repeated nested object title",
+                      "description": "Repeated nested object description."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "comment": " repeated nested object comment (This comment is overridden by the field annotation)"
+        },
+        {
+          "name": "nested_annotation",
+          "type": "Nested",
+          "tag": 36,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "title": "Nested object title",
+                      "description": "Nested object description."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "comment": " nested object comments (This comment is overridden by the field annotation)"
+        },
+        {
+          "name": "int64_override_type",
+          "type": "int64",
+          "tag": 37,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "grpc": {
+              "gateway": {
+                "protoc_gen_swagger": {
+                  "options": {
+                    "openapiv2_field": {
+                      "type": "INTEGER"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ABitOfEverythingRepeated",
+      "enums": [],
+      "options": {
+        "grpc.gateway.protoc_gen_swagger.options.openapiv2_schema": {
+          "example": {
+            "value": "{ \"path_repeated_bool_value\": [true, true, false, true], \"path_repeated_int32_value\": [1, 2, 3] }"
+          }
+        }
+      },
+      "messages": [],
+      "fields": [
+        {
+          "name": "path_repeated_float_value",
+          "type": "float",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {},
+          "comment": " ABitOfEverythingRepeated is used to validate repeated path parameter functionality\n repeated values. they are comma-separated in path"
+        },
+        {
+          "name": "path_repeated_double_value",
+          "type": "double",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_int64_value",
+          "type": "int64",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_uint64_value",
+          "type": "uint64",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_int32_value",
+          "type": "int32",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_fixed64_value",
+          "type": "fixed64",
+          "tag": 6,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_fixed32_value",
+          "type": "fixed32",
+          "tag": 7,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_bool_value",
+          "type": "bool",
+          "tag": 8,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_string_value",
+          "type": "string",
+          "tag": 9,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_bytes_value",
+          "type": "bytes",
+          "tag": 10,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_uint32_value",
+          "type": "uint32",
+          "tag": 11,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_enum_value",
+          "type": "NumericEnum",
+          "tag": 12,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_sfixed32_value",
+          "type": "sfixed32",
+          "tag": 13,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_sfixed64_value",
+          "type": "sfixed64",
+          "tag": 14,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_sint32_value",
+          "type": "sint32",
+          "tag": 15,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "path_repeated_sint64_value",
+          "type": "sint64",
+          "tag": 16,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Body",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "MessageWithBody",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "data",
+          "type": "Body",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateV2Request",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "abe",
+          "type": "ABitOfEverything",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " UpdateV2Request request for update includes the message and the update mask"
+        },
+        {
+          "name": "update_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Book",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " An example resource type from AIP-123 used to test the behavior described in\n the CreateBookRequest message.\n\n See: https://google.aip.dev/123\n The resource name of the book.\n\n Format: `publishers/{publisher}/books/{book}`\n\n Example: `publishers/1257894000000000000/books/my-book`"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Output only. The book's ID."
+        },
+        {
+          "name": "create_time",
+          "type": "google.protobuf.Timestamp",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Output only. Creation time of the book."
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "CreateBookRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "parent",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " A standard Create message from AIP-133 with a user-specified ID.\n The user-specified ID (the `book_id` field in this example) must become a\n query parameter in the OpenAPI spec.\n\n See: https://google.aip.dev/133#user-specified-ids\n The publisher in which to create the book.\n\n Format: `publishers/{publisher}`\n\n Example: `publishers/1257894000000000000`"
+        },
+        {
+          "name": "book",
+          "type": "Book",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " The book to create."
+        },
+        {
+          "name": "book_id",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " The ID to use for the book.\n\n This must start with an alphanumeric character."
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {
+    "go_package": "examplepb",
+    "grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger": {
+      "info": {
+        "title": "A Bit of Everything",
+        "version": "1.0",
+        "contact": {
+          "name": "gRPC-Gateway project",
+          "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+          "email": "none@example.com"
+        },
+        "license": {
+          "name": "BSD 3-Clause License",
+          "url": "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt"
+        },
+        "extensions": {
+          "key": "x-something-something",
+          "value": {
+            "string_value": "yadda"
+          }
+        }
+      },
+      "external_docs": {
+        "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+        "description": "More about gRPC-Gateway"
+      },
+      "schemes": ["HTTP", "HTTPS", "WSS"],
+      "consumes": ["application/json", "application/x-foo-mime"],
+      "produces": ["application/json", "application/x-foo-mime"],
+      "security_definitions": {
+        "security": [
+          {
+            "key": "BasicAuth",
+            "value": {
+              "type": "TYPE_BASIC"
+            }
+          },
+          {
+            "key": "ApiKeyAuth",
+            "value": {
+              "type": "TYPE_API_KEY",
+              "in": "IN_HEADER",
+              "name": "X-API-Key",
+              "extensions": [
+                {
+                  "key": "x-amazon-apigateway-authtype",
+                  "value": {
+                    "string_value": "oauth2"
+                  }
+                },
+                {
+                  "key": "x-amazon-apigateway-authorizer",
+                  "value": {
+                    "struct_value": {
+                      "fields": [
+                        {
+                          "key": "type",
+                          "value": {
+                            "string_value": "token"
+                          }
+                        },
+                        {
+                          "key": "authorizerResultTtlInSeconds",
+                          "value": {
+                            "number_value": "60"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "key": "OAuth2",
+            "value": {
+              "type": "TYPE_OAUTH2",
+              "flow": "FLOW_ACCESS_CODE",
+              "authorization_url": "https://example.com/oauth/authorize",
+              "token_url": "https://example.com/oauth/token",
+              "scopes": {
+                "scope": [
+                  {
+                    "key": "read",
+                    "value": "Grants read access"
+                  },
+                  {
+                    "key": "write",
+                    "value": "Grants write access"
+                  },
+                  {
+                    "key": "admin",
+                    "value": "Grants read and write access to administrative information"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "security": [
+        {
+          "security_requirement": [
+            {
+              "key": "BasicAuth",
+              "value": {}
+            },
+            {
+              "key": "ApiKeyAuth",
+              "value": {}
+            }
+          ]
+        },
+        {
+          "security_requirement": [
+            {
+              "key": "OAuth2",
+              "value": {
+                "scope": ["read", "write"]
+              }
+            },
+            {
+              "key": "ApiKeyAuth",
+              "value": {}
+            }
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "key": "403",
+          "value": {
+            "description": "Returned when the user does not have permission to access the resource."
+          }
+        },
+        {
+          "key": "404",
+          "value": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "json_schema": {
+                "type": "STRING"
+              }
+            }
+          }
+        },
+        {
+          "key": "418",
+          "value": {
+            "description": "I'm a teapot.",
+            "schema": {
+              "json_schema": {
+                "ref": ".grpc.gateway.examples.internal.examplepb.NumericEnum"
+              }
+            }
+          }
+        }
+      ],
+      "extensions": [
+        {
+          "key": "x-grpc-gateway-foo",
+          "value": {
+            "string_value": "bar"
+          }
+        },
+        {
+          "key": "x-grpc-gateway-baz-list",
+          "value": {
+            "list_value": {
+              "values": [
+                {
+                  "string_value": "one"
+                },
+                {
+                  "bool_value": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "extends": [],
+  "services": [
+    {
+      "name": "ABitOfEverythingService",
+      "methods": [
+        {
+          "name": "Create",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/example/a_bit_of_everything/{float_value}/{double_value}/{int64_value}/separator/{uint64_value}/{int32_value}/{fixed64_value}/{fixed32_value}/{bool_value}/{string_value=strprefix/*}/{uint32_value}/{sfixed32_value}/{sfixed64_value}/{sint32_value}/{sint64_value}/{nonConventionalNameValue}/{enum_value}/{path_enum_value}/{nested_path_enum_value}/{enum_value_annotation}"
+            }
+          },
+          "comment": " ABitOfEverything service is used to validate that APIs with complicated\n proto messages and URL templates are still processed correctly.\n Create a new ABitOfEverything\n\n This API creates a new ABitOfEverything"
+        },
+        {
+          "name": "CreateBody",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/example/a_bit_of_everything",
+              "body": "*"
+            }
+          }
+        },
+        {
+          "name": "CreateBook",
+          "inputType": "CreateBookRequest",
+          "outputType": "Book",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/{parent=publishers/*}/books",
+              "body": "book"
+            }
+          },
+          "comment": " Create a book."
+        },
+        {
+          "name": "Lookup",
+          "inputType": "sub2.IdMessage",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything/{uuid}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "inputType": "ABitOfEverything",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "put": "/v1/example/a_bit_of_everything/{uuid}",
+              "body": "*"
+            }
+          }
+        },
+        {
+          "name": "UpdateV2",
+          "inputType": "UpdateV2Request",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "put": "/v2/example/a_bit_of_everything/{abe.uuid}",
+              "body": "abe",
+              "additional_bindings": [
+                {
+                  "patch": "/v2/example/a_bit_of_everything/{abe.uuid}",
+                  "body": "abe"
+                },
+                {
+                  "patch": "/v2a/example/a_bit_of_everything/{abe.uuid}",
+                  "body": "*"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "inputType": "sub2.IdMessage",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "delete": "/v1/example/a_bit_of_everything/{uuid}"
+            },
+            "grpc.gateway.protoc_gen_swagger.options.openapiv2_operation": {
+              "security": {
+                "security_requirement": [
+                  {
+                    "key": "ApiKeyAuth",
+                    "value": {}
+                  },
+                  {
+                    "key": "OAuth2",
+                    "value": {
+                      "scope": ["read", "write"]
+                    }
+                  }
+                ]
+              },
+              "extensions": {
+                "key": "x-irreversible",
+                "value": {
+                  "bool_value": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GetQuery",
+          "inputType": "ABitOfEverything",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything/query/{uuid}"
+            },
+            "grpc.gateway.protoc_gen_swagger.options.openapiv2_operation": {
+              "deprecated": true,
+              "external_docs": {
+                "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+                "description": "Find out more about GetQuery"
+              },
+              "security": {}
+            }
+          },
+          "comment": " For testing purposes."
+        },
+        {
+          "name": "GetRepeatedQuery",
+          "inputType": "ABitOfEverythingRepeated",
+          "outputType": "ABitOfEverythingRepeated",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything_repeated/{path_repeated_float_value}/{path_repeated_double_value}/{path_repeated_int64_value}/{path_repeated_uint64_value}/{path_repeated_int32_value}/{path_repeated_fixed64_value}/{path_repeated_fixed32_value}/{path_repeated_bool_value}/{path_repeated_string_value}/{path_repeated_bytes_value}/{path_repeated_uint32_value}/{path_repeated_enum_value}/{path_repeated_sfixed32_value}/{path_repeated_sfixed64_value}/{path_repeated_sint32_value}/{path_repeated_sint64_value}"
+            }
+          }
+        },
+        {
+          "name": "Echo",
+          "inputType": "grpc.gateway.examples.internal.sub.StringMessage",
+          "outputType": "grpc.gateway.examples.internal.sub.StringMessage",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything/echo/{value}",
+              "additional_bindings": [
+                {
+                  "post": "/v2/example/echo",
+                  "body": "value"
+                },
+                {
+                  "get": "/v2/example/echo"
+                }
+              ]
+            },
+            "grpc.gateway.protoc_gen_swagger.options.openapiv2_operation": {
+              "description": "Description Echo",
+              "summary": "Summary: Echo rpc",
+              "tags": "echo rpc",
+              "external_docs": {
+                "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+                "description": "Find out more Echo"
+              },
+              "responses": [
+                {
+                  "key": "200",
+                  "value": {
+                    "examples": {
+                      "key": "application/json",
+                      "value": "{\"value\": \"the input value\"}"
+                    }
+                  }
+                },
+                {
+                  "key": "503",
+                  "value": {
+                    "description": "Returned when the resource is temporarily unavailable.",
+                    "extensions": {
+                      "key": "x-number",
+                      "value": {
+                        "number_value": "100"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "404",
+                  "value": {
+                    "description": "Returned when the resource does not exist.",
+                    "schema": {
+                      "json_schema": {
+                        "type": "INTEGER"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "comment": " Echo allows posting a StringMessage value.\n\n It also exposes multiple bindings.\n\n This makes it useful when validating that the OpenAPI v2 API\n description exposes documentation correctly on all paths\n defined as additional_bindings in the proto.\n Overwrites global definition."
+        },
+        {
+          "name": "DeepPathEcho",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/example/a_bit_of_everything/{single_nested.name}",
+              "body": "*"
+            }
+          }
+        },
+        {
+          "name": "NoBindings",
+          "inputType": "google.protobuf.Duration",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {}
+        },
+        {
+          "name": "Timeout",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/example/timeout"
+            }
+          }
+        },
+        {
+          "name": "ErrorWithDetails",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/example/errorwithdetails"
+            }
+          }
+        },
+        {
+          "name": "GetMessageWithBody",
+          "inputType": "MessageWithBody",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v2/example/withbody/{id}",
+              "body": "data"
+            }
+          }
+        },
+        {
+          "name": "PostWithEmptyBody",
+          "inputType": "Body",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v2/example/postwithemptybody/{name}",
+              "body": "*"
+            }
+          }
+        },
+        {
+          "name": "CheckGetQueryParams",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything/params/get/{single_nested.name}"
+            }
+          }
+        },
+        {
+          "name": "CheckNestedEnumGetQueryParams",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v1/example/a_bit_of_everything/params/get/nested_enum/{single_nested.ok}"
+            }
+          }
+        },
+        {
+          "name": "CheckPostQueryParams",
+          "inputType": "ABitOfEverything",
+          "outputType": "ABitOfEverything",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "post": "/v1/example/a_bit_of_everything/params/post/{string_value}",
+              "body": "single_nested"
+            }
+          }
+        },
+        {
+          "name": "OverwriteResponseContentType",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "google.protobuf.StringValue",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/example/overwriteresponsecontenttype"
+            },
+            "grpc.gateway.protoc_gen_swagger.options.openapiv2_operation": {
+              "produces": "application/text"
+            }
+          }
+        },
+        {
+          "name": "CheckExternalPathEnum",
+          "inputType": "pathenum.MessageWithPathEnum",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/{value}:check"
+            }
+          }
+        },
+        {
+          "name": "CheckExternalNestedPathEnum",
+          "inputType": "pathenum.MessageWithNestedPathEnum",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/{value}:check"
+            }
+          }
+        }
+      ],
+      "options": {
+        "grpc.gateway.protoc_gen_swagger.options.openapiv2_tag": {
+          "description": "ABitOfEverythingService description -- which should not be used in place of the documentation comment!",
+          "external_docs": {
+            "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+            "description": "Find out more about EchoService"
+          }
+        }
+      }
+    },
+    {
+      "name": "camelCaseServiceName",
+      "methods": [
+        {
+          "name": "Empty",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/v2/example/empty"
+            }
+          },
+          "comment": " camelCase and lowercase service names are valid but not recommended (use TitleCase instead)"
+        }
+      ],
+      "options": {}
+    },
+    {
+      "name": "AnotherServiceWithNoBindings",
+      "methods": [
+        {
+          "name": "NoBindings",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "google.protobuf.Empty",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {}
+        }
+      ],
+      "options": {}
+    }
+  ],
+  "package": "grpc.gateway.examples.internal.examplepb"
+}

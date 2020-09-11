@@ -1,0 +1,6 @@
+{
+  "version": "0.0.0",
+  "main": "../cjs/generator/index.js",
+  "module": "../esm/generator/index.js",
+  "types": "../types/generator/index.d.ts"
+}

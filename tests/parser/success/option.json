@@ -1,0 +1,370 @@
+{
+  "syntax": 3,
+  "imports": ["google/protobuf/descriptor.proto"],
+  "enums": [
+    {
+      "name": "MyEnum",
+      "values": {
+        "FOO": {
+          "value": 1,
+          "options": {
+            "my_enum_value_option": "321"
+          }
+        },
+        "BAR": {
+          "value": 2,
+          "options": {}
+        }
+      },
+      "options": {
+        "my_enum_option": true
+      }
+    }
+  ],
+  "messages": [
+    {
+      "name": "MyMessage",
+      "enums": [],
+      "options": {
+        "my_message_option": "1234"
+      },
+      "messages": [],
+      "fields": [
+        {
+          "name": "foo",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "my_field_option": "4.5"
+          }
+        },
+        {
+          "name": "bar",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "RequestType",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ResponseType",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "FooOptions",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "opt1",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "opt2",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Bar",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "a",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "foo_options": {
+              "opt1": "123",
+              "opt2": "baz"
+            }
+          },
+          "comment": " usage:"
+        },
+        {
+          "name": "b",
+          "type": "int32",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {
+            "foo_options": {
+              "opt1": "123",
+              "opt2": "baz"
+            }
+          },
+          "comment": " alternative aggregate syntax (uses TextFormat):"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {
+    "my_file_option": "Hello world!"
+  },
+  "extends": [
+    {
+      "name": "google.protobuf.FileOptions",
+      "message": {
+        "name": "google.protobuf.FileOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_file_option",
+            "type": "string",
+            "tag": 50000,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.MessageOptions",
+      "message": {
+        "name": "google.protobuf.MessageOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_message_option",
+            "type": "int32",
+            "tag": 50001,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.FieldOptions",
+      "message": {
+        "name": "google.protobuf.FieldOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_field_option",
+            "type": "float",
+            "tag": 50002,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.EnumOptions",
+      "message": {
+        "name": "google.protobuf.EnumOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_enum_option",
+            "type": "bool",
+            "tag": 50003,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.EnumValueOptions",
+      "message": {
+        "name": "google.protobuf.EnumValueOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_enum_value_option",
+            "type": "uint32",
+            "tag": 50004,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.ServiceOptions",
+      "message": {
+        "name": "google.protobuf.ServiceOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_service_option",
+            "type": "MyEnum",
+            "tag": 50005,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.MethodOptions",
+      "message": {
+        "name": "google.protobuf.MethodOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "my_method_option",
+            "type": "MyMessage",
+            "tag": 50006,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.FieldOptions",
+      "message": {
+        "name": "google.protobuf.FieldOptions",
+        "enums": [],
+        "options": {
+          "grpc.gateway.protoc_gen_swagger.options.openapiv2_schema": {
+            "json_schema": {
+              "required": ["uuid", "int64_value", "double_value", "int32_value", "single_value"]
+            }
+          }
+        },
+        "messages": [],
+        "fields": [
+          {
+            "name": "foo_options",
+            "type": "FooOptions",
+            "tag": 1234,
+            "required": false,
+            "repeated": false,
+            "optional": true,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    }
+  ],
+  "services": [
+    {
+      "name": "MyService",
+      "methods": [
+        {
+          "name": "MyMethod",
+          "inputType": "RequestType",
+          "outputType": "ResponseType",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "my_method_option.foo": "567",
+            "my_method_option.bar": "Some string",
+            "my_method_option.abc": false
+          },
+          "comment": " Note:  my_method_option has type MyMessage.  We can set each field\n   within it using a separate \"option\" line."
+        }
+      ],
+      "options": {
+        "my_service_option": "FOO",
+        "my_service_option_map": {
+          "foo": "bar"
+        }
+      }
+    }
+  ]
+}

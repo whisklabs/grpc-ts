@@ -1,0 +1,2 @@
+service HelloService {
+  rpc SayHello(HelloRequest) returns (HelloResponse) {{{{}

@@ -1,0 +1,37 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/api/http.proto",
+    "google/protobuf/descriptor.proto"
+  ],
+  "enums": [],
+  "messages": [],
+  "options": {},
+  "extends": [
+    {
+      "name": "google.protobuf.MethodOptions",
+      "message": {
+        "name": "google.protobuf.MethodOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "http",
+            "type": "HttpRule",
+            "tag": 72295728,
+            "required": false,
+            "repeated": false,
+            "optional": false,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    }
+  ],
+  "services": [],
+  "package": "google.api"
+}

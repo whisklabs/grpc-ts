@@ -1,0 +1,15 @@
+export const PACKED: Record<string, boolean> = {
+  float: true,
+  double: true,
+  uint32: true,
+  uint64: true,
+  int32: true,
+  int64: true,
+  sint32: true,
+  sint64: true,
+  fixed32: true,
+  fixed64: true,
+  sfixed32: true,
+  enum: true,
+  bool: true,
+};

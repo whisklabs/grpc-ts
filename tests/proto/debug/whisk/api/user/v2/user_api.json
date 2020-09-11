@@ -1,0 +1,618 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/api/annotations.proto",
+    "google/api/field_mask.proto",
+    "google/api/empty.proto",
+    "whisk/api/user/v2/user.proto"
+  ],
+  "enums": [],
+  "messages": [
+    {
+      "name": "GetMeRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "GetMeResponse",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "user",
+          "type": "User",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateSettingsRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "settings",
+          "type": "UserSettings",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateSettingsResponse",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "user",
+          "type": "User",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "ExtractRecipeRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "url",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Mask tests"
+        },
+        {
+          "name": "recipe_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "SaveRecipeRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "recipe_id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "collection_ids",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "source_user_id",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "recipe_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateRecipeRequest",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "recipe_id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "recipe_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "update_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " possible values: payload, collection_ids"
+        },
+        {
+          "name": "payload",
+          "type": "User",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "collection_ids",
+          "type": "string",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateListRequest",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Fields",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "primary",
+              "type": "bool",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "fields",
+          "type": "Fields",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateItemRequest",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Fields",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "quantity",
+              "type": "double",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "unit",
+              "type": "string",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "expiry_date",
+              "type": "whisk.api.shared.v1.Date",
+              "tag": 4,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "user",
+              "type": "User",
+              "tag": 5,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "added_at",
+              "type": "int64",
+              "tag": 6,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "fields",
+          "type": "Fields",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "new_order",
+          "type": "int32",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateSettingsRequestOld",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "settings",
+          "type": "UserSettings",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UpdateBusinessApp",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "update_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "is_test",
+          "type": "bool",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "is_trial",
+          "type": "bool",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "UserSettings2",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "non_default_mask",
+          "type": "google.protobuf.FieldMask",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "onboarding",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "first_name",
+          "type": "string",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "last_name",
+          "type": "string",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {
+    "go_package": "userv2",
+    "java_package": "com.whisk.api.user.v2"
+  },
+  "extends": [],
+  "services": [
+    {
+      "name": "UserAPI",
+      "methods": [
+        {
+          "name": "GetMe",
+          "inputType": "GetMeRequest",
+          "outputType": "GetMeResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "get": "/user/v2/me"
+            }
+          }
+        },
+        {
+          "name": "Get",
+          "inputType": "google.protobuf.Empty",
+          "outputType": "GetMeResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {},
+          "comment": " Empty rpc"
+        },
+        {
+          "name": "UpdateSettings",
+          "inputType": "UpdateSettingsRequest",
+          "outputType": "UpdateSettingsResponse",
+          "clientStreaming": false,
+          "serverStreaming": false,
+          "options": {
+            "google.api.http": {
+              "patch": "/user/v2/settings",
+              "body": "*",
+              "additional_bindings": [
+                {
+                  "patch": "/user/v2/settings/{id}",
+                  "body": "*"
+                },
+                {
+                  "put": "/user/v2/settings/{id}",
+                  "body": "*"
+                },
+                {
+                  "post": "/user/v2/settings/{id}",
+                  "body": "*"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "options": {}
+    }
+  ],
+  "package": "whisk.api.user.v2"
+}

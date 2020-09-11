@@ -1,0 +1,7 @@
+{
+  "name": "rpc",
+  "message": [["Unexpected token in service: -", 0]],
+  "line": 1,
+  "column": 23,
+  "range": ["-", "}"]
+}

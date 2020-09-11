@@ -1,0 +1,47 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "Event",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "EntityId",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "tagger": {
+              "tags": "bson:\"_id,omitempty\""
+            }
+          }
+        },
+        {
+          "name": "next",
+          "type": "EntityId",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "tagger": {
+              "tags": "bson:'_id,omitempty'"
+            }
+          }
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": []
+}

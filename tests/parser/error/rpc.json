@@ -1,0 +1,7 @@
+{
+  "name": "rpc",
+  "message": [["Unexpected token \"{\"", 0]],
+  "line": 2,
+  "column": 55,
+  "range": ["{", "{", "{", "}"]
+}

@@ -1,0 +1,210 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "Test",
+      "enums": [
+        {
+          "name": "Enum",
+          "values": {
+            "ONE": {
+              "value": 0,
+              "options": {}
+            },
+            "TWO": {
+              "value": 1,
+              "options": {}
+            },
+            "THREE": {
+              "value": 2,
+              "options": {}
+            },
+            "FOUR": {
+              "value": 3,
+              "options": {}
+            },
+            "FIVE": {
+              "value": 4,
+              "options": {}
+            }
+          },
+          "options": {}
+        }
+      ],
+      "options": {},
+      "messages": [
+        {
+          "name": "Inner",
+          "enums": [],
+          "options": {},
+          "messages": [
+            {
+              "name": "InnerInner",
+              "enums": [],
+              "options": {},
+              "messages": [],
+              "fields": [
+                {
+                  "name": "long",
+                  "type": "int64",
+                  "tag": 1,
+                  "required": false,
+                  "repeated": false,
+                  "optional": false,
+                  "options": {}
+                },
+                {
+                  "name": "enum",
+                  "type": "Enum",
+                  "tag": 2,
+                  "required": false,
+                  "repeated": false,
+                  "optional": false,
+                  "options": {}
+                },
+                {
+                  "name": "sint32",
+                  "type": "sint32",
+                  "tag": 3,
+                  "required": false,
+                  "repeated": false,
+                  "optional": false,
+                  "options": {}
+                }
+              ],
+              "extends": [],
+              "extensions": [],
+              "reserved": []
+            }
+          ],
+          "fields": [
+            {
+              "name": "int32",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "innerInner",
+              "type": "InnerInner",
+              "tag": 2,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            },
+            {
+              "name": "outer",
+              "type": "Outer",
+              "tag": 3,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "string",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "uint32",
+          "type": "uint32",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "inner",
+          "type": "Inner",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "float",
+          "type": "float",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Outer",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "bool",
+          "type": "bool",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "double",
+          "type": "double",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "uint32",
+          "type": "uint32",
+          "tag": 3,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "string",
+          "type": "string",
+          "tag": 4,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": [],
+  "package": "whisk.api.shared.v1"
+}

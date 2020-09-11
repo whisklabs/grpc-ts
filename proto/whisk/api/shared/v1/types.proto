@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package whisk.api.shared.v1;
+
+message Primitive {
+  double double = 1;
+  float float = 2;
+  int32 int32 = 3;
+  int64 int64 = 4;
+  uint32 uint32 = 5;
+  uint64 uint64 = 6;
+  sint32 sint32 = 7;
+  sint64 sint64 = 8;
+  fixed32 fixed32 = 9;
+  fixed64 fixed64 = 10;
+  sfixed32 sfixed32 = 11;
+  sfixed64 sfixed64 = 12;
+  bool bool = 13;
+  string string = 14;
+  bytes bytes = 15;
+}
+
+message Big {
+  int64 b = 1;
+}
+
+message Sign {
+  sint64 b = 1;
+}
+
+message Double {
+  double d = 1;
+}
+
+message Wrapper {
+  google.protobuf.DoubleValue double = 1;
+  google.protobuf.FloatValue float = 2;
+  google.protobuf.Int64Value int64 = 3;
+  google.protobuf.UInt64Value uint64 = 4;
+  google.protobuf.Int32Value int32 = 5;
+  google.protobuf.UInt32Value uint32 = 6;
+  google.protobuf.BoolValue bool = 7;
+  google.protobuf.StringValue string = 8;
+  google.protobuf.BytesValue bytes = 9;
+}
