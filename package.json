@@ -22,6 +22,12 @@
     "url": "https://github.com/whisklabs/grpc-ts/issues"
   },
   "homepage": "https://github.com/whisklabs/grpc-ts#readme",
+  "keywords": [
+    "grpc",
+    "grpc-web",
+    "proto",
+    "protobuf"
+  ],
   "publishConfig": {
     "access": "public"
   },
