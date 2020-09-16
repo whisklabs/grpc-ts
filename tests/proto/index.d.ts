@@ -13,62 +13,62 @@ import {
   Values
 } from '../../src';
 
-export const google_protobuf_NullValue = {
-  NULL_VALUE: 0,
-} as const;
+export const google_protobuf_NullValue: {
+  readonly NULL_VALUE: 0,
+};
 export type google_protobuf_NullValue = Values<typeof google_protobuf_NullValue>;
-export const google_protobuf_Syntax = {
-  SYNTAX_PROTO2: 0,
-  SYNTAX_PROTO3: 1,
-} as const;
+export const google_protobuf_Syntax: {
+  readonly SYNTAX_PROTO2: 0,
+  readonly SYNTAX_PROTO3: 1,
+};
 export type google_protobuf_Syntax = Values<typeof google_protobuf_Syntax>;
-export const whisk_api_user_v2_HealthGoal = {
-  HEALTH_GOAL_WEIGHT_LOSS: 1,
-  HEALTH_GOAL_WEIGHT_GAIN: 2,
-  HEALTH_GOAL_BETTER_SLEEP: 3,
-  HEALTH_GOAL_INCREASE_ENERGY: 4,
-} as const;
+export const whisk_api_user_v2_HealthGoal: {
+  readonly HEALTH_GOAL_WEIGHT_LOSS: 1,
+  readonly HEALTH_GOAL_WEIGHT_GAIN: 2,
+  readonly HEALTH_GOAL_BETTER_SLEEP: 3,
+  readonly HEALTH_GOAL_INCREASE_ENERGY: 4,
+};
 export type whisk_api_user_v2_HealthGoal = Values<typeof whisk_api_user_v2_HealthGoal>;
-export const whisk_api_user_v2_ActivityLevel = {
-  ACTIVITY_LEVEL_VERY_LIGHT: 1,
-  ACTIVITY_LEVEL_LIGHT: 2,
-  ACTIVITY_LEVEL_MODERATE: 3,
-  ACTIVITY_LEVEL_ACTIVE: 4,
-  ACTIVITY_LEVEL_VERY_ACTIVE: 5,
-} as const;
+export const whisk_api_user_v2_ActivityLevel: {
+  readonly ACTIVITY_LEVEL_VERY_LIGHT: 1,
+  readonly ACTIVITY_LEVEL_LIGHT: 2,
+  readonly ACTIVITY_LEVEL_MODERATE: 3,
+  readonly ACTIVITY_LEVEL_ACTIVE: 4,
+  readonly ACTIVITY_LEVEL_VERY_ACTIVE: 5,
+};
 export type whisk_api_user_v2_ActivityLevel = Values<typeof whisk_api_user_v2_ActivityLevel>;
-export const whisk_api_user_v2_Gender = {
-  GENDER_MALE: 1,
-  GENDER_FEMALE: 2,
-  GENDER_NON_BINARY: 3,
-  GENDER_UNDISCLOSED: 4,
-} as const;
+export const whisk_api_user_v2_Gender: {
+  readonly GENDER_MALE: 1,
+  readonly GENDER_FEMALE: 2,
+  readonly GENDER_NON_BINARY: 3,
+  readonly GENDER_UNDISCLOSED: 4,
+};
 export type whisk_api_user_v2_Gender = Values<typeof whisk_api_user_v2_Gender>;
-export const whisk_api_user_v2_OrganicPreference = {
-  ORGANIC_PREFERENCE_ORGANIC: 1,
-  ORGANIC_PREFERENCE_DONT_CARE: 2,
-} as const;
+export const whisk_api_user_v2_OrganicPreference: {
+  readonly ORGANIC_PREFERENCE_ORGANIC: 1,
+  readonly ORGANIC_PREFERENCE_DONT_CARE: 2,
+};
 export type whisk_api_user_v2_OrganicPreference = Values<typeof whisk_api_user_v2_OrganicPreference>;
-export const whisk_api_user_v2_CookingExperience = {
-  COOKING_EXPERIENCE_BEGINNER: 1,
-  COOKING_EXPERIENCE_INTERMEDIATE: 2,
-  COOKING_EXPERIENCE_ADVANCED: 3,
-} as const;
+export const whisk_api_user_v2_CookingExperience: {
+  readonly COOKING_EXPERIENCE_BEGINNER: 1,
+  readonly COOKING_EXPERIENCE_INTERMEDIATE: 2,
+  readonly COOKING_EXPERIENCE_ADVANCED: 3,
+};
 export type whisk_api_user_v2_CookingExperience = Values<typeof whisk_api_user_v2_CookingExperience>;
-export const whisk_api_user_v2_BudgetGoal = {
-  BUDGET_GOAL_BUDGET_FRIENDLY: 1,
-  BUDGET_GOAL_AVERAGE_PRICE: 2,
-  BUDGET_GOAL_PREMIUM: 3,
-} as const;
+export const whisk_api_user_v2_BudgetGoal: {
+  readonly BUDGET_GOAL_BUDGET_FRIENDLY: 1,
+  readonly BUDGET_GOAL_AVERAGE_PRICE: 2,
+  readonly BUDGET_GOAL_PREMIUM: 3,
+};
 export type whisk_api_user_v2_BudgetGoal = Values<typeof whisk_api_user_v2_BudgetGoal>;
-export const whisk_api_user_v2_EthicalPreference = {
-  ETHICAL_PREFERENCE_ETHICAL_FISHED: 1,
-  ETHICAL_PREFERENCE_GM_FREE: 2,
-  ETHICAL_PREFERENCE_BUYING_LOCALLY: 3,
-  ETHICAL_PREFERENCE_FAIR_TRADE: 4,
-  ETHICAL_PREFERENCE_ENVIRONMENTAL_EFFECT: 5,
-  ETHICAL_PREFERENCE_LOW_WASTE_PRODUCTS: 6,
-} as const;
+export const whisk_api_user_v2_EthicalPreference: {
+  readonly ETHICAL_PREFERENCE_ETHICAL_FISHED: 1,
+  readonly ETHICAL_PREFERENCE_GM_FREE: 2,
+  readonly ETHICAL_PREFERENCE_BUYING_LOCALLY: 3,
+  readonly ETHICAL_PREFERENCE_FAIR_TRADE: 4,
+  readonly ETHICAL_PREFERENCE_ENVIRONMENTAL_EFFECT: 5,
+  readonly ETHICAL_PREFERENCE_LOW_WASTE_PRODUCTS: 6,
+};
 export type whisk_api_user_v2_EthicalPreference = Values<typeof whisk_api_user_v2_EthicalPreference>;
 export type google_api_Http = {
   rules: google_api_HttpRule[];
@@ -177,32 +177,32 @@ export type google_protobuf_ExtensionRangeOptions = {
   uninterpretedOption: google_protobuf_UninterpretedOption[];
 };
 export const google_protobuf_ExtensionRangeOptions: Field<google_protobuf_ExtensionRangeOptions>;
-export const google_protobuf_FieldDescriptorProto_Type = {
-  TYPE_DOUBLE: 1,
-  TYPE_FLOAT: 2,
-  TYPE_INT64: 3,
-  TYPE_UINT64: 4,
-  TYPE_INT32: 5,
-  TYPE_FIXED64: 6,
-  TYPE_FIXED32: 7,
-  TYPE_BOOL: 8,
-  TYPE_STRING: 9,
-  TYPE_GROUP: 10,
-  TYPE_MESSAGE: 11,
-  TYPE_BYTES: 12,
-  TYPE_UINT32: 13,
-  TYPE_ENUM: 14,
-  TYPE_SFIXED32: 15,
-  TYPE_SFIXED64: 16,
-  TYPE_SINT32: 17,
-  TYPE_SINT64: 18,
-} as const;
+export const google_protobuf_FieldDescriptorProto_Type: {
+  readonly TYPE_DOUBLE: 1,
+  readonly TYPE_FLOAT: 2,
+  readonly TYPE_INT64: 3,
+  readonly TYPE_UINT64: 4,
+  readonly TYPE_INT32: 5,
+  readonly TYPE_FIXED64: 6,
+  readonly TYPE_FIXED32: 7,
+  readonly TYPE_BOOL: 8,
+  readonly TYPE_STRING: 9,
+  readonly TYPE_GROUP: 10,
+  readonly TYPE_MESSAGE: 11,
+  readonly TYPE_BYTES: 12,
+  readonly TYPE_UINT32: 13,
+  readonly TYPE_ENUM: 14,
+  readonly TYPE_SFIXED32: 15,
+  readonly TYPE_SFIXED64: 16,
+  readonly TYPE_SINT32: 17,
+  readonly TYPE_SINT64: 18,
+};
 export type google_protobuf_FieldDescriptorProto_Type = Values<typeof google_protobuf_FieldDescriptorProto_Type>;
-export const google_protobuf_FieldDescriptorProto_Label = {
-  LABEL_OPTIONAL: 1,
-  LABEL_REQUIRED: 2,
-  LABEL_REPEATED: 3,
-} as const;
+export const google_protobuf_FieldDescriptorProto_Label: {
+  readonly LABEL_OPTIONAL: 1,
+  readonly LABEL_REQUIRED: 2,
+  readonly LABEL_REPEATED: 3,
+};
 export type google_protobuf_FieldDescriptorProto_Label = Values<typeof google_protobuf_FieldDescriptorProto_Label>;
 export type google_protobuf_FieldDescriptorProto = {
   name?: string;
@@ -257,11 +257,11 @@ export type google_protobuf_MethodDescriptorProto = {
   serverStreaming?: boolean;
 };
 export const google_protobuf_MethodDescriptorProto: Field<google_protobuf_MethodDescriptorProto>;
-export const google_protobuf_FileOptions_OptimizeMode = {
-  SPEED: 1,
-  CODE_SIZE: 2,
-  LITE_RUNTIME: 3,
-} as const;
+export const google_protobuf_FileOptions_OptimizeMode: {
+  readonly SPEED: 1,
+  readonly CODE_SIZE: 2,
+  readonly LITE_RUNTIME: 3,
+};
 export type google_protobuf_FileOptions_OptimizeMode = Values<typeof google_protobuf_FileOptions_OptimizeMode>;
 export type google_protobuf_FileOptions = {
   javaPackage?: string;
@@ -296,17 +296,17 @@ export type google_protobuf_MessageOptions = {
   uninterpretedOption: google_protobuf_UninterpretedOption[];
 };
 export const google_protobuf_MessageOptions: Field<google_protobuf_MessageOptions>;
-export const google_protobuf_FieldOptions_CType = {
-  STRING: 0,
-  CORD: 1,
-  STRING_PIECE: 2,
-} as const;
+export const google_protobuf_FieldOptions_CType: {
+  readonly STRING: 0,
+  readonly CORD: 1,
+  readonly STRING_PIECE: 2,
+};
 export type google_protobuf_FieldOptions_CType = Values<typeof google_protobuf_FieldOptions_CType>;
-export const google_protobuf_FieldOptions_JSType = {
-  JS_NORMAL: 0,
-  JS_STRING: 1,
-  JS_NUMBER: 2,
-} as const;
+export const google_protobuf_FieldOptions_JSType: {
+  readonly JS_NORMAL: 0,
+  readonly JS_STRING: 1,
+  readonly JS_NUMBER: 2,
+};
 export type google_protobuf_FieldOptions_JSType = Values<typeof google_protobuf_FieldOptions_JSType>;
 export type google_protobuf_FieldOptions = {
   ctype?: google_protobuf_FieldOptions_CType;
@@ -338,11 +338,11 @@ export type google_protobuf_ServiceOptions = {
   uninterpretedOption: google_protobuf_UninterpretedOption[];
 };
 export const google_protobuf_ServiceOptions: Field<google_protobuf_ServiceOptions>;
-export const google_protobuf_MethodOptions_IdempotencyLevel = {
-  IDEMPOTENCY_UNKNOWN: 0,
-  NO_SIDE_EFFECTS: 1,
-  IDEMPOTENT: 2,
-} as const;
+export const google_protobuf_MethodOptions_IdempotencyLevel: {
+  readonly IDEMPOTENCY_UNKNOWN: 0,
+  readonly NO_SIDE_EFFECTS: 1,
+  readonly IDEMPOTENT: 2,
+};
 export type google_protobuf_MethodOptions_IdempotencyLevel = Values<typeof google_protobuf_MethodOptions_IdempotencyLevel>;
 export type google_protobuf_MethodOptions = {
   deprecated?: boolean;
@@ -435,34 +435,34 @@ export type google_protobuf_Type = {
   syntax?: google_protobuf_Syntax;
 };
 export const google_protobuf_Type: Field<google_protobuf_Type>;
-export const google_protobuf_Field_Kind = {
-  TYPE_UNKNOWN: 0,
-  TYPE_DOUBLE: 1,
-  TYPE_FLOAT: 2,
-  TYPE_INT64: 3,
-  TYPE_UINT64: 4,
-  TYPE_INT32: 5,
-  TYPE_FIXED64: 6,
-  TYPE_FIXED32: 7,
-  TYPE_BOOL: 8,
-  TYPE_STRING: 9,
-  TYPE_GROUP: 10,
-  TYPE_MESSAGE: 11,
-  TYPE_BYTES: 12,
-  TYPE_UINT32: 13,
-  TYPE_ENUM: 14,
-  TYPE_SFIXED32: 15,
-  TYPE_SFIXED64: 16,
-  TYPE_SINT32: 17,
-  TYPE_SINT64: 18,
-} as const;
+export const google_protobuf_Field_Kind: {
+  readonly TYPE_UNKNOWN: 0,
+  readonly TYPE_DOUBLE: 1,
+  readonly TYPE_FLOAT: 2,
+  readonly TYPE_INT64: 3,
+  readonly TYPE_UINT64: 4,
+  readonly TYPE_INT32: 5,
+  readonly TYPE_FIXED64: 6,
+  readonly TYPE_FIXED32: 7,
+  readonly TYPE_BOOL: 8,
+  readonly TYPE_STRING: 9,
+  readonly TYPE_GROUP: 10,
+  readonly TYPE_MESSAGE: 11,
+  readonly TYPE_BYTES: 12,
+  readonly TYPE_UINT32: 13,
+  readonly TYPE_ENUM: 14,
+  readonly TYPE_SFIXED32: 15,
+  readonly TYPE_SFIXED64: 16,
+  readonly TYPE_SINT32: 17,
+  readonly TYPE_SINT64: 18,
+};
 export type google_protobuf_Field_Kind = Values<typeof google_protobuf_Field_Kind>;
-export const google_protobuf_Field_Cardinality = {
-  CARDINALITY_UNKNOWN: 0,
-  CARDINALITY_OPTIONAL: 1,
-  CARDINALITY_REQUIRED: 2,
-  CARDINALITY_REPEATED: 3,
-} as const;
+export const google_protobuf_Field_Cardinality: {
+  readonly CARDINALITY_UNKNOWN: 0,
+  readonly CARDINALITY_OPTIONAL: 1,
+  readonly CARDINALITY_REQUIRED: 2,
+  readonly CARDINALITY_REPEATED: 3,
+};
 export type google_protobuf_Field_Cardinality = Values<typeof google_protobuf_Field_Cardinality>;
 export type google_protobuf_Field = {
   kind?: google_protobuf_Field_Kind;
@@ -532,13 +532,13 @@ export type google_protobuf_BytesValue = {
   value: Uint8Array;
 };
 export const google_protobuf_BytesValue: Field<google_protobuf_BytesValue>;
-export const whisk_api_shared_v1_Test_Enum = {
-  ONE: 0,
-  TWO: 1,
-  THREE: 2,
-  FOUR: 3,
-  FIVE: 4,
-} as const;
+export const whisk_api_shared_v1_Test_Enum: {
+  readonly ONE: 0,
+  readonly TWO: 1,
+  readonly THREE: 2,
+  readonly FOUR: 3,
+  readonly FIVE: 4,
+};
 export type whisk_api_shared_v1_Test_Enum = Values<typeof whisk_api_shared_v1_Test_Enum>;
 export type whisk_api_shared_v1_Test = {
   string: string;
@@ -658,20 +658,20 @@ export type whisk_api_user_v2_PersonalDetails_HealthGoals = {
   list: whisk_api_user_v2_HealthGoal[];
 };
 export const whisk_api_user_v2_PersonalDetails_HealthGoals: Field<whisk_api_user_v2_PersonalDetails_HealthGoals>;
-export const whisk_api_user_v2_Height_Unit = {
-  UNIT_CM: 1,
-  UNIT_INCH: 2,
-} as const;
+export const whisk_api_user_v2_Height_Unit: {
+  readonly UNIT_CM: 1,
+  readonly UNIT_INCH: 2,
+};
 export type whisk_api_user_v2_Height_Unit = Values<typeof whisk_api_user_v2_Height_Unit>;
 export type whisk_api_user_v2_Height = {
   value: number;
   unit?: whisk_api_user_v2_Height_Unit;
 };
 export const whisk_api_user_v2_Height: Field<whisk_api_user_v2_Height>;
-export const whisk_api_user_v2_Weight_Unit = {
-  UNIT_KG: 1,
-  UNIT_POUND: 2,
-} as const;
+export const whisk_api_user_v2_Weight_Unit: {
+  readonly UNIT_KG: 1,
+  readonly UNIT_POUND: 2,
+};
 export type whisk_api_user_v2_Weight_Unit = Values<typeof whisk_api_user_v2_Weight_Unit>;
 export type whisk_api_user_v2_Weight = {
   value: number;
@@ -715,21 +715,21 @@ export type whisk_api_user_v2_CookingPreferences_Devices = {
   list?: whisk_api_user_v2_Device;
 };
 export const whisk_api_user_v2_CookingPreferences_Devices: Field<whisk_api_user_v2_CookingPreferences_Devices>;
-export const whisk_api_user_v2_Device_DeviceType = {
-  DEVICE_TYPE_STOVE: 1,
-  DEVICE_TYPE_OVEN: 2,
-  DEVICE_TYPE_AIR_FRYER: 3,
-  DEVICE_TYPE_FOOD_PROCESSOR: 4,
-  DEVICE_TYPE_SOUS_VIDE: 5,
-  DEVICE_TYPE_PRESSURE_COOKER: 6,
-  DEVICE_TYPE_SLOW_COOKER: 7,
-  DEVICE_TYPE_BLENDER: 8,
-  DEVICE_TYPE_SHAKER: 9,
-  DEVICE_TYPE_MICROWAVE: 10,
-  DEVICE_TYPE_DEEP_FRYER: 11,
-  DEVICE_TYPE_GRILL: 12,
-  DEVICE_TYPE_MIXER: 13,
-} as const;
+export const whisk_api_user_v2_Device_DeviceType: {
+  readonly DEVICE_TYPE_STOVE: 1,
+  readonly DEVICE_TYPE_OVEN: 2,
+  readonly DEVICE_TYPE_AIR_FRYER: 3,
+  readonly DEVICE_TYPE_FOOD_PROCESSOR: 4,
+  readonly DEVICE_TYPE_SOUS_VIDE: 5,
+  readonly DEVICE_TYPE_PRESSURE_COOKER: 6,
+  readonly DEVICE_TYPE_SLOW_COOKER: 7,
+  readonly DEVICE_TYPE_BLENDER: 8,
+  readonly DEVICE_TYPE_SHAKER: 9,
+  readonly DEVICE_TYPE_MICROWAVE: 10,
+  readonly DEVICE_TYPE_DEEP_FRYER: 11,
+  readonly DEVICE_TYPE_GRILL: 12,
+  readonly DEVICE_TYPE_MIXER: 13,
+};
 export type whisk_api_user_v2_Device_DeviceType = Values<typeof whisk_api_user_v2_Device_DeviceType>;
 export type whisk_api_user_v2_Device = {
   oneof?:

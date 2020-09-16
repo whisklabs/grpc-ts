@@ -19,7 +19,7 @@ function enu(pack: string, out: MakeOuts, item: Enum, enumsList: EnumsList) {
   const cName = checkSame(out, 'name');
 
   out.js.push(`export const ${eName} = {`);
-  out.dts.push(`export const ${eName} = {`);
+  out.dts.push(`export const ${eName}: {`);
 
   for (const field in item.values) {
     const val = item.values[field].value;
@@ -27,12 +27,12 @@ function enu(pack: string, out: MakeOuts, item: Enum, enumsList: EnumsList) {
       cID(val, `${pack}.${field}`);
       cName(field, `${pack}.${field}`);
       out.js.push(`  ${field}: ${val},`);
-      out.dts.push(`  ${field}: ${val},`);
+      out.dts.push(`  readonly ${field}: ${val},`);
     }
   }
 
   out.js.push('};');
-  out.dts.push('} as const;');
+  out.dts.push('};');
   out.dts.push(`export type ${eName} = Values<typeof ${eName}>;`);
 }
 
