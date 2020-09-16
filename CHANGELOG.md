@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.2](https://github.com/whisklabs/grpc-ts/compare/v1.0.1...v1.0.2) (2020-9-16)
+
+### Build system or external dependencies
+
+- update dependencies ([24a5700](https://github.com/whisklabs/grpc-ts/commit/24a57002b979afe269170a258271f1267dcb83e5))
+
+### Bug Fixes
+
+- enum d.ts generator ([d1d9e89](https://github.com/whisklabs/grpc-ts/commit/d1d9e897acd8782071aca46ac57d0cca565ddb2d))
+
 ## [v1.0.1](https://github.com/whisklabs/grpc-ts/compare/v1.0.0...v1.0.1) (2020-9-15)
 
 ### Documentation
