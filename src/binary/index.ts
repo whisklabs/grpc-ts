@@ -51,7 +51,7 @@ function EncodeHelper(buf: BufWrite, struct: Field, obj: unknown) {
     for (const [tag, fieldName, item, _, oneof] of f) {
       const one = isText(oneof) ? obj[oneof] : undefined;
       const val = isObject(one) && fieldName === one.oneof ? one.value : obj[fieldName];
-      if (val) {
+      if (isPresent(val)) {
         EncodeWrite(buf, item, tag, val);
       }
     }
