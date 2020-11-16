@@ -55,6 +55,6 @@ function findRoot() {
     path = join(path, '..');
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  // eslint-disable-next-line
   return require(join(path, file))?.version as string | undefined;
 }
