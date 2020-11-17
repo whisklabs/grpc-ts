@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.3](https://github.com/whisklabs/grpc-ts/compare/v1.0.2...v1.0.3) (2020-11-17)
+
+### Continuous Integration
+
+- github actions update ([d781c29](https://github.com/whisklabs/grpc-ts/commit/d781c29e056f5ad968be667c302126eaf8567703))
+
+### Bug Fixes
+
+- correct send of zero values ([453980f](https://github.com/whisklabs/grpc-ts/commit/453980f432f618c632ad4b37437372efc1684ac5))
+
 ## [v1.0.2](https://github.com/whisklabs/grpc-ts/compare/v1.0.1...v1.0.2) (2020-9-16)
 
 ### Build system or external dependencies

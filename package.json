@@ -1,6 +1,6 @@
 {
   "name": "@whisklabs/grpc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "gRPC generator and http library for typescript",
   "license": "MIT",
   "author": {
