@@ -25,9 +25,9 @@ jobs:
         run: |
           BNAME="$(echo -n ${GITHUB_REF##*/} | sed 's#/#-#g' | tr '[:upper:]' '[:lower:]')"
           BID="$GITHUB_RUN_NUMBER-$(date +%s)"
-          echo ::set-env name=BRANCH_NAME::$BNAME
-          echo ::set-env name=APP_BUILD::$BID-$GITHUB_SHA
-          echo ::set-env name=BUILD_ID::$BID
+          echo "BRANCH_NAME=$BNAME" >> $GITHUB_ENV
+          echo "APP_BUILD=$BID-$GITHUB_SHA" >> $GITHUB_ENV
+          echo "BUILD_ID=$BID" >> $GITHUB_ENV
       - name: Setup GIT
         run: |
           git config --local user.email "action@github.com"
