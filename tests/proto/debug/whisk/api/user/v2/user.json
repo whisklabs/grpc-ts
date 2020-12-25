@@ -1225,6 +1225,69 @@
       "reserved": []
     },
     {
+      "name": "TestEmpty",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "GlobalRegion",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "global",
+          "type": "GlobalRegion",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true
+          },
+          "oneof": "item"
+        },
+        {
+          "name": "any",
+          "type": "GlobalRegion",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "item"
+        },
+        {
+          "name": "local",
+          "type": "string",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "item"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
       "name": "SearchRecipesResponse",
       "enums": [],
       "options": {},
@@ -1245,6 +1308,16 @@
               "options": {}
             }
           ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "Empty",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [],
           "extends": [],
           "extensions": [],
           "reserved": []
@@ -1334,6 +1407,15 @@
           "tag": 3,
           "required": false,
           "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "empty",
+          "type": "Empty",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
           "optional": false,
           "options": {}
         }

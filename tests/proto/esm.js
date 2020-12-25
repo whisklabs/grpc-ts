@@ -654,14 +654,23 @@ export var whisk_api_user_v2_TestOneof = function () { return [
     [11, "deviceType", "enum", 1, "device"],
     [12, "customDevice", "string", 1, "device"],
 ]; };
+export var whisk_api_user_v2_TestEmpty = function () { return [
+    [1, "id", "string", 1],
+    [2, "global", whisk_api_user_v2_TestEmpty_GlobalRegion, 1, "item"],
+    [3, "any", whisk_api_user_v2_TestEmpty_GlobalRegion, 0, "item"],
+    [4, "local", "string", 1, "item"],
+]; };
+export var whisk_api_user_v2_TestEmpty_GlobalRegion = function () { return []; };
 export var whisk_api_user_v2_SearchRecipesResponse = function () { return [
     [1, "hit", ["repeated", whisk_api_user_v2_SearchRecipesResponse_Hit], 1],
     [2, "date", whisk_api_shared_v1_Date, 0],
     [3, "dates", ["repeated", whisk_api_shared_v1_Date], 1],
+    [4, "empty", whisk_api_user_v2_SearchRecipesResponse_Empty, 0],
 ]; };
 export var whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient = function () { return [
     [1, "name", "string", 1],
 ]; };
+export var whisk_api_user_v2_SearchRecipesResponse_Empty = function () { return []; };
 export var whisk_api_user_v2_SearchRecipesResponse_Hit = function () { return [
     [1, "content", whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient, 0],
     [2, "ingredients", ["repeated", whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient], 1],

@@ -4356,6 +4356,100 @@ export namespace whisk {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.TestOneof;
                 }
 
+                /** Properties of a TestEmpty. */
+                interface ITestEmpty {
+
+                    /** TestEmpty id */
+                    id?: (string|null);
+
+                    /** TestEmpty global */
+                    global?: (whisk.api.user.v2.TestEmpty.IGlobalRegion|null);
+
+                    /** TestEmpty any */
+                    any?: (whisk.api.user.v2.TestEmpty.IGlobalRegion|null);
+
+                    /** TestEmpty local */
+                    local?: (string|null);
+                }
+
+                /** Represents a TestEmpty. */
+                class TestEmpty implements ITestEmpty {
+
+                    /**
+                     * Constructs a new TestEmpty.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.ITestEmpty);
+
+                    /** TestEmpty id. */
+                    public id: string;
+
+                    /** TestEmpty global. */
+                    public global?: (whisk.api.user.v2.TestEmpty.IGlobalRegion|null);
+
+                    /** TestEmpty any. */
+                    public any?: (whisk.api.user.v2.TestEmpty.IGlobalRegion|null);
+
+                    /** TestEmpty local. */
+                    public local: string;
+
+                    /** TestEmpty item. */
+                    public item?: ("global"|"any"|"local");
+
+                    /**
+                     * Encodes the specified TestEmpty message. Does not implicitly {@link whisk.api.user.v2.TestEmpty.verify|verify} messages.
+                     * @param message TestEmpty message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.ITestEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a TestEmpty message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns TestEmpty
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.TestEmpty;
+                }
+
+                namespace TestEmpty {
+
+                    /** Properties of a GlobalRegion. */
+                    interface IGlobalRegion {
+                    }
+
+                    /** Represents a GlobalRegion. */
+                    class GlobalRegion implements IGlobalRegion {
+
+                        /**
+                         * Constructs a new GlobalRegion.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.TestEmpty.IGlobalRegion);
+
+                        /**
+                         * Encodes the specified GlobalRegion message. Does not implicitly {@link whisk.api.user.v2.TestEmpty.GlobalRegion.verify|verify} messages.
+                         * @param message GlobalRegion message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.TestEmpty.IGlobalRegion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a GlobalRegion message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns GlobalRegion
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.TestEmpty.GlobalRegion;
+                    }
+                }
+
                 /** Properties of a SearchRecipesResponse. */
                 interface ISearchRecipesResponse {
 
@@ -4367,6 +4461,9 @@ export namespace whisk {
 
                     /** SearchRecipesResponse dates */
                     dates?: (whisk.api.shared.v1.IDate[]|null);
+
+                    /** SearchRecipesResponse empty */
+                    empty?: (whisk.api.user.v2.SearchRecipesResponse.IEmpty|null);
                 }
 
                 /** Represents a SearchRecipesResponse. */
@@ -4386,6 +4483,9 @@ export namespace whisk {
 
                     /** SearchRecipesResponse dates. */
                     public dates: whisk.api.shared.v1.IDate[];
+
+                    /** SearchRecipesResponse empty. */
+                    public empty?: (whisk.api.user.v2.SearchRecipesResponse.IEmpty|null);
 
                     /**
                      * Encodes the specified SearchRecipesResponse message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.verify|verify} messages.
@@ -4444,6 +4544,38 @@ export namespace whisk {
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient;
+                    }
+
+                    /** Properties of an Empty. */
+                    interface IEmpty {
+                    }
+
+                    /** Represents an Empty. */
+                    class Empty implements IEmpty {
+
+                        /**
+                         * Constructs a new Empty.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.SearchRecipesResponse.IEmpty);
+
+                        /**
+                         * Encodes the specified Empty message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.Empty.verify|verify} messages.
+                         * @param message Empty message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.SearchRecipesResponse.IEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes an Empty message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns Empty
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.Empty;
                     }
 
                     /** Properties of a Hit. */

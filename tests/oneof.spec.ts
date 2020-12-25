@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
 import { Decode, Encode, oneis, oneof } from '../src';
-import { whisk_api_user_v2_TestOneof } from './proto';
+import { whisk_api_user_v2_TestEmpty, whisk_api_user_v2_TestOneof } from './proto';
 import { whisk } from './protobufjs/out';
 
 describe('protobuf wrapper', () => {
@@ -48,5 +48,31 @@ describe('protobuf wrapper', () => {
     expect(Array.from(binA)).toMatchObject(Array.from(binB));
     expect(Decode(whisk_api_user_v2_TestOneof, binA)).toMatchObject(data);
     expect(whisk.api.user.v2.TestOneof.decode(binB)).toMatchObject(dataB);
+  });
+
+  it('encode/decode', () => {
+    const dataX: whisk_api_user_v2_TestEmpty = {
+      id: '1',
+      item: {
+        oneof: 'global',
+        value: {},
+      },
+    };
+
+    const dataY = {
+      id: '1',
+      device: 'global',
+      global: {},
+    };
+
+    const binA = Encode(whisk_api_user_v2_TestEmpty, dataX);
+    const binB = whisk.api.user.v2.TestEmpty.encode(dataY).finish();
+
+    expect(Array.from(binA)).toMatchObject(Array.from(binB));
+    expect(Decode(whisk_api_user_v2_TestEmpty, binA)).toEqual(dataX);
+    expect(whisk.api.user.v2.TestEmpty.decode(binB)).toEqual({
+      id: '1',
+      global: {},
+    });
   });
 });

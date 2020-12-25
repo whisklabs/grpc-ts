@@ -783,16 +783,29 @@ export type whisk_api_user_v2_TestOneof = {
     | { oneof: 'customDevice'; value: string; };
 };
 export const whisk_api_user_v2_TestOneof: Field<whisk_api_user_v2_TestOneof>;
+export type whisk_api_user_v2_TestEmpty = {
+  id: string;
+  item?:
+    | { oneof: 'global'; value: whisk_api_user_v2_TestEmpty_GlobalRegion; }
+    | { oneof: 'any'; value?: whisk_api_user_v2_TestEmpty_GlobalRegion; }
+    | { oneof: 'local'; value: string; };
+};
+export const whisk_api_user_v2_TestEmpty: Field<whisk_api_user_v2_TestEmpty>;
+export type whisk_api_user_v2_TestEmpty_GlobalRegion = FieldEmpty;
+export const whisk_api_user_v2_TestEmpty_GlobalRegion: Field<whisk_api_user_v2_TestEmpty_GlobalRegion>;
 export type whisk_api_user_v2_SearchRecipesResponse = {
   hit: whisk_api_user_v2_SearchRecipesResponse_Hit[];
   date?: whisk_api_shared_v1_Date;
   dates: whisk_api_shared_v1_Date[];
+  empty?: whisk_api_user_v2_SearchRecipesResponse_Empty;
 };
 export const whisk_api_user_v2_SearchRecipesResponse: Field<whisk_api_user_v2_SearchRecipesResponse>;
 export type whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient = {
   name: string;
 };
 export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient: Field<whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient>;
+export type whisk_api_user_v2_SearchRecipesResponse_Empty = FieldEmpty;
+export const whisk_api_user_v2_SearchRecipesResponse_Empty: Field<whisk_api_user_v2_SearchRecipesResponse_Empty>;
 export type whisk_api_user_v2_SearchRecipesResponse_Hit = {
   /**  @deprecated */
   content?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient;

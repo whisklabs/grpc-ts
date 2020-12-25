@@ -223,8 +223,22 @@ message TestOneof {
   }
 }
 
+message TestEmpty {
+  string id = 1;
+
+  message GlobalRegion {}
+
+  oneof item {
+    GlobalRegion global = 2 [ required = true ];
+    GlobalRegion any = 3;
+    string local = 4;
+  }
+}
+
 message SearchRecipesResponse {
   message MatchedIngredient { string name = 1; }
+
+  message Empty {}
 
   message Hit {
     MatchedIngredient content = 1 [ deprecated = true ];
@@ -236,6 +250,7 @@ message SearchRecipesResponse {
   repeated Hit hit = 1;
   whisk.api.shared.v1.Date date = 2;
   repeated whisk.api.shared.v1.Date dates = 3;
+  Empty empty = 4;
 }
 
 message ApiUpdateBusinessApp {

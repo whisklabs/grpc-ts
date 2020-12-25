@@ -79,6 +79,7 @@ describe('protobuf wrapper', () => {
         month: 0,
         year: 0,
       },
+      empty: {},
     };
 
     const ser2: whisk.api.user.v2.SearchRecipesResponse = {
@@ -89,6 +90,7 @@ describe('protobuf wrapper', () => {
         month: 0,
         year: 0,
       },
+      empty: {},
     };
 
     const binA = Encode(whisk_api_user_v2_SearchRecipesResponse, ser);

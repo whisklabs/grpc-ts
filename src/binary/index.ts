@@ -65,11 +65,9 @@ function EncodeWrite(buf: BufWrite, item: FieldType, tag: number, val: unknown) 
     writeMap[item as WriteMapKeys](buf, tag, val as never);
   } else if (isFunction(item)) {
     const enc = EncodeHelper(new BufWrite(), item, val);
-    if (enc.buf.length) {
-      writeTag(buf, tag, Bytes);
-      writeVarint(buf, enc.buf.length);
-      buf.concat(enc.buf);
-    }
+    writeTag(buf, tag, Bytes);
+    writeVarint(buf, enc.buf.length);
+    buf.concat(enc.buf);
   } else if (isArray(item)) {
     if (item[0] === 'repeated' && isArray(val)) {
       if (PACKED[item[1] as string]) {

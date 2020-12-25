@@ -9818,6 +9818,210 @@ export const whisk = $root.whisk = (() => {
                     return TestOneof;
                 })();
 
+                v2.TestEmpty = (function() {
+
+                    /**
+                     * Properties of a TestEmpty.
+                     * @memberof whisk.api.user.v2
+                     * @interface ITestEmpty
+                     * @property {string|null} [id] TestEmpty id
+                     * @property {whisk.api.user.v2.TestEmpty.IGlobalRegion|null} [global] TestEmpty global
+                     * @property {whisk.api.user.v2.TestEmpty.IGlobalRegion|null} [any] TestEmpty any
+                     * @property {string|null} [local] TestEmpty local
+                     */
+
+                    /**
+                     * Constructs a new TestEmpty.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a TestEmpty.
+                     * @implements ITestEmpty
+                     * @constructor
+                     * @param {whisk.api.user.v2.ITestEmpty=} [properties] Properties to set
+                     */
+                    function TestEmpty(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * TestEmpty id.
+                     * @member {string} id
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @instance
+                     */
+                    TestEmpty.prototype.id = "";
+
+                    /**
+                     * TestEmpty global.
+                     * @member {whisk.api.user.v2.TestEmpty.IGlobalRegion|null|undefined} global
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @instance
+                     */
+                    TestEmpty.prototype.global = null;
+
+                    /**
+                     * TestEmpty any.
+                     * @member {whisk.api.user.v2.TestEmpty.IGlobalRegion|null|undefined} any
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @instance
+                     */
+                    TestEmpty.prototype.any = null;
+
+                    /**
+                     * TestEmpty local.
+                     * @member {string} local
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @instance
+                     */
+                    TestEmpty.prototype.local = "";
+
+                    // OneOf field names bound to virtual getters and setters
+                    let $oneOfFields;
+
+                    /**
+                     * TestEmpty item.
+                     * @member {"global"|"any"|"local"|undefined} item
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @instance
+                     */
+                    Object.defineProperty(TestEmpty.prototype, "item", {
+                        get: $util.oneOfGetter($oneOfFields = ["global", "any", "local"]),
+                        set: $util.oneOfSetter($oneOfFields)
+                    });
+
+                    /**
+                     * Encodes the specified TestEmpty message. Does not implicitly {@link whisk.api.user.v2.TestEmpty.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @static
+                     * @param {whisk.api.user.v2.ITestEmpty} message TestEmpty message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    TestEmpty.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                        if (message.global != null && Object.hasOwnProperty.call(message, "global"))
+                            $root.whisk.api.user.v2.TestEmpty.GlobalRegion.encode(message.global, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                        if (message.any != null && Object.hasOwnProperty.call(message, "any"))
+                            $root.whisk.api.user.v2.TestEmpty.GlobalRegion.encode(message.any, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                        if (message.local != null && Object.hasOwnProperty.call(message, "local"))
+                            writer.uint32(/* id 4, wireType 2 =*/34).string(message.local);
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a TestEmpty message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.TestEmpty
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.TestEmpty} TestEmpty
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    TestEmpty.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.TestEmpty();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.id = reader.string();
+                                break;
+                            case 2:
+                                message.global = $root.whisk.api.user.v2.TestEmpty.GlobalRegion.decode(reader, reader.uint32());
+                                break;
+                            case 3:
+                                message.any = $root.whisk.api.user.v2.TestEmpty.GlobalRegion.decode(reader, reader.uint32());
+                                break;
+                            case 4:
+                                message.local = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    TestEmpty.GlobalRegion = (function() {
+
+                        /**
+                         * Properties of a GlobalRegion.
+                         * @memberof whisk.api.user.v2.TestEmpty
+                         * @interface IGlobalRegion
+                         */
+
+                        /**
+                         * Constructs a new GlobalRegion.
+                         * @memberof whisk.api.user.v2.TestEmpty
+                         * @classdesc Represents a GlobalRegion.
+                         * @implements IGlobalRegion
+                         * @constructor
+                         * @param {whisk.api.user.v2.TestEmpty.IGlobalRegion=} [properties] Properties to set
+                         */
+                        function GlobalRegion(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Encodes the specified GlobalRegion message. Does not implicitly {@link whisk.api.user.v2.TestEmpty.GlobalRegion.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.TestEmpty.GlobalRegion
+                         * @static
+                         * @param {whisk.api.user.v2.TestEmpty.IGlobalRegion} message GlobalRegion message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GlobalRegion.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes a GlobalRegion message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.TestEmpty.GlobalRegion
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.TestEmpty.GlobalRegion} GlobalRegion
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GlobalRegion.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.TestEmpty.GlobalRegion();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        return GlobalRegion;
+                    })();
+
+                    return TestEmpty;
+                })();
+
                 v2.SearchRecipesResponse = (function() {
 
                     /**
@@ -9827,6 +10031,7 @@ export const whisk = $root.whisk = (() => {
                      * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.IHit>|null} [hit] SearchRecipesResponse hit
                      * @property {whisk.api.shared.v1.IDate|null} [date] SearchRecipesResponse date
                      * @property {Array.<whisk.api.shared.v1.IDate>|null} [dates] SearchRecipesResponse dates
+                     * @property {whisk.api.user.v2.SearchRecipesResponse.IEmpty|null} [empty] SearchRecipesResponse empty
                      */
 
                     /**
@@ -9871,6 +10076,14 @@ export const whisk = $root.whisk = (() => {
                     SearchRecipesResponse.prototype.dates = $util.emptyArray;
 
                     /**
+                     * SearchRecipesResponse empty.
+                     * @member {whisk.api.user.v2.SearchRecipesResponse.IEmpty|null|undefined} empty
+                     * @memberof whisk.api.user.v2.SearchRecipesResponse
+                     * @instance
+                     */
+                    SearchRecipesResponse.prototype.empty = null;
+
+                    /**
                      * Encodes the specified SearchRecipesResponse message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.verify|verify} messages.
                      * @function encode
                      * @memberof whisk.api.user.v2.SearchRecipesResponse
@@ -9890,6 +10103,8 @@ export const whisk = $root.whisk = (() => {
                         if (message.dates != null && message.dates.length)
                             for (let i = 0; i < message.dates.length; ++i)
                                 $root.whisk.api.shared.v1.Date.encode(message.dates[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                        if (message.empty != null && Object.hasOwnProperty.call(message, "empty"))
+                            $root.whisk.api.user.v2.SearchRecipesResponse.Empty.encode(message.empty, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                         return writer;
                     };
 
@@ -9923,6 +10138,9 @@ export const whisk = $root.whisk = (() => {
                                 if (!(message.dates && message.dates.length))
                                     message.dates = [];
                                 message.dates.push($root.whisk.api.shared.v1.Date.decode(reader, reader.uint32()));
+                                break;
+                            case 4:
+                                message.empty = $root.whisk.api.user.v2.SearchRecipesResponse.Empty.decode(reader, reader.uint32());
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -10011,6 +10229,73 @@ export const whisk = $root.whisk = (() => {
                         };
 
                         return MatchedIngredient;
+                    })();
+
+                    SearchRecipesResponse.Empty = (function() {
+
+                        /**
+                         * Properties of an Empty.
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse
+                         * @interface IEmpty
+                         */
+
+                        /**
+                         * Constructs a new Empty.
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse
+                         * @classdesc Represents an Empty.
+                         * @implements IEmpty
+                         * @constructor
+                         * @param {whisk.api.user.v2.SearchRecipesResponse.IEmpty=} [properties] Properties to set
+                         */
+                        function Empty(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Encodes the specified Empty message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.Empty.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse.Empty
+                         * @static
+                         * @param {whisk.api.user.v2.SearchRecipesResponse.IEmpty} message Empty message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Empty.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes an Empty message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse.Empty
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.SearchRecipesResponse.Empty} Empty
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Empty.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.SearchRecipesResponse.Empty();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        return Empty;
                     })();
 
                     SearchRecipesResponse.Hit = (function() {

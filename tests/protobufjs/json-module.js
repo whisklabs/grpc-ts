@@ -1835,6 +1835,43 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                       }
                     }
                   },
+                  TestEmpty: {
+                    oneofs: {
+                      item: {
+                        oneof: [
+                          "global",
+                          "any",
+                          "local"
+                        ]
+                      }
+                    },
+                    fields: {
+                      id: {
+                        type: "string",
+                        id: 1
+                      },
+                      global: {
+                        type: "GlobalRegion",
+                        id: 2,
+                        options: {
+                          required: true
+                        }
+                      },
+                      any: {
+                        type: "GlobalRegion",
+                        id: 3
+                      },
+                      local: {
+                        type: "string",
+                        id: 4
+                      }
+                    },
+                    nested: {
+                      GlobalRegion: {
+                        fields: {}
+                      }
+                    }
+                  },
                   SearchRecipesResponse: {
                     fields: {
                       hit: {
@@ -1850,6 +1887,10 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                         rule: "repeated",
                         type: "whisk.api.shared.v1.Date",
                         id: 3
+                      },
+                      empty: {
+                        type: "Empty",
+                        id: 4
                       }
                     },
                     nested: {
@@ -1860,6 +1901,9 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                             id: 1
                           }
                         }
+                      },
+                      Empty: {
+                        fields: {}
                       },
                       Hit: {
                         fields: {
