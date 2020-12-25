@@ -100,15 +100,24 @@ export function cloneInternal(source: unknown, objs: unknown[]): unknown {
   }
 }
 
-export const unwrap = async <K, S, E>(
+export function unwrap<K, S, E>(
+  result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
+  onSuccess: (data: K) => S | Promise<S>,
+  onError: ((error: GError['error']) => E | Promise<E>) | undefined
+): Promise<S | E>;
+export function unwrap<K, S>(
+  result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
+  onSuccess: (data: K) => S | Promise<S>
+): Promise<S | undefined>;
+export async function unwrap<K, S, E>(
   result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
   onSuccess: (data: K) => S | Promise<S>,
   onError?: (error: GError['error']) => E | Promise<E>
-): Promise<S | E | undefined> => {
+): Promise<S | E | undefined> {
   const resp = await result;
   if (resp.success) {
     return onSuccess(resp.data);
   } else {
     return onError?.(resp.error);
   }
-};
+}

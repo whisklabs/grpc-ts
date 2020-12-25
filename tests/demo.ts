@@ -158,4 +158,19 @@ const TOKEN = '123';
   );
 
   console.log(userEmail);
+
+  const userEmailStrict = await unwrap(
+    grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
+    data => data.user?.email ?? 'Default',
+    () => 'Nobody'
+  );
+
+  console.log(userEmailStrict);
+
+  const userEmailShort = await unwrap(
+    grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
+    data => data.user?.email ?? 'User'
+  );
+
+  console.log(userEmailShort);
 })();
