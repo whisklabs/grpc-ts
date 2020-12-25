@@ -749,9 +749,9 @@ var whisk_api_user_v2_TestOneof = function () { return [
 exports.whisk_api_user_v2_TestOneof = whisk_api_user_v2_TestOneof;
 var whisk_api_user_v2_TestEmpty = function () { return [
     [1, "id", "string", 1],
-    [2, "global", exports.whisk_api_user_v2_TestEmpty_GlobalRegion, 1, "item"],
-    [3, "any", exports.whisk_api_user_v2_TestEmpty_GlobalRegion, 0, "item"],
-    [4, "local", "string", 1, "item"],
+    [2, "global", exports.whisk_api_user_v2_TestEmpty_GlobalRegion, 1, "itemNameLong"],
+    [3, "any", exports.whisk_api_user_v2_TestEmpty_GlobalRegion, 0, "itemNameLong"],
+    [4, "local", "string", 1, "itemNameLong"],
 ]; };
 exports.whisk_api_user_v2_TestEmpty = whisk_api_user_v2_TestEmpty;
 var whisk_api_user_v2_TestEmpty_GlobalRegion = function () { return []; };

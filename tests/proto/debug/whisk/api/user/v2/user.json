@@ -1260,7 +1260,7 @@
           "options": {
             "required": true
           },
-          "oneof": "item"
+          "oneof": "item_name_long"
         },
         {
           "name": "any",
@@ -1270,7 +1270,7 @@
           "repeated": false,
           "optional": false,
           "options": {},
-          "oneof": "item"
+          "oneof": "item_name_long"
         },
         {
           "name": "local",
@@ -1280,7 +1280,7 @@
           "repeated": false,
           "optional": false,
           "options": {},
-          "oneof": "item"
+          "oneof": "item_name_long"
         }
       ],
       "extends": [],

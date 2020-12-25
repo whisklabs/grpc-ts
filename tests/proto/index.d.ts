@@ -785,7 +785,7 @@ export type whisk_api_user_v2_TestOneof = {
 export const whisk_api_user_v2_TestOneof: Field<whisk_api_user_v2_TestOneof>;
 export type whisk_api_user_v2_TestEmpty = {
   id: string;
-  item?:
+  itemNameLong?:
     | { oneof: 'global'; value: whisk_api_user_v2_TestEmpty_GlobalRegion; }
     | { oneof: 'any'; value?: whisk_api_user_v2_TestEmpty_GlobalRegion; }
     | { oneof: 'local'; value: string; };

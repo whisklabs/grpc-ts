@@ -4393,8 +4393,8 @@ export namespace whisk {
                     /** TestEmpty local. */
                     public local: string;
 
-                    /** TestEmpty item. */
-                    public item?: ("global"|"any"|"local");
+                    /** TestEmpty itemNameLong. */
+                    public itemNameLong?: ("global"|"any"|"local");
 
                     /**
                      * Encodes the specified TestEmpty message. Does not implicitly {@link whisk.api.user.v2.TestEmpty.verify|verify} messages.

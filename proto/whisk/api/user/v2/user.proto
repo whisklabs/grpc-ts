@@ -228,7 +228,7 @@ message TestEmpty {
 
   message GlobalRegion {}
 
-  oneof item {
+  oneof item_name_long {
     GlobalRegion global = 2 [ required = true ];
     GlobalRegion any = 3;
     string local = 4;

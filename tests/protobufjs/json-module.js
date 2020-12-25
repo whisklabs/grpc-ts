@@ -1837,7 +1837,7 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                   },
                   TestEmpty: {
                     oneofs: {
-                      item: {
+                      itemNameLong: {
                         oneof: [
                           "global",
                           "any",

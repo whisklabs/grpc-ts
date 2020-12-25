@@ -9881,12 +9881,12 @@ export const whisk = $root.whisk = (() => {
                     let $oneOfFields;
 
                     /**
-                     * TestEmpty item.
-                     * @member {"global"|"any"|"local"|undefined} item
+                     * TestEmpty itemNameLong.
+                     * @member {"global"|"any"|"local"|undefined} itemNameLong
                      * @memberof whisk.api.user.v2.TestEmpty
                      * @instance
                      */
-                    Object.defineProperty(TestEmpty.prototype, "item", {
+                    Object.defineProperty(TestEmpty.prototype, "itemNameLong", {
                         get: $util.oneOfGetter($oneOfFields = ["global", "any", "local"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });

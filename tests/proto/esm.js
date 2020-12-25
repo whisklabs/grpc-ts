@@ -656,9 +656,9 @@ export var whisk_api_user_v2_TestOneof = function () { return [
 ]; };
 export var whisk_api_user_v2_TestEmpty = function () { return [
     [1, "id", "string", 1],
-    [2, "global", whisk_api_user_v2_TestEmpty_GlobalRegion, 1, "item"],
-    [3, "any", whisk_api_user_v2_TestEmpty_GlobalRegion, 0, "item"],
-    [4, "local", "string", 1, "item"],
+    [2, "global", whisk_api_user_v2_TestEmpty_GlobalRegion, 1, "itemNameLong"],
+    [3, "any", whisk_api_user_v2_TestEmpty_GlobalRegion, 0, "itemNameLong"],
+    [4, "local", "string", 1, "itemNameLong"],
 ]; };
 export var whisk_api_user_v2_TestEmpty_GlobalRegion = function () { return []; };
 export var whisk_api_user_v2_SearchRecipesResponse = function () { return [

@@ -1834,7 +1834,7 @@
                     },
                     "TestEmpty": {
                       "oneofs": {
-                        "item": {
+                        "itemNameLong": {
                           "oneof": [
                             "global",
                             "any",

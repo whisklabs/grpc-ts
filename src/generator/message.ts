@@ -60,6 +60,8 @@ function message(pack: string, out: MakeOuts, item: Message, list: List[], enums
       const required = isRequired(field);
 
       if (isText(field.oneof)) {
+        field.oneof = camelCase(field.oneof);
+
         oneof[field.oneof] = oneof[field.oneof] ?? [];
         oneof[field.oneof].push(field);
       } else {

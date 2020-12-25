@@ -53,7 +53,7 @@ describe('protobuf wrapper', () => {
   it('encode/decode', () => {
     const dataX: whisk_api_user_v2_TestEmpty = {
       id: '1',
-      item: {
+      itemNameLong: {
         oneof: 'global',
         value: {},
       },
@@ -61,7 +61,7 @@ describe('protobuf wrapper', () => {
 
     const dataY = {
       id: '1',
-      device: 'global',
+      itemNameLong: 'global',
       global: {},
     };
 
