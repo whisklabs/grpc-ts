@@ -120,9 +120,9 @@ function message(pack: string, out: MakeOuts, item: Message, list: List[], enums
   }
 
   out.dts.push(`export const ${baseName}: Field<${baseName}>;`);
-  out.js.push(`export const ${baseName} = () => [`);
+  out.js.push(`export function ${baseName} () { return [`);
   for (const field of runtime) {
     out.js.push(field);
   }
-  out.js.push('];');
+  out.js.push(']; }');
 }

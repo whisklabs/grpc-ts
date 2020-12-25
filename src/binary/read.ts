@@ -5,6 +5,7 @@ import { readUtf8 } from './utf8';
 export class BufRead {
   pos = 0;
   type = 0;
+  path = '';
 
   constructor(public buf: Uint8Array) {}
 }
@@ -20,7 +21,7 @@ export const skip = (b: BufRead, val: number) => {
   } else if (type === Fixed64) {
     b.pos += 8;
   } else {
-    throw new Error(`Unimplemented type: ${type}`);
+    throw new Error(`Unimplemented type: ${type} in path "${b.path}"`);
   }
 };
 
@@ -79,7 +80,7 @@ function readVarintRemainder(low: number, b: BufRead) {
     return [low, high];
   }
 
-  throw new Error('Expected varint not more than 10 bytes');
+  throw new Error(`Expected varint not more than 10 bytes in path "${b.path}"`);
 }
 
 const toNum = ([low, high]: number[], s: boolean) => {

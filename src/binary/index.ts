@@ -134,10 +134,18 @@ const GetDefault = (item: FieldType) =>
     ? getDefault(item[1])
     : undefined;
 
-function DecodeHelper<T extends Record<string, any>>(b: BufRead, struct: Field, result = {} as T, end?: number) {
+function DecodeHelper<T extends Record<string, any>>(
+  b: BufRead,
+  struct: Field,
+  result = {} as T,
+  path = '',
+  end?: number
+) {
   const { s } = GetStruct(struct);
 
   end = end || b.buf.length;
+
+  b.path = path;
 
   while (b.pos < end) {
     const val = readVarint(b);
@@ -147,8 +155,8 @@ function DecodeHelper<T extends Record<string, any>>(b: BufRead, struct: Field, 
     b.type = val & 0x7;
 
     if (s[tag]) {
-      const [, nameField, item, , oneof] = s[tag];
-      DecodeRead(b, nameField, result, item);
+      const [id, nameField, item, , oneof] = s[tag];
+      DecodeRead(b, nameField, result, `${path ? `${path}.` : ''}${nameField}[${id}]`, item);
 
       if (oneof) {
         if (result[nameField]) {
@@ -167,13 +175,13 @@ function DecodeHelper<T extends Record<string, any>>(b: BufRead, struct: Field, 
   return DecodeDefault(struct, result);
 }
 
-function DecodeRead(b: BufRead, fieldName: string, result: Record<string, unknown>, item: FieldType) {
+function DecodeRead(b: BufRead, fieldName: string, result: Record<string, unknown>, path: string, item: FieldType) {
   if (isString(item)) {
     if (readMap[item as ReadMapKeys]) {
       result[fieldName] = getDefault(item, readMap[item as ReadMapKeys](b));
     }
   } else if (isFunction(item)) {
-    result[fieldName] = DecodeHelper(b, item, {}, readVarint(b) + b.pos);
+    result[fieldName] = DecodeHelper(b, item, {}, path, readVarint(b) + b.pos);
   } else if (isArray(item)) {
     if (item[0] === 'repeated') {
       if (isString(item[1]) && PACKED[item[1]]) {
@@ -183,17 +191,17 @@ function DecodeRead(b: BufRead, fieldName: string, result: Record<string, unknow
         const m = isArray(mm) ? mm : [];
         result[fieldName] = m;
         const o = {} as { out: unknown };
-        DecodeRead(b, 'out', o, item[1]);
+        DecodeRead(b, 'out', o, path, item[1]);
         m.push(o.out);
       }
     } else if (item[0] === 'map') {
       const mm = result[fieldName];
       const m = isObject(mm) ? mm : {};
       result[fieldName] = m;
-      const o = DecodeHelper(b, MapStruct(item), {} as { key: string; value: unknown }, readVarint(b) + b.pos);
+      const o = DecodeHelper(b, MapStruct(item), {} as { key: string; value: unknown }, path, readVarint(b) + b.pos);
       m[o.key] = o.value;
     } else if (item[0] === 'wrapper') {
-      const o = DecodeHelper(b, WrapperStruct(item[1]), {} as { value: unknown }, readVarint(b) + b.pos);
+      const o = DecodeHelper(b, WrapperStruct(item[1]), {} as { value: unknown }, path, readVarint(b) + b.pos);
       result[fieldName] = o.value;
     }
   }

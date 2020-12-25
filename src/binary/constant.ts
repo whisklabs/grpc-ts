@@ -8,9 +8,17 @@ export const Fixed32 = 5; // 32-bit: float, fixed32, sfixed32
 export const SHIFT_LEFT_32 = (1 << 16) * (1 << 16);
 export const SHIFT_RIGHT_32 = 1 / SHIFT_LEFT_32;
 
-export const MapStruct = (item: FieldMap): Field => () => [
-  [1, 'key', item[1], 1],
-  [2, 'value', item[2], 1],
-];
+export function MapStruct(item: FieldMap): Field {
+  return function MapValue() {
+    return [
+      [1, 'key', item[1], 1],
+      [2, 'value', item[2], 1],
+    ];
+  };
+}
 
-export const WrapperStruct = (value: string): Field => () => [[1, 'value', value, 1]];
+export function WrapperStruct(value: string): Field {
+  return function Wrapper() {
+    return [[1, 'value', value, 1]];
+  };
+}
