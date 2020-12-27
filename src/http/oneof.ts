@@ -10,9 +10,9 @@ interface Oneof<T = unknown> {
 }
 
 export function oneof<T extends Oneof<unknown>, TValue extends string, Result>(
-  base?: T | undefined,
-  key?: (TValue extends T['oneof'] ? TValue : T['oneof']) | undefined,
-  fn?: ((v: OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value']) => Result) | undefined
+  base: T | undefined,
+  key: (TValue extends T['oneof'] ? TValue : T['oneof']) | undefined,
+  fn: ((v: OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value']) => Result) | undefined
 ): Result | undefined;
 export function oneof<T extends Oneof<unknown>, TValue extends string, Result>(
   base?: T | undefined,
