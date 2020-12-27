@@ -173,4 +173,12 @@ const TOKEN = '123';
   );
 
   console.log(userEmailShort);
+
+  const userEmailError = await unwrap(
+    grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
+    undefined,
+    () => 'Nobody'
+  );
+
+  console.log(userEmailError);
 })();

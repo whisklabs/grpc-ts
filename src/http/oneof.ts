@@ -9,19 +9,28 @@ interface Oneof<T = unknown> {
   value?: unknown;
 }
 
-export const oneof = <T extends Oneof, TValue extends string, Result>(
+export function oneof<T extends Oneof<unknown>, TValue extends string, Result>(
+  base?: T | undefined,
+  key?: (TValue extends T['oneof'] ? TValue : T['oneof']) | undefined,
+  fn?: ((v: OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value']) => Result) | undefined
+): Result | undefined;
+export function oneof<T extends Oneof<unknown>, TValue extends string, Result>(
+  base?: T | undefined,
+  key?: (TValue extends T['oneof'] ? TValue : T['oneof']) | undefined
+): OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value'] | undefined;
+export function oneof<T extends Oneof, TValue extends string, Result>(
   base?: OneofWrapper<T>['item'],
   key?: TValue extends OneofWrapper<T>['item']['oneof'] ? TValue : OneofWrapper<T>['item']['oneof'],
   fn?: (v: OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value']) => Result
-  // eslint-disable-next-line @typescript-eslint/ban-types
-): (typeof fn extends Function ? Result : OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value']) | undefined =>
-  isString(key) && isObject(base)
+): Result | OneofWrapper<Extract<T, Oneof<TValue>>>['item']['value'] | undefined {
+  return isString(key) && isObject(base)
     ? base.oneof === key
       ? isFunction(fn)
         ? fn(base.value)
         : base.value
       : undefined
     : base?.value;
+}
 
 export const oneis = <T extends Oneof, TValue extends string>(
   base?: OneofWrapper<T>['item'],

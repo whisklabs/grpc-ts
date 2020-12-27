@@ -109,14 +109,19 @@ export function unwrap<K, S>(
   result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
   onSuccess: (data: K) => S | Promise<S>
 ): Promise<S | undefined>;
+export function unwrap<K, E>(
+  result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
+  onSuccess: undefined,
+  onError: ((error: GError['error']) => E | Promise<E>) | undefined
+): Promise<E | undefined>;
 export async function unwrap<K, S, E>(
   result: GError | GSuccess<K> | Promise<GError | GSuccess<K>>,
-  onSuccess: (data: K) => S | Promise<S>,
+  onSuccess: ((data: K) => S | Promise<S> | undefined) | undefined,
   onError?: (error: GError['error']) => E | Promise<E>
 ): Promise<S | E | undefined> {
   const resp = await result;
   if (resp.success) {
-    return onSuccess(resp.data);
+    return onSuccess?.(resp.data);
   } else {
     return onError?.(resp.error);
   }
