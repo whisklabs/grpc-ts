@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.4](https://github.com/whisklabs/grpc-ts/compare/v1.0.3...v1.0.4) (2020-12-28)
+
+### Build system or external dependencies
+
+- Update deps ([89a43ee](https://github.com/whisklabs/grpc-ts/commit/89a43ee501579064ae0a02acd0c099cd7223a093))
+
+### Bug Fixes
+
+- encode empty message ([3a7f196](https://github.com/whisklabs/grpc-ts/commit/3a7f196d812ea1fcce3d44655605ebb3e33b1799))
+- oneof name convert to camelCase ([c413e12](https://github.com/whisklabs/grpc-ts/commit/c413e12c23590ec78ef2fc467ec8569cf98990c9))
+- typings unwrap ([aa95cf2](https://github.com/whisklabs/grpc-ts/commit/aa95cf29f2efc11f38d75a20506078ac254696ae))
+- improve typings ([d0b8f35](https://github.com/whisklabs/grpc-ts/commit/d0b8f35acb43edc1fa110b667a444925da7ee098))
+- oneof typings ([c147012](https://github.com/whisklabs/grpc-ts/commit/c1470125348f631f339efa9c73edc8335ac8457e))
+
+### Refactoring
+
+- improve path of read error ([6ff5e20](https://github.com/whisklabs/grpc-ts/commit/6ff5e20f27a3358c6fe91a28be40e8d1cd6c67c4))
+
 ## [v1.0.3](https://github.com/whisklabs/grpc-ts/compare/v1.0.2...v1.0.3) (2020-11-17)
 
 ### Continuous Integration
