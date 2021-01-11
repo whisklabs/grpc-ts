@@ -6,7 +6,7 @@ import { send } from './devtool';
 import { maskWrap } from './mask';
 import { Chunk, ChunkType, chunkParse } from './parser';
 import { StatusCode, fromHttpStatus } from './status';
-import { Cancel, ConfigGRPC, GError, GRPC, GSuccess, LocalGRPC } from './types';
+import { Cancel, ConfigGRPC, GError, GOutput, GRPC, LocalGRPC } from './types';
 import { GRPC_MESSAGE, GRPC_STATUS, encodeRequest, safeJSON, toInt8 } from './utils';
 
 export const grpcCancel = (): Cancel => {
@@ -38,7 +38,7 @@ export const grpcHTTP = ({
     field: Service<T, K>,
     values = {} as ServiceRequest<Service<T, K>>,
     { cancel, onDownload, onUpload, mask, timeout }: LocalGRPC<T> = {}
-  ): Promise<GSuccess<ServiceResponse<Service<T, K>>> | GError> => {
+  ): Promise<GOutput<ServiceResponse<Service<T, K>>>> => {
     if (isString(cancel) && isFunction(cancels[cancel])) {
       cancels[cancel]();
       delete cancels[cancel];
@@ -69,7 +69,7 @@ export const grpcHTTP = ({
     let sendData: FieldGet<T> = values;
 
     // eslint-disable-next-line @typescript-eslint/no-misused-promises, no-async-promise-executor
-    return new Promise<GSuccess<ServiceResponse<Service<T, K>>> | GError>(async callback => {
+    return new Promise<GOutput<ServiceResponse<Service<T, K>>>>(async callback => {
       const time = timeout ?? timeoutConfig;
 
       if (isNumber(time) && time > 0) {

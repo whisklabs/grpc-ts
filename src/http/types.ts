@@ -7,10 +7,17 @@ import { Field, FieldGet, Service, ServiceRequest, ServiceResponse } from '../ty
 export type GSuccess<T> = {
   success: true;
   data: T;
+  error?: {
+    data?: unknown;
+    message?: string;
+    httpStatus?: number;
+    grpcCode?: number;
+  };
 };
 
 export type GError = {
   success: false;
+  data?: undefined;
   error: {
     data?: unknown;
     message?: string;
@@ -18,6 +25,19 @@ export type GError = {
     grpcCode?: number;
   };
 };
+
+export type GResult<T> = {
+  success: never;
+  data?: T;
+  error?: {
+    data?: unknown;
+    message?: string;
+    httpStatus?: number;
+    grpcCode?: number;
+  };
+};
+
+export type GOutput<T> = GSuccess<T> | GError | GResult<T>;
 
 type LoggerFn = (message?: any, ...optionalParams: any[]) => void;
 
@@ -33,7 +53,7 @@ export interface ConfigGRPC {
     info: LoggerFn;
   };
   transformRequest?<T>(params: { xhr: XMLHttpRequest; data: T }): T | void | Promise<T | void>;
-  transformResponse?<T>(params: { data: GSuccess<T> | GError }): GSuccess<T> | GError | Promise<GSuccess<T> | GError>;
+  transformResponse?<T>(params: { data: GOutput<T> }): GOutput<T> | Promise<GOutput<T>>;
 }
 
 export interface Cancel {
@@ -63,13 +83,13 @@ export type GRPC = <T extends Field, K extends Field>(
   ...[field, values, options]: {} extends ServiceRequest<Service<T, K>>
     ? [Service<T, K>, ServiceRequest<Service<T, K>>?, LocalGRPC<T>?]
     : [Service<T, K>, ServiceRequest<Service<T, K>>, LocalGRPC<T>?]
-) => Promise<GSuccess<ServiceResponse<Service<T, K>>> | GError>;
+) => Promise<GOutput<ServiceResponse<Service<T, K>>>>;
 
 export type GRPCDeep = <T extends Field, K extends Field>(
   ...[field, values, options]: {} extends ServiceRequestDeep<Service<T, K>>
     ? [Service<T, K>, ServiceRequestDeep<Service<T, K>>?, LocalGRPC<T>?]
     : [Service<T, K>, ServiceRequestDeep<Service<T, K>>, LocalGRPC<T>?]
-) => Promise<GSuccess<ServiceResponseDeep<Service<DeepReadonly<T>, DeepReadonly<K>>>> | GError>;
+) => Promise<GOutput<ServiceResponseDeep<Service<DeepReadonly<T>, DeepReadonly<K>>>>>;
 
 // ...[method, params]: T[P]['request'] extends undefined ? [P] : [P, T[P]['request']]
 
