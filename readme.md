@@ -245,6 +245,17 @@ if (user.success) {
     res.error.httpStatus // number?
   );
 }
+
+// Destruction example for flatten style
+const { data: me, error } = await grpc(whisk_api_user_v2_UserAPI_GetMe);
+
+if (me) {
+  console.log(me.user?.email);
+}
+
+if (error) {
+  console.log(error.message);
+}
 ```
 
 #### Cancel requests
@@ -443,6 +454,18 @@ const item = await unwrap(
     /* ... */
   }
 );
+
+// throw as usual promise
+const err = e => {
+  throw e;
+};
+
+try {
+  const request = grpc(whisk_api_user_v2_UserAPI_GetMe);
+  const email = await unwrap(request, data => data.user?.email, err);
+} catch (e) {
+  console.error(e);
+}
 ```
 
 ## Messages and typings

@@ -124,6 +124,11 @@ const TOKEN = '123';
     }
   );
 
+  const { data, error } = res;
+
+  console.log(data?.user?.email);
+  console.log(error?.httpStatus);
+
   if (res.success) {
     console.log(res.data.user?.hasPassword);
   } else {
@@ -150,7 +155,7 @@ const TOKEN = '123';
 
   const userEmail = await unwrap(
     grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
-    data => data.user?.email,
+    d => d.user?.email,
     e => {
       console.log(e);
       return 1000;
@@ -161,7 +166,7 @@ const TOKEN = '123';
 
   const userEmailStrict = await unwrap(
     grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
-    data => data.user?.email ?? 'Default',
+    d => d.user?.email ?? 'Default',
     () => 'Nobody'
   );
 
@@ -169,7 +174,7 @@ const TOKEN = '123';
 
   const userEmailShort = await unwrap(
     grpc(whisk_api_user_v2_UserAPI_UpdateSettings, { id: 'abc' }),
-    data => data.user?.email ?? 'User'
+    d => d.user?.email ?? 'User'
   );
 
   console.log(userEmailShort);
