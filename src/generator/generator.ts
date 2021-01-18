@@ -1,4 +1,4 @@
-import { Schema } from '../parser/types';
+import { Parser } from '../parser';
 
 export interface Config {
   dir: string;
@@ -14,7 +14,7 @@ export interface Config {
 
 export interface Out {
   filepaths: string[];
-  schemas: Schema[];
+  schemas: Parser.Schema[];
 }
 
 export type MakeOut = string | null;

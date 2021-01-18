@@ -1,21 +1,21 @@
-import { Method, Service } from '../parser/types';
+import { Parser } from '../parser';
 import { pathField } from './field';
 import { MakeOuts } from './generator';
 import { checkDublicate, safeString } from './utils';
 
-export function services(pack: string, out: MakeOuts, items: Service[] = []) {
+export function services(pack: string, out: MakeOuts, items: Parser.Service[] = []) {
   for (const msg of items) {
     service(pack, out, msg);
   }
 }
 
-function service(pack: string, out: MakeOuts, item: Service) {
+function service(pack: string, out: MakeOuts, item: Parser.Service) {
   for (const msg of item.methods) {
     method(pack, out, msg, item);
   }
 }
 
-export function method(pack: string, out: MakeOuts, item: Method, serv: Service) {
+export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: Parser.Service) {
   const sName = `${safeString(pack)}_${serv.name}_${item.name}`;
   const input = pathField(item.inputType, pack);
   const output = pathField(item.outputType, pack);

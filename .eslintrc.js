@@ -176,6 +176,7 @@ module.exports = {
       'undefined',
     ],
     'id-match': 'error',
+    'import/export': 'off',
     'import/order': [
       'error',
       {

@@ -129,6 +129,9 @@ const TOKEN = '123';
   console.log(data?.user?.email);
   console.log(error?.httpStatus);
 
+  console.log(res.success && res.data.user?.hasPassword);
+  console.log(!res.success && res.error.message);
+
   if (res.success) {
     console.log(res.data.user?.hasPassword);
   } else {

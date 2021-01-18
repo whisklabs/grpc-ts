@@ -1,16 +1,16 @@
 import { isPresent, isString, isText } from '@whisklabs/typeguards';
 
-import { Field, Message } from '../parser/types';
+import { Parser } from '../parser';
 import { GOOGLE_WRAPPERS } from './constants';
 import { enums } from './enum';
-import { getField, getStruct, isRequired } from './field';
+import { getField, getStruct, isRequiredField } from './field';
 import { EnumsList, List, MakeOut, MakeOuts } from './generator';
 import { camelCase, checkDublicate, checkSame, errorColor, safeString } from './utils';
 
 export function messages(
   pack: string,
   out: MakeOuts,
-  items: Message[],
+  items: Parser.Message[],
   list: List[] = [],
   enumsList: EnumsList,
   parent?: string
@@ -31,13 +31,20 @@ export function messages(
 }
 
 // eslint-disable-next-line complexity
-function message(pack: string, out: MakeOuts, item: Message, list: List[], enumsList: EnumsList, parent?: string) {
+function message(
+  pack: string,
+  out: MakeOuts,
+  item: Parser.Message,
+  list: List[],
+  enumsList: EnumsList,
+  parent?: string
+) {
   const base = `${safeString(parent ?? pack)}_${safeString(item.name)}`;
   enums(base, out, item.enums, enumsList);
 
   const runtime: MakeOut[] = [];
   const baseName = safeString(base);
-  const oneof = {} as Record<string, Field[]>;
+  const oneof = {} as Record<string, Parser.Field[]>;
 
   const packName = `${pack}.${item.name}`;
   checkDublicate(baseName, out, `${isString(parent) ? `${parent}.` : ''}${packName}`);
@@ -57,7 +64,7 @@ function message(pack: string, out: MakeOuts, item: Message, list: List[], enums
       const find = list.find(i => i.name === field.map?.to || i.name === field.type);
       const fieldPack = isPresent(find) ? find.pack : pack;
       const naming = camelCase(field.name);
-      const required = isRequired(field);
+      const required = isRequiredField(field);
 
       if (isText(field.oneof)) {
         field.oneof = camelCase(field.oneof);
@@ -105,7 +112,7 @@ function message(pack: string, out: MakeOuts, item: Message, list: List[], enums
         const fieldName = getField(field, fieldPack, enumsList, `in "${baseName}" field "${naming}"`, out);
 
         out.dts.push(
-          `    | { oneof: '${naming}'; value${isRequired(field) ? '' : '?'}: ${fieldName}${
+          `    | { oneof: '${naming}'; value${isRequiredField(field) ? '' : '?'}: ${fieldName}${
             field.repeated ? '[]' : ''
           }; }`
         );
