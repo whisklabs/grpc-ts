@@ -232,6 +232,9 @@ import { grpc } from './grpc';
 // You not need use catch for more flatten code without try {}
 const user = await grpc(whisk_api_user_v2_UserAPI_GetMe);
 
+console.log(user.success && user.data.user?.email);
+console.log(!user.success && user.error.message);
+
 if (user.success) {
   // If success we have typed data
   // You don't need do any extra check
@@ -239,15 +242,18 @@ if (user.success) {
 } else {
   // If error we have same structure with optional fields
   console.log(
-    res.error.message, // string?
-    res.error.data, // unknown? | Object - lib tries do safe JSON.parse
-    res.error.grpcCode, // number?
-    res.error.httpStatus // number?
+    user.error.message, // string?
+    user.error.data, // unknown? | Object - lib tries do safe JSON.parse
+    user.error.grpcCode, // number?
+    user.error.httpStatus // number?
   );
 }
 
 // Destruction example for flatten style
 const { data: me, error } = await grpc(whisk_api_user_v2_UserAPI_GetMe);
+
+console.log(me?.user?.email);
+console.log(error?.message);
 
 if (me) {
   console.log(me.user?.email);

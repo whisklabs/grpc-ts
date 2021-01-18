@@ -1,16 +1,22 @@
 import { isPresent, isString } from '@whisklabs/typeguards';
 
-import { Field } from '../parser/types';
+import { Parser } from '../parser';
 import { GOOGLE_WRAPPERS, TYPES } from './constants';
 import { EnumsList, MakeOuts } from './generator';
 import { safeString } from './utils';
 
-export const getField = (field: Field, base: string, enumsList: EnumsList, name: string, out: MakeOuts): string => {
+export const getField = (
+  field: Parser.Field,
+  base: string,
+  enumsList: EnumsList,
+  name: string,
+  out: MakeOuts
+): string => {
   const type = field.type;
 
   if (type === 'map') {
-    const to = getField({ type: field.map?.to } as Field, base, enumsList, name, out);
-    const from = getField({ type: field.map?.from } as Field, base, enumsList, name, out);
+    const to = getField({ type: field.map?.to } as Parser.Field, base, enumsList, name, out);
+    const from = getField({ type: field.map?.from } as Parser.Field, base, enumsList, name, out);
     return `Record<${from}, ${to}>`;
   } else if (isString(TYPES[type])) {
     return TYPES[type];
@@ -23,15 +29,15 @@ export const getField = (field: Field, base: string, enumsList: EnumsList, name:
   }
 };
 
-export const getStruct = (field: Field, base: string, enumsList: EnumsList): string => {
+export const getStruct = (field: Parser.Field, base: string, enumsList: EnumsList): string => {
   const type = field.type;
 
   if (type === 'map') {
-    const from = getStruct({ type: field.map?.from } as Field, base, enumsList);
-    const to = getStruct({ type: field.map?.to } as Field, base, enumsList);
+    const from = getStruct({ type: field.map?.from } as Parser.Field, base, enumsList);
+    const to = getStruct({ type: field.map?.to } as Parser.Field, base, enumsList);
     return `["map", ${from}, ${to}]`;
   } else if (field.repeated) {
-    return `["repeated", ${getStruct({ type } as Field, base, enumsList)}]`;
+    return `["repeated", ${getStruct({ type } as Parser.Field, base, enumsList)}]`;
   } else if (isString(TYPES[type])) {
     return `"${type}"`;
   } else if (isString(GOOGLE_WRAPPERS[type])) {
@@ -45,11 +51,12 @@ export const getStruct = (field: Field, base: string, enumsList: EnumsList): str
 export const pathField = (field: string, base: string) =>
   /\./.test(field) ? safeString(field) : safeString(`${base}_${field}`);
 
-export const isRequired = (field: Field) =>
+export const isRequiredField = (field: Parser.Field) =>
   isPresent(field.options.required)
     ? field.options.required !== false
     : field.optional
     ? false
     : field.required || field.repeated || field.type === 'map' || isString(TYPES[field.type]);
 
-export const isEnum = (field: Field, base: string, enumsList: EnumsList) => enumsList.has(pathField(field.type, base));
+export const isEnumField = (field: Parser.Field, base: string, enumsList: EnumsList) =>
+  enumsList.has(pathField(field.type, base));

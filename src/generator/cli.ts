@@ -6,7 +6,7 @@ import { isText } from '@whisklabs/typeguards';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
-import { generator } from '.';
+import { generator } from './main';
 
 const {
   PROTO_DIR,

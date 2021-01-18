@@ -1,16 +1,16 @@
 import { isNumber } from '@whisklabs/typeguards';
 
-import { Enum } from '../parser/types';
+import { Parser } from '../parser';
 import { EnumsList, MakeOuts } from './generator';
 import { checkDublicate, checkSame, safeString } from './utils';
 
-export function enums(pack: string, out: MakeOuts, items: Enum[], enumsList: EnumsList) {
+export function enums(pack: string, out: MakeOuts, items: Parser.Enum[], enumsList: EnumsList) {
   for (const msg of items) {
     enu(`${pack}_${msg.name}`, out, msg, enumsList);
   }
 }
 
-function enu(pack: string, out: MakeOuts, item: Enum, enumsList: EnumsList) {
+function enu(pack: string, out: MakeOuts, item: Parser.Enum, enumsList: EnumsList) {
   const eName = safeString(pack);
   enumsList.add(eName);
 
@@ -23,7 +23,7 @@ function enu(pack: string, out: MakeOuts, item: Enum, enumsList: EnumsList) {
 
   for (const field in item.values) {
     const val = item.values[field].value;
-    if (isNumber(val) && !isNaN(val) && !isInvalid(field, val)) {
+    if (isNumber(val) && !isNaN(val) && !isInvalidEnumField(field, val)) {
       cID(val, `${pack}.${field}`);
       cName(field, `${pack}.${field}`);
       out.js.push(`  ${field}: ${val},`);
@@ -36,5 +36,5 @@ function enu(pack: string, out: MakeOuts, item: Enum, enumsList: EnumsList) {
   out.dts.push(`export type ${eName} = Values<typeof ${eName}>;`);
 }
 
-const isInvalid = (field: string, val: number) =>
+const isInvalidEnumField = (field: string, val: number) =>
   val === 0 && (field.endsWith('_UNSPECIFIED') || field.endsWith('_INVALID'));
