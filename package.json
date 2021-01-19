@@ -41,7 +41,8 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "generator"
   ],
   "scripts": {
     "check-types": "tsc --noEmit",
@@ -49,9 +50,8 @@
     "build:cjs": "tsc -p tsconfig.build.json",
     "build:esm": "tsc -p tsconfig.build.json --module es2015 --outDir ./dist/esm/",
     "build:types": "tsc -p tsconfig.build.json --outDir ./dist/types/ --declaration --emitDeclarationOnly",
-    "build:generator": "mkdir -p dist/generator && cp src/generator.json dist/generator/package.json",
     "build:clean": "rimraf dist/**",
-    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types && npm run build:generator",
+    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types",
     "pretest": "npm run build && npm run grpc:protobufjs && npm run gprc:generator",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
