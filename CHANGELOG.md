@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.5](https://github.com/whisklabs/grpc-ts/compare/v1.0.4...v1.0.5) (2021-1-19)
+
+### Bug Fixes
+
+- return generator in package ([fcf2841](https://github.com/whisklabs/grpc-ts/commit/fcf2841181d5ab5c07bd6d56ea7fcab055bb6fe6))
+
+### Refactoring
+
+- flatten destruction data from request ([a1b75a6](https://github.com/whisklabs/grpc-ts/commit/a1b75a6ed263c920db384c1ce5ea889d55bebdaf))
+- allow import internal types ([7837186](https://github.com/whisklabs/grpc-ts/commit/78371868769c7e3cc3f97227eb449222ec3fbc10))
+
 ## [v1.0.4](https://github.com/whisklabs/grpc-ts/compare/v1.0.3...v1.0.4) (2020-12-28)
 
 ### Build system or external dependencies
