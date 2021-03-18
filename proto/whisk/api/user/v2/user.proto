@@ -236,14 +236,17 @@ message TestEmpty {
 }
 
 message SearchRecipesResponse {
-  message MatchedIngredient { string name = 1; }
+  message MatchedIngredient { 
+    string name = 1;
+    message Recommendations { int32 daily_calories = 1; }
+  }
 
   message Empty {}
 
   message Hit {
     MatchedIngredient content = 1 [ deprecated = true ];
     repeated MatchedIngredient ingredients = 2 [ required = true ];
-    map<string, MatchedIngredient> map_ingredients = 3;
+    map<string, MatchedIngredient.Recommendations> map_ingredients = 3;
     map<string, TestItem> map_external = 4;
   }
 
@@ -251,6 +254,10 @@ message SearchRecipesResponse {
   whisk.api.shared.v1.Date date = 2;
   repeated whisk.api.shared.v1.Date dates = 3;
   Empty empty = 4;
+}
+
+message DeepCheck {
+  repeated SearchRecipesResponse.Hit items = 1;
 }
 
 message ApiUpdateBusinessApp {

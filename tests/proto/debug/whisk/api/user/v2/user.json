@@ -1296,7 +1296,28 @@
           "name": "MatchedIngredient",
           "enums": [],
           "options": {},
-          "messages": [],
+          "messages": [
+            {
+              "name": "Recommendations",
+              "enums": [],
+              "options": {},
+              "messages": [],
+              "fields": [
+                {
+                  "name": "daily_calories",
+                  "type": "int32",
+                  "tag": 1,
+                  "required": false,
+                  "repeated": false,
+                  "optional": false,
+                  "options": {}
+                }
+              ],
+              "extends": [],
+              "extensions": [],
+              "reserved": []
+            }
+          ],
           "fields": [
             {
               "name": "name",
@@ -1360,7 +1381,7 @@
               "options": {},
               "map": {
                 "from": "string",
-                "to": "MatchedIngredient"
+                "to": "MatchedIngredient.Recommendations"
               }
             },
             {
@@ -1416,6 +1437,26 @@
           "tag": 4,
           "required": false,
           "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "DeepCheck",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "items",
+          "type": "SearchRecipesResponse.Hit",
+          "tag": 1,
+          "required": false,
+          "repeated": true,
           "optional": false,
           "options": {}
         }

@@ -25,6 +25,7 @@ export type MakeOuts = {
   names: Set<string>;
   fields: [string, string][];
   errors: string[];
+  roots: Set<string>;
 };
 
 export type List = { name: string; pack: string };

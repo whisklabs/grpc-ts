@@ -804,16 +804,24 @@ export type whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient = {
   name: string;
 };
 export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient: Field<whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient>;
+export type whisk_api_user_v2_MatchedIngredient_Recommendations = {
+  dailyCalories: number;
+};
+export const whisk_api_user_v2_MatchedIngredient_Recommendations: Field<whisk_api_user_v2_MatchedIngredient_Recommendations>;
 export type whisk_api_user_v2_SearchRecipesResponse_Empty = FieldEmpty;
 export const whisk_api_user_v2_SearchRecipesResponse_Empty: Field<whisk_api_user_v2_SearchRecipesResponse_Empty>;
 export type whisk_api_user_v2_SearchRecipesResponse_Hit = {
   /**  @deprecated */
   content?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient;
   ingredients: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient[];
-  mapIngredients: Record<string, whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient>;
+  mapIngredients: Record<string, whisk_api_user_v2_MatchedIngredient_Recommendations>;
   mapExternal: Record<string, whisk_api_user_v2_TestItem>;
 };
 export const whisk_api_user_v2_SearchRecipesResponse_Hit: Field<whisk_api_user_v2_SearchRecipesResponse_Hit>;
+export type whisk_api_user_v2_DeepCheck = {
+  items: whisk_api_user_v2_SearchRecipesResponse_Hit[];
+};
+export const whisk_api_user_v2_DeepCheck: Field<whisk_api_user_v2_DeepCheck>;
 export type whisk_api_user_v2_ApiUpdateBusinessApp = {
   id: string;
   appAny?: whisk_api_user_v2_TestItem;

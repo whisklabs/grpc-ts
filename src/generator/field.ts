@@ -23,33 +23,39 @@ export const getField = (
   } else if (isString(TYPES[GOOGLE_WRAPPERS[type]])) {
     return TYPES[GOOGLE_WRAPPERS[type]];
   } else {
-    const sName = pathField(type, base);
+    const sName = pathField(type, base, out);
     out.fields.push([sName, name]);
     return enumsList.has(sName) ? `${sName}` : sName;
   }
 };
 
-export const getStruct = (field: Parser.Field, base: string, enumsList: EnumsList): string => {
+export const getStruct = (field: Parser.Field, base: string, enumsList: EnumsList, out: MakeOuts): string => {
   const type = field.type;
 
   if (type === 'map') {
-    const from = getStruct({ type: field.map?.from } as Parser.Field, base, enumsList);
-    const to = getStruct({ type: field.map?.to } as Parser.Field, base, enumsList);
+    const from = getStruct({ type: field.map?.from } as Parser.Field, base, enumsList, out);
+    const to = getStruct({ type: field.map?.to } as Parser.Field, base, enumsList, out);
     return `["map", ${from}, ${to}]`;
   } else if (field.repeated) {
-    return `["repeated", ${getStruct({ type } as Parser.Field, base, enumsList)}]`;
+    return `["repeated", ${getStruct({ type } as Parser.Field, base, enumsList, out)}]`;
   } else if (isString(TYPES[type])) {
     return `"${type}"`;
   } else if (isString(GOOGLE_WRAPPERS[type])) {
     return `["wrapper", "${GOOGLE_WRAPPERS[type]}"]`;
   } else {
-    const sName = pathField(field.type, base);
+    const sName = pathField(field.type, base, out);
     return enumsList.has(sName) ? '"enum"' : sName;
   }
 };
 
-export const pathField = (field: string, base: string) =>
-  /\./.test(field) ? safeString(field) : safeString(`${base}_${field}`);
+export const pathField = (field: string, base: string, out: MakeOuts) => {
+  let inRoot = false;
+  out.roots.forEach(root => {
+    inRoot = inRoot || field.startsWith(root);
+  });
+
+  return inRoot ? safeString(field) : safeString(`${base}_${field}`);
+};
 
 export const isRequiredField = (field: Parser.Field) =>
   isPresent(field.options.required)
@@ -58,5 +64,5 @@ export const isRequiredField = (field: Parser.Field) =>
     ? false
     : field.required || field.repeated || field.type === 'map' || isString(TYPES[field.type]);
 
-export const isEnumField = (field: Parser.Field, base: string, enumsList: EnumsList) =>
-  enumsList.has(pathField(field.type, base));
+export const isEnumField = (field: Parser.Field, base: string, enumsList: EnumsList, out: MakeOuts) =>
+  enumsList.has(pathField(field.type, base, out));

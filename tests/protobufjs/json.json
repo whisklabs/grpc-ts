@@ -1897,6 +1897,16 @@
                               "type": "string",
                               "id": 1
                             }
+                          },
+                          "nested": {
+                            "Recommendations": {
+                              "fields": {
+                                "dailyCalories": {
+                                  "type": "int32",
+                                  "id": 1
+                                }
+                              }
+                            }
                           }
                         },
                         "Empty": {
@@ -1921,7 +1931,7 @@
                             },
                             "mapIngredients": {
                               "keyType": "string",
-                              "type": "MatchedIngredient",
+                              "type": "MatchedIngredient.Recommendations",
                               "id": 3
                             },
                             "mapExternal": {
@@ -1930,6 +1940,15 @@
                               "id": 4
                             }
                           }
+                        }
+                      }
+                    },
+                    "DeepCheck": {
+                      "fields": {
+                        "items": {
+                          "rule": "repeated",
+                          "type": "SearchRecipesResponse.Hit",
+                          "id": 1
                         }
                       }
                     },

@@ -856,6 +856,11 @@ export function whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient() {
         [1, "name", "string", 1],
     ];
 }
+export function whisk_api_user_v2_MatchedIngredient_Recommendations() {
+    return [
+        [1, "dailyCalories", "int32", 1],
+    ];
+}
 export function whisk_api_user_v2_SearchRecipesResponse_Empty() {
     return [];
 }
@@ -863,8 +868,13 @@ export function whisk_api_user_v2_SearchRecipesResponse_Hit() {
     return [
         [1, "content", whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient, 0],
         [2, "ingredients", ["repeated", whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient], 1],
-        [3, "mapIngredients", ["map", "string", whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient], 1],
+        [3, "mapIngredients", ["map", "string", whisk_api_user_v2_MatchedIngredient_Recommendations], 1],
         [4, "mapExternal", ["map", "string", whisk_api_user_v2_TestItem], 1],
+    ];
+}
+export function whisk_api_user_v2_DeepCheck() {
+    return [
+        [1, "items", ["repeated", whisk_api_user_v2_SearchRecipesResponse_Hit], 1],
     ];
 }
 export function whisk_api_user_v2_ApiUpdateBusinessApp() {

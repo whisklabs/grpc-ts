@@ -1900,6 +1900,16 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                             type: "string",
                             id: 1
                           }
+                        },
+                        nested: {
+                          Recommendations: {
+                            fields: {
+                              dailyCalories: {
+                                type: "int32",
+                                id: 1
+                              }
+                            }
+                          }
                         }
                       },
                       Empty: {
@@ -1924,7 +1934,7 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                           },
                           mapIngredients: {
                             keyType: "string",
-                            type: "MatchedIngredient",
+                            type: "MatchedIngredient.Recommendations",
                             id: 3
                           },
                           mapExternal: {
@@ -1933,6 +1943,15 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                             id: 4
                           }
                         }
+                      }
+                    }
+                  },
+                  DeepCheck: {
+                    fields: {
+                      items: {
+                        rule: "repeated",
+                        type: "SearchRecipesResponse.Hit",
+                        id: 1
                       }
                     }
                   },
