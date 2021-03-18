@@ -4546,6 +4546,47 @@ export namespace whisk {
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient;
                     }
 
+                    namespace MatchedIngredient {
+
+                        /** Properties of a Recommendations. */
+                        interface IRecommendations {
+
+                            /** Recommendations dailyCalories */
+                            dailyCalories?: (number|null);
+                        }
+
+                        /** Represents a Recommendations. */
+                        class Recommendations implements IRecommendations {
+
+                            /**
+                             * Constructs a new Recommendations.
+                             * @param [properties] Properties to set
+                             */
+                            constructor(properties?: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations);
+
+                            /** Recommendations dailyCalories. */
+                            public dailyCalories: number;
+
+                            /**
+                             * Encodes the specified Recommendations message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.verify|verify} messages.
+                             * @param message Recommendations message or plain object to encode
+                             * @param [writer] Writer to encode to
+                             * @returns Writer
+                             */
+                            public static encode(message: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                            /**
+                             * Decodes a Recommendations message from the specified reader or buffer.
+                             * @param reader Reader or buffer to decode from
+                             * @param [length] Message length if known beforehand
+                             * @returns Recommendations
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations;
+                        }
+                    }
+
                     /** Properties of an Empty. */
                     interface IEmpty {
                     }
@@ -4588,7 +4629,7 @@ export namespace whisk {
                         ingredients?: (whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient[]|null);
 
                         /** Hit mapIngredients */
-                        mapIngredients?: ({ [k: string]: whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient }|null);
+                        mapIngredients?: ({ [k: string]: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations }|null);
 
                         /** Hit mapExternal */
                         mapExternal?: ({ [k: string]: whisk.api.user.v2.ITestItem }|null);
@@ -4610,7 +4651,7 @@ export namespace whisk {
                         public ingredients: whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient[];
 
                         /** Hit mapIngredients. */
-                        public mapIngredients: { [k: string]: whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient };
+                        public mapIngredients: { [k: string]: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations };
 
                         /** Hit mapExternal. */
                         public mapExternal: { [k: string]: whisk.api.user.v2.ITestItem };
@@ -4633,6 +4674,44 @@ export namespace whisk {
                          */
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.Hit;
                     }
+                }
+
+                /** Properties of a DeepCheck. */
+                interface IDeepCheck {
+
+                    /** DeepCheck items */
+                    items?: (whisk.api.user.v2.SearchRecipesResponse.IHit[]|null);
+                }
+
+                /** Represents a DeepCheck. */
+                class DeepCheck implements IDeepCheck {
+
+                    /**
+                     * Constructs a new DeepCheck.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.IDeepCheck);
+
+                    /** DeepCheck items. */
+                    public items: whisk.api.user.v2.SearchRecipesResponse.IHit[];
+
+                    /**
+                     * Encodes the specified DeepCheck message. Does not implicitly {@link whisk.api.user.v2.DeepCheck.verify|verify} messages.
+                     * @param message DeepCheck message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.IDeepCheck, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeepCheck message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeepCheck
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.DeepCheck;
                 }
 
                 /** Properties of an ApiUpdateBusinessApp. */

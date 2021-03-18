@@ -17,8 +17,8 @@ function service(pack: string, out: MakeOuts, item: Parser.Service) {
 
 export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: Parser.Service) {
   const sName = `${safeString(pack)}_${serv.name}_${item.name}`;
-  const input = pathField(item.inputType, pack);
-  const output = pathField(item.outputType, pack);
+  const input = pathField(item.inputType, pack, out);
+  const output = pathField(item.outputType, pack, out);
 
   checkDublicate(sName, out, `${pack}.${serv.name}.${item.name}`);
   out.fields.push([input, sName], [output, sName]);

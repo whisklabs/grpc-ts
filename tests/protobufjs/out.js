@@ -10228,6 +10228,87 @@ export const whisk = $root.whisk = (() => {
                             return message;
                         };
 
+                        MatchedIngredient.Recommendations = (function() {
+
+                            /**
+                             * Properties of a Recommendations.
+                             * @memberof whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient
+                             * @interface IRecommendations
+                             * @property {number|null} [dailyCalories] Recommendations dailyCalories
+                             */
+
+                            /**
+                             * Constructs a new Recommendations.
+                             * @memberof whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient
+                             * @classdesc Represents a Recommendations.
+                             * @implements IRecommendations
+                             * @constructor
+                             * @param {whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations=} [properties] Properties to set
+                             */
+                            function Recommendations(properties) {
+                                if (properties)
+                                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+
+                            /**
+                             * Recommendations dailyCalories.
+                             * @member {number} dailyCalories
+                             * @memberof whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations
+                             * @instance
+                             */
+                            Recommendations.prototype.dailyCalories = 0;
+
+                            /**
+                             * Encodes the specified Recommendations message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.verify|verify} messages.
+                             * @function encode
+                             * @memberof whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations
+                             * @static
+                             * @param {whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations} message Recommendations message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            Recommendations.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.dailyCalories != null && Object.hasOwnProperty.call(message, "dailyCalories"))
+                                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.dailyCalories);
+                                return writer;
+                            };
+
+                            /**
+                             * Decodes a Recommendations message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations} Recommendations
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            Recommendations.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations();
+                                while (reader.pos < end) {
+                                    let tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                    case 1:
+                                        message.dailyCalories = reader.int32();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+
+                            return Recommendations;
+                        })();
+
                         return MatchedIngredient;
                     })();
 
@@ -10306,7 +10387,7 @@ export const whisk = $root.whisk = (() => {
                          * @interface IHit
                          * @property {whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient|null} [content] Hit content
                          * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient>|null} [ingredients] Hit ingredients
-                         * @property {Object.<string,whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient>|null} [mapIngredients] Hit mapIngredients
+                         * @property {Object.<string,whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations>|null} [mapIngredients] Hit mapIngredients
                          * @property {Object.<string,whisk.api.user.v2.ITestItem>|null} [mapExternal] Hit mapExternal
                          */
 
@@ -10346,7 +10427,7 @@ export const whisk = $root.whisk = (() => {
 
                         /**
                          * Hit mapIngredients.
-                         * @member {Object.<string,whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient>} mapIngredients
+                         * @member {Object.<string,whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations>} mapIngredients
                          * @memberof whisk.api.user.v2.SearchRecipesResponse.Hit
                          * @instance
                          */
@@ -10380,7 +10461,7 @@ export const whisk = $root.whisk = (() => {
                             if (message.mapIngredients != null && Object.hasOwnProperty.call(message, "mapIngredients"))
                                 for (let keys = Object.keys(message.mapIngredients), i = 0; i < keys.length; ++i) {
                                     writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                                    $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.encode(message.mapIngredients[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                    $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.encode(message.mapIngredients[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                                 }
                             if (message.mapExternal != null && Object.hasOwnProperty.call(message, "mapExternal"))
                                 for (let keys = Object.keys(message.mapExternal), i = 0; i < keys.length; ++i) {
@@ -10422,7 +10503,7 @@ export const whisk = $root.whisk = (() => {
                                         message.mapIngredients = {};
                                     key = reader.string();
                                     reader.pos++;
-                                    message.mapIngredients[key] = $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.decode(reader, reader.uint32());
+                                    message.mapIngredients[key] = $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.decode(reader, reader.uint32());
                                     break;
                                 case 4:
                                     reader.skip().pos++;
@@ -10444,6 +10525,91 @@ export const whisk = $root.whisk = (() => {
                     })();
 
                     return SearchRecipesResponse;
+                })();
+
+                v2.DeepCheck = (function() {
+
+                    /**
+                     * Properties of a DeepCheck.
+                     * @memberof whisk.api.user.v2
+                     * @interface IDeepCheck
+                     * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.IHit>|null} [items] DeepCheck items
+                     */
+
+                    /**
+                     * Constructs a new DeepCheck.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a DeepCheck.
+                     * @implements IDeepCheck
+                     * @constructor
+                     * @param {whisk.api.user.v2.IDeepCheck=} [properties] Properties to set
+                     */
+                    function DeepCheck(properties) {
+                        this.items = [];
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * DeepCheck items.
+                     * @member {Array.<whisk.api.user.v2.SearchRecipesResponse.IHit>} items
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @instance
+                     */
+                    DeepCheck.prototype.items = $util.emptyArray;
+
+                    /**
+                     * Encodes the specified DeepCheck message. Does not implicitly {@link whisk.api.user.v2.DeepCheck.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @static
+                     * @param {whisk.api.user.v2.IDeepCheck} message DeepCheck message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    DeepCheck.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.items != null && message.items.length)
+                            for (let i = 0; i < message.items.length; ++i)
+                                $root.whisk.api.user.v2.SearchRecipesResponse.Hit.encode(message.items[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a DeepCheck message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.DeepCheck} DeepCheck
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    DeepCheck.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.DeepCheck();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                if (!(message.items && message.items.length))
+                                    message.items = [];
+                                message.items.push($root.whisk.api.user.v2.SearchRecipesResponse.Hit.decode(reader, reader.uint32()));
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    return DeepCheck;
                 })();
 
                 v2.ApiUpdateBusinessApp = (function() {

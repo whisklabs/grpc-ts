@@ -83,7 +83,7 @@ function message(
         out.dts.push(`  ${naming}${required ? '' : '?'}: ${fieldName}${field.repeated ? '[]' : ''};`);
       }
 
-      const type = getStruct(field, fieldPack, enumsList);
+      const type = getStruct(field, fieldPack, enumsList, out);
       runtime.push(
         `  [${field.tag}, "${naming}", ${type}, ${required ? '1' : '0'}${
           isText(field.oneof) ? `, "${field.oneof}"` : ''

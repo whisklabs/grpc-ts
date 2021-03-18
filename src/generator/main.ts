@@ -135,7 +135,13 @@ export function make(schemas: Parser.Schema[]): MakeOuts {
     names: new Set(),
     errors: [],
     fields: [],
+    roots: new Set(),
   };
+
+  for (const schema of schemas) {
+    const path = schema.package ?? '';
+    out.roots.add(path);
+  }
 
   for (const schema of schemas) {
     const path = schema.package ?? '';
