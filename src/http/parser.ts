@@ -54,7 +54,7 @@ function sliceUint8Array(buffer: Uint8Array, from: number, to?: number) {
   return array;
 }
 
-export const enum ChunkType {
+export enum ChunkType {
   MESSAGE = 1,
   TRAILERS = 2,
 }
