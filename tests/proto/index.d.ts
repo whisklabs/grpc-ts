@@ -549,16 +549,16 @@ export type whisk_api_shared_v1_Test = {
 export const whisk_api_shared_v1_Test: Field<whisk_api_shared_v1_Test>;
 export type whisk_api_shared_v1_Test_Inner = {
   int32: number;
-  innerInner?: whisk_api_shared_v1_Inner_InnerInner;
+  innerInner?: whisk_api_shared_v1_Test_Inner_InnerInner;
   outer?: whisk_api_shared_v1_Outer;
 };
 export const whisk_api_shared_v1_Test_Inner: Field<whisk_api_shared_v1_Test_Inner>;
-export type whisk_api_shared_v1_Inner_InnerInner = {
+export type whisk_api_shared_v1_Test_Inner_InnerInner = {
   long: number;
   enum?: whisk_api_shared_v1_Test_Enum;
   sint32: number;
 };
-export const whisk_api_shared_v1_Inner_InnerInner: Field<whisk_api_shared_v1_Inner_InnerInner>;
+export const whisk_api_shared_v1_Test_Inner_InnerInner: Field<whisk_api_shared_v1_Test_Inner_InnerInner>;
 export type whisk_api_shared_v1_Outer = {
   bool: boolean[];
   double: number;
@@ -793,33 +793,55 @@ export type whisk_api_user_v2_TestEmpty = {
 export const whisk_api_user_v2_TestEmpty: Field<whisk_api_user_v2_TestEmpty>;
 export type whisk_api_user_v2_TestEmpty_GlobalRegion = FieldEmpty;
 export const whisk_api_user_v2_TestEmpty_GlobalRegion: Field<whisk_api_user_v2_TestEmpty_GlobalRegion>;
+export type whisk_api_user_v2_MatchedIngredient = {
+  name: string;
+};
+export const whisk_api_user_v2_MatchedIngredient: Field<whisk_api_user_v2_MatchedIngredient>;
+export type whisk_api_user_v2_MatchedIngredient_Calories = {
+  dailyCalories: number;
+};
+export const whisk_api_user_v2_MatchedIngredient_Calories: Field<whisk_api_user_v2_MatchedIngredient_Calories>;
 export type whisk_api_user_v2_SearchRecipesResponse = {
   hit: whisk_api_user_v2_SearchRecipesResponse_Hit[];
   date?: whisk_api_shared_v1_Date;
   dates: whisk_api_shared_v1_Date[];
   empty?: whisk_api_user_v2_SearchRecipesResponse_Empty;
+  items: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations[];
+  calories?: whisk_api_user_v2_MatchedIngredient_Calories;
+  size?: whisk_api_user_v2_Height_Unit;
+  size2?: whisk_api_user_v2_SearchRecipesResponse_Height_Unit2;
 };
 export const whisk_api_user_v2_SearchRecipesResponse: Field<whisk_api_user_v2_SearchRecipesResponse>;
 export type whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient = {
   name: string;
 };
 export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient: Field<whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient>;
-export type whisk_api_user_v2_MatchedIngredient_Recommendations = {
+export type whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations = {
   dailyCalories: number;
 };
-export const whisk_api_user_v2_MatchedIngredient_Recommendations: Field<whisk_api_user_v2_MatchedIngredient_Recommendations>;
+export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations: Field<whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations>;
 export type whisk_api_user_v2_SearchRecipesResponse_Empty = FieldEmpty;
 export const whisk_api_user_v2_SearchRecipesResponse_Empty: Field<whisk_api_user_v2_SearchRecipesResponse_Empty>;
 export type whisk_api_user_v2_SearchRecipesResponse_Hit = {
   /**  @deprecated */
   content?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient;
   ingredients: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient[];
-  mapIngredients: Record<string, whisk_api_user_v2_MatchedIngredient_Recommendations>;
+  mapIngredients: Record<string, whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations>;
+  mapCalories: Record<string, whisk_api_user_v2_MatchedIngredient_Calories>;
   mapExternal: Record<string, whisk_api_user_v2_TestItem>;
 };
 export const whisk_api_user_v2_SearchRecipesResponse_Hit: Field<whisk_api_user_v2_SearchRecipesResponse_Hit>;
+export const whisk_api_user_v2_SearchRecipesResponse_Height_Unit2: {
+  readonly UNIT_CM: 1,
+};
+export type whisk_api_user_v2_SearchRecipesResponse_Height_Unit2 = Values<typeof whisk_api_user_v2_SearchRecipesResponse_Height_Unit2>;
+export type whisk_api_user_v2_SearchRecipesResponse_Height = FieldEmpty;
+export const whisk_api_user_v2_SearchRecipesResponse_Height: Field<whisk_api_user_v2_SearchRecipesResponse_Height>;
 export type whisk_api_user_v2_DeepCheck = {
   items: whisk_api_user_v2_SearchRecipesResponse_Hit[];
+  recommendations: whisk_api_user_v2_MatchedIngredient_Calories[];
+  ingredients?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations;
+  size?: whisk_api_user_v2_Height_Unit;
 };
 export const whisk_api_user_v2_DeepCheck: Field<whisk_api_user_v2_DeepCheck>;
 export type whisk_api_user_v2_ApiUpdateBusinessApp = {

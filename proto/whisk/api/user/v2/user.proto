@@ -235,8 +235,14 @@ message TestEmpty {
   }
 }
 
+// Test on dublicate
+message MatchedIngredient { 
+  string name = 1;
+  message Calories { int32 daily_calories = 1; }
+}
+
 message SearchRecipesResponse {
-  message MatchedIngredient { 
+  message MatchedIngredient {
     string name = 1;
     message Recommendations { int32 daily_calories = 1; }
   }
@@ -247,17 +253,32 @@ message SearchRecipesResponse {
     MatchedIngredient content = 1 [ deprecated = true ];
     repeated MatchedIngredient ingredients = 2 [ required = true ];
     map<string, MatchedIngredient.Recommendations> map_ingredients = 3;
-    map<string, TestItem> map_external = 4;
+    map<string, MatchedIngredient.Calories> map_calories = 4;
+    map<string, TestItem> map_external = 5;
+  }
+
+  message Height {
+    enum Unit2 {
+      UNIT_INVALID = 0;
+      UNIT_CM = 1;
+    }
   }
 
   repeated Hit hit = 1;
   whisk.api.shared.v1.Date date = 2;
   repeated whisk.api.shared.v1.Date dates = 3;
   Empty empty = 4;
+  repeated MatchedIngredient.Recommendations items = 5;
+  MatchedIngredient.Calories calories = 6;
+  Height.Unit size = 7;
+  Height.Unit2 size2 = 8;
 }
 
 message DeepCheck {
   repeated SearchRecipesResponse.Hit items = 1;
+  repeated MatchedIngredient.Calories recommendations = 2;
+  SearchRecipesResponse.MatchedIngredient.Recommendations ingredients = 3;
+  Height.Unit size = 7;
 }
 
 message ApiUpdateBusinessApp {

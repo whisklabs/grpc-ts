@@ -6,8 +6,9 @@ import { extname, isAbsolute, join, parse as pathParse, relative } from 'path';
 import { CompilerOptions, ModuleKind, ModuleResolutionKind, ScriptTarget, transpileModule } from 'typescript';
 
 import { Parser, parser } from '../parser';
+import { collectEmuns, collectMessages, collectServices } from './collect';
 import { enums } from './enum';
-import { Config, EnumsList, MakeOuts, Out } from './generator';
+import { Config, MakeOuts, Out } from './generator';
 import { messages } from './message';
 import { services } from './service';
 import { walk } from './utils';
@@ -127,31 +128,33 @@ export function checkTypes(file: string, errors: string[]) {
 }
 
 export function make(schemas: Parser.Schema[]): MakeOuts {
-  const enumsList: EnumsList = new Set();
-
   const out: MakeOuts = {
     js: [],
     dts: [],
     names: new Set(),
     errors: [],
     fields: [],
-    roots: new Set(),
+    packagesList: new Set(),
+    enumsList: new Set(),
   };
 
   for (const schema of schemas) {
     const path = schema.package ?? '';
-    out.roots.add(path);
+    out.packagesList.add(path);
+
+    collectEmuns(path, out, schema.enums);
+    collectMessages(path, out, schema.messages);
+    collectServices(path, out, schema.services);
   }
 
   for (const schema of schemas) {
     const path = schema.package ?? '';
-    enums(path, out, schema.enums, enumsList);
+    enums(path, out, schema.enums);
   }
 
   for (const schema of schemas) {
     const path = schema.package ?? '';
-    messages(path, out, schema.messages, [], enumsList);
-
+    messages(path, out, schema.messages, []);
     services(path, out, schema.services);
   }
 

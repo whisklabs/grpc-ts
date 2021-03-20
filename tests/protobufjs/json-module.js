@@ -1872,6 +1872,24 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                       }
                     }
                   },
+                  MatchedIngredient: {
+                    fields: {
+                      name: {
+                        type: "string",
+                        id: 1
+                      }
+                    },
+                    nested: {
+                      Calories: {
+                        fields: {
+                          dailyCalories: {
+                            type: "int32",
+                            id: 1
+                          }
+                        }
+                      }
+                    }
+                  },
                   SearchRecipesResponse: {
                     fields: {
                       hit: {
@@ -1891,6 +1909,23 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                       empty: {
                         type: "Empty",
                         id: 4
+                      },
+                      items: {
+                        rule: "repeated",
+                        type: "MatchedIngredient.Recommendations",
+                        id: 5
+                      },
+                      calories: {
+                        type: "MatchedIngredient.Calories",
+                        id: 6
+                      },
+                      size: {
+                        type: "Height.Unit",
+                        id: 7
+                      },
+                      size2: {
+                        type: "Height.Unit2",
+                        id: 8
                       }
                     },
                     nested: {
@@ -1937,10 +1972,26 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                             type: "MatchedIngredient.Recommendations",
                             id: 3
                           },
+                          mapCalories: {
+                            keyType: "string",
+                            type: "MatchedIngredient.Calories",
+                            id: 4
+                          },
                           mapExternal: {
                             keyType: "string",
                             type: "TestItem",
-                            id: 4
+                            id: 5
+                          }
+                        }
+                      },
+                      Height: {
+                        fields: {},
+                        nested: {
+                          Unit2: {
+                            values: {
+                              UNIT_INVALID: 0,
+                              UNIT_CM: 1
+                            }
                           }
                         }
                       }
@@ -1952,6 +2003,19 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                         rule: "repeated",
                         type: "SearchRecipesResponse.Hit",
                         id: 1
+                      },
+                      recommendations: {
+                        rule: "repeated",
+                        type: "MatchedIngredient.Calories",
+                        id: 2
+                      },
+                      ingredients: {
+                        type: "SearchRecipesResponse.MatchedIngredient.Recommendations",
+                        id: 3
+                      },
+                      size: {
+                        type: "Height.Unit",
+                        id: 7
                       }
                     }
                   },

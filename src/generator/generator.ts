@@ -25,9 +25,8 @@ export type MakeOuts = {
   names: Set<string>;
   fields: [string, string][];
   errors: string[];
-  roots: Set<string>;
+  packagesList: Set<string>;
+  enumsList: Set<string>;
 };
 
 export type List = { name: string; pack: string };
-
-export type EnumsList = Set<string>;
