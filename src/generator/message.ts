@@ -4,50 +4,36 @@ import { Parser } from '../parser';
 import { GOOGLE_WRAPPERS } from './constants';
 import { enums } from './enum';
 import { getField, getStruct, isRequiredField } from './field';
-import { EnumsList, List, MakeOut, MakeOuts } from './generator';
-import { camelCase, checkDublicate, checkSame, errorColor, safeString } from './utils';
+import { List, MakeOut, MakeOuts } from './generator';
+import { camelCase, checkSame, errorColor, safeString } from './utils';
 
-export function messages(
-  pack: string,
-  out: MakeOuts,
-  items: Parser.Message[],
-  list: List[] = [],
-  enumsList: EnumsList,
-  parent?: string
-) {
+export function messages(pack: string, out: MakeOuts, items: Parser.Message[], list: List[] = [], parent?: string) {
   for (const msg of items) {
-    const newPack = `${pack}_${msg.name}`;
+    const newPack = `${parent ?? pack}_${msg.name}`;
     list = list.concat(
       msg.messages.map(i => ({ name: i.name, pack: newPack })),
       msg.enums.map(i => ({ name: i.name, pack: newPack }))
     );
 
-    message(pack, out, msg, list, enumsList, parent);
+    message(pack, out, msg, list, parent);
 
     if (msg.messages.length > 0) {
-      messages(pack, out, msg.messages, list, enumsList, newPack);
+      messages(pack, out, msg.messages, list, newPack);
     }
   }
 }
 
 // eslint-disable-next-line complexity
-function message(
-  pack: string,
-  out: MakeOuts,
-  item: Parser.Message,
-  list: List[],
-  enumsList: EnumsList,
-  parent?: string
-) {
+function message(pack: string, out: MakeOuts, item: Parser.Message, list: List[], parent?: string) {
   const base = `${safeString(parent ?? pack)}_${safeString(item.name)}`;
-  enums(base, out, item.enums, enumsList);
+  enums(base, out, item.enums);
 
   const runtime: MakeOut[] = [];
   const baseName = safeString(base);
   const oneof = {} as Record<string, Parser.Field[]>;
+  // const massagesNames = item.messages.map(m => m.name);
 
   const packName = `${pack}.${item.name}`;
-  checkDublicate(baseName, out, `${isString(parent) ? `${parent}.` : ''}${packName}`);
   const cID = checkSame(out, 'id');
   const cName = checkSame(out, 'name');
 
@@ -78,12 +64,18 @@ function message(
           out.dts.push('  /**  @deprecated */');
         }
 
-        const fieldName = getField(field, fieldPack, enumsList, `in "${baseName}" field "${naming}"`, out);
+        const fieldName = getField(
+          field,
+          fieldPack,
+          `in "${baseName}" field "${field.name} = ${field.tag}"`,
+          out,
+          baseName
+        );
 
         out.dts.push(`  ${naming}${required ? '' : '?'}: ${fieldName}${field.repeated ? '[]' : ''};`);
       }
 
-      const type = getStruct(field, fieldPack, enumsList, out);
+      const type = getStruct(field, fieldPack, out, baseName);
       runtime.push(
         `  [${field.tag}, "${naming}", ${type}, ${required ? '1' : '0'}${
           isText(field.oneof) ? `, "${field.oneof}"` : ''
@@ -109,7 +101,7 @@ function message(
 
         const naming = camelCase(field.name);
 
-        const fieldName = getField(field, fieldPack, enumsList, `in "${baseName}" field "${naming}"`, out);
+        const fieldName = getField(field, fieldPack, `in "${baseName}" field "${naming}"`, out, baseName);
 
         out.dts.push(
           `    | { oneof: '${naming}'; value${isRequiredField(field) ? '' : '?'}: ${fieldName}${

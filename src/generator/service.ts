@@ -1,7 +1,7 @@
 import { Parser } from '../parser';
 import { pathField } from './field';
 import { MakeOuts } from './generator';
-import { checkDublicate, safeString } from './utils';
+import { safeString } from './utils';
 
 export function services(pack: string, out: MakeOuts, items: Parser.Service[] = []) {
   for (const msg of items) {
@@ -20,7 +20,6 @@ export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: P
   const input = pathField(item.inputType, pack, out);
   const output = pathField(item.outputType, pack, out);
 
-  checkDublicate(sName, out, `${pack}.${serv.name}.${item.name}`);
   out.fields.push([input, sName], [output, sName]);
 
   out.dts.push(`export type ${sName} = Service<Field<${input}>, Field<${output}>>;`);

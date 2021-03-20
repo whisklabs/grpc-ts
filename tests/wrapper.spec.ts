@@ -1,7 +1,12 @@
 /* eslint-disable camelcase */
 
 import { Decode, Encode } from '../src';
-import { whisk_api_user_v2_SearchRecipesResponse, whisk_api_user_v2_TestItem } from './proto';
+import {
+  whisk_api_user_v2_Height_Unit,
+  whisk_api_user_v2_SearchRecipesResponse,
+  whisk_api_user_v2_SearchRecipesResponse_Height_Unit2,
+  whisk_api_user_v2_TestItem,
+} from './proto';
 import { whisk } from './protobufjs/out';
 
 describe('protobuf wrapper', () => {
@@ -13,6 +18,7 @@ describe('protobuf wrapper', () => {
       abc: {
         dates: [{ day: 1, month: 2, year: 3 }],
         hit: [],
+        items: [],
       },
     },
     test: 'xf',
@@ -39,6 +45,7 @@ describe('protobuf wrapper', () => {
       abc: {
         dates: [{ day: 1, month: 2, year: 3 }],
         hit: [],
+        items: [],
       },
     },
     test: {
@@ -73,24 +80,30 @@ describe('protobuf wrapper', () => {
   it('encode/decode empty message', () => {
     const ser: whisk_api_user_v2_SearchRecipesResponse = {
       dates: [],
-      hit: [{ ingredients: [{ name: '' }, { name: '123' }], mapExternal: {}, mapIngredients: {} }],
+      hit: [{ ingredients: [{ name: '' }, { name: '123' }], mapCalories: {}, mapExternal: {}, mapIngredients: {} }],
       date: {
         day: 0,
         month: 0,
         year: 0,
       },
       empty: {},
+      items: [],
+      size: whisk_api_user_v2_Height_Unit.UNIT_CM,
+      size2: whisk_api_user_v2_SearchRecipesResponse_Height_Unit2.UNIT_CM,
     };
 
     const ser2: whisk.api.user.v2.SearchRecipesResponse = {
       dates: [],
-      hit: [{ ingredients: [{ name: '' }, { name: '123' }], mapExternal: {}, mapIngredients: {} }],
+      hit: [{ ingredients: [{ name: '' }, { name: '123' }], mapCalories: {}, mapExternal: {}, mapIngredients: {} }],
       date: {
         day: 0,
         month: 0,
         year: 0,
       },
       empty: {},
+      items: [],
+      size: whisk.api.user.v2.Height.Unit.UNIT_CM,
+      size2: whisk.api.user.v2.SearchRecipesResponse.Height.Unit2.UNIT_CM,
     };
 
     const binA = Encode(whisk_api_user_v2_SearchRecipesResponse, ser);

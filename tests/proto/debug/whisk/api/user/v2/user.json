@@ -1288,6 +1288,48 @@
       "reserved": []
     },
     {
+      "name": "MatchedIngredient",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "Calories",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "daily_calories",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "name",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Test on dublicate"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
       "name": "SearchRecipesResponse",
       "enums": [],
       "options": {},
@@ -1385,9 +1427,22 @@
               }
             },
             {
-              "name": "map_external",
+              "name": "map_calories",
               "type": "map",
               "tag": 4,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {},
+              "map": {
+                "from": "string",
+                "to": "MatchedIngredient.Calories"
+              }
+            },
+            {
+              "name": "map_external",
+              "type": "map",
+              "tag": 5,
               "required": false,
               "repeated": false,
               "optional": false,
@@ -1398,6 +1453,31 @@
               }
             }
           ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        },
+        {
+          "name": "Height",
+          "enums": [
+            {
+              "name": "Unit2",
+              "values": {
+                "UNIT_INVALID": {
+                  "value": 0,
+                  "options": {}
+                },
+                "UNIT_CM": {
+                  "value": 1,
+                  "options": {}
+                }
+              },
+              "options": {}
+            }
+          ],
+          "options": {},
+          "messages": [],
+          "fields": [],
           "extends": [],
           "extensions": [],
           "reserved": []
@@ -1439,6 +1519,42 @@
           "repeated": false,
           "optional": false,
           "options": {}
+        },
+        {
+          "name": "items",
+          "type": "MatchedIngredient.Recommendations",
+          "tag": 5,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "calories",
+          "type": "MatchedIngredient.Calories",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "size",
+          "type": "Height.Unit",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "size2",
+          "type": "Height.Unit2",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
         }
       ],
       "extends": [],
@@ -1457,6 +1573,33 @@
           "tag": 1,
           "required": false,
           "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "recommendations",
+          "type": "MatchedIngredient.Calories",
+          "tag": 2,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "ingredients",
+          "type": "SearchRecipesResponse.MatchedIngredient.Recommendations",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "size",
+          "type": "Height.Unit",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
           "optional": false,
           "options": {}
         }

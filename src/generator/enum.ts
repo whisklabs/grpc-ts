@@ -1,20 +1,18 @@
 import { isNumber } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
-import { EnumsList, MakeOuts } from './generator';
-import { checkDublicate, checkSame, safeString } from './utils';
+import { MakeOuts } from './generator';
+import { checkSame, safeString } from './utils';
 
-export function enums(pack: string, out: MakeOuts, items: Parser.Enum[], enumsList: EnumsList) {
+export function enums(pack: string, out: MakeOuts, items: Parser.Enum[]) {
   for (const msg of items) {
-    enu(`${pack}_${msg.name}`, out, msg, enumsList);
+    enu(`${pack}_${msg.name}`, out, msg);
   }
 }
 
-function enu(pack: string, out: MakeOuts, item: Parser.Enum, enumsList: EnumsList) {
+function enu(pack: string, out: MakeOuts, item: Parser.Enum) {
   const eName = safeString(pack);
-  enumsList.add(eName);
 
-  checkDublicate(eName, out, `${pack}.${item.name}`);
   const cID = checkSame(out, 'id');
   const cName = checkSame(out, 'name');
 

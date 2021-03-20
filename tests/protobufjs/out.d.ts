@@ -4450,6 +4450,85 @@ export namespace whisk {
                     }
                 }
 
+                /** Properties of a MatchedIngredient. */
+                interface IMatchedIngredient {
+
+                    /** MatchedIngredient name */
+                    name?: (string|null);
+                }
+
+                /** Represents a MatchedIngredient. */
+                class MatchedIngredient implements IMatchedIngredient {
+
+                    /**
+                     * Constructs a new MatchedIngredient.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.IMatchedIngredient);
+
+                    /** MatchedIngredient name. */
+                    public name: string;
+
+                    /**
+                     * Encodes the specified MatchedIngredient message. Does not implicitly {@link whisk.api.user.v2.MatchedIngredient.verify|verify} messages.
+                     * @param message MatchedIngredient message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.IMatchedIngredient, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MatchedIngredient message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MatchedIngredient
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.MatchedIngredient;
+                }
+
+                namespace MatchedIngredient {
+
+                    /** Properties of a Calories. */
+                    interface ICalories {
+
+                        /** Calories dailyCalories */
+                        dailyCalories?: (number|null);
+                    }
+
+                    /** Represents a Calories. */
+                    class Calories implements ICalories {
+
+                        /**
+                         * Constructs a new Calories.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.MatchedIngredient.ICalories);
+
+                        /** Calories dailyCalories. */
+                        public dailyCalories: number;
+
+                        /**
+                         * Encodes the specified Calories message. Does not implicitly {@link whisk.api.user.v2.MatchedIngredient.Calories.verify|verify} messages.
+                         * @param message Calories message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.MatchedIngredient.ICalories, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a Calories message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns Calories
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.MatchedIngredient.Calories;
+                    }
+                }
+
                 /** Properties of a SearchRecipesResponse. */
                 interface ISearchRecipesResponse {
 
@@ -4464,6 +4543,18 @@ export namespace whisk {
 
                     /** SearchRecipesResponse empty */
                     empty?: (whisk.api.user.v2.SearchRecipesResponse.IEmpty|null);
+
+                    /** SearchRecipesResponse items */
+                    items?: (whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations[]|null);
+
+                    /** SearchRecipesResponse calories */
+                    calories?: (whisk.api.user.v2.MatchedIngredient.ICalories|null);
+
+                    /** SearchRecipesResponse size */
+                    size?: (whisk.api.user.v2.Height.Unit|null);
+
+                    /** SearchRecipesResponse size2 */
+                    size2?: (whisk.api.user.v2.SearchRecipesResponse.Height.Unit2|null);
                 }
 
                 /** Represents a SearchRecipesResponse. */
@@ -4486,6 +4577,18 @@ export namespace whisk {
 
                     /** SearchRecipesResponse empty. */
                     public empty?: (whisk.api.user.v2.SearchRecipesResponse.IEmpty|null);
+
+                    /** SearchRecipesResponse items. */
+                    public items: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations[];
+
+                    /** SearchRecipesResponse calories. */
+                    public calories?: (whisk.api.user.v2.MatchedIngredient.ICalories|null);
+
+                    /** SearchRecipesResponse size. */
+                    public size: whisk.api.user.v2.Height.Unit;
+
+                    /** SearchRecipesResponse size2. */
+                    public size2: whisk.api.user.v2.SearchRecipesResponse.Height.Unit2;
 
                     /**
                      * Encodes the specified SearchRecipesResponse message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.verify|verify} messages.
@@ -4631,6 +4734,9 @@ export namespace whisk {
                         /** Hit mapIngredients */
                         mapIngredients?: ({ [k: string]: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations }|null);
 
+                        /** Hit mapCalories */
+                        mapCalories?: ({ [k: string]: whisk.api.user.v2.MatchedIngredient.ICalories }|null);
+
                         /** Hit mapExternal */
                         mapExternal?: ({ [k: string]: whisk.api.user.v2.ITestItem }|null);
                     }
@@ -4653,6 +4759,9 @@ export namespace whisk {
                         /** Hit mapIngredients. */
                         public mapIngredients: { [k: string]: whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations };
 
+                        /** Hit mapCalories. */
+                        public mapCalories: { [k: string]: whisk.api.user.v2.MatchedIngredient.ICalories };
+
                         /** Hit mapExternal. */
                         public mapExternal: { [k: string]: whisk.api.user.v2.ITestItem };
 
@@ -4674,6 +4783,47 @@ export namespace whisk {
                          */
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.Hit;
                     }
+
+                    /** Properties of an Height. */
+                    interface IHeight {
+                    }
+
+                    /** Represents an Height. */
+                    class Height implements IHeight {
+
+                        /**
+                         * Constructs a new Height.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.SearchRecipesResponse.IHeight);
+
+                        /**
+                         * Encodes the specified Height message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.Height.verify|verify} messages.
+                         * @param message Height message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.SearchRecipesResponse.IHeight, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes an Height message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns Height
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.SearchRecipesResponse.Height;
+                    }
+
+                    namespace Height {
+
+                        /** Unit2 enum. */
+                        enum Unit2 {
+                            UNIT_INVALID = 0,
+                            UNIT_CM = 1
+                        }
+                    }
                 }
 
                 /** Properties of a DeepCheck. */
@@ -4681,6 +4831,15 @@ export namespace whisk {
 
                     /** DeepCheck items */
                     items?: (whisk.api.user.v2.SearchRecipesResponse.IHit[]|null);
+
+                    /** DeepCheck recommendations */
+                    recommendations?: (whisk.api.user.v2.MatchedIngredient.ICalories[]|null);
+
+                    /** DeepCheck ingredients */
+                    ingredients?: (whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations|null);
+
+                    /** DeepCheck size */
+                    size?: (whisk.api.user.v2.Height.Unit|null);
                 }
 
                 /** Represents a DeepCheck. */
@@ -4694,6 +4853,15 @@ export namespace whisk {
 
                     /** DeepCheck items. */
                     public items: whisk.api.user.v2.SearchRecipesResponse.IHit[];
+
+                    /** DeepCheck recommendations. */
+                    public recommendations: whisk.api.user.v2.MatchedIngredient.ICalories[];
+
+                    /** DeepCheck ingredients. */
+                    public ingredients?: (whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations|null);
+
+                    /** DeepCheck size. */
+                    public size: whisk.api.user.v2.Height.Unit;
 
                     /**
                      * Encodes the specified DeepCheck message. Does not implicitly {@link whisk.api.user.v2.DeepCheck.verify|verify} messages.

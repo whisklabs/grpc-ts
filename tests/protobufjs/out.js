@@ -10022,6 +10022,168 @@ export const whisk = $root.whisk = (() => {
                     return TestEmpty;
                 })();
 
+                v2.MatchedIngredient = (function() {
+
+                    /**
+                     * Properties of a MatchedIngredient.
+                     * @memberof whisk.api.user.v2
+                     * @interface IMatchedIngredient
+                     * @property {string|null} [name] MatchedIngredient name
+                     */
+
+                    /**
+                     * Constructs a new MatchedIngredient.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a MatchedIngredient.
+                     * @implements IMatchedIngredient
+                     * @constructor
+                     * @param {whisk.api.user.v2.IMatchedIngredient=} [properties] Properties to set
+                     */
+                    function MatchedIngredient(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * MatchedIngredient name.
+                     * @member {string} name
+                     * @memberof whisk.api.user.v2.MatchedIngredient
+                     * @instance
+                     */
+                    MatchedIngredient.prototype.name = "";
+
+                    /**
+                     * Encodes the specified MatchedIngredient message. Does not implicitly {@link whisk.api.user.v2.MatchedIngredient.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.MatchedIngredient
+                     * @static
+                     * @param {whisk.api.user.v2.IMatchedIngredient} message MatchedIngredient message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    MatchedIngredient.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a MatchedIngredient message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.MatchedIngredient
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.MatchedIngredient} MatchedIngredient
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    MatchedIngredient.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.MatchedIngredient();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.name = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    MatchedIngredient.Calories = (function() {
+
+                        /**
+                         * Properties of a Calories.
+                         * @memberof whisk.api.user.v2.MatchedIngredient
+                         * @interface ICalories
+                         * @property {number|null} [dailyCalories] Calories dailyCalories
+                         */
+
+                        /**
+                         * Constructs a new Calories.
+                         * @memberof whisk.api.user.v2.MatchedIngredient
+                         * @classdesc Represents a Calories.
+                         * @implements ICalories
+                         * @constructor
+                         * @param {whisk.api.user.v2.MatchedIngredient.ICalories=} [properties] Properties to set
+                         */
+                        function Calories(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Calories dailyCalories.
+                         * @member {number} dailyCalories
+                         * @memberof whisk.api.user.v2.MatchedIngredient.Calories
+                         * @instance
+                         */
+                        Calories.prototype.dailyCalories = 0;
+
+                        /**
+                         * Encodes the specified Calories message. Does not implicitly {@link whisk.api.user.v2.MatchedIngredient.Calories.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.MatchedIngredient.Calories
+                         * @static
+                         * @param {whisk.api.user.v2.MatchedIngredient.ICalories} message Calories message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Calories.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.dailyCalories != null && Object.hasOwnProperty.call(message, "dailyCalories"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.dailyCalories);
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes a Calories message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.MatchedIngredient.Calories
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.MatchedIngredient.Calories} Calories
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Calories.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.MatchedIngredient.Calories();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.dailyCalories = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        return Calories;
+                    })();
+
+                    return MatchedIngredient;
+                })();
+
                 v2.SearchRecipesResponse = (function() {
 
                     /**
@@ -10032,6 +10194,10 @@ export const whisk = $root.whisk = (() => {
                      * @property {whisk.api.shared.v1.IDate|null} [date] SearchRecipesResponse date
                      * @property {Array.<whisk.api.shared.v1.IDate>|null} [dates] SearchRecipesResponse dates
                      * @property {whisk.api.user.v2.SearchRecipesResponse.IEmpty|null} [empty] SearchRecipesResponse empty
+                     * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations>|null} [items] SearchRecipesResponse items
+                     * @property {whisk.api.user.v2.MatchedIngredient.ICalories|null} [calories] SearchRecipesResponse calories
+                     * @property {whisk.api.user.v2.Height.Unit|null} [size] SearchRecipesResponse size
+                     * @property {whisk.api.user.v2.SearchRecipesResponse.Height.Unit2|null} [size2] SearchRecipesResponse size2
                      */
 
                     /**
@@ -10045,6 +10211,7 @@ export const whisk = $root.whisk = (() => {
                     function SearchRecipesResponse(properties) {
                         this.hit = [];
                         this.dates = [];
+                        this.items = [];
                         if (properties)
                             for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                 if (properties[keys[i]] != null)
@@ -10084,6 +10251,38 @@ export const whisk = $root.whisk = (() => {
                     SearchRecipesResponse.prototype.empty = null;
 
                     /**
+                     * SearchRecipesResponse items.
+                     * @member {Array.<whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations>} items
+                     * @memberof whisk.api.user.v2.SearchRecipesResponse
+                     * @instance
+                     */
+                    SearchRecipesResponse.prototype.items = $util.emptyArray;
+
+                    /**
+                     * SearchRecipesResponse calories.
+                     * @member {whisk.api.user.v2.MatchedIngredient.ICalories|null|undefined} calories
+                     * @memberof whisk.api.user.v2.SearchRecipesResponse
+                     * @instance
+                     */
+                    SearchRecipesResponse.prototype.calories = null;
+
+                    /**
+                     * SearchRecipesResponse size.
+                     * @member {whisk.api.user.v2.Height.Unit} size
+                     * @memberof whisk.api.user.v2.SearchRecipesResponse
+                     * @instance
+                     */
+                    SearchRecipesResponse.prototype.size = 0;
+
+                    /**
+                     * SearchRecipesResponse size2.
+                     * @member {whisk.api.user.v2.SearchRecipesResponse.Height.Unit2} size2
+                     * @memberof whisk.api.user.v2.SearchRecipesResponse
+                     * @instance
+                     */
+                    SearchRecipesResponse.prototype.size2 = 0;
+
+                    /**
                      * Encodes the specified SearchRecipesResponse message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.verify|verify} messages.
                      * @function encode
                      * @memberof whisk.api.user.v2.SearchRecipesResponse
@@ -10105,6 +10304,15 @@ export const whisk = $root.whisk = (() => {
                                 $root.whisk.api.shared.v1.Date.encode(message.dates[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                         if (message.empty != null && Object.hasOwnProperty.call(message, "empty"))
                             $root.whisk.api.user.v2.SearchRecipesResponse.Empty.encode(message.empty, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                        if (message.items != null && message.items.length)
+                            for (let i = 0; i < message.items.length; ++i)
+                                $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.encode(message.items[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                        if (message.calories != null && Object.hasOwnProperty.call(message, "calories"))
+                            $root.whisk.api.user.v2.MatchedIngredient.Calories.encode(message.calories, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                        if (message.size != null && Object.hasOwnProperty.call(message, "size"))
+                            writer.uint32(/* id 7, wireType 0 =*/56).int32(message.size);
+                        if (message.size2 != null && Object.hasOwnProperty.call(message, "size2"))
+                            writer.uint32(/* id 8, wireType 0 =*/64).int32(message.size2);
                         return writer;
                     };
 
@@ -10141,6 +10349,20 @@ export const whisk = $root.whisk = (() => {
                                 break;
                             case 4:
                                 message.empty = $root.whisk.api.user.v2.SearchRecipesResponse.Empty.decode(reader, reader.uint32());
+                                break;
+                            case 5:
+                                if (!(message.items && message.items.length))
+                                    message.items = [];
+                                message.items.push($root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.decode(reader, reader.uint32()));
+                                break;
+                            case 6:
+                                message.calories = $root.whisk.api.user.v2.MatchedIngredient.Calories.decode(reader, reader.uint32());
+                                break;
+                            case 7:
+                                message.size = reader.int32();
+                                break;
+                            case 8:
+                                message.size2 = reader.int32();
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -10388,6 +10610,7 @@ export const whisk = $root.whisk = (() => {
                          * @property {whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient|null} [content] Hit content
                          * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.IMatchedIngredient>|null} [ingredients] Hit ingredients
                          * @property {Object.<string,whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations>|null} [mapIngredients] Hit mapIngredients
+                         * @property {Object.<string,whisk.api.user.v2.MatchedIngredient.ICalories>|null} [mapCalories] Hit mapCalories
                          * @property {Object.<string,whisk.api.user.v2.ITestItem>|null} [mapExternal] Hit mapExternal
                          */
 
@@ -10402,6 +10625,7 @@ export const whisk = $root.whisk = (() => {
                         function Hit(properties) {
                             this.ingredients = [];
                             this.mapIngredients = {};
+                            this.mapCalories = {};
                             this.mapExternal = {};
                             if (properties)
                                 for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -10434,6 +10658,14 @@ export const whisk = $root.whisk = (() => {
                         Hit.prototype.mapIngredients = $util.emptyObject;
 
                         /**
+                         * Hit mapCalories.
+                         * @member {Object.<string,whisk.api.user.v2.MatchedIngredient.ICalories>} mapCalories
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse.Hit
+                         * @instance
+                         */
+                        Hit.prototype.mapCalories = $util.emptyObject;
+
+                        /**
                          * Hit mapExternal.
                          * @member {Object.<string,whisk.api.user.v2.ITestItem>} mapExternal
                          * @memberof whisk.api.user.v2.SearchRecipesResponse.Hit
@@ -10463,9 +10695,14 @@ export const whisk = $root.whisk = (() => {
                                     writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                     $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.encode(message.mapIngredients[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                                 }
+                            if (message.mapCalories != null && Object.hasOwnProperty.call(message, "mapCalories"))
+                                for (let keys = Object.keys(message.mapCalories), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.whisk.api.user.v2.MatchedIngredient.Calories.encode(message.mapCalories[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
                             if (message.mapExternal != null && Object.hasOwnProperty.call(message, "mapExternal"))
                                 for (let keys = Object.keys(message.mapExternal), i = 0; i < keys.length; ++i) {
-                                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                     $root.whisk.api.user.v2.TestItem.encode(message.mapExternal[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                                 }
                             return writer;
@@ -10507,6 +10744,14 @@ export const whisk = $root.whisk = (() => {
                                     break;
                                 case 4:
                                     reader.skip().pos++;
+                                    if (message.mapCalories === $util.emptyObject)
+                                        message.mapCalories = {};
+                                    key = reader.string();
+                                    reader.pos++;
+                                    message.mapCalories[key] = $root.whisk.api.user.v2.MatchedIngredient.Calories.decode(reader, reader.uint32());
+                                    break;
+                                case 5:
+                                    reader.skip().pos++;
                                     if (message.mapExternal === $util.emptyObject)
                                         message.mapExternal = {};
                                     key = reader.string();
@@ -10524,6 +10769,87 @@ export const whisk = $root.whisk = (() => {
                         return Hit;
                     })();
 
+                    SearchRecipesResponse.Height = (function() {
+
+                        /**
+                         * Properties of an Height.
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse
+                         * @interface IHeight
+                         */
+
+                        /**
+                         * Constructs a new Height.
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse
+                         * @classdesc Represents an Height.
+                         * @implements IHeight
+                         * @constructor
+                         * @param {whisk.api.user.v2.SearchRecipesResponse.IHeight=} [properties] Properties to set
+                         */
+                        function Height(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Encodes the specified Height message. Does not implicitly {@link whisk.api.user.v2.SearchRecipesResponse.Height.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse.Height
+                         * @static
+                         * @param {whisk.api.user.v2.SearchRecipesResponse.IHeight} message Height message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Height.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes an Height message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.SearchRecipesResponse.Height
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.SearchRecipesResponse.Height} Height
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Height.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.SearchRecipesResponse.Height();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Unit2 enum.
+                         * @name whisk.api.user.v2.SearchRecipesResponse.Height.Unit2
+                         * @enum {number}
+                         * @property {number} UNIT_INVALID=0 UNIT_INVALID value
+                         * @property {number} UNIT_CM=1 UNIT_CM value
+                         */
+                        Height.Unit2 = (function() {
+                            const valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "UNIT_INVALID"] = 0;
+                            values[valuesById[1] = "UNIT_CM"] = 1;
+                            return values;
+                        })();
+
+                        return Height;
+                    })();
+
                     return SearchRecipesResponse;
                 })();
 
@@ -10534,6 +10860,9 @@ export const whisk = $root.whisk = (() => {
                      * @memberof whisk.api.user.v2
                      * @interface IDeepCheck
                      * @property {Array.<whisk.api.user.v2.SearchRecipesResponse.IHit>|null} [items] DeepCheck items
+                     * @property {Array.<whisk.api.user.v2.MatchedIngredient.ICalories>|null} [recommendations] DeepCheck recommendations
+                     * @property {whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations|null} [ingredients] DeepCheck ingredients
+                     * @property {whisk.api.user.v2.Height.Unit|null} [size] DeepCheck size
                      */
 
                     /**
@@ -10546,6 +10875,7 @@ export const whisk = $root.whisk = (() => {
                      */
                     function DeepCheck(properties) {
                         this.items = [];
+                        this.recommendations = [];
                         if (properties)
                             for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                 if (properties[keys[i]] != null)
@@ -10559,6 +10889,30 @@ export const whisk = $root.whisk = (() => {
                      * @instance
                      */
                     DeepCheck.prototype.items = $util.emptyArray;
+
+                    /**
+                     * DeepCheck recommendations.
+                     * @member {Array.<whisk.api.user.v2.MatchedIngredient.ICalories>} recommendations
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @instance
+                     */
+                    DeepCheck.prototype.recommendations = $util.emptyArray;
+
+                    /**
+                     * DeepCheck ingredients.
+                     * @member {whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.IRecommendations|null|undefined} ingredients
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @instance
+                     */
+                    DeepCheck.prototype.ingredients = null;
+
+                    /**
+                     * DeepCheck size.
+                     * @member {whisk.api.user.v2.Height.Unit} size
+                     * @memberof whisk.api.user.v2.DeepCheck
+                     * @instance
+                     */
+                    DeepCheck.prototype.size = 0;
 
                     /**
                      * Encodes the specified DeepCheck message. Does not implicitly {@link whisk.api.user.v2.DeepCheck.verify|verify} messages.
@@ -10575,6 +10929,13 @@ export const whisk = $root.whisk = (() => {
                         if (message.items != null && message.items.length)
                             for (let i = 0; i < message.items.length; ++i)
                                 $root.whisk.api.user.v2.SearchRecipesResponse.Hit.encode(message.items[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                        if (message.recommendations != null && message.recommendations.length)
+                            for (let i = 0; i < message.recommendations.length; ++i)
+                                $root.whisk.api.user.v2.MatchedIngredient.Calories.encode(message.recommendations[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                        if (message.ingredients != null && Object.hasOwnProperty.call(message, "ingredients"))
+                            $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.encode(message.ingredients, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                        if (message.size != null && Object.hasOwnProperty.call(message, "size"))
+                            writer.uint32(/* id 7, wireType 0 =*/56).int32(message.size);
                         return writer;
                     };
 
@@ -10600,6 +10961,17 @@ export const whisk = $root.whisk = (() => {
                                 if (!(message.items && message.items.length))
                                     message.items = [];
                                 message.items.push($root.whisk.api.user.v2.SearchRecipesResponse.Hit.decode(reader, reader.uint32()));
+                                break;
+                            case 2:
+                                if (!(message.recommendations && message.recommendations.length))
+                                    message.recommendations = [];
+                                message.recommendations.push($root.whisk.api.user.v2.MatchedIngredient.Calories.decode(reader, reader.uint32()));
+                                break;
+                            case 3:
+                                message.ingredients = $root.whisk.api.user.v2.SearchRecipesResponse.MatchedIngredient.Recommendations.decode(reader, reader.uint32());
+                                break;
+                            case 7:
+                                message.size = reader.int32();
                                 break;
                             default:
                                 reader.skipType(tag & 7);
