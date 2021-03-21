@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package whisk.api.shared.v1;
+
+message B {
+  message D {}
+}
+
+message A {
+  message B {
+    message C {}
+  }
+
+  string item = 1;
+  string item2 = 1;
+  string item = 2;
+  B.C item3 = 3;
+  B.D item4 = 4;
+  B.E item5 = 5;
+}
+
+message A {
+  A item = 1;
+
+  enum Unit {
+    UNIT_INVALID = 0;
+    UNIT_CM = 1;
+    UNIT_INCH = 2;
+  }
+
+  enum Unit {
+    UNIT_INVALID = 0;
+    UNIT_CM = 1;
+    UNIT_INCH = 2;
+  }
+}
+
+service UserAPI {
+  rpc Get(google.protobuf.Empty) returns (GetMeResponse);
+  rpc Get(google.protobuf.Empty) returns (GetMeResponse);
+}

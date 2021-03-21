@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package whisk.api.shared.v1;
+
+message Z {
+  optional A item = 1 [ deprecated = true ];
+  required B item2 = 2 [ deprecated = 'Some text' ];
+  
+  oneof items {
+    B.C item3 = 3 [ deprecated = true ];
+    B.D item4 = 4 [ deprecated = 'Some text' ];
+  }
+
+  whisk.api.shared.v1.Zero item_absolute = 5;
+  map<string, A> map_a = 6;
+  repeated google.protobuf.StringValue array = 12;
+}
