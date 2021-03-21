@@ -101,7 +101,13 @@ function message(pack: string, out: MakeOuts, item: Parser.Message, list: List[]
 
         const naming = camelCase(field.name);
 
-        const fieldName = getField(field, fieldPack, `in "${baseName}" field "${naming}"`, out, baseName);
+        const fieldName = getField(
+          field,
+          fieldPack,
+          `in "${baseName}" field "${field.name} = ${field.tag}"`,
+          out,
+          baseName
+        );
 
         out.dts.push(
           `    | { oneof: '${naming}'; value${isRequiredField(field) ? '' : '?'}: ${fieldName}${
