@@ -15,6 +15,7 @@ module.exports = {
     '**/node_modules/**',
     '**/protobufjs/**',
     '**/tests/proto/**',
+    '**/tests/generator/result/**',
     '**/coverage/**',
   ],
   extends: [
