@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.6](https://github.com/whisklabs/grpc-ts/compare/v1.0.5...v1.0.6) (2021-3-22)
+
+### Documentation
+
+- add linguist ([a154cf0](https://github.com/whisklabs/grpc-ts/commit/a154cf0b66a94bf3bb57a1e21ad4d50616d115d8))
+
+### Bug Fixes
+
+- remove const enum ([4330100](https://github.com/whisklabs/grpc-ts/commit/433010043fad2a53e140d876affbb5ca55d7cd51))
+- nested messages ([1207457](https://github.com/whisklabs/grpc-ts/commit/1207457381c1f4dfbe06756ad1d808998aae7f26))
+
+  Example
+  
+  ```proto
+  message ListItemOp {
+    message Create {
+      string name = 1;
+    }
+  }
+  
+  message Item {
+    repeated ListItemOp.Create items = 1;
+  }
+  ```
+
+- recursive find nested deps ([a04d052](https://github.com/whisklabs/grpc-ts/commit/a04d052d8142b023e0dcdf32b2b07feacf969259))
+
+  Example:
+  
+  ```proto
+  message A {
+    message B {}
+  }
+  message B {
+    message A {
+      message C {}
+    }
+    A.B item = 1;
+    A.C local = 2;
+  }
+  ```
+
+### Tests
+
+- add test fail generation ([5b247eb](https://github.com/whisklabs/grpc-ts/commit/5b247eb4933586d36d3295fe6c36f470da19ce5d))
+
 ## [v1.0.5](https://github.com/whisklabs/grpc-ts/compare/v1.0.4...v1.0.5) (2021-1-19)
 
 ### Bug Fixes
