@@ -1,5 +1,12 @@
 /* eslint-disable camelcase */
 
+// protobufjs can't disable long and --force-number don't work
+// https://github.com/protobufjs/protobuf.js/issues/1109
+import { configure, util } from 'protobufjs';
+// @ts-expect-error Explicitly disable long.js support
+util.Long = undefined;
+configure();
+
 import { Decode, Encode } from '../src';
 import {
   whisk_api_user_v2_Height_Unit,
@@ -73,8 +80,9 @@ describe('protobuf wrapper', () => {
     const binB = whisk.api.user.v2.TestItem.encode(data2).finish();
 
     expect(Array.from(binA)).toMatchObject(Array.from(binB));
-    expect(Decode(whisk_api_user_v2_TestItem, binA)).toMatchObject(data);
+
     expect(whisk.api.user.v2.TestItem.decode(binB)).toMatchObject(data2);
+    expect(Decode(whisk_api_user_v2_TestItem, binA)).toMatchObject(data);
   });
 
   it('encode/decode empty message', () => {
@@ -110,7 +118,8 @@ describe('protobuf wrapper', () => {
     const binB = whisk.api.user.v2.SearchRecipesResponse.encode(ser2).finish();
 
     expect(Array.from(binA)).toEqual(Array.from(binB));
-    expect(Decode(whisk_api_user_v2_SearchRecipesResponse, binA)).toEqual(ser);
+
     expect(whisk.api.user.v2.SearchRecipesResponse.decode(binB)).toEqual(ser2);
+    expect(Decode(whisk_api_user_v2_SearchRecipesResponse, binA)).toEqual(ser);
   });
 });

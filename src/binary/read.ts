@@ -1,3 +1,5 @@
+/* eslint-disable id-blacklist */
+
 import { Bytes, Fixed32, Fixed64, SHIFT_LEFT_32, Varint } from './constant';
 import { read } from './ieee754';
 import { readUtf8 } from './utf8';
@@ -6,178 +8,281 @@ export class BufRead {
   pos = 0;
   type = 0;
   path = '';
+  len = 0;
 
-  constructor(public buf: Uint8Array) {}
+  constructor(public buf: Uint8Array) {
+    this.len = buf.length;
+  }
 }
 
-export const skip = (b: BufRead, val: number) => {
+export function skip(b: BufRead, val: number) {
   const type = val & 7;
   if (type === Varint) {
     while (b.buf[b.pos++] > 127) {}
   } else if (type === Bytes) {
-    b.pos = readVarint(b) + b.pos;
+    b.pos = uint32(b) + b.pos;
   } else if (type === Fixed32) {
     b.pos += 4;
   } else if (type === Fixed64) {
     b.pos += 8;
+  } else if (type === 3) {
+    let t: number;
+    while ((t = uint32(b) & 7) !== 4) {
+      skip(b, t);
+    }
   } else {
     throw new Error(`Unimplemented type: ${type} in path "${b.path}"`);
   }
-};
-
-export const readVarint = (b: BufRead, s = false) => toNum(readVarintInner(b), s);
-
-const readVarintInner = (b: BufRead) => {
-  let low = 0;
-  let bb: number;
-
-  for (let i = 0; i < 4; i++) {
-    bb = b.buf[b.pos++];
-    low |= (bb & 127) << (i * 7);
-    if (bb < 128) {
-      return [low, 0];
-    }
-  }
-
-  bb = b.buf[b.pos];
-  low |= (bb & 15) << 28;
-
-  return readVarintRemainder(low, b);
-};
-
-function readVarintRemainder(low: number, b: BufRead) {
-  let high: number;
-  let bb: number;
-
-  bb = b.buf[b.pos++];
-  high = (bb & 0x70) >> 4;
-  if (bb < 128) {
-    return [low, high];
-  }
-  bb = b.buf[b.pos++];
-  high |= (bb & 127) << 3;
-  if (bb < 128) {
-    return [low, high];
-  }
-  bb = b.buf[b.pos++];
-  high |= (bb & 127) << 10;
-  if (bb < 128) {
-    return [low, high];
-  }
-  bb = b.buf[b.pos++];
-  high |= (bb & 127) << 17;
-  if (bb < 128) {
-    return [low, high];
-  }
-  bb = b.buf[b.pos++];
-  high |= (bb & 127) << 24;
-  if (bb < 128) {
-    return [low, high];
-  }
-  bb = b.buf[b.pos++];
-  high |= (bb & 0x01) << 31;
-  if (bb < 128) {
-    return [low, high];
-  }
-
-  throw new Error(`Expected varint not more than 10 bytes in path "${b.path}"`);
 }
 
-const toNum = ([low, high]: number[], s: boolean) => {
-  if (s) {
-    const mask = -(low & 1);
-    low = (((low >>> 1) | (high << 31)) ^ mask) >>> 0;
-    high = ((high >>> 1) ^ mask) >>> 0;
+export function uint32(b: BufRead) {
+  let value = SHIFT_LEFT_32 - 1;
 
-    if (high >>> 31 !== 0) {
-      const lo = (~low + 1) >>> 0;
-      let hi = ~high >>> 0;
-      if (lo === 0) {
-        hi = (hi + 1) >>> 0;
-      }
-      return -(lo + hi * 4294967296);
-    }
+  value = (b.buf[b.pos] & 127) >>> 0;
+  if (b.buf[b.pos++] < 128) {
+    return value;
+  }
+  value = (value | ((b.buf[b.pos] & 127) << 7)) >>> 0;
+  if (b.buf[b.pos++] < 128) {
+    return value;
+  }
+  value = (value | ((b.buf[b.pos] & 127) << 14)) >>> 0;
+  if (b.buf[b.pos++] < 128) {
+    return value;
+  }
+  value = (value | ((b.buf[b.pos] & 127) << 21)) >>> 0;
+  if (b.buf[b.pos++] < 128) {
+    return value;
+  }
+  value = (value | ((b.buf[b.pos] & 15) << 28)) >>> 0;
+
+  if (b.buf[b.pos++] < 128) {
+    return value;
   }
 
-  return high ? (low >>> 0) + (high >>> 0) * 4294967296 : low >>> 0;
-};
+  if ((b.pos += 5) > b.len) {
+    b.pos = b.len;
+    throw outRange(b, 10);
+  }
 
-const readPackedEnd = (b: BufRead) => (b.type === Bytes ? readVarint(b) + b.pos : b.pos + 1);
+  return value;
+}
 
-const readInt32 = (b: BufRead) =>
-  (b.buf[b.pos++] | (b.buf[b.pos++] << 8) | (b.buf[b.pos++] << 16)) + (b.buf[b.pos++] << 24);
+function int32(b: BufRead) {
+  return uint32(b) | 0;
+}
 
-const readUInt32 = (b: BufRead) =>
-  (b.buf[b.pos++] | (b.buf[b.pos++] << 8) | (b.buf[b.pos++] << 16)) + b.buf[b.pos++] * 0x1000000;
+function sint32(b: BufRead) {
+  const value = uint32(b);
+  return ((value >>> 1) ^ -(value & 1)) | 0;
+}
 
-const readFixed32 = readUInt32;
+function bool(b: BufRead) {
+  return uint32(b) !== 0;
+}
 
-const readSFixed32 = readInt32;
+function readFixed32(b: BufRead, num: number) {
+  return (b.buf[num - 4] | (b.buf[num - 3] << 8) | (b.buf[num - 2] << 16) | (b.buf[num - 1] << 24)) >>> 0;
+}
 
-const readFixed64 = (b: BufRead) => readUInt32(b) + readUInt32(b) * SHIFT_LEFT_32;
+function fixed32(b: BufRead) {
+  if (b.pos + 4 > b.len) {
+    throw outRange(b, 4);
+  }
 
-const readSFixed64 = (b: BufRead) => readUInt32(b) + readInt32(b) * SHIFT_LEFT_32;
+  return readFixed32(b, (b.pos += 4));
+}
 
-const readFloat = (b: BufRead) => {
+function sfixed32(b: BufRead) {
+  if (b.pos + 4 > b.len) {
+    throw outRange(b, 4);
+  }
+
+  return readFixed32(b, (b.pos += 4)) | 0;
+}
+
+function readFixed64(b: BufRead, sign: boolean) {
+  if (b.pos + 8 > b.len) {
+    throw outRange(b, 8);
+  }
+
+  return toNumber(readFixed32(b, (b.pos += 4)) >>> 0, readFixed32(b, (b.pos += 4) >>> 0), sign);
+}
+
+function fixed64(b: BufRead) {
+  return readFixed64(b, true);
+}
+
+function sfixed64(b: BufRead) {
+  return readFixed64(b, false);
+}
+
+function int64(b: BufRead) {
+  const { lo, hi } = readLongVarint(b);
+  return toNumber(lo, hi, false);
+}
+
+function uint64(b: BufRead) {
+  const { lo, hi } = readLongVarint(b);
+  return toNumber(lo, hi, true);
+}
+
+function sint64(b: BufRead) {
+  let { lo, hi } = readLongVarint(b);
+  ({ lo, hi } = zzDecode(lo, hi));
+  return toNumber(lo, hi, false);
+}
+
+const float = (b: BufRead) => {
+  if (b.pos + 4 > b.len) {
+    throw outRange(b, 4);
+  }
+
   const val = read(b.buf, b.pos, true, 23, 4);
   b.pos += 4;
   return val;
 };
 
-const readDouble = (b: BufRead) => {
+function double(b: BufRead) {
+  if (b.pos + 8 > b.len) {
+    throw outRange(b, 4);
+  }
+
   const val = read(b.buf, b.pos, true, 52, 8);
   b.pos += 8;
   return val;
-};
+}
 
-const readSVarint = (b: BufRead) => readVarint(b, true);
-
-const readBoolean = (b: BufRead) => Boolean(readVarint(b));
-
-const readString = (b: BufRead) => {
-  const end = readVarint(b) + b.pos;
+function string(b: BufRead) {
+  const end = uint32(b) + b.pos;
   const pos = b.pos;
   b.pos = end;
   return readUtf8(b.buf, pos, end);
-};
+}
 
-const readBytes = (b: BufRead) => {
-  const end = readVarint(b) + b.pos;
+function bytes(b: BufRead) {
+  const length = uint32(b);
+  const end = length + b.pos;
+
+  if (end > b.len) {
+    throw outRange(b, length);
+  }
+
   const buffer = b.buf.subarray(b.pos, end);
   b.pos = end;
   return buffer;
-};
+}
 
-export const readPacked = (fn: (b: BufRead, isSigned?: boolean) => unknown, b: BufRead) => {
+const packedEnd = (b: BufRead) => (b.type === Bytes ? uint32(b) + b.pos : b.pos + 1);
+
+export function readPacked(fn: (b: BufRead, isSigned?: boolean) => unknown, b: BufRead) {
   if (b.type !== Bytes) {
     return [fn(b)];
   }
-  const end = readPackedEnd(b);
+  const end = packedEnd(b);
   const arr = [];
   while (b.pos < end) {
     arr.push(fn(b));
   }
   return arr;
-};
+}
 
 export const readMap = {
-  // eslint-disable-next-line id-blacklist
-  string: readString,
-  float: readFloat,
-  double: readDouble,
-  bool: readBoolean,
-  enum: readVarint,
-  uint32: readVarint,
-  uint64: readVarint,
-  int32: readVarint,
-  int64: readVarint,
-  sint32: readSVarint,
-  sint64: readSVarint,
-  fixed32: readFixed32,
-  fixed64: readFixed64,
-  sfixed32: readSFixed32,
-  sfixed64: readSFixed64,
-  bytes: readBytes,
+  string,
+  float,
+  double,
+  bool,
+  enum: uint32,
+  uint32,
+  uint64,
+  int32,
+  int64,
+  sint32,
+  sint64,
+  fixed32,
+  fixed64,
+  sfixed32,
+  sfixed64,
+  bytes,
 };
 
 export type ReadMapKeys = keyof typeof readMap;
+
+function outRange(b: BufRead, writeLength?: number) {
+  return Error(`Out of range [${b.path}]: ${b.pos} + ${writeLength ?? 1} > ${b.len}`);
+}
+
+function toNumber(lo: number, hi: number, sign: boolean) {
+  if (!sign && hi >>> 31) {
+    lo = (~lo + 1) >>> 0;
+    hi = ~hi >>> 0;
+    if (!lo) {
+      hi = (hi + 1) >>> 0;
+    }
+    return -(lo + hi * SHIFT_LEFT_32);
+  }
+  return lo + hi * SHIFT_LEFT_32;
+}
+
+function zzDecode(lo: number, hi: number) {
+  const mask = -(lo & 1);
+  lo = (((lo >>> 1) | (hi << 31)) ^ mask) >>> 0;
+  hi = ((hi >>> 1) ^ mask) >>> 0;
+  return { lo, hi };
+}
+
+function readLongVarint(b: BufRead) {
+  let lo = 0;
+  let hi = 0;
+  let i = 0;
+
+  if (b.len - b.pos > 4) {
+    for (; i < 4; ++i) {
+      lo = (lo | ((b.buf[b.pos] & 127) << (i * 7))) >>> 0;
+      if (b.buf[b.pos++] < 128) {
+        return { lo, hi };
+      }
+    }
+
+    lo = (lo | ((b.buf[b.pos] & 127) << 28)) >>> 0;
+    hi = (hi | ((b.buf[b.pos] & 127) >> 4)) >>> 0;
+    if (b.buf[b.pos++] < 128) {
+      return { lo, hi };
+    }
+    i = 0;
+  } else {
+    for (; i < 3; ++i) {
+      if (b.pos >= b.len) {
+        throw outRange(b);
+      }
+      lo = (lo | ((b.buf[b.pos] & 127) << (i * 7))) >>> 0;
+      if (b.buf[b.pos++] < 128) {
+        return { lo, hi };
+      }
+    }
+
+    lo = (lo | ((b.buf[b.pos++] & 127) << (i * 7))) >>> 0;
+    return { lo, hi };
+  }
+  if (b.len - b.pos > 4) {
+    for (; i < 5; ++i) {
+      hi = (hi | ((b.buf[b.pos] & 127) << (i * 7 + 3))) >>> 0;
+      if (b.buf[b.pos++] < 128) {
+        return { lo, hi };
+      }
+    }
+  } else {
+    for (; i < 5; ++i) {
+      if (b.pos >= b.len) {
+        throw outRange(b);
+      }
+
+      hi = (hi | ((b.buf[b.pos] & 127) << (i * 7 + 3))) >>> 0;
+      if (b.buf[b.pos++] < 128) {
+        return { lo, hi };
+      }
+    }
+  }
+
+  throw Error(`Invalid varint encoding in "${b.path}"`);
+}

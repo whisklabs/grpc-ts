@@ -701,7 +701,18 @@ function whisk_api_shared_v1_Big() {
 exports.whisk_api_shared_v1_Big = whisk_api_shared_v1_Big;
 function whisk_api_shared_v1_Sign() {
     return [
-        [1, "b", "sint64", 1],
+        [1, "double", "double", 0],
+        [2, "float", "float", 0],
+        [3, "int32", "int32", 0],
+        [4, "int64", "int64", 0],
+        [5, "uint32", "uint32", 0],
+        [6, "uint64", "uint64", 0],
+        [7, "sint32", "sint32", 0],
+        [8, "sint64", "sint64", 0],
+        [9, "fixed32", "fixed32", 0],
+        [10, "fixed64", "fixed64", 0],
+        [11, "sfixed32", "sfixed32", 0],
+        [12, "sfixed64", "sfixed64", 0],
     ];
 }
 exports.whisk_api_shared_v1_Sign = whisk_api_shared_v1_Sign;

@@ -1,4 +1,4 @@
-import { Bytes, Fixed32, Fixed64, SHIFT_RIGHT_32, Varint } from './constant';
+import { Bytes, Fixed32, Fixed64, SHIFT_LEFT_32, SHIFT_RIGHT_32, Varint } from './constant';
 import { write } from './ieee754';
 import { writeUtf8 } from './utf8';
 
@@ -68,7 +68,7 @@ const writeBigVarint = (buf: BufWrite, val: number, s: boolean): void => {
   }
 
   low = val >>> 0;
-  high = ((val - low) / 4294967296) >>> 0;
+  high = ((val - low) / SHIFT_LEFT_32) >>> 0;
 
   if (sign) {
     high = ~high >>> 0;

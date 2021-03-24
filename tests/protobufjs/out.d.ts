@@ -2964,8 +2964,41 @@ export namespace whisk {
                 /** Properties of a Sign. */
                 interface ISign {
 
-                    /** Sign b */
-                    b?: (number|Long|null);
+                    /** Sign double */
+                    double?: (number|null);
+
+                    /** Sign float */
+                    float?: (number|null);
+
+                    /** Sign int32 */
+                    int32?: (number|null);
+
+                    /** Sign int64 */
+                    int64?: (number|Long|null);
+
+                    /** Sign uint32 */
+                    uint32?: (number|null);
+
+                    /** Sign uint64 */
+                    uint64?: (number|Long|null);
+
+                    /** Sign sint32 */
+                    sint32?: (number|null);
+
+                    /** Sign sint64 */
+                    sint64?: (number|Long|null);
+
+                    /** Sign fixed32 */
+                    fixed32?: (number|null);
+
+                    /** Sign fixed64 */
+                    fixed64?: (number|Long|null);
+
+                    /** Sign sfixed32 */
+                    sfixed32?: (number|null);
+
+                    /** Sign sfixed64 */
+                    sfixed64?: (number|Long|null);
                 }
 
                 /** Represents a Sign. */
@@ -2977,8 +3010,41 @@ export namespace whisk {
                      */
                     constructor(properties?: whisk.api.shared.v1.ISign);
 
-                    /** Sign b. */
-                    public b: (number|Long);
+                    /** Sign double. */
+                    public double: number;
+
+                    /** Sign float. */
+                    public float: number;
+
+                    /** Sign int32. */
+                    public int32: number;
+
+                    /** Sign int64. */
+                    public int64: (number|Long);
+
+                    /** Sign uint32. */
+                    public uint32: number;
+
+                    /** Sign uint64. */
+                    public uint64: (number|Long);
+
+                    /** Sign sint32. */
+                    public sint32: number;
+
+                    /** Sign sint64. */
+                    public sint64: (number|Long);
+
+                    /** Sign fixed32. */
+                    public fixed32: number;
+
+                    /** Sign fixed64. */
+                    public fixed64: (number|Long);
+
+                    /** Sign sfixed32. */
+                    public sfixed32: number;
+
+                    /** Sign sfixed64. */
+                    public sfixed64: (number|Long);
 
                     /**
                      * Encodes the specified Sign message. Does not implicitly {@link whisk.api.shared.v1.Sign.verify|verify} messages.

@@ -6702,7 +6702,18 @@ export const whisk = $root.whisk = (() => {
                      * Properties of a Sign.
                      * @memberof whisk.api.shared.v1
                      * @interface ISign
-                     * @property {number|Long|null} [b] Sign b
+                     * @property {number|null} [double] Sign double
+                     * @property {number|null} [float] Sign float
+                     * @property {number|null} [int32] Sign int32
+                     * @property {number|Long|null} [int64] Sign int64
+                     * @property {number|null} [uint32] Sign uint32
+                     * @property {number|Long|null} [uint64] Sign uint64
+                     * @property {number|null} [sint32] Sign sint32
+                     * @property {number|Long|null} [sint64] Sign sint64
+                     * @property {number|null} [fixed32] Sign fixed32
+                     * @property {number|Long|null} [fixed64] Sign fixed64
+                     * @property {number|null} [sfixed32] Sign sfixed32
+                     * @property {number|Long|null} [sfixed64] Sign sfixed64
                      */
 
                     /**
@@ -6721,12 +6732,100 @@ export const whisk = $root.whisk = (() => {
                     }
 
                     /**
-                     * Sign b.
-                     * @member {number|Long} b
+                     * Sign double.
+                     * @member {number} double
                      * @memberof whisk.api.shared.v1.Sign
                      * @instance
                      */
-                    Sign.prototype.b = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+                    Sign.prototype.double = 0;
+
+                    /**
+                     * Sign float.
+                     * @member {number} float
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.float = 0;
+
+                    /**
+                     * Sign int32.
+                     * @member {number} int32
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.int32 = 0;
+
+                    /**
+                     * Sign int64.
+                     * @member {number|Long} int64
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.int64 = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                    /**
+                     * Sign uint32.
+                     * @member {number} uint32
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.uint32 = 0;
+
+                    /**
+                     * Sign uint64.
+                     * @member {number|Long} uint64
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.uint64 = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+
+                    /**
+                     * Sign sint32.
+                     * @member {number} sint32
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.sint32 = 0;
+
+                    /**
+                     * Sign sint64.
+                     * @member {number|Long} sint64
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.sint64 = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                    /**
+                     * Sign fixed32.
+                     * @member {number} fixed32
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.fixed32 = 0;
+
+                    /**
+                     * Sign fixed64.
+                     * @member {number|Long} fixed64
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.fixed64 = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                    /**
+                     * Sign sfixed32.
+                     * @member {number} sfixed32
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.sfixed32 = 0;
+
+                    /**
+                     * Sign sfixed64.
+                     * @member {number|Long} sfixed64
+                     * @memberof whisk.api.shared.v1.Sign
+                     * @instance
+                     */
+                    Sign.prototype.sfixed64 = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                     /**
                      * Encodes the specified Sign message. Does not implicitly {@link whisk.api.shared.v1.Sign.verify|verify} messages.
@@ -6740,8 +6839,30 @@ export const whisk = $root.whisk = (() => {
                     Sign.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.b != null && Object.hasOwnProperty.call(message, "b"))
-                            writer.uint32(/* id 1, wireType 0 =*/8).sint64(message.b);
+                        if (message.double != null && Object.hasOwnProperty.call(message, "double"))
+                            writer.uint32(/* id 1, wireType 1 =*/9).double(message.double);
+                        if (message.float != null && Object.hasOwnProperty.call(message, "float"))
+                            writer.uint32(/* id 2, wireType 5 =*/21).float(message.float);
+                        if (message.int32 != null && Object.hasOwnProperty.call(message, "int32"))
+                            writer.uint32(/* id 3, wireType 0 =*/24).int32(message.int32);
+                        if (message.int64 != null && Object.hasOwnProperty.call(message, "int64"))
+                            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.int64);
+                        if (message.uint32 != null && Object.hasOwnProperty.call(message, "uint32"))
+                            writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.uint32);
+                        if (message.uint64 != null && Object.hasOwnProperty.call(message, "uint64"))
+                            writer.uint32(/* id 6, wireType 0 =*/48).uint64(message.uint64);
+                        if (message.sint32 != null && Object.hasOwnProperty.call(message, "sint32"))
+                            writer.uint32(/* id 7, wireType 0 =*/56).sint32(message.sint32);
+                        if (message.sint64 != null && Object.hasOwnProperty.call(message, "sint64"))
+                            writer.uint32(/* id 8, wireType 0 =*/64).sint64(message.sint64);
+                        if (message.fixed32 != null && Object.hasOwnProperty.call(message, "fixed32"))
+                            writer.uint32(/* id 9, wireType 5 =*/77).fixed32(message.fixed32);
+                        if (message.fixed64 != null && Object.hasOwnProperty.call(message, "fixed64"))
+                            writer.uint32(/* id 10, wireType 1 =*/81).fixed64(message.fixed64);
+                        if (message.sfixed32 != null && Object.hasOwnProperty.call(message, "sfixed32"))
+                            writer.uint32(/* id 11, wireType 5 =*/93).sfixed32(message.sfixed32);
+                        if (message.sfixed64 != null && Object.hasOwnProperty.call(message, "sfixed64"))
+                            writer.uint32(/* id 12, wireType 1 =*/97).sfixed64(message.sfixed64);
                         return writer;
                     };
 
@@ -6764,7 +6885,40 @@ export const whisk = $root.whisk = (() => {
                             let tag = reader.uint32();
                             switch (tag >>> 3) {
                             case 1:
-                                message.b = reader.sint64();
+                                message.double = reader.double();
+                                break;
+                            case 2:
+                                message.float = reader.float();
+                                break;
+                            case 3:
+                                message.int32 = reader.int32();
+                                break;
+                            case 4:
+                                message.int64 = reader.int64();
+                                break;
+                            case 5:
+                                message.uint32 = reader.uint32();
+                                break;
+                            case 6:
+                                message.uint64 = reader.uint64();
+                                break;
+                            case 7:
+                                message.sint32 = reader.sint32();
+                                break;
+                            case 8:
+                                message.sint64 = reader.sint64();
+                                break;
+                            case 9:
+                                message.fixed32 = reader.fixed32();
+                                break;
+                            case 10:
+                                message.fixed64 = reader.fixed64();
+                                break;
+                            case 11:
+                                message.sfixed32 = reader.sfixed32();
+                                break;
+                            case 12:
+                                message.sfixed64 = reader.sfixed64();
                                 break;
                             default:
                                 reader.skipType(tag & 7);
