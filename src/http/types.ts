@@ -53,7 +53,7 @@ export interface ConfigGRPC {
     info: LoggerFn;
   };
   transformRequest?<T>(params: { xhr: XMLHttpRequest; data: T }): T | void | Promise<T | void>;
-  transformResponse?<T>(params: { data: GOutput<T> }): GOutput<T> | Promise<GOutput<T>>;
+  transformResponse?<T>(params: { xhr: XMLHttpRequest; data: GOutput<T> }): GOutput<T> | Promise<GOutput<T>>;
 }
 
 export interface Cancel {

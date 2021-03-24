@@ -219,7 +219,7 @@ export const grpcHTTP = ({
 
         return data;
       })
-      .then(data => (isFunction(transformResponse) ? transformResponse({ data }) : data))
+      .then(data => (isFunction(transformResponse) ? transformResponse({ xhr, data }) : data))
       .catch(data => {
         logger?.error(method, data);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
