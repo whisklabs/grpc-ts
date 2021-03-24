@@ -176,12 +176,111 @@
       "messages": [],
       "fields": [
         {
-          "name": "b",
-          "type": "sint64",
+          "name": "double",
+          "type": "double",
           "tag": 1,
           "required": false,
           "repeated": false,
-          "optional": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "float",
+          "type": "float",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "int32",
+          "type": "int32",
+          "tag": 3,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "int64",
+          "type": "int64",
+          "tag": 4,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "uint32",
+          "type": "uint32",
+          "tag": 5,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "uint64",
+          "type": "uint64",
+          "tag": 6,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "sint32",
+          "type": "sint32",
+          "tag": 7,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "sint64",
+          "type": "sint64",
+          "tag": 8,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "fixed32",
+          "type": "fixed32",
+          "tag": 9,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "fixed64",
+          "type": "fixed64",
+          "tag": 10,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "sfixed32",
+          "type": "sfixed32",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {}
+        },
+        {
+          "name": "sfixed64",
+          "type": "sfixed64",
+          "tag": 12,
+          "required": false,
+          "repeated": false,
+          "optional": true,
           "options": {}
         }
       ],

@@ -6,7 +6,7 @@ import { Field, FieldGet, FieldItem, FieldType } from '../types';
 import { Bytes, MapStruct, WrapperStruct } from './constant';
 import { getDefault } from './default';
 import { PACKED } from './packed';
-import { BufRead, ReadMapKeys, readMap, readPacked, readVarint, skip } from './read';
+import { BufRead, ReadMapKeys, readMap, readPacked, skip, uint32 } from './read';
 import {
   BufWrite,
   WriteMapKeys,
@@ -148,7 +148,7 @@ function DecodeHelper<T extends Record<string, any>>(
   b.path = path;
 
   while (b.pos < end) {
-    const val = readVarint(b);
+    const val = uint32(b);
     const tag = val >> 3;
     const startPos = b.pos;
 
@@ -181,7 +181,7 @@ function DecodeRead(b: BufRead, fieldName: string, result: Record<string, unknow
       result[fieldName] = getDefault(item, readMap[item as ReadMapKeys](b));
     }
   } else if (isFunction(item)) {
-    result[fieldName] = DecodeHelper(b, item, {}, path, readVarint(b) + b.pos);
+    result[fieldName] = DecodeHelper(b, item, {}, path, uint32(b) + b.pos);
   } else if (isArray(item)) {
     if (item[0] === 'repeated') {
       if (isString(item[1]) && PACKED[item[1]]) {
@@ -198,10 +198,10 @@ function DecodeRead(b: BufRead, fieldName: string, result: Record<string, unknow
       const mm = result[fieldName];
       const m = isObject(mm) ? mm : {};
       result[fieldName] = m;
-      const o = DecodeHelper(b, MapStruct(item), {} as { key: string; value: unknown }, path, readVarint(b) + b.pos);
+      const o = DecodeHelper(b, MapStruct(item), {} as { key: string; value: unknown }, path, uint32(b) + b.pos);
       m[o.key] = o.value;
     } else if (item[0] === 'wrapper') {
-      const o = DecodeHelper(b, WrapperStruct(item[1]), {} as { value: unknown }, path, readVarint(b) + b.pos);
+      const o = DecodeHelper(b, WrapperStruct(item[1]), {} as { value: unknown }, path, uint32(b) + b.pos);
       result[fieldName] = o.value;
     }
   }

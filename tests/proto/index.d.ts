@@ -600,7 +600,18 @@ export type whisk_api_shared_v1_Big = {
 };
 export const whisk_api_shared_v1_Big: Field<whisk_api_shared_v1_Big>;
 export type whisk_api_shared_v1_Sign = {
-  b: number;
+  double?: number;
+  float?: number;
+  int32?: number;
+  int64?: number;
+  uint32?: number;
+  uint64?: number;
+  sint32?: number;
+  sint64?: number;
+  fixed32?: number;
+  fixed64?: number;
+  sfixed32?: number;
+  sfixed64?: number;
 };
 export const whisk_api_shared_v1_Sign: Field<whisk_api_shared_v1_Sign>;
 export type whisk_api_shared_v1_Double = {

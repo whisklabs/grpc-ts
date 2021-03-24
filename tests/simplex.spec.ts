@@ -1,5 +1,12 @@
 /* eslint-disable camelcase */
 
+// protobufjs can't disable long and --force-number don't work
+// https://github.com/protobufjs/protobuf.js/issues/1109
+import { configure, util } from 'protobufjs';
+// @ts-expect-error Explicitly disable long.js support
+util.Long = undefined;
+configure();
+
 import { Decode, Encode } from '../src';
 import { whisk_api_shared_v1_Test, whisk_api_user_v2_ActivityLevel, whisk_api_user_v2_GetMeResponse } from './proto';
 import { whisk } from './protobufjs/out';
@@ -82,10 +89,10 @@ describe('protobuf simplex', () => {
 
     expect(Array.from(binA)).toMatchObject(Array.from(binB));
 
-    const resultA1 = Decode(whisk_api_user_v2_GetMeResponse, binA);
-    const resultA2 = Decode(whisk_api_user_v2_GetMeResponse, binB);
     const resultB1 = whisk.api.user.v2.GetMeResponse.decode(binA);
     const resultB2 = whisk.api.user.v2.GetMeResponse.decode(binB);
+    const resultA1 = Decode(whisk_api_user_v2_GetMeResponse, binA);
+    const resultA2 = Decode(whisk_api_user_v2_GetMeResponse, binB);
 
     // original
     expect(resultA1).toMatchObject(data);
@@ -129,6 +136,8 @@ describe('protobuf simplex', () => {
     const binB = whisk.api.shared.v1.Test.encode(b).finish();
 
     expect(Array.from(binA)).toMatchObject(Array.from(binB));
+
+    expect(whisk.api.shared.v1.Test.decode(binB)).toMatchObject(b);
     expect(Decode(whisk_api_shared_v1_Test, binA)).toMatchObject(b);
   });
 });

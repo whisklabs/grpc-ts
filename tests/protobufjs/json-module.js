@@ -1219,9 +1219,53 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                   },
                   Sign: {
                     fields: {
-                      b: {
-                        type: "sint64",
+                      double: {
+                        type: "double",
                         id: 1
+                      },
+                      float: {
+                        type: "float",
+                        id: 2
+                      },
+                      int32: {
+                        type: "int32",
+                        id: 3
+                      },
+                      int64: {
+                        type: "int64",
+                        id: 4
+                      },
+                      uint32: {
+                        type: "uint32",
+                        id: 5
+                      },
+                      uint64: {
+                        type: "uint64",
+                        id: 6
+                      },
+                      sint32: {
+                        type: "sint32",
+                        id: 7
+                      },
+                      sint64: {
+                        type: "sint64",
+                        id: 8
+                      },
+                      fixed32: {
+                        type: "fixed32",
+                        id: 9
+                      },
+                      fixed64: {
+                        type: "fixed64",
+                        id: 10
+                      },
+                      sfixed32: {
+                        type: "sfixed32",
+                        id: 11
+                      },
+                      sfixed64: {
+                        type: "sfixed64",
+                        id: 12
                       }
                     }
                   },
