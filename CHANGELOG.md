@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.7](https://github.com/whisklabs/grpc-ts/compare/v1.0.6...v1.0.7) (2021-3-25)
+
+### Bug Fixes
+
+- issues #5 ([8124b1f](https://github.com/whisklabs/grpc-ts/commit/8124b1f334506efbecb3de06e08758c1d3d68c52))
+
+  Allow negative numbers in int32 and int64
+
+### Refactoring
+
+- add xhr in transformResponse ([105fdc1](https://github.com/whisklabs/grpc-ts/commit/105fdc1bdcdba10765cd0a2a5838cfe626c48017))
+
 ## [v1.0.6](https://github.com/whisklabs/grpc-ts/compare/v1.0.5...v1.0.6) (2021-3-22)
 
 ### Documentation
