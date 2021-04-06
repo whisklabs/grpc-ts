@@ -36,8 +36,12 @@ const forbidden = () => {
 const TOKEN = '123';
 
 (async () => {
+  interface Meta {
+    token: string;
+  }
+
   // Server config
-  const grpc = grpcHTTP({
+  const grpc = grpcHTTP<Meta>({
     server: 'https://example.com',
     credentials: true,
     debug: false,
@@ -45,13 +49,17 @@ const TOKEN = '123';
     timeout: undefined,
 
     // Proxy xhr before request
-    transformRequest: ({ xhr, data }) => {
+    transformRequest: ({ xhr, data, meta }) => {
       xhr.setRequestHeader('Authorization', TOKEN);
+      console.log(meta?.token);
       return { ...data, x: 1 };
     },
 
     // Proxy result after request
-    transformResponse: ({ data }) => {
+    transformResponse: ({ xhr, data, meta }) => {
+      console.log(xhr.status);
+      console.log(meta?.token);
+
       if (!data.success) {
         alert(`v1.Grpc.Event.GRPCError ${data.error.message ?? ''}`);
 
@@ -67,7 +75,7 @@ const TOKEN = '123';
       }
       return data;
     },
-  }) as GRPCDeep;
+  }) as GRPCDeep<Meta>; // Deep example
 
   // Simple method call
   const user = await grpc(whisk_api_user_v2_UserAPI_GetMe);
@@ -121,6 +129,9 @@ const TOKEN = '123';
       onDownload: e => console.log(e.loaded / e.total),
       onUpload: e => console.log(e.loaded / e.total),
       timeout: 2000,
+      meta: {
+        token: '12',
+      },
     }
   );
 
