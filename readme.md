@@ -168,7 +168,7 @@ export const grpc = grpcHTTP({
   timeout: undefined,
 
   // Proxy xhr before request
-  transformRequest: ({ xhr }) => {
+  transformRequest: ({ xhr, data, meta }) => {
     xhr.setRequestHeader('Authorization', 'ANY_TOKEN');
   },
 
@@ -182,7 +182,7 @@ export const grpc = grpcHTTP({
   },
 
   // Proxy result after request
-  transformResponse: ({ data }) => {
+  transformResponse: ({ xhr, data, meta }) => {
     if (!data.success) {
       console.log(data.error);
     }
@@ -357,6 +357,12 @@ await grpc(
 #### All options
 
 ```ts
+interface Meta {
+  token: string;
+}
+
+const grpc = grpcHTTP<Meta>(...);
+
 const result = await grpc(
   whisk_api_user_v2_UserAPI_UpdateSettings, // gRPC method
   { ... }, // gRPC params
@@ -366,6 +372,9 @@ const result = await grpc(
     onDownload: e => console.log(e.loaded / e.total), // download progress with ProgressEvent
     onUpload: e => console.log(e.loaded / e.total), // upload progress with ProgressEvent
     timeout: 2000, // number - timeout for this request with cancel request at the end
+    meta: { // Meta - data for transformRequest and transformResponse methods
+      token: 'CODE',
+    },
   }
 );
 ```

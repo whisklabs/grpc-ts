@@ -41,7 +41,7 @@ export type GOutput<T> = GSuccess<T> | GError | GResult<T>;
 
 type LoggerFn = (message?: any, ...optionalParams: any[]) => void;
 
-export interface ConfigGRPC {
+export interface ConfigGRPC<Meta = unknown> {
   server: string;
   credentials?: boolean;
   timeout?: number;
@@ -52,8 +52,12 @@ export interface ConfigGRPC {
     error: LoggerFn;
     info: LoggerFn;
   };
-  transformRequest?<T>(params: { xhr: XMLHttpRequest; data: T }): T | void | Promise<T | void>;
-  transformResponse?<T>(params: { xhr: XMLHttpRequest; data: GOutput<T> }): GOutput<T> | Promise<GOutput<T>>;
+  transformRequest?<T>(params: { xhr: XMLHttpRequest; data: T; meta?: Meta }): T | void | Promise<T | void>;
+  transformResponse?<T>(params: {
+    xhr: XMLHttpRequest;
+    data: GOutput<T>;
+    meta?: Meta;
+  }): GOutput<T> | Promise<GOutput<T>>;
 }
 
 export interface Cancel {
@@ -61,7 +65,7 @@ export interface Cancel {
   abort?(): void;
 }
 
-export interface LocalGRPC<T extends Field> {
+export interface LocalGRPC<T extends Field, Meta = unknown> {
   mask?:
     | boolean
     | ('mask' extends keyof FieldGet<T>
@@ -77,18 +81,19 @@ export interface LocalGRPC<T extends Field> {
   timeout?: number;
   onDownload?: (e: ProgressEvent<EventTarget>) => void;
   onUpload?: (e: ProgressEvent<EventTarget>) => void;
+  meta?: Meta;
 }
 
-export type GRPC = <T extends Field, K extends Field>(
+export type GRPC<Meta = unknown> = <T extends Field, K extends Field>(
   ...[field, values, options]: {} extends ServiceRequest<Service<T, K>>
-    ? [Service<T, K>, ServiceRequest<Service<T, K>>?, LocalGRPC<T>?]
-    : [Service<T, K>, ServiceRequest<Service<T, K>>, LocalGRPC<T>?]
+    ? [Service<T, K>, ServiceRequest<Service<T, K>>?, LocalGRPC<T, Meta>?]
+    : [Service<T, K>, ServiceRequest<Service<T, K>>, LocalGRPC<T, Meta>?]
 ) => Promise<GOutput<ServiceResponse<Service<T, K>>>>;
 
-export type GRPCDeep = <T extends Field, K extends Field>(
+export type GRPCDeep<Meta = unknown> = <T extends Field, K extends Field>(
   ...[field, values, options]: {} extends ServiceRequestDeep<Service<T, K>>
-    ? [Service<T, K>, ServiceRequestDeep<Service<T, K>>?, LocalGRPC<T>?]
-    : [Service<T, K>, ServiceRequestDeep<Service<T, K>>, LocalGRPC<T>?]
+    ? [Service<T, K>, ServiceRequestDeep<Service<T, K>>?, LocalGRPC<T, Meta>?]
+    : [Service<T, K>, ServiceRequestDeep<Service<T, K>>, LocalGRPC<T, Meta>?]
 ) => Promise<GOutput<ServiceResponseDeep<Service<DeepReadonly<T>, DeepReadonly<K>>>>>;
 
 // ...[method, params]: T[P]['request'] extends undefined ? [P] : [P, T[P]['request']]

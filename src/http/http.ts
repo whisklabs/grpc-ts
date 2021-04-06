@@ -18,7 +18,7 @@ export const grpcCancel = (): Cancel => {
   return CancelFn;
 };
 
-export const grpcHTTP = ({
+export const grpcHTTP = <Meta = unknown>({
   server,
   transformRequest,
   transformResponse,
@@ -27,7 +27,7 @@ export const grpcHTTP = ({
   devtool = false,
   debug = false,
   logger,
-}: ConfigGRPC) => {
+}: ConfigGRPC<Meta>) => {
   if (!isText(server)) {
     throw new Error('No "server" in GRPC config');
   }
@@ -37,7 +37,7 @@ export const grpcHTTP = ({
   return (<T extends Field, K extends Field>(
     field: Service<T, K>,
     values = {} as ServiceRequest<Service<T, K>>,
-    { cancel, onDownload, onUpload, mask, timeout }: LocalGRPC<T> = {}
+    { cancel, onDownload, onUpload, mask, timeout, meta }: LocalGRPC<T, Meta> = {}
   ): Promise<GOutput<ServiceResponse<Service<T, K>>>> => {
     if (isString(cancel) && isFunction(cancels[cancel])) {
       cancels[cancel]();
@@ -181,7 +181,7 @@ export const grpcHTTP = ({
 
       if (isFunction(transformRequest)) {
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        sendData = (await transformRequest({ xhr, data: values })) || values;
+        sendData = (await transformRequest({ xhr, data: values, meta })) || values;
       }
 
       const encoded = Encode(
@@ -219,11 +219,11 @@ export const grpcHTTP = ({
 
         return data;
       })
-      .then(data => (isFunction(transformResponse) ? transformResponse({ xhr, data }) : data))
+      .then(data => (isFunction(transformResponse) ? transformResponse({ xhr, data, meta }) : data))
       .catch(data => {
         logger?.error(method, data);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         return { success: false, error: { data } } as GError;
       });
-  }) as GRPC;
+  }) as GRPC<Meta>;
 };
