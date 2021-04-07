@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.0.8](https://github.com/whisklabs/grpc-ts/compare/v1.0.7...v1.0.8) (2021-4-7)
+
+### Refactoring
+
+- add meta in http ([8337749](https://github.com/whisklabs/grpc-ts/commit/8337749594590d0e454af134a019d21f406e9dca))
+
 ## [v1.0.7](https://github.com/whisklabs/grpc-ts/compare/v1.0.6...v1.0.7) (2021-3-25)
 
 ### Bug Fixes
