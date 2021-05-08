@@ -1,4 +1,4 @@
-import { isFunction, isNumber, isObject, isPresent, isString, isText } from '@whisklabs/typeguards';
+import { isFunction, isObject, isPresent, isString, isText } from '@whisklabs/typeguards';
 
 import { Decode, Encode } from '../binary';
 import { Field, FieldGet, Service, ServiceRequest, ServiceResponse } from '../types';
@@ -7,7 +7,7 @@ import { maskWrap } from './mask';
 import { Chunk, ChunkType, chunkParse } from './parser';
 import { StatusCode, fromHttpStatus } from './status';
 import { Cancel, ConfigGRPC, GError, GOutput, GRPC, LocalGRPC } from './types';
-import { GRPC_MESSAGE, GRPC_STATUS, encodeRequest, safeJSON, toInt8 } from './utils';
+import { GRPC_MESSAGE, GRPC_STATUS, bufToString, encodeRequest, safeJSON, toInt8 } from './utils';
 
 export const grpcCancel = (): Cancel => {
   const CancelFn = (() => {
@@ -46,6 +46,9 @@ export const grpcHTTP = <Meta = unknown>({
 
     const method = `${server}/${field.name}`;
     const xhr = new XMLHttpRequest();
+
+    xhr.timeout = timeout ?? timeoutConfig ?? 0;
+
     const abortXHR = () => xhr.abort();
 
     if (isPresent(cancel)) {
@@ -70,16 +73,6 @@ export const grpcHTTP = <Meta = unknown>({
 
     // eslint-disable-next-line @typescript-eslint/no-misused-promises, no-async-promise-executor
     return new Promise<GOutput<ServiceResponse<Service<T, K>>>>(async callback => {
-      const time = timeout ?? timeoutConfig;
-
-      if (isNumber(time) && time > 0) {
-        setTimeout(() => {
-          callback({ success: false, error: { message: 'timeout', data: time } });
-          abortXHR();
-          tmCancel();
-        }, time);
-      }
-
       xhr.open('POST', method);
 
       xhr.withCredentials = credentials;
@@ -95,22 +88,52 @@ export const grpcHTTP = <Meta = unknown>({
       xhr.setRequestHeader('x-user-agent', 'grpc-web-ts/1.0');
 
       if (isFunction(onDownload)) {
-        xhr.onprogress = onDownload;
+        xhr.addEventListener('progress', onDownload);
       }
 
       if (isFunction(onUpload) && isObject(xhr.upload)) {
-        xhr.upload.onprogress = onUpload;
+        xhr.upload.addEventListener('progress', onUpload);
       }
 
-      xhr.onreadystatechange = function onready() {
-        if (xhr.readyState !== 4) {
-          return undefined;
-        }
+      xhr.addEventListener('timeout', () => {
+        tmCancel();
+        callback({ success: false, error: { message: 'timeout', data: xhr.timeout } });
+      });
 
+      xhr.addEventListener('abort', () => {
+        tmCancel();
+        callback({
+          success: false,
+          error: { message: 'cancelled', httpStatus: xhr.status, grpcCode: StatusCode.CANCELLED },
+        });
+      });
+
+      xhr.addEventListener('error', () => {
+        tmCancel();
+        callback({
+          success: false,
+          error: {
+            message: 'XHR error',
+            data: bufToString(xhr),
+            httpStatus: xhr.status,
+            grpcCode: fromHttpStatus(xhr.status),
+          },
+        });
+      });
+
+      xhr.addEventListener('load', function onready() {
         tmCancel();
 
-        if (xhr.status !== 0 && xhr.status !== 200) {
-          return callback({ success: false, error: { message: 'XHR wrong status', httpStatus: xhr.status } });
+        if (xhr.status < 200 || xhr.status >= 300) {
+          return callback({
+            success: false,
+            error: {
+              message: 'XHR wrong status',
+              data: bufToString(xhr),
+              httpStatus: xhr.status,
+              grpcCode: fromHttpStatus(xhr.status),
+            },
+          });
         }
 
         const byteSource = toInt8(xhr);
@@ -177,7 +200,7 @@ export const grpcHTTP = <Meta = unknown>({
             });
           }
         }
-      };
+      });
 
       if (isFunction(transformRequest)) {
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
