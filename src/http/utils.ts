@@ -1,5 +1,6 @@
 import { isArray, isArrayBuffer, isDate, isObject, isPresent } from '@whisklabs/typeguards';
 
+import { readUtf8 } from '../binary/utf8';
 import { GError, GOutput } from './types';
 
 export const HEADER_SIZE = 5;
@@ -33,6 +34,15 @@ export function toInt8(xhr: XMLHttpRequest) {
       buf.push(xhr.responseText.charCodeAt(i) & 255);
     }
     return new Uint8Array(buf);
+  }
+}
+
+export function bufToString(xhr: XMLHttpRequest): string {
+  try {
+    return xhr.responseText;
+  } catch {
+    const buf = toInt8(xhr);
+    return buf === false ? '' : readUtf8(buf, 0, buf.byteLength);
   }
 }
 

@@ -107,6 +107,7 @@ export enum StatusCode {
 }
 
 const codes: Record<number, StatusCode> = {
+  0: StatusCode.ABORTED,
   200: StatusCode.OK,
   400: StatusCode.INVALID_ARGUMENT,
   401: StatusCode.UNAUTHENTICATED,
