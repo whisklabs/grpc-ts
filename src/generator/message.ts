@@ -1,13 +1,20 @@
-import { isPresent, isString, isText } from '@whisklabs/typeguards';
+import { isBoolean, isPresent, isString, isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
-import { GOOGLE_WRAPPERS } from './constants';
+import { GOOGLE_WRAPPERS, OPTION_MESSAGE_REQUIRED } from './constants';
 import { enums } from './enum';
 import { getField, getStruct, isRequiredField } from './field';
 import { List, MakeOut, MakeOuts } from './generator';
 import { camelCase, checkSame, errorColor, safeString } from './utils';
 
-export function messages(pack: string, out: MakeOuts, items: Parser.Message[], list: List[] = [], parent?: string) {
+export function messages(
+  pack: string,
+  out: MakeOuts,
+  items: Parser.Message[],
+  messageRequired?: boolean,
+  list: List[] = [],
+  parent?: string
+) {
   for (const msg of items) {
     const newPack = `${parent ?? pack}_${msg.name}`;
     list = list.concat(
@@ -15,16 +22,25 @@ export function messages(pack: string, out: MakeOuts, items: Parser.Message[], l
       msg.enums.map(i => ({ name: i.name, pack: newPack }))
     );
 
-    message(pack, out, msg, list, parent);
+    message(pack, out, msg, list, messageRequired, parent);
 
     if (msg.messages.length > 0) {
-      messages(pack, out, msg.messages, list, newPack);
+      messages(pack, out, msg.messages, messageRequired, list, newPack);
     }
   }
 }
 
 // eslint-disable-next-line complexity
-function message(pack: string, out: MakeOuts, item: Parser.Message, list: List[], parent?: string) {
+function message(
+  pack: string,
+  out: MakeOuts,
+  item: Parser.Message,
+  list: List[],
+  messageRequired?: boolean,
+  parent?: string
+) {
+  const option = item.options[OPTION_MESSAGE_REQUIRED];
+  const isMessageRequired = isBoolean(option) ? option : messageRequired;
   const base = `${safeString(parent ?? pack)}_${safeString(item.name)}`;
   enums(base, out, item.enums);
 
@@ -50,7 +66,7 @@ function message(pack: string, out: MakeOuts, item: Parser.Message, list: List[]
       const find = list.find(i => i.name === field.map?.to || i.name === field.type);
       const fieldPack = isPresent(find) ? find.pack : pack;
       const naming = camelCase(field.name);
-      const required = isRequiredField(field);
+      const required = isRequiredField(field, isMessageRequired);
 
       if (isText(field.oneof)) {
         field.oneof = camelCase(field.oneof);
@@ -110,7 +126,7 @@ function message(pack: string, out: MakeOuts, item: Parser.Message, list: List[]
         );
 
         out.dts.push(
-          `    | { oneof: '${naming}'; value${isRequiredField(field) ? '' : '?'}: ${fieldName}${
+          `    | { oneof: '${naming}'; value${isRequiredField(field, isMessageRequired) ? '' : '?'}: ${fieldName}${
             field.repeated ? '[]' : ''
           }; }`
         );

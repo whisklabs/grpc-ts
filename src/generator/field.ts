@@ -74,11 +74,13 @@ export const pathField = (field: string, base: string, out: MakeOuts, parent?: s
   return safeString(`${base}_${field}`);
 };
 
-export const isRequiredField = (field: Parser.Field) =>
+export const isRequiredField = (field: Parser.Field, optional?: boolean) =>
   isPresent(field.options.required)
     ? field.options.required !== false
     : field.optional
     ? false
+    : optional === true
+    ? true
     : field.required || field.repeated || field.type === 'map' || isString(TYPES[field.type]);
 
 export const isEnumField = (field: Parser.Field, base: string, out: MakeOuts, parent?: string) =>

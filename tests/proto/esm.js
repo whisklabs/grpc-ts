@@ -664,6 +664,36 @@ export function whisk_api_shared_v1_Wrapper() {
         [9, "bytes", ["wrapper", "bytes"], 0],
     ];
 }
+export function whisk_api_user_v2_Test() {
+    return [
+        [1, "id", "string", 1],
+        [2, "text", "string", 0],
+        [11, "currentWeek", whisk_api_user_v2_Week, 1],
+        [12, "nextWeek", whisk_api_user_v2_Week, 0],
+        [13, "time", whisk_api_shared_v1_Time, 1],
+        [14, "timeAfter", whisk_api_shared_v1_Time, 0],
+        [21, "description", ["wrapper", "string"], 1],
+        [31, "item", "string", 0],
+        [32, "test", ["wrapper", "string"], 1],
+        [41, "array", ["repeated", "bool"], 1],
+        [42, "array_2", ["repeated", "bool"], 0],
+        [51, "mapSearch", ["map", "string", "bool"], 1],
+        [52, "mapSearch_2", ["map", "string", "bool"], 0],
+        [61, "type", whisk_api_user_v2_Week, 1, "deviceDescription"],
+        [62, "custom", whisk_api_user_v2_Week, 0, "deviceDescription"],
+    ];
+}
+export function whisk_api_user_v2_Day() {
+    return [
+        [1, "num", "int32", 1],
+    ];
+}
+export function whisk_api_user_v2_Week() {
+    return [
+        [1, "num", "int32", 1],
+        [2, "day", whisk_api_user_v2_Day, 0],
+    ];
+}
 export function whisk_api_user_v2_User() {
     return [
         [1, "id", "string", 1],
