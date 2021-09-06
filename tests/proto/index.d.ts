@@ -630,6 +630,34 @@ export type whisk_api_shared_v1_Wrapper = {
   bytes?: Uint8Array;
 };
 export const whisk_api_shared_v1_Wrapper: Field<whisk_api_shared_v1_Wrapper>;
+export type whisk_api_user_v2_Test = {
+  id: string;
+  text?: string;
+  currentWeek: whisk_api_user_v2_Week;
+  nextWeek?: whisk_api_user_v2_Week;
+  time: whisk_api_shared_v1_Time;
+  timeAfter?: whisk_api_shared_v1_Time;
+  description: string;
+  item?: string;
+  test: string;
+  array: boolean[];
+  array_2?: boolean[];
+  mapSearch: Record<string, boolean>;
+  mapSearch_2?: Record<string, boolean>;
+  deviceDescription?:
+    | { oneof: 'type'; value: whisk_api_user_v2_Week; }
+    | { oneof: 'custom'; value?: whisk_api_user_v2_Week; };
+};
+export const whisk_api_user_v2_Test: Field<whisk_api_user_v2_Test>;
+export type whisk_api_user_v2_Day = {
+  num: number;
+};
+export const whisk_api_user_v2_Day: Field<whisk_api_user_v2_Day>;
+export type whisk_api_user_v2_Week = {
+  num: number;
+  day?: whisk_api_user_v2_Day;
+};
+export const whisk_api_user_v2_Week: Field<whisk_api_user_v2_Week>;
 export type whisk_api_user_v2_User = {
   id: string;
   email: string;

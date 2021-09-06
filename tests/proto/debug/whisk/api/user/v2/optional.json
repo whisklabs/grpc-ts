@@ -1,0 +1,248 @@
+{
+  "syntax": 3,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "Test",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " required"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {},
+          "comment": " optional"
+        },
+        {
+          "name": "current_week",
+          "type": "Week",
+          "tag": 11,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " required"
+        },
+        {
+          "name": "next_week",
+          "type": "Week",
+          "tag": 12,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {},
+          "comment": " optional"
+        },
+        {
+          "name": "time",
+          "type": "whisk.api.shared.v1.Time",
+          "tag": 13,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " required"
+        },
+        {
+          "name": "time_after",
+          "type": "whisk.api.shared.v1.Time",
+          "tag": 14,
+          "required": false,
+          "repeated": false,
+          "optional": true,
+          "options": {},
+          "comment": " optional"
+        },
+        {
+          "name": "description",
+          "type": "google.protobuf.StringValue",
+          "tag": 21,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " Optional string"
+        },
+        {
+          "name": "item",
+          "type": "string",
+          "tag": 31,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": false,
+            "comment": " optional"
+          },
+          "comment": " Force override (backward binary compatibility only)"
+        },
+        {
+          "name": "test",
+          "type": "google.protobuf.StringValue",
+          "tag": 32,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": true,
+            "comment": " required"
+          }
+        },
+        {
+          "name": "array",
+          "type": "bool",
+          "tag": 41,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {},
+          "comment": " required"
+        },
+        {
+          "name": "array_2",
+          "type": "bool",
+          "tag": 42,
+          "required": false,
+          "repeated": true,
+          "optional": false,
+          "options": {
+            "required": false,
+            "comment": " optional"
+          }
+        },
+        {
+          "name": "map_search",
+          "type": "map",
+          "tag": 51,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "map": {
+            "from": "string",
+            "to": "bool"
+          },
+          "comment": " Map - can't work with optional!\n required"
+        },
+        {
+          "name": "map_search_2",
+          "type": "map",
+          "tag": 52,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": false,
+            "comment": " optional"
+          },
+          "map": {
+            "from": "string",
+            "to": "bool"
+          }
+        },
+        {
+          "name": "type",
+          "type": "Week",
+          "tag": 61,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "comment": " required",
+          "oneof": "device_description"
+        },
+        {
+          "name": "custom",
+          "type": "Week",
+          "tag": 62,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {
+            "required": false,
+            "comment": " optional"
+          },
+          "oneof": "device_description"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Day",
+      "enums": [],
+      "options": {},
+      "messages": [],
+      "fields": [
+        {
+          "name": "num",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "Week",
+      "enums": [],
+      "options": {
+        "message_required": false
+      },
+      "messages": [],
+      "fields": [
+        {
+          "name": "num",
+          "type": "int32",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        },
+        {
+          "name": "day",
+          "type": "Day",
+          "tag": 2,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [],
+      "comment": " Force required mode in message\n false for disable"
+    }
+  ],
+  "options": {
+    "message_required": true
+  },
+  "extends": [],
+  "services": [],
+  "package": "whisk.api.user.v2",
+  "comment": " Force required mode for messages in file\n false for disable"
+}

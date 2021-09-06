@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 
-import { isText } from '@whisklabs/typeguards';
+import { isBoolean, isText } from '@whisklabs/typeguards';
 import { promises as fs } from 'fs';
 import { extname, isAbsolute, join, parse as pathParse, relative } from 'path';
 import { CompilerOptions, ModuleKind, ModuleResolutionKind, ScriptTarget, transpileModule } from 'typescript';
 
 import { Parser, parser } from '../parser';
 import { collectEmuns, collectMessages, collectServices } from './collect';
+import { OPTION_MESSAGE_REQUIRED } from './constants';
 import { enums } from './enum';
 import { Config, MakeOuts, Out } from './generator';
 import { messages } from './message';
@@ -19,6 +20,7 @@ export async function generator({
   exclude = /^$/,
   version = 'unknown',
   debug = false,
+  messageRequired,
   packageName,
   packageVersion,
   packageUrl = 'git@github.com:whisklabs/npm.git',
@@ -66,7 +68,7 @@ export async function generator({
       },
     });
 
-    const { js, dts, errors, fields, names } = make(schemas);
+    const { js, dts, errors, fields, names } = make(schemas, messageRequired);
 
     for (const [type, field] of fields) {
       if (!names.has(type)) {
@@ -127,7 +129,7 @@ export function checkTypes(file: string, errors: string[]) {
   }
 }
 
-export function make(schemas: Parser.Schema[]): MakeOuts {
+export function make(schemas: Parser.Schema[], messageRequired?: boolean): MakeOuts {
   const out: MakeOuts = {
     js: [],
     dts: [],
@@ -154,7 +156,10 @@ export function make(schemas: Parser.Schema[]): MakeOuts {
 
   for (const schema of schemas) {
     const path = schema.package ?? '';
-    messages(path, out, schema.messages, []);
+
+    const option = schema.options[OPTION_MESSAGE_REQUIRED];
+    const isMessageRequired = isBoolean(option) ? option : messageRequired;
+    messages(path, out, schema.messages, isMessageRequired, []);
     services(path, out, schema.services);
   }
 

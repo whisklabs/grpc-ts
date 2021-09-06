@@ -6,6 +6,7 @@ export interface Config {
   version?: string;
   exclude?: RegExp;
   debug?: boolean;
+  messageRequired?: boolean;
   packageName?: string;
   packageVersion?: string;
   packageUrl?: string;

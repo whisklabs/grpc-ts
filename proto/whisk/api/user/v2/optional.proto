@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package whisk.api.user.v2;
+
+// Force required mode for messages in file
+option message_required = true;  // false for disable
+
+message Test {
+  // Primitive
+  string id = 1; // required
+  optional string text = 2; // optional
+
+  // Struct
+  Week current_week = 11; // required
+  optional Week next_week = 12; // optional
+  whisk.api.shared.v1.Time time = 13; // required
+  optional whisk.api.shared.v1.Time time_after = 14; // optional
+  
+  // Wrappers (legacy)
+  google.protobuf.StringValue description = 21; // Optional string
+
+  // Force override (backward binary compatibility only)
+  string item = 31 [ (required) = false ]; // optional
+  google.protobuf.StringValue test = 32 [ (required) = true ]; // required
+
+  // Repeated - can't work with optional!
+  repeated bool array = 41; // required
+  repeated bool array_2 = 42 [ (required) = false ]; // optional
+  
+  // Map - can't work with optional!
+  map<string, bool> map_search = 51; // required
+  map<string, bool> map_search_2 = 52 [ (required) = false ]; // optional
+
+  // Oneof - can't work with optional!
+  oneof device_description {
+    Week type = 61; // required
+    Week custom = 62 [ (required) = false ]; // optional
+  }
+}
+
+message Day {
+  int32 num = 1;
+}
+
+message Week {
+  // Force required mode in message
+  option message_required = false; // false for disable
+
+  int32 num = 1;
+  Day day = 2;
+}

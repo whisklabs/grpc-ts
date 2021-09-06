@@ -3197,6 +3197,213 @@ export namespace whisk {
             /** Namespace v2. */
             namespace v2 {
 
+                /** Properties of a Test. */
+                interface ITest {
+
+                    /** Test id */
+                    id?: (string|null);
+
+                    /** Test text */
+                    text?: (string|null);
+
+                    /** Test currentWeek */
+                    currentWeek?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test nextWeek */
+                    nextWeek?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test time */
+                    time?: (whisk.api.shared.v1.ITime|null);
+
+                    /** Test timeAfter */
+                    timeAfter?: (whisk.api.shared.v1.ITime|null);
+
+                    /** Test description */
+                    description?: (google.protobuf.IStringValue|null);
+
+                    /** Test item */
+                    item?: (string|null);
+
+                    /** Test test */
+                    test?: (google.protobuf.IStringValue|null);
+
+                    /** Test array */
+                    array?: (boolean[]|null);
+
+                    /** Test array_2 */
+                    array_2?: (boolean[]|null);
+
+                    /** Test mapSearch */
+                    mapSearch?: ({ [k: string]: boolean }|null);
+
+                    /** Test mapSearch_2 */
+                    mapSearch_2?: ({ [k: string]: boolean }|null);
+
+                    /** Test type */
+                    type?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test custom */
+                    custom?: (whisk.api.user.v2.IWeek|null);
+                }
+
+                /** Represents a Test. */
+                class Test implements ITest {
+
+                    /**
+                     * Constructs a new Test.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.ITest);
+
+                    /** Test id. */
+                    public id: string;
+
+                    /** Test text. */
+                    public text: string;
+
+                    /** Test currentWeek. */
+                    public currentWeek?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test nextWeek. */
+                    public nextWeek?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test time. */
+                    public time?: (whisk.api.shared.v1.ITime|null);
+
+                    /** Test timeAfter. */
+                    public timeAfter?: (whisk.api.shared.v1.ITime|null);
+
+                    /** Test description. */
+                    public description?: (google.protobuf.IStringValue|null);
+
+                    /** Test item. */
+                    public item: string;
+
+                    /** Test test. */
+                    public test?: (google.protobuf.IStringValue|null);
+
+                    /** Test array. */
+                    public array: boolean[];
+
+                    /** Test array_2. */
+                    public array_2: boolean[];
+
+                    /** Test mapSearch. */
+                    public mapSearch: { [k: string]: boolean };
+
+                    /** Test mapSearch_2. */
+                    public mapSearch_2: { [k: string]: boolean };
+
+                    /** Test type. */
+                    public type?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test custom. */
+                    public custom?: (whisk.api.user.v2.IWeek|null);
+
+                    /** Test deviceDescription. */
+                    public deviceDescription?: ("type"|"custom");
+
+                    /**
+                     * Encodes the specified Test message. Does not implicitly {@link whisk.api.user.v2.Test.verify|verify} messages.
+                     * @param message Test message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.ITest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a Test message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns Test
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.Test;
+                }
+
+                /** Properties of a Day. */
+                interface IDay {
+
+                    /** Day num */
+                    num?: (number|null);
+                }
+
+                /** Represents a Day. */
+                class Day implements IDay {
+
+                    /**
+                     * Constructs a new Day.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.IDay);
+
+                    /** Day num. */
+                    public num: number;
+
+                    /**
+                     * Encodes the specified Day message. Does not implicitly {@link whisk.api.user.v2.Day.verify|verify} messages.
+                     * @param message Day message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.IDay, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a Day message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns Day
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.Day;
+                }
+
+                /** Properties of a Week. */
+                interface IWeek {
+
+                    /** Week num */
+                    num?: (number|null);
+
+                    /** Week day */
+                    day?: (whisk.api.user.v2.IDay|null);
+                }
+
+                /** Represents a Week. */
+                class Week implements IWeek {
+
+                    /**
+                     * Constructs a new Week.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.IWeek);
+
+                    /** Week num. */
+                    public num: number;
+
+                    /** Week day. */
+                    public day?: (whisk.api.user.v2.IDay|null);
+
+                    /**
+                     * Encodes the specified Week message. Does not implicitly {@link whisk.api.user.v2.Week.verify|verify} messages.
+                     * @param message Week message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.IWeek, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a Week message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns Week
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.Week;
+                }
+
                 /** Properties of a User. */
                 interface IUser {
 

@@ -200,13 +200,13 @@ describe('Rpc', () => {
     let i = 0;
 
     const prox = new Proxy(['rpc', 'name', '(', 'name', ')', 'returns', '(', 'name', ')', '{', '}', 'comment'], {
-      get(target, prop: number) {
-        if (target[prop] === '}') {
+      get(target, prop: unknown) {
+        if (target[prop as number] === '}') {
           const text = i < 4 ? '}' : '//';
           i++;
           return text;
         } else {
-          return target[prop];
+          return target[prop as number];
         }
       },
     });

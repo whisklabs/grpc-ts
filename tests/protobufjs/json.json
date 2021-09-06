@@ -1322,10 +1322,125 @@
               "nested": {
                 "v2": {
                   "options": {
+                    "message_required": true,
                     "go_package": "userv2",
                     "java_package": "com.whisk.api.user.v2"
                   },
                   "nested": {
+                    "Test": {
+                      "oneofs": {
+                        "deviceDescription": {
+                          "oneof": [
+                            "type",
+                            "custom"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "id": 1
+                        },
+                        "text": {
+                          "type": "string",
+                          "id": 2
+                        },
+                        "currentWeek": {
+                          "type": "Week",
+                          "id": 11
+                        },
+                        "nextWeek": {
+                          "type": "Week",
+                          "id": 12
+                        },
+                        "time": {
+                          "type": "whisk.api.shared.v1.Time",
+                          "id": 13
+                        },
+                        "timeAfter": {
+                          "type": "whisk.api.shared.v1.Time",
+                          "id": 14
+                        },
+                        "description": {
+                          "type": "google.protobuf.StringValue",
+                          "id": 21
+                        },
+                        "item": {
+                          "type": "string",
+                          "id": 31,
+                          "options": {
+                            "(required)": false
+                          }
+                        },
+                        "test": {
+                          "type": "google.protobuf.StringValue",
+                          "id": 32,
+                          "options": {
+                            "(required)": true
+                          }
+                        },
+                        "array": {
+                          "rule": "repeated",
+                          "type": "bool",
+                          "id": 41
+                        },
+                        "array_2": {
+                          "rule": "repeated",
+                          "type": "bool",
+                          "id": 42,
+                          "options": {
+                            "(required)": false
+                          }
+                        },
+                        "mapSearch": {
+                          "keyType": "string",
+                          "type": "bool",
+                          "id": 51
+                        },
+                        "mapSearch_2": {
+                          "keyType": "string",
+                          "type": "bool",
+                          "id": 52,
+                          "options": {
+                            "(required)": false
+                          }
+                        },
+                        "type": {
+                          "type": "Week",
+                          "id": 61
+                        },
+                        "custom": {
+                          "type": "Week",
+                          "id": 62,
+                          "options": {
+                            "(required)": false
+                          }
+                        }
+                      }
+                    },
+                    "Day": {
+                      "fields": {
+                        "num": {
+                          "type": "int32",
+                          "id": 1
+                        }
+                      }
+                    },
+                    "Week": {
+                      "options": {
+                        "message_required": false
+                      },
+                      "fields": {
+                        "num": {
+                          "type": "int32",
+                          "id": 1
+                        },
+                        "day": {
+                          "type": "Day",
+                          "id": 2
+                        }
+                      }
+                    },
                     "User": {
                       "fields": {
                         "id": {

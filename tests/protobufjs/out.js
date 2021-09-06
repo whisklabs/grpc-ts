@@ -7229,6 +7229,511 @@ export const whisk = $root.whisk = (() => {
                  */
                 const v2 = {};
 
+                v2.Test = (function() {
+
+                    /**
+                     * Properties of a Test.
+                     * @memberof whisk.api.user.v2
+                     * @interface ITest
+                     * @property {string|null} [id] Test id
+                     * @property {string|null} [text] Test text
+                     * @property {whisk.api.user.v2.IWeek|null} [currentWeek] Test currentWeek
+                     * @property {whisk.api.user.v2.IWeek|null} [nextWeek] Test nextWeek
+                     * @property {whisk.api.shared.v1.ITime|null} [time] Test time
+                     * @property {whisk.api.shared.v1.ITime|null} [timeAfter] Test timeAfter
+                     * @property {google.protobuf.IStringValue|null} [description] Test description
+                     * @property {string|null} [item] Test item
+                     * @property {google.protobuf.IStringValue|null} [test] Test test
+                     * @property {Array.<boolean>|null} [array] Test array
+                     * @property {Array.<boolean>|null} [array_2] Test array_2
+                     * @property {Object.<string,boolean>|null} [mapSearch] Test mapSearch
+                     * @property {Object.<string,boolean>|null} [mapSearch_2] Test mapSearch_2
+                     * @property {whisk.api.user.v2.IWeek|null} [type] Test type
+                     * @property {whisk.api.user.v2.IWeek|null} [custom] Test custom
+                     */
+
+                    /**
+                     * Constructs a new Test.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a Test.
+                     * @implements ITest
+                     * @constructor
+                     * @param {whisk.api.user.v2.ITest=} [properties] Properties to set
+                     */
+                    function Test(properties) {
+                        this.array = [];
+                        this.array_2 = [];
+                        this.mapSearch = {};
+                        this.mapSearch_2 = {};
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * Test id.
+                     * @member {string} id
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.id = "";
+
+                    /**
+                     * Test text.
+                     * @member {string} text
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.text = "";
+
+                    /**
+                     * Test currentWeek.
+                     * @member {whisk.api.user.v2.IWeek|null|undefined} currentWeek
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.currentWeek = null;
+
+                    /**
+                     * Test nextWeek.
+                     * @member {whisk.api.user.v2.IWeek|null|undefined} nextWeek
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.nextWeek = null;
+
+                    /**
+                     * Test time.
+                     * @member {whisk.api.shared.v1.ITime|null|undefined} time
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.time = null;
+
+                    /**
+                     * Test timeAfter.
+                     * @member {whisk.api.shared.v1.ITime|null|undefined} timeAfter
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.timeAfter = null;
+
+                    /**
+                     * Test description.
+                     * @member {google.protobuf.IStringValue|null|undefined} description
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.description = null;
+
+                    /**
+                     * Test item.
+                     * @member {string} item
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.item = "";
+
+                    /**
+                     * Test test.
+                     * @member {google.protobuf.IStringValue|null|undefined} test
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.test = null;
+
+                    /**
+                     * Test array.
+                     * @member {Array.<boolean>} array
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.array = $util.emptyArray;
+
+                    /**
+                     * Test array_2.
+                     * @member {Array.<boolean>} array_2
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.array_2 = $util.emptyArray;
+
+                    /**
+                     * Test mapSearch.
+                     * @member {Object.<string,boolean>} mapSearch
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.mapSearch = $util.emptyObject;
+
+                    /**
+                     * Test mapSearch_2.
+                     * @member {Object.<string,boolean>} mapSearch_2
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.mapSearch_2 = $util.emptyObject;
+
+                    /**
+                     * Test type.
+                     * @member {whisk.api.user.v2.IWeek|null|undefined} type
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.type = null;
+
+                    /**
+                     * Test custom.
+                     * @member {whisk.api.user.v2.IWeek|null|undefined} custom
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Test.prototype.custom = null;
+
+                    // OneOf field names bound to virtual getters and setters
+                    let $oneOfFields;
+
+                    /**
+                     * Test deviceDescription.
+                     * @member {"type"|"custom"|undefined} deviceDescription
+                     * @memberof whisk.api.user.v2.Test
+                     * @instance
+                     */
+                    Object.defineProperty(Test.prototype, "deviceDescription", {
+                        get: $util.oneOfGetter($oneOfFields = ["type", "custom"]),
+                        set: $util.oneOfSetter($oneOfFields)
+                    });
+
+                    /**
+                     * Encodes the specified Test message. Does not implicitly {@link whisk.api.user.v2.Test.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.Test
+                     * @static
+                     * @param {whisk.api.user.v2.ITest} message Test message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Test.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                        if (message.text != null && Object.hasOwnProperty.call(message, "text"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.text);
+                        if (message.currentWeek != null && Object.hasOwnProperty.call(message, "currentWeek"))
+                            $root.whisk.api.user.v2.Week.encode(message.currentWeek, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+                        if (message.nextWeek != null && Object.hasOwnProperty.call(message, "nextWeek"))
+                            $root.whisk.api.user.v2.Week.encode(message.nextWeek, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
+                        if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                            $root.whisk.api.shared.v1.Time.encode(message.time, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
+                        if (message.timeAfter != null && Object.hasOwnProperty.call(message, "timeAfter"))
+                            $root.whisk.api.shared.v1.Time.encode(message.timeAfter, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+                        if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                            $root.google.protobuf.StringValue.encode(message.description, writer.uint32(/* id 21, wireType 2 =*/170).fork()).ldelim();
+                        if (message.item != null && Object.hasOwnProperty.call(message, "item"))
+                            writer.uint32(/* id 31, wireType 2 =*/250).string(message.item);
+                        if (message.test != null && Object.hasOwnProperty.call(message, "test"))
+                            $root.google.protobuf.StringValue.encode(message.test, writer.uint32(/* id 32, wireType 2 =*/258).fork()).ldelim();
+                        if (message.array != null && message.array.length) {
+                            writer.uint32(/* id 41, wireType 2 =*/330).fork();
+                            for (let i = 0; i < message.array.length; ++i)
+                                writer.bool(message.array[i]);
+                            writer.ldelim();
+                        }
+                        if (message.array_2 != null && message.array_2.length) {
+                            writer.uint32(/* id 42, wireType 2 =*/338).fork();
+                            for (let i = 0; i < message.array_2.length; ++i)
+                                writer.bool(message.array_2[i]);
+                            writer.ldelim();
+                        }
+                        if (message.mapSearch != null && Object.hasOwnProperty.call(message, "mapSearch"))
+                            for (let keys = Object.keys(message.mapSearch), i = 0; i < keys.length; ++i)
+                                writer.uint32(/* id 51, wireType 2 =*/410).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 0 =*/16).bool(message.mapSearch[keys[i]]).ldelim();
+                        if (message.mapSearch_2 != null && Object.hasOwnProperty.call(message, "mapSearch_2"))
+                            for (let keys = Object.keys(message.mapSearch_2), i = 0; i < keys.length; ++i)
+                                writer.uint32(/* id 52, wireType 2 =*/418).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 0 =*/16).bool(message.mapSearch_2[keys[i]]).ldelim();
+                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                            $root.whisk.api.user.v2.Week.encode(message.type, writer.uint32(/* id 61, wireType 2 =*/490).fork()).ldelim();
+                        if (message.custom != null && Object.hasOwnProperty.call(message, "custom"))
+                            $root.whisk.api.user.v2.Week.encode(message.custom, writer.uint32(/* id 62, wireType 2 =*/498).fork()).ldelim();
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a Test message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.Test
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.Test} Test
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Test.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.Test(), key;
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.id = reader.string();
+                                break;
+                            case 2:
+                                message.text = reader.string();
+                                break;
+                            case 11:
+                                message.currentWeek = $root.whisk.api.user.v2.Week.decode(reader, reader.uint32());
+                                break;
+                            case 12:
+                                message.nextWeek = $root.whisk.api.user.v2.Week.decode(reader, reader.uint32());
+                                break;
+                            case 13:
+                                message.time = $root.whisk.api.shared.v1.Time.decode(reader, reader.uint32());
+                                break;
+                            case 14:
+                                message.timeAfter = $root.whisk.api.shared.v1.Time.decode(reader, reader.uint32());
+                                break;
+                            case 21:
+                                message.description = $root.google.protobuf.StringValue.decode(reader, reader.uint32());
+                                break;
+                            case 31:
+                                message.item = reader.string();
+                                break;
+                            case 32:
+                                message.test = $root.google.protobuf.StringValue.decode(reader, reader.uint32());
+                                break;
+                            case 41:
+                                if (!(message.array && message.array.length))
+                                    message.array = [];
+                                if ((tag & 7) === 2) {
+                                    let end2 = reader.uint32() + reader.pos;
+                                    while (reader.pos < end2)
+                                        message.array.push(reader.bool());
+                                } else
+                                    message.array.push(reader.bool());
+                                break;
+                            case 42:
+                                if (!(message.array_2 && message.array_2.length))
+                                    message.array_2 = [];
+                                if ((tag & 7) === 2) {
+                                    let end2 = reader.uint32() + reader.pos;
+                                    while (reader.pos < end2)
+                                        message.array_2.push(reader.bool());
+                                } else
+                                    message.array_2.push(reader.bool());
+                                break;
+                            case 51:
+                                reader.skip().pos++;
+                                if (message.mapSearch === $util.emptyObject)
+                                    message.mapSearch = {};
+                                key = reader.string();
+                                reader.pos++;
+                                message.mapSearch[key] = reader.bool();
+                                break;
+                            case 52:
+                                reader.skip().pos++;
+                                if (message.mapSearch_2 === $util.emptyObject)
+                                    message.mapSearch_2 = {};
+                                key = reader.string();
+                                reader.pos++;
+                                message.mapSearch_2[key] = reader.bool();
+                                break;
+                            case 61:
+                                message.type = $root.whisk.api.user.v2.Week.decode(reader, reader.uint32());
+                                break;
+                            case 62:
+                                message.custom = $root.whisk.api.user.v2.Week.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    return Test;
+                })();
+
+                v2.Day = (function() {
+
+                    /**
+                     * Properties of a Day.
+                     * @memberof whisk.api.user.v2
+                     * @interface IDay
+                     * @property {number|null} [num] Day num
+                     */
+
+                    /**
+                     * Constructs a new Day.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a Day.
+                     * @implements IDay
+                     * @constructor
+                     * @param {whisk.api.user.v2.IDay=} [properties] Properties to set
+                     */
+                    function Day(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * Day num.
+                     * @member {number} num
+                     * @memberof whisk.api.user.v2.Day
+                     * @instance
+                     */
+                    Day.prototype.num = 0;
+
+                    /**
+                     * Encodes the specified Day message. Does not implicitly {@link whisk.api.user.v2.Day.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.Day
+                     * @static
+                     * @param {whisk.api.user.v2.IDay} message Day message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Day.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.num != null && Object.hasOwnProperty.call(message, "num"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.num);
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a Day message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.Day
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.Day} Day
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Day.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.Day();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.num = reader.int32();
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    return Day;
+                })();
+
+                v2.Week = (function() {
+
+                    /**
+                     * Properties of a Week.
+                     * @memberof whisk.api.user.v2
+                     * @interface IWeek
+                     * @property {number|null} [num] Week num
+                     * @property {whisk.api.user.v2.IDay|null} [day] Week day
+                     */
+
+                    /**
+                     * Constructs a new Week.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a Week.
+                     * @implements IWeek
+                     * @constructor
+                     * @param {whisk.api.user.v2.IWeek=} [properties] Properties to set
+                     */
+                    function Week(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * Week num.
+                     * @member {number} num
+                     * @memberof whisk.api.user.v2.Week
+                     * @instance
+                     */
+                    Week.prototype.num = 0;
+
+                    /**
+                     * Week day.
+                     * @member {whisk.api.user.v2.IDay|null|undefined} day
+                     * @memberof whisk.api.user.v2.Week
+                     * @instance
+                     */
+                    Week.prototype.day = null;
+
+                    /**
+                     * Encodes the specified Week message. Does not implicitly {@link whisk.api.user.v2.Week.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.Week
+                     * @static
+                     * @param {whisk.api.user.v2.IWeek} message Week message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Week.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.num != null && Object.hasOwnProperty.call(message, "num"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.num);
+                        if (message.day != null && Object.hasOwnProperty.call(message, "day"))
+                            $root.whisk.api.user.v2.Day.encode(message.day, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a Week message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.Week
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.Week} Week
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Week.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.Week();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.num = reader.int32();
+                                break;
+                            case 2:
+                                message.day = $root.whisk.api.user.v2.Day.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    return Week;
+                })();
+
                 v2.User = (function() {
 
                     /**

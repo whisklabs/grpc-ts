@@ -91,6 +91,7 @@ const error = await generator({
   version: '№123', // optional string for version
   exclude: /some|regexp/, // optional regexp for exclude files
   debug: true, // generate json debug files,
+  messageRequired: false, // enable strict required mode for messages (default: false)
   // If we need package.json, set options packageName and packageVersion
   packageName: '@whisklabs/package-one', // generate package.json with name
   packageVersion: '0.1.10', // generate package.json with version
@@ -123,6 +124,7 @@ Required ENV params:
 - `PROTO_VERSION` - string of version (default is from npm package lib)
 - `PROTO_EXCLUDE` - optional regexp for exclude files
 - `PROTO_DEBUG` - true | false - generate json debug files
+- `PROTO_MESSAGE_REQUIRED` - true | false - enable [strict required mode for messages](#required-and-optional) (default: false)
 
 If we need package.json, set up both options:
 
@@ -533,7 +535,7 @@ This messages auto wrap/unwrap by this lib.
 
 Messages are same as interface in TS
 
-```proto
+```protobuf
 message TestItem {
   string id = 1;
   google.protobuf.StringValue description = 2;
@@ -574,7 +576,7 @@ type OtherItem = {
 As TS enum.
 `0` fields name with ending `_INVALID` or `_UNSPECIFIED` removed from typings.
 
-```proto
+```protobuf
 message TestItem {
   Type id = 1;
   Type force = 2 [ required = true ];
@@ -615,7 +617,7 @@ const enum Direction {
 
 This is information about server methods, what types of messages are used for request and response.
 
-```proto
+```protobuf
 message Request {
   int32 id = 1;
 }
@@ -652,7 +654,7 @@ type response = ServiceResponse<UserAPI_GetMe>;
 
 This is a grouping of fields where only one of them can be set or read.
 
-```proto
+```protobuf
 // file path: whisk/api/user/v2/user.proto
 message TestOneof {
   string id = 1;
@@ -727,7 +729,7 @@ Other types are **optional**.
 
 You can change this behaveour using option `required` or keyword `optional`.
 
-```proto
+```protobuf
 message TestOneof {
   string id = 1;
   string name = 2 [ required = true ];
@@ -761,11 +763,130 @@ export type whisk_api_user_v2_TestOneof = {
 };
 ```
 
+You can switch on **strict required mode for messages** with `optional` keyword:
+
+- All fields are **required by default**, expect `oneof`.
+- To mark a field as optional, you can add the keyword `optional`.
+- Although this keyword has no effect on binary compatibility and can be added or removed, clients need to be updated so that they understand how to handle values correctly.
+- For backward compatibility, [wrappers](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto) can be used because they are not binary compatible with `optional`.
+- If you cannot change the structure in any way, but you need to force the override, then in such a case it is permissible to use `[(required) = true]` or `[(required) = false]`.
+
+1. Global
+
+   Work on all files in final
+
+   ```bash
+   PROTO_MESSAGE_REQUIRED=true npx @whisklabs/grpc@1
+   ```
+
+   ```ts
+   import { generator } from '@whisklabs/grpc/generator';
+
+   const error = await generator({
+     messageRequired: true, // enable strict required mode for messages (default: false)
+   });
+   ```
+
+2. Local per file
+
+   Add option in start of proto file
+
+   ```protobuf
+   syntax = "proto3";
+
+   package whisk.api.user.v2;
+
+   // Force required mode for messages in file
+   option message_required = true; // false for disable
+
+   message Test {}
+   ```
+
+3. Local per message
+
+   ```protobuf
+   message Day {
+     int32 num = 1;
+   }
+
+   message Week {
+     // Force required mode in message
+     option message_required = true; // false for disable
+
+     int32 num = 1;
+     Day day = 2;
+   }
+   ```
+
+Example:
+
+```protobuf
+message Test {
+  // Primitive
+  string id = 1; // required
+  optional string text = 2; // optional
+
+  // Messages
+  Week current_week = 11; // required
+  optional Week next_week = 12; // optional
+  whisk.api.shared.v1.Time time = 13; // required
+  optional whisk.api.shared.v1.Time time_after = 14; // optional
+
+  // Wrappers (legacy)
+  google.protobuf.StringValue description = 21; // optional
+
+  // Force override (backward binary compatibility only)
+  string item = 31 [ (required) = false ]; // optional
+  google.protobuf.StringValue test = 32 [ (required) = true ]; // required
+
+  // Repeated - can't work with optional!
+  repeated bool array = 41; // required
+  repeated bool array_2 = 42 [ (required) = false ]; // optional
+
+  // Map - can't work with optional!
+  map<string, bool> map_search = 51; // required
+  map<string, bool> map_search_2 = 52 [ (required) = false ]; // optional
+
+  // Oneof - can't work with optional!
+  oneof device_description {
+    DeviceType device_type = 61; // required
+    DeviceType custom_device = 62 [ (required) = false ]; // optional
+  }
+}
+
+message Week {
+  int32 num = 1;
+}
+```
+
+Result:
+
+```ts
+type Test = {
+  id: string;
+  text?: string;
+  currentWeek: Week;
+  nextWeek?: Week;
+  time: whisk_api_shared_v1_Time;
+  timeAfter?: whisk_api_shared_v1_Time;
+  description: string;
+  item?: string;
+  test: string;
+  array: boolean[];
+  array_2?: boolean[];
+  mapSearch: Record<string, boolean>;
+  mapSearch_2?: Record<string, boolean>;
+  deviceDescription?:
+    | { oneof: 'deviceType'; value: Device_DeviceType }
+    | { oneof: 'customDevice'; value?: Device_DeviceType };
+};
+```
+
 ### Deprecated
 
 For obsolete fields, you can mark them as `deprecated`.
 
-```proto
+```protobuf
 message TestOneof {
   string id = 1 [ deprecated = true ];
   google.protobuf.StringValue description = 10 [ required = true, deprecated = true ];

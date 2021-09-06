@@ -148,7 +148,7 @@ export const grpcHTTP = <Meta = unknown>({
         try {
           data = chunkParse(byteSource);
         } catch (error) {
-          return callback({ success: false, error: { message: 'GRPC parsing error', data: error as unknown } });
+          return callback({ success: false, error: { message: 'GRPC parsing error', data: error } });
         }
 
         if (data.length === 0) {

@@ -2,7 +2,7 @@
 
 /* eslint-disable camelcase */
 
-import { isText } from '@whisklabs/typeguards';
+import { isPresent, isText } from '@whisklabs/typeguards';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
@@ -18,6 +18,7 @@ const {
   PROTO_PACKAGE_VERSION,
   PROTO_PACKAGE_URL,
   PROTO_PACKAGE_REGISTRY,
+  PROTO_MESSAGE_REQUIRED,
   npm_package_devDependencies__whisklabs_grpc,
   npm_package_dependencies__whisklabs_grpc,
 } = process.env;
@@ -38,6 +39,7 @@ generator({
     ? PROTO_VERSION
     : findRoot() ?? npm_package_devDependencies__whisklabs_grpc ?? npm_package_dependencies__whisklabs_grpc,
   exclude: isText(PROTO_EXCLUDE) ? new RegExp(PROTO_EXCLUDE) : undefined,
+  messageRequired: isPresent(PROTO_MESSAGE_REQUIRED),
   debug: PROTO_DEBUG === 'true',
   packageName: PROTO_PACKAGE_NAME,
   packageVersion: PROTO_PACKAGE_VERSION,
