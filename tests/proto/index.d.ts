@@ -1,4 +1,7 @@
-// Code created by grpc-generator. Version: test
+// Code created by generator @whisklabs/grpc
+// https://github.com/whisklabs/grpc-ts
+// Version: test
+
 import {
   FieldMap,
   FieldRepeated,

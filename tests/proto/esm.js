@@ -1,4 +1,6 @@
-// Code created by grpc-generator. Version: test
+// Code created by generator @whisklabs/grpc
+// https://github.com/whisklabs/grpc-ts
+// Version: test
 "use strict";
 export var google_protobuf_NullValue = {
     NULL_VALUE: 0,
