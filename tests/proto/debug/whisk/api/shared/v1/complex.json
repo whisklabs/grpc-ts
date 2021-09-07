@@ -30,7 +30,8 @@
               "options": {}
             }
           },
-          "options": {}
+          "options": {},
+          "comment": " Describes how items"
         }
       ],
       "options": {},
@@ -121,7 +122,8 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {}
+          "options": {},
+          "comment": "* Multi\n  line /** test *\\/  "
         },
         {
           "name": "uint32",
@@ -130,7 +132,8 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {}
+          "options": {},
+          "comment": "  Up lime"
         },
         {
           "name": "inner",
@@ -139,7 +142,8 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {}
+          "options": {},
+          "comment": " Side line"
         },
         {
           "name": "float",
@@ -148,7 +152,8 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {}
+          "options": {},
+          "comment": "*\n   * Represents a book.\n   * @constructor\n   * @param {string} title - The title of the book.\n   * @param {string} author - The author of the book.\n   "
         }
       ],
       "extends": [],

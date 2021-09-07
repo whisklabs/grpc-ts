@@ -5628,10 +5628,14 @@ export const whisk = $root.whisk = (() => {
                      * Properties of a Test.
                      * @memberof whisk.api.shared.v1
                      * @interface ITest
-                     * @property {string|null} [string] Test string
+                     * @property {string|null} [string] Multi
+                     * line /** test *\/
                      * @property {number|null} [uint32] Test uint32
                      * @property {whisk.api.shared.v1.Test.IInner|null} [inner] Test inner
-                     * @property {number|null} [float] Test float
+                     * @property {number|null} [float] Represents a book.
+                     * @constructor
+                     * @param {string} title - The title of the book.
+                     * @param {string} author - The author of the book.
                      */
 
                     /**
@@ -5650,7 +5654,8 @@ export const whisk = $root.whisk = (() => {
                     }
 
                     /**
-                     * Test string.
+                     * Multi
+                     * line /** test *\/
                      * @member {string} string
                      * @memberof whisk.api.shared.v1.Test
                      * @instance
@@ -5674,7 +5679,10 @@ export const whisk = $root.whisk = (() => {
                     Test.prototype.inner = null;
 
                     /**
-                     * Test float.
+                     * Represents a book.
+                     * @constructor
+                     * @param {string} title - The title of the book.
+                     * @param {string} author - The author of the book.
                      * @member {number} float
                      * @memberof whisk.api.shared.v1.Test
                      * @instance
@@ -8401,7 +8409,7 @@ export const whisk = $root.whisk = (() => {
                  * @property {number} HEALTH_GOAL_INVALID=0 HEALTH_GOAL_INVALID value
                  * @property {number} HEALTH_GOAL_WEIGHT_LOSS=1 HEALTH_GOAL_WEIGHT_LOSS value
                  * @property {number} HEALTH_GOAL_WEIGHT_GAIN=2 HEALTH_GOAL_WEIGHT_GAIN value
-                 * @property {number} HEALTH_GOAL_BETTER_SLEEP=3 HEALTH_GOAL_BETTER_SLEEP value
+                 * @property {number} HEALTH_GOAL_BETTER_SLEEP=3 Sleep
                  * @property {number} HEALTH_GOAL_INCREASE_ENERGY=4 HEALTH_GOAL_INCREASE_ENERGY value
                  */
                 v2.HealthGoal = (function() {

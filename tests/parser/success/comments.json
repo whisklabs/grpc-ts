@@ -62,7 +62,7 @@
           "repeated": false,
           "optional": false,
           "options": {},
-          "comment": "Multi-line comment\n\n"
+          "comment": "\n"
         },
         {
           "name": "end",
@@ -87,7 +87,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": "Multi-line comment"
     },
     {
       "name": "A",

@@ -1,4 +1,4 @@
-import { isNumber } from '@whisklabs/typeguards';
+import { isNumber, isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
 import { MakeOuts } from './generator';
@@ -16,15 +16,23 @@ function enu(pack: string, out: MakeOuts, item: Parser.Enum) {
   const cID = checkSame(out, 'id');
   const cName = checkSame(out, 'name');
 
+  if (isText(item.comment)) {
+    out.dts.push(`/** ${item.comment.trim()} */`);
+  }
+
   out.js.push(`export const ${eName} = {`);
   out.dts.push(`export const ${eName}: {`);
 
   for (const field in item.values) {
     const val = item.values[field].value;
+    const comment = item.values[field].comment;
     if (isNumber(val) && !isNaN(val) && !isInvalidEnumField(field, val)) {
       cID(val, `${pack}.${field}`);
       cName(field, `${pack}.${field}`);
       out.js.push(`  ${field}: ${val},`);
+      if (isText(comment)) {
+        out.dts.push(`/** ${comment} */`);
+      }
       out.dts.push(`  readonly ${field}: ${val},`);
     }
   }

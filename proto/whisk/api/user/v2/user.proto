@@ -44,10 +44,13 @@ message PersonalDetails {
   message HealthGoals { repeated HealthGoal list = 1; }
 }
 
+// Describes goals
 enum HealthGoal {
   HEALTH_GOAL_INVALID = 0;
+  // Loss
   HEALTH_GOAL_WEIGHT_LOSS = 1;
-  HEALTH_GOAL_WEIGHT_GAIN = 2;
+  HEALTH_GOAL_WEIGHT_GAIN = 2; // Gain
+  /** Sleep */
   HEALTH_GOAL_BETTER_SLEEP = 3;
   HEALTH_GOAL_INCREASE_ENERGY = 4;
 }
@@ -74,6 +77,7 @@ message Weight {
   Unit unit = 2;
 }
 
+// Example food
 message FoodPreferences {
   string diets = 1;
   repeated string avoidance_list = 2;

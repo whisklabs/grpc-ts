@@ -19,7 +19,7 @@
         "ZERO": {
           "value": 0,
           "options": {},
-          "comment": " NumericEnum is one or zero.\n ZERO means 0"
+          "comment": " ZERO means 0"
         },
         "ONE": {
           "value": 1,
@@ -27,7 +27,8 @@
           "comment": " ONE means 1"
         }
       },
-      "options": {}
+      "options": {},
+      "comment": " NumericEnum is one or zero."
     }
   ],
   "messages": [
@@ -60,7 +61,7 @@
                 "FALSE": {
                   "value": 0,
                   "options": {},
-                  "comment": " DeepEnum is one or zero.\n FALSE is false."
+                  "comment": " FALSE is false."
                 },
                 "TRUE": {
                   "value": 1,
@@ -68,7 +69,8 @@
                   "comment": " TRUE is true."
                 }
               },
-              "options": {}
+              "options": {},
+              "comment": " DeepEnum is one or zero."
             }
           ],
           "options": {
@@ -88,7 +90,7 @@
               "repeated": false,
               "optional": false,
               "options": {},
-              "comment": " Overwriting host entry breaks tests, so this is not done here.\n Intentionally complicated message type to cover many features of Protobuf.\n Nested is nested type.\n name is nested field."
+              "comment": " name is nested field."
             },
             {
               "name": "amount",
@@ -124,7 +126,8 @@
           ],
           "extends": [],
           "extensions": [],
-          "reserved": []
+          "reserved": [],
+          "comment": " Nested is nested type."
         }
       ],
       "fields": [
@@ -579,7 +582,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " Overwriting host entry breaks tests, so this is not done here.\n Intentionally complicated message type to cover many features of Protobuf."
     },
     {
       "name": "ABitOfEverythingRepeated",
@@ -601,7 +605,7 @@
           "repeated": true,
           "optional": false,
           "options": {},
-          "comment": " ABitOfEverythingRepeated is used to validate repeated path parameter functionality\n repeated values. they are comma-separated in path"
+          "comment": " repeated values. they are comma-separated in path"
         },
         {
           "name": "path_repeated_double_value",
@@ -741,7 +745,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " ABitOfEverythingRepeated is used to validate repeated path parameter functionality"
     },
     {
       "name": "Body",
@@ -805,8 +810,7 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {},
-          "comment": " UpdateV2Request request for update includes the message and the update mask"
+          "options": {}
         },
         {
           "name": "update_mask",
@@ -820,7 +824,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " UpdateV2Request request for update includes the message and the update mask"
     },
     {
       "name": "Book",
@@ -836,7 +841,7 @@
           "repeated": false,
           "optional": false,
           "options": {},
-          "comment": " An example resource type from AIP-123 used to test the behavior described in\n the CreateBookRequest message.\n\n See: https://google.aip.dev/123\n The resource name of the book.\n\n Format: `publishers/{publisher}/books/{book}`\n\n Example: `publishers/1257894000000000000/books/my-book`"
+          "comment": " The resource name of the book.\n\n Format: `publishers/{publisher}/books/{book}`\n\n Example: `publishers/1257894000000000000/books/my-book`"
         },
         {
           "name": "id",
@@ -861,7 +866,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " An example resource type from AIP-123 used to test the behavior described in\n the CreateBookRequest message.\n\n See: https://google.aip.dev/123"
     },
     {
       "name": "CreateBookRequest",
@@ -877,7 +883,7 @@
           "repeated": false,
           "optional": false,
           "options": {},
-          "comment": " A standard Create message from AIP-133 with a user-specified ID.\n The user-specified ID (the `book_id` field in this example) must become a\n query parameter in the OpenAPI spec.\n\n See: https://google.aip.dev/133#user-specified-ids\n The publisher in which to create the book.\n\n Format: `publishers/{publisher}`\n\n Example: `publishers/1257894000000000000`"
+          "comment": " The publisher in which to create the book.\n\n Format: `publishers/{publisher}`\n\n Example: `publishers/1257894000000000000`"
         },
         {
           "name": "book",
@@ -902,7 +908,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " A standard Create message from AIP-133 with a user-specified ID.\n The user-specified ID (the `book_id` field in this example) must become a\n query parameter in the OpenAPI spec.\n\n See: https://google.aip.dev/133#user-specified-ids"
     }
   ],
   "options": {

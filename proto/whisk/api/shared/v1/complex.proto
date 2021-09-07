@@ -3,9 +3,18 @@ syntax = "proto3";
 package whisk.api.shared.v1;
 
 message Test {
+  /** Multi
+  line /** test *\/  */
   string string = 1;
+  //  Up lime
   uint32 uint32 = 2;
-  Inner inner = 3;
+  Inner inner = 3; // Side line
+  /**
+   * Represents a book.
+   * @constructor
+   * @param {string} title - The title of the book.
+   * @param {string} author - The author of the book.
+   */
   float float = 4;
 
   message Inner {
@@ -20,6 +29,7 @@ message Test {
     }
   }
 
+  // Describes how items
   enum Enum {
     ONE = 0;
     TWO = 1;

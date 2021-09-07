@@ -16,13 +16,13 @@
           "required": true,
           "repeated": false,
           "optional": false,
-          "options": {},
-          "comment": " limitations under the License."
+          "options": {}
         }
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " limitations under the License."
     }
   ],
   "options": {},

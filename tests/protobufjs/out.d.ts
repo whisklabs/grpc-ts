@@ -2480,20 +2480,19 @@ export namespace whisk {
             /** Namespace v1. */
             namespace v1 {
 
-                /** Properties of a Test. */
-                interface ITest {
+                /**
+                 * Properties of a Test.
+                 * @param title - The title of the book.
+                 * @param author - The author of the book.
+                 */
+                class ITest {
 
-                    /** Test string */
-                    string?: (string|null);
-
-                    /** Test uint32 */
-                    uint32?: (number|null);
-
-                    /** Test inner */
-                    inner?: (whisk.api.shared.v1.Test.IInner|null);
-
-                    /** Test float */
-                    float?: (number|null);
+                    /**
+                     * Properties of a Test.
+                     * @param title - The title of the book.
+                     * @param author - The author of the book.
+                     */
+                    constructor(title: string, author: string);
                 }
 
                 /** Represents a Test. */
@@ -2505,7 +2504,10 @@ export namespace whisk {
                      */
                     constructor(properties?: whisk.api.shared.v1.ITest);
 
-                    /** Test string. */
+                    /**
+                     * Multi
+                     * line /** test *\/
+                     */
                     public string: string;
 
                     /** Test uint32. */
@@ -2514,7 +2516,11 @@ export namespace whisk {
                     /** Test inner. */
                     public inner?: (whisk.api.shared.v1.Test.IInner|null);
 
-                    /** Test float. */
+                    /**
+                     * Represents a book.
+                     * @param title - The title of the book.
+                     * @param author - The author of the book.
+                     */
                     public float: number;
 
                     /**
