@@ -1655,6 +1655,90 @@
       "extends": [],
       "extensions": [],
       "reserved": []
+    },
+    {
+      "name": "CookingIntentAttribute",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "IntAttributeValue",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "value",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "int_value",
+          "type": "IntAttributeValue",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "value"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    },
+    {
+      "name": "CookingIntentAttributePayload",
+      "enums": [],
+      "options": {},
+      "messages": [
+        {
+          "name": "IntAttributeValue",
+          "enums": [],
+          "options": {},
+          "messages": [],
+          "fields": [
+            {
+              "name": "value",
+              "type": "int32",
+              "tag": 1,
+              "required": false,
+              "repeated": false,
+              "optional": false,
+              "options": {}
+            }
+          ],
+          "extends": [],
+          "extensions": [],
+          "reserved": []
+        }
+      ],
+      "fields": [
+        {
+          "name": "int_value",
+          "type": "IntAttributeValue",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {},
+          "oneof": "value"
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
     }
   ],
   "options": {

@@ -949,6 +949,26 @@ export function whisk_api_user_v2_ApiUpdateBusinessApp() {
         [3, "maskAnyName", google_protobuf_FieldMask, 1],
     ];
 }
+export function whisk_api_user_v2_CookingIntentAttribute() {
+    return [
+        [1, "intValue", whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue, 0, "value"],
+    ];
+}
+export function whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue() {
+    return [
+        [1, "value", "int32", 1],
+    ];
+}
+export function whisk_api_user_v2_CookingIntentAttributePayload() {
+    return [
+        [1, "intValue", whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue, 0, "value"],
+    ];
+}
+export function whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue() {
+    return [
+        [1, "value", "int32", 1],
+    ];
+}
 export function whisk_api_user_v2_GetMeRequest() {
     return [];
 }
@@ -1008,7 +1028,7 @@ export function whisk_api_user_v2_UpdateListRequest_Fields() {
 export function whisk_api_user_v2_UpdateItemRequest() {
     return [
         [1, "id", "string", 1],
-        [2, "fields", whisk_api_user_v2_UpdateListRequest_Fields, 0],
+        [2, "fields", whisk_api_user_v2_UpdateItemRequest_Fields, 0],
         [3, "mask", google_protobuf_FieldMask, 0],
         [4, "newOrder", "int32", 1],
     ];

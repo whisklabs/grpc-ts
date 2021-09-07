@@ -2198,6 +2198,56 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                       }
                     }
                   },
+                  CookingIntentAttribute: {
+                    oneofs: {
+                      value: {
+                        oneof: [
+                          "intValue"
+                        ]
+                      }
+                    },
+                    fields: {
+                      intValue: {
+                        type: "IntAttributeValue",
+                        id: 1
+                      }
+                    },
+                    nested: {
+                      IntAttributeValue: {
+                        fields: {
+                          value: {
+                            type: "int32",
+                            id: 1
+                          }
+                        }
+                      }
+                    }
+                  },
+                  CookingIntentAttributePayload: {
+                    oneofs: {
+                      value: {
+                        oneof: [
+                          "intValue"
+                        ]
+                      }
+                    },
+                    fields: {
+                      intValue: {
+                        type: "IntAttributeValue",
+                        id: 1
+                      }
+                    },
+                    nested: {
+                      IntAttributeValue: {
+                        fields: {
+                          value: {
+                            type: "int32",
+                            id: 1
+                          }
+                        }
+                      }
+                    }
+                  },
                   UserAPI: {
                     methods: {
                       GetMe: {
