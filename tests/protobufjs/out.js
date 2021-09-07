@@ -11760,6 +11760,358 @@ export const whisk = $root.whisk = (() => {
                     return ApiUpdateBusinessApp;
                 })();
 
+                v2.CookingIntentAttribute = (function() {
+
+                    /**
+                     * Properties of a CookingIntentAttribute.
+                     * @memberof whisk.api.user.v2
+                     * @interface ICookingIntentAttribute
+                     * @property {whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue|null} [intValue] CookingIntentAttribute intValue
+                     */
+
+                    /**
+                     * Constructs a new CookingIntentAttribute.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a CookingIntentAttribute.
+                     * @implements ICookingIntentAttribute
+                     * @constructor
+                     * @param {whisk.api.user.v2.ICookingIntentAttribute=} [properties] Properties to set
+                     */
+                    function CookingIntentAttribute(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * CookingIntentAttribute intValue.
+                     * @member {whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue|null|undefined} intValue
+                     * @memberof whisk.api.user.v2.CookingIntentAttribute
+                     * @instance
+                     */
+                    CookingIntentAttribute.prototype.intValue = null;
+
+                    // OneOf field names bound to virtual getters and setters
+                    let $oneOfFields;
+
+                    /**
+                     * CookingIntentAttribute value.
+                     * @member {"intValue"|undefined} value
+                     * @memberof whisk.api.user.v2.CookingIntentAttribute
+                     * @instance
+                     */
+                    Object.defineProperty(CookingIntentAttribute.prototype, "value", {
+                        get: $util.oneOfGetter($oneOfFields = ["intValue"]),
+                        set: $util.oneOfSetter($oneOfFields)
+                    });
+
+                    /**
+                     * Encodes the specified CookingIntentAttribute message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttribute.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.CookingIntentAttribute
+                     * @static
+                     * @param {whisk.api.user.v2.ICookingIntentAttribute} message CookingIntentAttribute message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    CookingIntentAttribute.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.intValue != null && Object.hasOwnProperty.call(message, "intValue"))
+                            $root.whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue.encode(message.intValue, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a CookingIntentAttribute message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.CookingIntentAttribute
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.CookingIntentAttribute} CookingIntentAttribute
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    CookingIntentAttribute.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.CookingIntentAttribute();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.intValue = $root.whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    CookingIntentAttribute.IntAttributeValue = (function() {
+
+                        /**
+                         * Properties of an IntAttributeValue.
+                         * @memberof whisk.api.user.v2.CookingIntentAttribute
+                         * @interface IIntAttributeValue
+                         * @property {number|null} [value] IntAttributeValue value
+                         */
+
+                        /**
+                         * Constructs a new IntAttributeValue.
+                         * @memberof whisk.api.user.v2.CookingIntentAttribute
+                         * @classdesc Represents an IntAttributeValue.
+                         * @implements IIntAttributeValue
+                         * @constructor
+                         * @param {whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue=} [properties] Properties to set
+                         */
+                        function IntAttributeValue(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * IntAttributeValue value.
+                         * @member {number} value
+                         * @memberof whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue
+                         * @instance
+                         */
+                        IntAttributeValue.prototype.value = 0;
+
+                        /**
+                         * Encodes the specified IntAttributeValue message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue
+                         * @static
+                         * @param {whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue} message IntAttributeValue message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        IntAttributeValue.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.value);
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes an IntAttributeValue message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue} IntAttributeValue
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        IntAttributeValue.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.value = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        return IntAttributeValue;
+                    })();
+
+                    return CookingIntentAttribute;
+                })();
+
+                v2.CookingIntentAttributePayload = (function() {
+
+                    /**
+                     * Properties of a CookingIntentAttributePayload.
+                     * @memberof whisk.api.user.v2
+                     * @interface ICookingIntentAttributePayload
+                     * @property {whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue|null} [intValue] CookingIntentAttributePayload intValue
+                     */
+
+                    /**
+                     * Constructs a new CookingIntentAttributePayload.
+                     * @memberof whisk.api.user.v2
+                     * @classdesc Represents a CookingIntentAttributePayload.
+                     * @implements ICookingIntentAttributePayload
+                     * @constructor
+                     * @param {whisk.api.user.v2.ICookingIntentAttributePayload=} [properties] Properties to set
+                     */
+                    function CookingIntentAttributePayload(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * CookingIntentAttributePayload intValue.
+                     * @member {whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue|null|undefined} intValue
+                     * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                     * @instance
+                     */
+                    CookingIntentAttributePayload.prototype.intValue = null;
+
+                    // OneOf field names bound to virtual getters and setters
+                    let $oneOfFields;
+
+                    /**
+                     * CookingIntentAttributePayload value.
+                     * @member {"intValue"|undefined} value
+                     * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                     * @instance
+                     */
+                    Object.defineProperty(CookingIntentAttributePayload.prototype, "value", {
+                        get: $util.oneOfGetter($oneOfFields = ["intValue"]),
+                        set: $util.oneOfSetter($oneOfFields)
+                    });
+
+                    /**
+                     * Encodes the specified CookingIntentAttributePayload message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttributePayload.verify|verify} messages.
+                     * @function encode
+                     * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                     * @static
+                     * @param {whisk.api.user.v2.ICookingIntentAttributePayload} message CookingIntentAttributePayload message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    CookingIntentAttributePayload.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.intValue != null && Object.hasOwnProperty.call(message, "intValue"))
+                            $root.whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue.encode(message.intValue, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                        return writer;
+                    };
+
+                    /**
+                     * Decodes a CookingIntentAttributePayload message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {whisk.api.user.v2.CookingIntentAttributePayload} CookingIntentAttributePayload
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    CookingIntentAttributePayload.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.CookingIntentAttributePayload();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.intValue = $root.whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    CookingIntentAttributePayload.IntAttributeValue = (function() {
+
+                        /**
+                         * Properties of an IntAttributeValue.
+                         * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                         * @interface IIntAttributeValue
+                         * @property {number|null} [value] IntAttributeValue value
+                         */
+
+                        /**
+                         * Constructs a new IntAttributeValue.
+                         * @memberof whisk.api.user.v2.CookingIntentAttributePayload
+                         * @classdesc Represents an IntAttributeValue.
+                         * @implements IIntAttributeValue
+                         * @constructor
+                         * @param {whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue=} [properties] Properties to set
+                         */
+                        function IntAttributeValue(properties) {
+                            if (properties)
+                                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * IntAttributeValue value.
+                         * @member {number} value
+                         * @memberof whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue
+                         * @instance
+                         */
+                        IntAttributeValue.prototype.value = 0;
+
+                        /**
+                         * Encodes the specified IntAttributeValue message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue.verify|verify} messages.
+                         * @function encode
+                         * @memberof whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue
+                         * @static
+                         * @param {whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue} message IntAttributeValue message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        IntAttributeValue.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.value);
+                            return writer;
+                        };
+
+                        /**
+                         * Decodes an IntAttributeValue message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue} IntAttributeValue
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        IntAttributeValue.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue();
+                            while (reader.pos < end) {
+                                let tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.value = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        return IntAttributeValue;
+                    })();
+
+                    return CookingIntentAttributePayload;
+                })();
+
                 v2.UserAPI = (function() {
 
                     /**

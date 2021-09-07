@@ -300,3 +300,21 @@ message ApiUpdateBusinessApp {
   google.protobuf.FieldMask mask_any_name = 3
       [ required = true, mask = app_any ];
 }
+
+message CookingIntentAttribute {
+  message IntAttributeValue {
+    int32 value = 1;
+  }
+  oneof value {
+    IntAttributeValue int_value = 1;
+  }
+}
+
+message CookingIntentAttributePayload {
+  message IntAttributeValue {
+    int32 value = 1;
+  }
+  oneof value {
+    IntAttributeValue int_value = 1;
+  }
+}

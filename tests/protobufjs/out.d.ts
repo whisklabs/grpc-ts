@@ -5211,6 +5211,170 @@ export namespace whisk {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.ApiUpdateBusinessApp;
                 }
 
+                /** Properties of a CookingIntentAttribute. */
+                interface ICookingIntentAttribute {
+
+                    /** CookingIntentAttribute intValue */
+                    intValue?: (whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue|null);
+                }
+
+                /** Represents a CookingIntentAttribute. */
+                class CookingIntentAttribute implements ICookingIntentAttribute {
+
+                    /**
+                     * Constructs a new CookingIntentAttribute.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.ICookingIntentAttribute);
+
+                    /** CookingIntentAttribute intValue. */
+                    public intValue?: (whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue|null);
+
+                    /** CookingIntentAttribute value. */
+                    public value?: "intValue";
+
+                    /**
+                     * Encodes the specified CookingIntentAttribute message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttribute.verify|verify} messages.
+                     * @param message CookingIntentAttribute message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.ICookingIntentAttribute, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CookingIntentAttribute message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CookingIntentAttribute
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.CookingIntentAttribute;
+                }
+
+                namespace CookingIntentAttribute {
+
+                    /** Properties of an IntAttributeValue. */
+                    interface IIntAttributeValue {
+
+                        /** IntAttributeValue value */
+                        value?: (number|null);
+                    }
+
+                    /** Represents an IntAttributeValue. */
+                    class IntAttributeValue implements IIntAttributeValue {
+
+                        /**
+                         * Constructs a new IntAttributeValue.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue);
+
+                        /** IntAttributeValue value. */
+                        public value: number;
+
+                        /**
+                         * Encodes the specified IntAttributeValue message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue.verify|verify} messages.
+                         * @param message IntAttributeValue message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.CookingIntentAttribute.IIntAttributeValue, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes an IntAttributeValue message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns IntAttributeValue
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.CookingIntentAttribute.IntAttributeValue;
+                    }
+                }
+
+                /** Properties of a CookingIntentAttributePayload. */
+                interface ICookingIntentAttributePayload {
+
+                    /** CookingIntentAttributePayload intValue */
+                    intValue?: (whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue|null);
+                }
+
+                /** Represents a CookingIntentAttributePayload. */
+                class CookingIntentAttributePayload implements ICookingIntentAttributePayload {
+
+                    /**
+                     * Constructs a new CookingIntentAttributePayload.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: whisk.api.user.v2.ICookingIntentAttributePayload);
+
+                    /** CookingIntentAttributePayload intValue. */
+                    public intValue?: (whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue|null);
+
+                    /** CookingIntentAttributePayload value. */
+                    public value?: "intValue";
+
+                    /**
+                     * Encodes the specified CookingIntentAttributePayload message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttributePayload.verify|verify} messages.
+                     * @param message CookingIntentAttributePayload message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: whisk.api.user.v2.ICookingIntentAttributePayload, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CookingIntentAttributePayload message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CookingIntentAttributePayload
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.CookingIntentAttributePayload;
+                }
+
+                namespace CookingIntentAttributePayload {
+
+                    /** Properties of an IntAttributeValue. */
+                    interface IIntAttributeValue {
+
+                        /** IntAttributeValue value */
+                        value?: (number|null);
+                    }
+
+                    /** Represents an IntAttributeValue. */
+                    class IntAttributeValue implements IIntAttributeValue {
+
+                        /**
+                         * Constructs a new IntAttributeValue.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue);
+
+                        /** IntAttributeValue value. */
+                        public value: number;
+
+                        /**
+                         * Encodes the specified IntAttributeValue message. Does not implicitly {@link whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue.verify|verify} messages.
+                         * @param message IntAttributeValue message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: whisk.api.user.v2.CookingIntentAttributePayload.IIntAttributeValue, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes an IntAttributeValue message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns IntAttributeValue
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.api.user.v2.CookingIntentAttributePayload.IntAttributeValue;
+                    }
+                }
+
                 /** Represents a UserAPI */
                 class UserAPI extends $protobuf.rpc.Service {
 

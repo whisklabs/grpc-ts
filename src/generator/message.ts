@@ -63,8 +63,7 @@ function message(
   if (item.fields.length > 0) {
     out.dts.push(`export type ${baseName} = {`);
     for (const field of item.fields) {
-      const find = list.find(i => i.name === field.map?.to || i.name === field.type);
-      const fieldPack = isPresent(find) ? find.pack : pack;
+      const fieldPack = getFieldPack(list, field, baseName, pack);
       const naming = camelCase(field.name);
       const required = isRequiredField(field, isMessageRequired);
 
@@ -102,8 +101,7 @@ function message(
       out.dts.push(`  ${one}?:`);
 
       for (const field of oneof[one]) {
-        const find = list.find(i => i.name === field.map?.to || i.name === field.type);
-        const fieldPack = isPresent(find) ? find.pack : pack;
+        const fieldPack = getFieldPack(list, field, baseName, pack);
 
         getComment(field, out);
 
@@ -142,6 +140,7 @@ function message(
   }
   out.js.push(']; }');
 }
+
 function getComment(field: Parser.Field, out: MakeOuts) {
   let comment = '';
   if (isText(field.options.deprecated)) {
@@ -156,5 +155,16 @@ function getComment(field: Parser.Field, out: MakeOuts) {
 
   if (isText(comment)) {
     out.dts.push(toComment(comment));
+  }
+}
+
+function getFieldPack(list: List[], field: Parser.Field, baseName: string, pack: string) {
+  // baseName for avoid duplicate name
+  const find = list.find(i => i.name === field.map?.to || (i.name === field.type && baseName === safeString(i.pack)));
+  if (isPresent(find)) {
+    return find.pack;
+  } else {
+    const findTop = list.find(i => i.name === field.map?.to || i.name === field.type);
+    return isPresent(findTop) ? findTop.pack : pack;
   }
 }

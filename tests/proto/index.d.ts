@@ -745,7 +745,7 @@ export const whisk_api_user_v2_Weight_Unit: {
 export type whisk_api_user_v2_Weight_Unit = Values<typeof whisk_api_user_v2_Weight_Unit>;
 export type whisk_api_user_v2_Weight = {
   value: number;
-  unit?: whisk_api_user_v2_Height_Unit;
+  unit?: whisk_api_user_v2_Weight_Unit;
 };
 export const whisk_api_user_v2_Weight: Field<whisk_api_user_v2_Weight>;
 export type whisk_api_user_v2_FoodPreferences = {
@@ -934,6 +934,24 @@ export type whisk_api_user_v2_ApiUpdateBusinessApp = {
   maskAnyName: google_protobuf_FieldMask;
 };
 export const whisk_api_user_v2_ApiUpdateBusinessApp: Field<whisk_api_user_v2_ApiUpdateBusinessApp>;
+export type whisk_api_user_v2_CookingIntentAttribute = {
+  value?:
+    | { oneof: 'intValue'; value?: whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue; };
+};
+export const whisk_api_user_v2_CookingIntentAttribute: Field<whisk_api_user_v2_CookingIntentAttribute>;
+export type whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue = {
+  value: number;
+};
+export const whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue: Field<whisk_api_user_v2_CookingIntentAttribute_IntAttributeValue>;
+export type whisk_api_user_v2_CookingIntentAttributePayload = {
+  value?:
+    | { oneof: 'intValue'; value?: whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue; };
+};
+export const whisk_api_user_v2_CookingIntentAttributePayload: Field<whisk_api_user_v2_CookingIntentAttributePayload>;
+export type whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue = {
+  value: number;
+};
+export const whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue: Field<whisk_api_user_v2_CookingIntentAttributePayload_IntAttributeValue>;
 export type whisk_api_user_v2_GetMeRequest = FieldEmpty;
 export const whisk_api_user_v2_GetMeRequest: Field<whisk_api_user_v2_GetMeRequest>;
 export type whisk_api_user_v2_GetMeResponse = {
@@ -985,7 +1003,7 @@ export type whisk_api_user_v2_UpdateListRequest_Fields = {
 export const whisk_api_user_v2_UpdateListRequest_Fields: Field<whisk_api_user_v2_UpdateListRequest_Fields>;
 export type whisk_api_user_v2_UpdateItemRequest = {
   id: string;
-  fields?: whisk_api_user_v2_UpdateListRequest_Fields;
+  fields?: whisk_api_user_v2_UpdateItemRequest_Fields;
   mask?: google_protobuf_FieldMask;
   newOrder: number;
 };
