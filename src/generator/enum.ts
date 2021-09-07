@@ -2,7 +2,7 @@ import { isNumber, isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
 import { MakeOuts } from './generator';
-import { checkSame, safeString } from './utils';
+import { checkSame, safeString, toComment } from './utils';
 
 export function enums(pack: string, out: MakeOuts, items: Parser.Enum[]) {
   for (const msg of items) {
@@ -17,7 +17,7 @@ function enu(pack: string, out: MakeOuts, item: Parser.Enum) {
   const cName = checkSame(out, 'name');
 
   if (isText(item.comment)) {
-    out.dts.push(`/** ${item.comment.trim()} */`);
+    out.dts.push(toComment(item.comment));
   }
 
   out.js.push(`export const ${eName} = {`);
@@ -31,7 +31,7 @@ function enu(pack: string, out: MakeOuts, item: Parser.Enum) {
       cName(field, `${pack}.${field}`);
       out.js.push(`  ${field}: ${val},`);
       if (isText(comment)) {
-        out.dts.push(`/** ${comment} */`);
+        out.dts.push(toComment(comment));
       }
       out.dts.push(`  readonly ${field}: ${val},`);
     }

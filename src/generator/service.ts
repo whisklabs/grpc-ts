@@ -3,7 +3,7 @@ import { isText } from '@whisklabs/typeguards';
 import { Parser } from '../parser';
 import { pathField } from './field';
 import { MakeOuts } from './generator';
-import { safeString } from './utils';
+import { safeString, toComment } from './utils';
 
 export function services(pack: string, out: MakeOuts, items: Parser.Service[] = []) {
   for (const msg of items) {
@@ -25,7 +25,7 @@ export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: P
   out.fields.push([input, sName], [output, sName]);
 
   if (isText(item.comment)) {
-    out.dts.push(`/** ${item.comment.trim()} */`);
+    out.dts.push(toComment(item.comment));
   }
   out.dts.push(`export type ${sName} = Service<Field<${input}>, Field<${output}>>;`);
   out.dts.push(`export const ${sName}: ${sName};`);

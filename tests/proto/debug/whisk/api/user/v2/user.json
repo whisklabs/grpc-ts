@@ -1021,7 +1021,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": "   optional string corge = 5;\n   /* Block comment attached\n    * to corge.  Leading asterisks\n    * will be removed. */\n   /* Block comment attached to\n    * grault. */\n   optional int32 grault = 6;"
     },
     {
       "name": "TestItem",
@@ -1485,7 +1486,8 @@
           "fields": [],
           "extends": [],
           "extensions": [],
-          "reserved": []
+          "reserved": [],
+          "comment": " If true, when this message is used as an optional field, do not wrap it in an `Option`.\n This is equivalent of setting `(field).no_box` to true on each field with the message type."
         }
       ],
       "fields": [

@@ -24,11 +24,11 @@ export const google_protobuf_Syntax: {
 export type google_protobuf_Syntax = Values<typeof google_protobuf_Syntax>;
 /** Describes goals */
 export const whisk_api_user_v2_HealthGoal: {
-/**  Loss */
+/** Loss */
   readonly HEALTH_GOAL_WEIGHT_LOSS: 1,
-/**  Gain */
+/** Gain */
   readonly HEALTH_GOAL_WEIGHT_GAIN: 2,
-/** * Sleep  */
+/** * Sleep */
   readonly HEALTH_GOAL_BETTER_SLEEP: 3,
   readonly HEALTH_GOAL_INCREASE_ENERGY: 4,
 };
@@ -271,7 +271,7 @@ export type google_protobuf_FileOptions = {
   javaPackage?: string;
   javaOuterClassname?: string;
   javaMultipleFiles?: boolean;
-  /** @deprecated */
+/** @deprecated */
   javaGenerateEqualsAndHash?: boolean;
   javaStringCheckUtf8?: boolean;
   optimizeFor?: google_protobuf_FileOptions_OptimizeMode;
@@ -546,14 +546,14 @@ export const whisk_api_shared_v1_Test_Enum: {
 };
 export type whisk_api_shared_v1_Test_Enum = Values<typeof whisk_api_shared_v1_Test_Enum>;
 export type whisk_api_shared_v1_Test = {
-  /** * Multi
+/** * Multi
   line /** test *\/ */
   string: string;
-  /** Up lime */
+/** Up lime */
   uint32: number;
-  /** Side line */
+/** Side line */
   inner?: whisk_api_shared_v1_Test_Inner;
-  /** *
+/** *
    * Represents a book.
    * @constructor
    * @param {string} title - The title of the book.
@@ -587,9 +587,9 @@ export type whisk_api_shared_v1_Date = {
 };
 export const whisk_api_shared_v1_Date: Field<whisk_api_shared_v1_Date>;
 export type whisk_api_shared_v1_Time = {
-  /** required */
+/** required */
   time: number;
-  /** optional */
+/** optional */
   nano?: number;
 };
 export const whisk_api_shared_v1_Time: Field<whisk_api_shared_v1_Time>;
@@ -647,32 +647,32 @@ export type whisk_api_shared_v1_Wrapper = {
 };
 export const whisk_api_shared_v1_Wrapper: Field<whisk_api_shared_v1_Wrapper>;
 export type whisk_api_user_v2_Test = {
-  /** required */
+/** required */
   id: string;
-  /** optional */
+/** optional */
   text?: string;
-  /** required */
+/** required */
   currentWeek: whisk_api_user_v2_Week;
-  /** optional */
+/** optional */
   nextWeek?: whisk_api_user_v2_Week;
-  /** required */
+/** required */
   time: whisk_api_shared_v1_Time;
-  /** optional */
+/** optional */
   timeAfter?: whisk_api_shared_v1_Time;
-  /** Optional string */
+/** Optional string */
   description: string;
-  /** Force override (backward binary compatibility only) */
+/** Force override (backward binary compatibility only) */
   item?: string;
   test: string;
-  /** required */
+/** required */
   array: boolean[];
   array_2?: boolean[];
-  /** Map - can't work with optional!
+/** Map - can't work with optional!
  required */
   mapSearch: Record<string, boolean>;
   mapSearch_2?: Record<string, boolean>;
   deviceDescription?:
-  /** required */
+/** required */
     | { oneof: 'type'; value: whisk_api_user_v2_Week; }
     | { oneof: 'custom'; value?: whisk_api_user_v2_Week; };
 };
@@ -716,7 +716,7 @@ export type whisk_api_user_v2_PersonalDetails = {
   zipcode: string;
   language: string;
   activityLevel?: whisk_api_user_v2_ActivityLevel;
-  /** @deprecated */
+/** @deprecated */
   age: number;
   height?: whisk_api_user_v2_Height;
   weight?: whisk_api_user_v2_Weight;
@@ -830,18 +830,25 @@ export const whisk_api_user_v2_Ingredient: Field<whisk_api_user_v2_Ingredient>;
 export type whisk_api_user_v2_Recommendations = {
   dailyCalories: number;
 };
+/** optional string corge = 5;
+   /* Block comment attached
+    * to corge.  Leading asterisks
+    * will be removed. *∕
+   /* Block comment attached to
+    * grault. *∕
+   optional int32 grault = 6; */
 export const whisk_api_user_v2_Recommendations: Field<whisk_api_user_v2_Recommendations>;
 export type whisk_api_user_v2_TestItem = {
-  /** Required */
+/** Required */
   id: string;
   name: string;
   surname?: string;
-  /** Optional */
+/** Optional */
   description?: string;
   test: string;
   array: string[];
   story?: string;
-  /** External message */
+/** External message */
   time?: whisk_api_shared_v1_Time;
   date: whisk_api_shared_v1_Date;
   searches: whisk_api_user_v2_SearchRecipesResponse[];
@@ -898,7 +905,7 @@ export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommend
 export type whisk_api_user_v2_SearchRecipesResponse_Empty = FieldEmpty;
 export const whisk_api_user_v2_SearchRecipesResponse_Empty: Field<whisk_api_user_v2_SearchRecipesResponse_Empty>;
 export type whisk_api_user_v2_SearchRecipesResponse_Hit = {
-  /** @deprecated */
+/** @deprecated */
   content?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient;
   ingredients: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient[];
   mapIngredients: Record<string, whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations>;
@@ -911,6 +918,8 @@ export const whisk_api_user_v2_SearchRecipesResponse_Height_Unit2: {
 };
 export type whisk_api_user_v2_SearchRecipesResponse_Height_Unit2 = Values<typeof whisk_api_user_v2_SearchRecipesResponse_Height_Unit2>;
 export type whisk_api_user_v2_SearchRecipesResponse_Height = FieldEmpty;
+/** If true, when this message is used as an optional field, do not wrap it in an `Option`.
+ This is equivalent of setting `(field).no_box` to true on each field with the message type. */
 export const whisk_api_user_v2_SearchRecipesResponse_Height: Field<whisk_api_user_v2_SearchRecipesResponse_Height>;
 export type whisk_api_user_v2_DeepCheck = {
   items: whisk_api_user_v2_SearchRecipesResponse_Hit[];
@@ -957,7 +966,7 @@ export const whisk_api_user_v2_SaveRecipeRequest: Field<whisk_api_user_v2_SaveRe
 export type whisk_api_user_v2_UpdateRecipeRequest = {
   recipeId: string;
   recipeMask?: google_protobuf_FieldMask;
-  /** possible values: payload, collection_ids */
+/** possible values: payload, collection_ids */
   updateMask?: google_protobuf_FieldMask;
   payload?: whisk_api_user_v2_User;
   collectionIds: string[];

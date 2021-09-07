@@ -191,6 +191,13 @@ enum EthicalPreference {
   ETHICAL_PREFERENCE_LOW_WASTE_PRODUCTS = 6;
 }
 
+//   optional string corge = 5;
+//   /* Block comment attached
+//    * to corge.  Leading asterisks
+//    * will be removed. */
+//   /* Block comment attached to
+//    * grault. */
+//   optional int32 grault = 6;
 message Recommendations { int32 daily_calories = 1; }
 
 message TestItem {
@@ -261,6 +268,8 @@ message SearchRecipesResponse {
     map<string, TestItem> map_external = 5;
   }
 
+  // If true, when this message is used as an optional field, do not wrap it in an `Option`.
+  // This is equivalent of setting `(field).no_box` to true on each field with the message type.
   message Height {
     enum Unit2 {
       UNIT_INVALID = 0;
