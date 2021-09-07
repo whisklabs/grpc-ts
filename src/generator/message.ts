@@ -5,7 +5,7 @@ import { GOOGLE_WRAPPERS, OPTION_MESSAGE_REQUIRED } from './constants';
 import { enums } from './enum';
 import { getField, getStruct, isRequiredField } from './field';
 import { List, MakeOut, MakeOuts } from './generator';
-import { camelCase, checkSame, errorColor, safeString } from './utils';
+import { camelCase, checkSame, errorColor, safeString, toComment } from './utils';
 
 export function messages(
   pack: string,
@@ -133,7 +133,7 @@ function message(
   }
 
   if (isText(item.comment)) {
-    out.dts.push(`/** ${item.comment.trim()} */`);
+    out.dts.push(toComment(item.comment));
   }
   out.dts.push(`export const ${baseName}: Field<${baseName}>;`);
   out.js.push(`export function ${baseName} () { return [`);
@@ -155,6 +155,6 @@ function getComment(field: Parser.Field, out: MakeOuts) {
   }
 
   if (isText(comment)) {
-    out.dts.push(`  /** ${comment.trim()} */`);
+    out.dts.push(toComment(comment));
   }
 }

@@ -46,3 +46,5 @@ export async function walk<T>({ filename, each, result }: WalkInit<T>): Promise<
   }
   return result;
 }
+
+export const toComment = (str: string) => `/** ${str.replace(/\*\//g, '*∕').trim()} */`;
