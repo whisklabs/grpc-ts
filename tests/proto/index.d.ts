@@ -22,9 +22,13 @@ export const google_protobuf_Syntax: {
   readonly SYNTAX_PROTO3: 1,
 };
 export type google_protobuf_Syntax = Values<typeof google_protobuf_Syntax>;
+/** Describes goals */
 export const whisk_api_user_v2_HealthGoal: {
+/**  Loss */
   readonly HEALTH_GOAL_WEIGHT_LOSS: 1,
+/**  Gain */
   readonly HEALTH_GOAL_WEIGHT_GAIN: 2,
+/** * Sleep  */
   readonly HEALTH_GOAL_BETTER_SLEEP: 3,
   readonly HEALTH_GOAL_INCREASE_ENERGY: 4,
 };
@@ -267,7 +271,7 @@ export type google_protobuf_FileOptions = {
   javaPackage?: string;
   javaOuterClassname?: string;
   javaMultipleFiles?: boolean;
-  /**  @deprecated */
+  /** @deprecated */
   javaGenerateEqualsAndHash?: boolean;
   javaStringCheckUtf8?: boolean;
   optimizeFor?: google_protobuf_FileOptions_OptimizeMode;
@@ -532,6 +536,7 @@ export type google_protobuf_BytesValue = {
   value: Uint8Array;
 };
 export const google_protobuf_BytesValue: Field<google_protobuf_BytesValue>;
+/** Describes how items */
 export const whisk_api_shared_v1_Test_Enum: {
   readonly ONE: 0,
   readonly TWO: 1,
@@ -541,9 +546,18 @@ export const whisk_api_shared_v1_Test_Enum: {
 };
 export type whisk_api_shared_v1_Test_Enum = Values<typeof whisk_api_shared_v1_Test_Enum>;
 export type whisk_api_shared_v1_Test = {
+  /** * Multi
+  line /** test *\/ */
   string: string;
+  /** Up lime */
   uint32: number;
+  /** Side line */
   inner?: whisk_api_shared_v1_Test_Inner;
+  /** *
+   * Represents a book.
+   * @constructor
+   * @param {string} title - The title of the book.
+   * @param {string} author - The author of the book. */
   float: number;
 };
 export const whisk_api_shared_v1_Test: Field<whisk_api_shared_v1_Test>;
@@ -573,7 +587,9 @@ export type whisk_api_shared_v1_Date = {
 };
 export const whisk_api_shared_v1_Date: Field<whisk_api_shared_v1_Date>;
 export type whisk_api_shared_v1_Time = {
+  /** required */
   time: number;
+  /** optional */
   nano?: number;
 };
 export const whisk_api_shared_v1_Time: Field<whisk_api_shared_v1_Time>;
@@ -631,20 +647,32 @@ export type whisk_api_shared_v1_Wrapper = {
 };
 export const whisk_api_shared_v1_Wrapper: Field<whisk_api_shared_v1_Wrapper>;
 export type whisk_api_user_v2_Test = {
+  /** required */
   id: string;
+  /** optional */
   text?: string;
+  /** required */
   currentWeek: whisk_api_user_v2_Week;
+  /** optional */
   nextWeek?: whisk_api_user_v2_Week;
+  /** required */
   time: whisk_api_shared_v1_Time;
+  /** optional */
   timeAfter?: whisk_api_shared_v1_Time;
+  /** Optional string */
   description: string;
+  /** Force override (backward binary compatibility only) */
   item?: string;
   test: string;
+  /** required */
   array: boolean[];
   array_2?: boolean[];
+  /** Map - can't work with optional!
+ required */
   mapSearch: Record<string, boolean>;
   mapSearch_2?: Record<string, boolean>;
   deviceDescription?:
+  /** required */
     | { oneof: 'type'; value: whisk_api_user_v2_Week; }
     | { oneof: 'custom'; value?: whisk_api_user_v2_Week; };
 };
@@ -657,6 +685,8 @@ export type whisk_api_user_v2_Week = {
   num: number;
   day?: whisk_api_user_v2_Day;
 };
+/** Force required mode in message
+ false for disable */
 export const whisk_api_user_v2_Week: Field<whisk_api_user_v2_Week>;
 export type whisk_api_user_v2_User = {
   id: string;
@@ -668,6 +698,7 @@ export type whisk_api_user_v2_User = {
   mapHealthGoal: Record<string, whisk_api_user_v2_HealthGoal>;
   mapIngredient: Record<string, whisk_api_user_v2_Ingredient>;
 };
+/** Test maps */
 export const whisk_api_user_v2_User: Field<whisk_api_user_v2_User>;
 export type whisk_api_user_v2_UserSettings = {
   personalDetails?: whisk_api_user_v2_PersonalDetails;
@@ -685,7 +716,7 @@ export type whisk_api_user_v2_PersonalDetails = {
   zipcode: string;
   language: string;
   activityLevel?: whisk_api_user_v2_ActivityLevel;
-  /**  @deprecated */
+  /** @deprecated */
   age: number;
   height?: whisk_api_user_v2_Height;
   weight?: whisk_api_user_v2_Weight;
@@ -725,6 +756,7 @@ export type whisk_api_user_v2_FoodPreferences = {
   nutritionPreferences: number[];
   preferredIngredients?: whisk_api_user_v2_FoodPreferences_Ingredients;
 };
+/** Example food */
 export const whisk_api_user_v2_FoodPreferences: Field<whisk_api_user_v2_FoodPreferences>;
 export type whisk_api_user_v2_FoodPreferences_Dates = {
   list: whisk_api_shared_v1_Date[];
@@ -800,13 +832,16 @@ export type whisk_api_user_v2_Recommendations = {
 };
 export const whisk_api_user_v2_Recommendations: Field<whisk_api_user_v2_Recommendations>;
 export type whisk_api_user_v2_TestItem = {
+  /** Required */
   id: string;
   name: string;
   surname?: string;
+  /** Optional */
   description?: string;
   test: string;
   array: string[];
   story?: string;
+  /** External message */
   time?: whisk_api_shared_v1_Time;
   date: whisk_api_shared_v1_Date;
   searches: whisk_api_user_v2_SearchRecipesResponse[];
@@ -835,6 +870,7 @@ export const whisk_api_user_v2_TestEmpty_GlobalRegion: Field<whisk_api_user_v2_T
 export type whisk_api_user_v2_MatchedIngredient = {
   name: string;
 };
+/** Test on dublicate */
 export const whisk_api_user_v2_MatchedIngredient: Field<whisk_api_user_v2_MatchedIngredient>;
 export type whisk_api_user_v2_MatchedIngredient_Calories = {
   dailyCalories: number;
@@ -862,7 +898,7 @@ export const whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommend
 export type whisk_api_user_v2_SearchRecipesResponse_Empty = FieldEmpty;
 export const whisk_api_user_v2_SearchRecipesResponse_Empty: Field<whisk_api_user_v2_SearchRecipesResponse_Empty>;
 export type whisk_api_user_v2_SearchRecipesResponse_Hit = {
-  /**  @deprecated */
+  /** @deprecated */
   content?: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient;
   ingredients: whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient[];
   mapIngredients: Record<string, whisk_api_user_v2_SearchRecipesResponse_MatchedIngredient_Recommendations>;
@@ -909,6 +945,7 @@ export type whisk_api_user_v2_ExtractRecipeRequest = {
   url: string;
   recipeMask?: google_protobuf_FieldMask;
 };
+/** Mask tests */
 export const whisk_api_user_v2_ExtractRecipeRequest: Field<whisk_api_user_v2_ExtractRecipeRequest>;
 export type whisk_api_user_v2_SaveRecipeRequest = {
   recipeId: string;
@@ -920,6 +957,7 @@ export const whisk_api_user_v2_SaveRecipeRequest: Field<whisk_api_user_v2_SaveRe
 export type whisk_api_user_v2_UpdateRecipeRequest = {
   recipeId: string;
   recipeMask?: google_protobuf_FieldMask;
+  /** possible values: payload, collection_ids */
   updateMask?: google_protobuf_FieldMask;
   payload?: whisk_api_user_v2_User;
   collectionIds: string[];
@@ -973,8 +1011,11 @@ export type whisk_api_user_v2_UserSettings2 = {
   lastName: string;
 };
 export const whisk_api_user_v2_UserSettings2: Field<whisk_api_user_v2_UserSettings2>;
+/** Use api example
+ Get My profile */
 export type whisk_api_user_v2_UserAPI_GetMe = Service<Field<whisk_api_user_v2_GetMeRequest>, Field<whisk_api_user_v2_GetMeResponse>>;
 export const whisk_api_user_v2_UserAPI_GetMe: whisk_api_user_v2_UserAPI_GetMe;
+/** Empty rpc */
 export type whisk_api_user_v2_UserAPI_Get = Service<Field<google_protobuf_Empty>, Field<whisk_api_user_v2_GetMeResponse>>;
 export const whisk_api_user_v2_UserAPI_Get: whisk_api_user_v2_UserAPI_Get;
 export type whisk_api_user_v2_UserAPI_UpdateSettings = Service<Field<whisk_api_user_v2_UpdateSettingsRequest>, Field<whisk_api_user_v2_UpdateSettingsResponse>>;

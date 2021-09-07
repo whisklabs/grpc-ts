@@ -1,3 +1,5 @@
+import { isText } from '@whisklabs/typeguards';
+
 import { Parser } from '../parser';
 import { pathField } from './field';
 import { MakeOuts } from './generator';
@@ -22,6 +24,9 @@ export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: P
 
   out.fields.push([input, sName], [output, sName]);
 
+  if (isText(item.comment)) {
+    out.dts.push(`/** ${item.comment.trim()} */`);
+  }
   out.dts.push(`export type ${sName} = Service<Field<${input}>, Field<${output}>>;`);
   out.dts.push(`export const ${sName}: ${sName};`);
 

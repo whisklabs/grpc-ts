@@ -13,22 +13,26 @@
         },
         "HEALTH_GOAL_WEIGHT_LOSS": {
           "value": 1,
-          "options": {}
+          "options": {},
+          "comment": " Loss"
         },
         "HEALTH_GOAL_WEIGHT_GAIN": {
           "value": 2,
-          "options": {}
+          "options": {},
+          "comment": " Gain"
         },
         "HEALTH_GOAL_BETTER_SLEEP": {
           "value": 3,
-          "options": {}
+          "options": {},
+          "comment": "* Sleep "
         },
         "HEALTH_GOAL_INCREASE_ENERGY": {
           "value": 4,
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "comment": " Describes goals"
     },
     {
       "name": "ActivityLevel",
@@ -677,7 +681,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " Example food"
     },
     {
       "name": "CookingPreferences",
@@ -1321,13 +1326,13 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {},
-          "comment": " Test on dublicate"
+          "options": {}
         }
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " Test on dublicate"
     },
     {
       "name": "SearchRecipesResponse",

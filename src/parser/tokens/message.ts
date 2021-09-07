@@ -1,6 +1,6 @@
 import { isObject } from '@whisklabs/typeguards';
 
-import { next, setComment, writeComment } from '../comment';
+import { next, writeComment } from '../comment';
 import { Thrower } from '../thrower';
 import { Message } from '../types';
 import { ch, check, cut, insertOption } from '../utils';
@@ -31,7 +31,7 @@ export function MessageBody(tokens: string[], name: string) {
     reserved: [],
   };
 
-  setComment(message);
+  writeComment(message);
 
   while (tokens.length > 0) {
     switch (next(tokens)) {

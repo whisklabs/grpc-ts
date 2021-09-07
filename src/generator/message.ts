@@ -74,11 +74,7 @@ function message(
         oneof[field.oneof] = oneof[field.oneof] ?? [];
         oneof[field.oneof].push(field);
       } else {
-        if (isText(field.options.deprecated)) {
-          out.dts.push(`  /**  @deprecated ${field.options.deprecated} */`);
-        } else if (field.options.deprecated === true) {
-          out.dts.push('  /**  @deprecated */');
-        }
+        getComment(field, out);
 
         const fieldName = getField(
           field,
@@ -109,11 +105,7 @@ function message(
         const find = list.find(i => i.name === field.map?.to || i.name === field.type);
         const fieldPack = isPresent(find) ? find.pack : pack;
 
-        if (isText(field.options.deprecated)) {
-          out.dts.push(`  /**  @deprecated ${field.options.deprecated} */`);
-        } else if (field.options.deprecated === true) {
-          out.dts.push('  /**  @deprecated */');
-        }
+        getComment(field, out);
 
         const naming = camelCase(field.name);
 
@@ -140,10 +132,29 @@ function message(
     out.dts.push(`export type ${baseName} = FieldEmpty;`);
   }
 
+  if (isText(item.comment)) {
+    out.dts.push(`/** ${item.comment.trim()} */`);
+  }
   out.dts.push(`export const ${baseName}: Field<${baseName}>;`);
   out.js.push(`export function ${baseName} () { return [`);
   for (const field of runtime) {
     out.js.push(field);
   }
   out.js.push(']; }');
+}
+function getComment(field: Parser.Field, out: MakeOuts) {
+  let comment = '';
+  if (isText(field.options.deprecated)) {
+    comment += `@deprecated ${field.options.deprecated}\n`;
+  } else if (field.options.deprecated === true) {
+    comment += '@deprecated\n';
+  }
+
+  if (isText(field.comment)) {
+    comment += field.comment;
+  }
+
+  if (isText(comment)) {
+    out.dts.push(`  /** ${comment.trim()} */`);
+  }
 }

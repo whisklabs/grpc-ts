@@ -109,8 +109,7 @@
           "required": false,
           "repeated": false,
           "optional": false,
-          "options": {},
-          "comment": " Mask tests"
+          "options": {}
         },
         {
           "name": "recipe_mask",
@@ -124,7 +123,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " Mask tests"
     },
     {
       "name": "SaveRecipeRequest",
@@ -572,7 +572,8 @@
             "google.api.http": {
               "get": "/user/v2/me"
             }
-          }
+          },
+          "comment": " Use api example\n Get My profile"
         },
         {
           "name": "Get",

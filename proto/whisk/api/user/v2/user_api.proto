@@ -10,7 +10,9 @@ import "google/api/field_mask.proto";
 import "google/api/empty.proto";
 import "whisk/api/user/v2/user.proto";
 
+// Use api example
 service UserAPI {
+  // Get My profile
   rpc GetMe(GetMeRequest) returns (GetMeResponse) {
     option (google.api.http) = {
       get: "/user/v2/me"

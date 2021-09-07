@@ -122,8 +122,7 @@
               "opt1": "123",
               "opt2": "baz"
             }
-          },
-          "comment": " usage:"
+          }
         },
         {
           "name": "b",
@@ -143,7 +142,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " usage:"
     }
   ],
   "options": {

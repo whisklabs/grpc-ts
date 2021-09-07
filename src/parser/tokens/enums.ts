@@ -1,4 +1,4 @@
-import { next, setComment, writeComment } from '../comment';
+import { next, writeComment } from '../comment';
 import { Thrower } from '../thrower';
 import { Enum } from '../types';
 import { ch, check, cut, insertOption, semicolon } from '../utils';
@@ -38,7 +38,7 @@ export function ParseEnums(tokens: string[]) {
     options: {},
   };
 
-  setComment(en);
+  writeComment(en);
 
   cut(tokens, 3);
 

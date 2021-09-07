@@ -40,7 +40,8 @@
           "comment": " ONE means 1"
         }
       },
-      "options": {}
+      "options": {},
+      "comment": " NumericEnum is one or zero."
     }
   ],
   "messages": [
@@ -78,7 +79,8 @@
           ],
           "extends": [],
           "extensions": [],
-          "reserved": []
+          "reserved": [],
+          "comment": "fgfg\n    dfv "
         }
       ],
       "fields": [
@@ -95,7 +97,7 @@
       "extends": [],
       "extensions": [],
       "reserved": [],
-      "comment": " example file\n example file"
+      "comment": " example file"
     },
     {
       "name": "Person",
@@ -232,8 +234,7 @@
           "required": true,
           "repeated": false,
           "optional": false,
-          "options": {},
-          "comment": " example file"
+          "options": {}
         },
         {
           "name": "age",
@@ -258,7 +259,8 @@
       ],
       "extends": [],
       "extensions": [],
-      "reserved": []
+      "reserved": [],
+      "comment": " example file"
     },
     {
       "name": "TestItem",
