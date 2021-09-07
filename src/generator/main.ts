@@ -30,7 +30,9 @@ export async function generator({
   const OUT_DIR = isAbsolute(out) ? out : join(process.cwd(), out);
   const DEBUG_DIR = join(OUT_DIR, 'debug');
 
-  const lic = `// Code created by grpc-generator. Version: ${version}`;
+  const lic = `// Code created by generator @whisklabs/grpc
+// https://github.com/whisklabs/grpc-ts
+// Version: ${version}`;
   const lib = `import {
   FieldMap,
   FieldRepeated,
@@ -76,8 +78,8 @@ export async function generator({
       }
     }
 
-    dts.unshift(lic, lib, '');
-    js.unshift(lic, '"use strict";', '');
+    dts.unshift(lic, '', lib, '');
+    js.unshift(lic, '', '"use strict";', '');
 
     const dtsString = dts.join('\n');
     const jsString = js.join('\n');
