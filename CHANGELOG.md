@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.1.0](https://github.com/whisklabs/grpc-ts/compare/v1.0.9...v1.1.0) (2021-9-8)
+
+### Documentation
+
+- message required ([9f732d5](https://github.com/whisklabs/grpc-ts/commit/9f732d52906a3849f72a0fd39fc10a21ca7e4fb7))
+
+### Features
+
+- Add required message ([087fe9c](https://github.com/whisklabs/grpc-ts/commit/087fe9c56e3ad41976fe6392aaa96b70c8f08acf))
+
+  See in readme **strict required mode for messages**
+
+### Bug Fixes
+
+- escape jsdoc in comments ([55eb047](https://github.com/whisklabs/grpc-ts/commit/55eb0473d411e03bf3ec532f86b6dd6151c6a5ea))
+- duplicate inner messages name ([21c5888](https://github.com/whisklabs/grpc-ts/commit/21c5888f048ee0b587cb44a6bedfb93e9f9cb532))
+
+### Refactoring
+
+- improve comments ([c7ce4c3](https://github.com/whisklabs/grpc-ts/commit/c7ce4c3ac22e1015b3986cc4ae1c8a36ac38a52c))
+
+### Styles and formatting
+
+- comment ([6fb692b](https://github.com/whisklabs/grpc-ts/commit/6fb692b5f3cda0e6a68b925d60319bbc7062e218))
+
 ## [v1.0.9](https://github.com/whisklabs/grpc-ts/compare/v1.0.8...v1.0.9) (2021-8-18)
 
 ### Refactoring
