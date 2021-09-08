@@ -8,6 +8,7 @@
     - [API](#api)
     - [CLI](#cli)
     - [Parser](#parser)
+    - [Issues with protoc](#issues-with-protoc)
   - [GRPC](#grpc)
     - [Setup gRPC instance](#setup-grpc-instance)
     - [Sending requests](#sending-requests)
@@ -143,6 +144,26 @@ import { parser } from '@whisklabs/grpc';
 
 const parsed = parser(readFileSync('some.proto', 'utf8'));
 ```
+
+### Issues with protoc
+
+For custom options add in start of file or in 'google/protobuf/descriptor.proto'
+
+```protobuf
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  bool required = 1001; // uniq number more 1000
+}
+extend google.protobuf.MessageOptions {
+  bool message_required = 1001; // uniq number more 1000
+}
+extend google.protobuf.FileOptions {
+  bool messages_required = 1001; // uniq number more 1000
+}
+```
+
+For `optional` keyword use ptotoc 3.15+
 
 ## GRPC
 
@@ -797,7 +818,7 @@ You can switch on **strict required mode for messages** with `optional` keyword:
    package whisk.api.user.v2;
 
    // Force required mode for messages in file
-   option message_required = true; // false for disable
+   option (messages_required) = true; // false for disable
 
    message Test {}
    ```
@@ -811,7 +832,7 @@ You can switch on **strict required mode for messages** with `optional` keyword:
 
    message Week {
      // Force required mode in message
-     option message_required = true; // false for disable
+     option (message_required) = true; // false for disable
 
      int32 num = 1;
      Day day = 2;

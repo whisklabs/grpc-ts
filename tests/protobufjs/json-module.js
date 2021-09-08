@@ -1325,7 +1325,7 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
             nested: {
               v2: {
                 options: {
-                  message_required: true,
+                  "(messages_required)": true,
                   go_package: "userv2",
                   java_package: "com.whisk.api.user.v2"
                 },
@@ -1431,7 +1431,7 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
                   },
                   Week: {
                     options: {
-                      message_required: false
+                      "(message_required)": false
                     },
                     fields: {
                       num: {
