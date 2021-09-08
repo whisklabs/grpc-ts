@@ -239,7 +239,7 @@
     }
   ],
   "options": {
-    "message_required": true
+    "messages_required": true
   },
   "extends": [],
   "services": [],

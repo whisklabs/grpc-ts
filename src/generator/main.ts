@@ -7,7 +7,7 @@ import { CompilerOptions, ModuleKind, ModuleResolutionKind, ScriptTarget, transp
 
 import { Parser, parser } from '../parser';
 import { collectEmuns, collectMessages, collectServices } from './collect';
-import { OPTION_MESSAGE_REQUIRED } from './constants';
+import { OPTION_MESSAGES_REQUIRED } from './constants';
 import { enums } from './enum';
 import { Config, MakeOuts, Out } from './generator';
 import { messages } from './message';
@@ -159,7 +159,7 @@ export function make(schemas: Parser.Schema[], messageRequired?: boolean): MakeO
   for (const schema of schemas) {
     const path = schema.package ?? '';
 
-    const option = schema.options[OPTION_MESSAGE_REQUIRED];
+    const option = schema.options[OPTION_MESSAGES_REQUIRED];
     const isMessageRequired = isBoolean(option) ? option : messageRequired;
     messages(path, out, schema.messages, isMessageRequired, []);
     services(path, out, schema.services);

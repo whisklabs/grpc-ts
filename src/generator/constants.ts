@@ -30,4 +30,5 @@ export const GOOGLE_WRAPPERS: Record<string, string> = {
   'google.protobuf.BytesValue': 'bytes',
 };
 
+export const OPTION_MESSAGES_REQUIRED = 'messages_required';
 export const OPTION_MESSAGE_REQUIRED = 'message_required';

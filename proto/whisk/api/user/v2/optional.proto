@@ -3,7 +3,7 @@ syntax = "proto3";
 package whisk.api.user.v2;
 
 // Force required mode for messages in file
-option message_required = true;  // false for disable
+option (messages_required) = true;  // false for disable
 
 message Test {
   // Primitive
@@ -44,7 +44,7 @@ message Day {
 
 message Week {
   // Force required mode in message
-  option message_required = false; // false for disable
+  option (message_required) = false; // false for disable
 
   int32 num = 1;
   Day day = 2;
