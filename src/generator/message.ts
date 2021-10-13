@@ -5,7 +5,7 @@ import { GOOGLE_WRAPPERS, OPTION_MESSAGE_REQUIRED } from './constants';
 import { enums } from './enum';
 import { getField, getStruct, isRequiredField } from './field';
 import { List, MakeOut, MakeOuts } from './generator';
-import { camelCase, checkSame, errorColor, safeString, toComment } from './utils';
+import { camelCase, checkSame, errorColor, joinPath, safeString, toComment } from './utils';
 
 export function messages(
   pack: string,
@@ -16,7 +16,7 @@ export function messages(
   parent?: string
 ) {
   for (const msg of items) {
-    const newPack = `${parent ?? pack}_${msg.name}`;
+    const newPack = joinPath(parent ?? pack, msg.name);
     list = list.concat(
       msg.messages.map(i => ({ name: i.name, pack: newPack })),
       msg.enums.map(i => ({ name: i.name, pack: newPack }))
@@ -41,7 +41,7 @@ function message(
 ) {
   const option = item.options[OPTION_MESSAGE_REQUIRED];
   const isMessageRequired = isBoolean(option) ? option : messageRequired;
-  const base = `${safeString(parent ?? pack)}_${safeString(item.name)}`;
+  const base = joinPath(parent ?? pack, item.name);
   enums(base, out, item.enums);
 
   const runtime: MakeOut[] = [];
@@ -93,8 +93,9 @@ function message(
         }],`
       );
 
-      cID(field.tag, `${isString(parent) ? `${parent}.` : ''}${packName}.${field.name}`);
-      cName(naming, `${isString(parent) ? `${parent}.` : ''}${packName}.${field.name}`);
+      const pathF = `${isString(parent) ? `${parent}.` : ''}${packName}.${field.name}`;
+      cID(field.tag, pathF);
+      cName(naming, pathF);
     }
 
     for (const one in oneof) {

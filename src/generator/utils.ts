@@ -1,3 +1,4 @@
+import { isText } from '@whisklabs/typeguards';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
@@ -48,3 +49,5 @@ export async function walk<T>({ filename, each, result }: WalkInit<T>): Promise<
 }
 
 export const toComment = (str: string) => `/** ${str.replace(/\*\//g, '*∕').trim()} */`;
+
+export const joinPath = (...paths: (string | undefined)[]) => safeString(paths.filter(isText).join('_'));

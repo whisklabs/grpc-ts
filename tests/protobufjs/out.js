@@ -2486,6 +2486,7 @@ export const google = $root.google = (() => {
              * @property {boolean|null} [deprecated] MessageOptions deprecated
              * @property {boolean|null} [mapEntry] MessageOptions mapEntry
              * @property {Array.<google.protobuf.IUninterpretedOption>|null} [uninterpretedOption] MessageOptions uninterpretedOption
+             * @property {string|null} [".eventName"] MessageOptions .eventName
              */
 
             /**
@@ -2545,6 +2546,14 @@ export const google = $root.google = (() => {
             MessageOptions.prototype.uninterpretedOption = $util.emptyArray;
 
             /**
+             * MessageOptions .eventName.
+             * @member {string} .eventName
+             * @memberof google.protobuf.MessageOptions
+             * @instance
+             */
+            MessageOptions.prototype[".eventName"] = "";
+
+            /**
              * Encodes the specified MessageOptions message. Does not implicitly {@link google.protobuf.MessageOptions.verify|verify} messages.
              * @function encode
              * @memberof google.protobuf.MessageOptions
@@ -2567,6 +2576,8 @@ export const google = $root.google = (() => {
                 if (message.uninterpretedOption != null && message.uninterpretedOption.length)
                     for (let i = 0; i < message.uninterpretedOption.length; ++i)
                         $root.google.protobuf.UninterpretedOption.encode(message.uninterpretedOption[i], writer.uint32(/* id 999, wireType 2 =*/7994).fork()).ldelim();
+                if (message[".eventName"] != null && Object.hasOwnProperty.call(message, ".eventName"))
+                    writer.uint32(/* id 50001, wireType 2 =*/400010).string(message[".eventName"]);
                 return writer;
             };
 
@@ -2604,6 +2615,9 @@ export const google = $root.google = (() => {
                         if (!(message.uninterpretedOption && message.uninterpretedOption.length))
                             message.uninterpretedOption = [];
                         message.uninterpretedOption.push($root.google.protobuf.UninterpretedOption.decode(reader, reader.uint32()));
+                        break;
+                    case 50001:
+                        message[".eventName"] = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3023,6 +3037,7 @@ export const google = $root.google = (() => {
              * @interface IEnumValueOptions
              * @property {boolean|null} [deprecated] EnumValueOptions deprecated
              * @property {Array.<google.protobuf.IUninterpretedOption>|null} [uninterpretedOption] EnumValueOptions uninterpretedOption
+             * @property {string|null} [".entryName"] EnumValueOptions .entryName
              */
 
             /**
@@ -3058,6 +3073,14 @@ export const google = $root.google = (() => {
             EnumValueOptions.prototype.uninterpretedOption = $util.emptyArray;
 
             /**
+             * EnumValueOptions .entryName.
+             * @member {string} .entryName
+             * @memberof google.protobuf.EnumValueOptions
+             * @instance
+             */
+            EnumValueOptions.prototype[".entryName"] = "";
+
+            /**
              * Encodes the specified EnumValueOptions message. Does not implicitly {@link google.protobuf.EnumValueOptions.verify|verify} messages.
              * @function encode
              * @memberof google.protobuf.EnumValueOptions
@@ -3074,6 +3097,8 @@ export const google = $root.google = (() => {
                 if (message.uninterpretedOption != null && message.uninterpretedOption.length)
                     for (let i = 0; i < message.uninterpretedOption.length; ++i)
                         $root.google.protobuf.UninterpretedOption.encode(message.uninterpretedOption[i], writer.uint32(/* id 999, wireType 2 =*/7994).fork()).ldelim();
+                if (message[".entryName"] != null && Object.hasOwnProperty.call(message, ".entryName"))
+                    writer.uint32(/* id 50000, wireType 2 =*/400002).string(message[".entryName"]);
                 return writer;
             };
 
@@ -3102,6 +3127,9 @@ export const google = $root.google = (() => {
                         if (!(message.uninterpretedOption && message.uninterpretedOption.length))
                             message.uninterpretedOption = [];
                         message.uninterpretedOption.push($root.google.protobuf.UninterpretedOption.decode(reader, reader.uint32()));
+                        break;
+                    case 50000:
+                        message[".entryName"] = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -13793,7 +13821,308 @@ export const whisk = $root.whisk = (() => {
         return api;
     })();
 
+    whisk.local = (function() {
+
+        /**
+         * Namespace local.
+         * @memberof whisk
+         * @namespace
+         */
+        const local = {};
+
+        local.Message = (function() {
+
+            /**
+             * Properties of a Message.
+             * @memberof whisk.local
+             * @interface IMessage
+             * @property {ISendMessage|null} [id] Message id
+             * @property {App|null} [type] Message type
+             */
+
+            /**
+             * Constructs a new Message.
+             * @memberof whisk.local
+             * @classdesc Represents a Message.
+             * @implements IMessage
+             * @constructor
+             * @param {whisk.local.IMessage=} [properties] Properties to set
+             */
+            function Message(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Message id.
+             * @member {ISendMessage|null|undefined} id
+             * @memberof whisk.local.Message
+             * @instance
+             */
+            Message.prototype.id = null;
+
+            /**
+             * Message type.
+             * @member {App} type
+             * @memberof whisk.local.Message
+             * @instance
+             */
+            Message.prototype.type = 0;
+
+            /**
+             * Encodes the specified Message message. Does not implicitly {@link whisk.local.Message.verify|verify} messages.
+             * @function encode
+             * @memberof whisk.local.Message
+             * @static
+             * @param {whisk.local.IMessage} message Message message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Message.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    $root.SendMessage.encode(message.id, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+                return writer;
+            };
+
+            /**
+             * Decodes a Message message from the specified reader or buffer.
+             * @function decode
+             * @memberof whisk.local.Message
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {whisk.local.Message} Message
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Message.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.whisk.local.Message();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = $root.SendMessage.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.type = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            return Message;
+        })();
+
+        return local;
+    })();
+
     return whisk;
+})();
+
+/**
+ * App enum.
+ * @exports App
+ * @enum {number}
+ * @property {number} APP_UNSPECIFIED=0 APP_UNSPECIFIED value
+ * @property {number} APP_WEB=1 APP_WEB value
+ * @property {number} APP_ANDROID=2 APP_ANDROID value
+ * @property {number} APP_IOS=3 APP_IOS value
+ */
+$root.App = (function() {
+    const valuesById = {}, values = Object.create(valuesById);
+    values[valuesById[0] = "APP_UNSPECIFIED"] = 0;
+    values[valuesById[1] = "APP_WEB"] = 1;
+    values[valuesById[2] = "APP_ANDROID"] = 2;
+    values[valuesById[3] = "APP_IOS"] = 3;
+    return values;
+})();
+
+export const SendMessage = $root.SendMessage = (() => {
+
+    /**
+     * Properties of a SendMessage.
+     * @exports ISendMessage
+     * @interface ISendMessage
+     * @property {string|null} [id] SendMessage id
+     */
+
+    /**
+     * Constructs a new SendMessage.
+     * @exports SendMessage
+     * @classdesc Represents a SendMessage.
+     * @implements ISendMessage
+     * @constructor
+     * @param {ISendMessage=} [properties] Properties to set
+     */
+    function SendMessage(properties) {
+        if (properties)
+            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * SendMessage id.
+     * @member {string} id
+     * @memberof SendMessage
+     * @instance
+     */
+    SendMessage.prototype.id = "";
+
+    /**
+     * Encodes the specified SendMessage message. Does not implicitly {@link SendMessage.verify|verify} messages.
+     * @function encode
+     * @memberof SendMessage
+     * @static
+     * @param {ISendMessage} message SendMessage message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    SendMessage.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+        return writer;
+    };
+
+    /**
+     * Decodes a SendMessage message from the specified reader or buffer.
+     * @function decode
+     * @memberof SendMessage
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {SendMessage} SendMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    SendMessage.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.SendMessage();
+        while (reader.pos < end) {
+            let tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.id = reader.string();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    return SendMessage;
+})();
+
+export const Message = $root.Message = (() => {
+
+    /**
+     * Properties of a Message.
+     * @exports IMessage
+     * @interface IMessage
+     * @property {ISendMessage|null} [id] Message id
+     * @property {App|null} [type] Message type
+     */
+
+    /**
+     * Constructs a new Message.
+     * @exports Message
+     * @classdesc Represents a Message.
+     * @implements IMessage
+     * @constructor
+     * @param {IMessage=} [properties] Properties to set
+     */
+    function Message(properties) {
+        if (properties)
+            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * Message id.
+     * @member {ISendMessage|null|undefined} id
+     * @memberof Message
+     * @instance
+     */
+    Message.prototype.id = null;
+
+    /**
+     * Message type.
+     * @member {App} type
+     * @memberof Message
+     * @instance
+     */
+    Message.prototype.type = 0;
+
+    /**
+     * Encodes the specified Message message. Does not implicitly {@link Message.verify|verify} messages.
+     * @function encode
+     * @memberof Message
+     * @static
+     * @param {IMessage} message Message message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    Message.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+            $root.SendMessage.encode(message.id, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+        return writer;
+    };
+
+    /**
+     * Decodes a Message message from the specified reader or buffer.
+     * @function decode
+     * @memberof Message
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {Message} Message
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    Message.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.Message();
+        while (reader.pos < end) {
+            let tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.id = $root.SendMessage.decode(reader, reader.uint32());
+                break;
+            case 2:
+                message.type = reader.int32();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    return Message;
 })();
 
 export { $root as default };

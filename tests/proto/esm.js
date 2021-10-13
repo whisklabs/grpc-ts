@@ -9,6 +9,11 @@ export var google_protobuf_Syntax = {
     SYNTAX_PROTO2: 0,
     SYNTAX_PROTO3: 1,
 };
+export var App = {
+    APP_WEB: 1,
+    APP_ANDROID: 2,
+    APP_IOS: 3,
+};
 export var whisk_api_user_v2_HealthGoal = {
     HEALTH_GOAL_WEIGHT_LOSS: 1,
     HEALTH_GOAL_WEIGHT_GAIN: 2,
@@ -595,6 +600,11 @@ export function whisk_api_shared_v1_Outer() {
         [4, "string", ["repeated", "string"], 1],
     ];
 }
+export function SendMessage() {
+    return [
+        [1, "id", "string", 1],
+    ];
+}
 export function whisk_api_shared_v1_Date() {
     return [
         [1, "year", "int32", 1],
@@ -606,6 +616,18 @@ export function whisk_api_shared_v1_Time() {
     return [
         [1, "time", "int64", 1],
         [2, "nano", ["wrapper", "uint32"], 0],
+    ];
+}
+export function Message() {
+    return [
+        [1, "id", SendMessage, 0],
+        [2, "type", "enum", 0],
+    ];
+}
+export function whisk_local_Message() {
+    return [
+        [1, "id", SendMessage, 0],
+        [2, "type", "enum", 0],
     ];
 }
 export function whisk_api_shared_v1_Primitive() {

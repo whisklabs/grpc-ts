@@ -25,6 +25,12 @@ export const google_protobuf_Syntax: {
   readonly SYNTAX_PROTO3: 1,
 };
 export type google_protobuf_Syntax = Values<typeof google_protobuf_Syntax>;
+export const App: {
+  readonly APP_WEB: 1,
+  readonly APP_ANDROID: 2,
+  readonly APP_IOS: 3,
+};
+export type App = Values<typeof App>;
 /** Describes goals */
 export const whisk_api_user_v2_HealthGoal: {
 /** Loss */
@@ -583,6 +589,10 @@ export type whisk_api_shared_v1_Outer = {
   string: string[];
 };
 export const whisk_api_shared_v1_Outer: Field<whisk_api_shared_v1_Outer>;
+export type SendMessage = {
+  id: string;
+};
+export const SendMessage: Field<SendMessage>;
 export type whisk_api_shared_v1_Date = {
   year: number;
   month: number;
@@ -596,6 +606,16 @@ export type whisk_api_shared_v1_Time = {
   nano?: number;
 };
 export const whisk_api_shared_v1_Time: Field<whisk_api_shared_v1_Time>;
+export type Message = {
+  id?: SendMessage;
+  type?: App;
+};
+export const Message: Field<Message>;
+export type whisk_local_Message = {
+  id?: SendMessage;
+  type?: App;
+};
+export const whisk_local_Message: Field<whisk_local_Message>;
 export type whisk_api_shared_v1_Primitive = {
   double: number;
   float: number;

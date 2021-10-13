@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Message {
+  SendMessage id = 1;
+  App type = 2;
+}

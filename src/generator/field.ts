@@ -3,7 +3,7 @@ import { isPresent, isString } from '@whisklabs/typeguards';
 import { Parser } from '../parser';
 import { GOOGLE_WRAPPERS, TYPES } from './constants';
 import { MakeOuts } from './generator';
-import { safeString } from './utils';
+import { joinPath, safeString } from './utils';
 
 export const getField = (field: Parser.Field, base: string, name: string, out: MakeOuts, baseName: string): string => {
   const type = field.type;
@@ -44,8 +44,9 @@ export const getStruct = (field: Parser.Field, base: string, out: MakeOuts, base
 
 export const pathField = (field: string, base: string, out: MakeOuts, parent?: string) => {
   let inRoot = false;
+
   out.packagesList.forEach(root => {
-    inRoot = inRoot || field.startsWith(root);
+    inRoot = inRoot || (root.length > 0 && field.startsWith(root));
   });
 
   // Absolute path
@@ -56,11 +57,13 @@ export const pathField = (field: string, base: string, out: MakeOuts, parent?: s
   // Relative path with recursive check
   if (isString(parent) && field.indexOf('.') > -1) {
     const safeBase = safeString(base);
-    const par = (parent.startsWith(safeBase) ? parent.slice(safeBase.length + 1) : parent).split('_');
+    const par = (parent.length > 0 && parent.startsWith(safeBase) ? parent.slice(safeBase.length + 1) : parent).split(
+      '_'
+    );
 
     while (par.length) {
       const current = par.join('_');
-      const tryName = safeString(`${base}_${current}_${field}`);
+      const tryName = joinPath(base, current, field);
 
       if (out.names.has(tryName)) {
         return tryName;
@@ -70,8 +73,12 @@ export const pathField = (field: string, base: string, out: MakeOuts, parent?: s
     }
   }
 
+  if (out.names.has(field)) {
+    return joinPath(field);
+  }
+
   // Common path
-  return safeString(`${base}_${field}`);
+  return joinPath(base, field);
 };
 
 export const isRequiredField = (field: Parser.Field, optional?: boolean) =>
