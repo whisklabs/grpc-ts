@@ -1,0 +1,58 @@
+{
+  "syntax": 3,
+  "imports": [
+    "google/protobuf/descriptor.proto"
+  ],
+  "enums": [],
+  "messages": [],
+  "options": {},
+  "extends": [
+    {
+      "name": "google.protobuf.EnumValueOptions",
+      "message": {
+        "name": "google.protobuf.EnumValueOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "entry_name",
+            "type": "string",
+            "tag": 50000,
+            "required": false,
+            "repeated": false,
+            "optional": false,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    },
+    {
+      "name": "google.protobuf.MessageOptions",
+      "message": {
+        "name": "google.protobuf.MessageOptions",
+        "enums": [],
+        "options": {},
+        "messages": [],
+        "fields": [
+          {
+            "name": "event_name",
+            "type": "string",
+            "tag": 50001,
+            "required": false,
+            "repeated": false,
+            "optional": false,
+            "options": {}
+          }
+        ],
+        "extends": [],
+        "extensions": [],
+        "reserved": []
+      }
+    }
+  ],
+  "services": []
+}

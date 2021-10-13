@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "whisk/api/shared/v1/custom.proto";
+
+enum App {
+  APP_UNSPECIFIED = 0;
+  APP_WEB = 1 [ (entry_name) = "web" ];
+  APP_ANDROID = 2 [ (entry_name) = "android" ];
+  APP_IOS = 3 [ (entry_name) = "ios" ];
+}
+
+message SendMessage {
+  option (event_name) = "Recipe Viewed";
+  string id = 1;
+}

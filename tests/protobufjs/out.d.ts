@@ -1090,6 +1090,9 @@ export namespace google {
 
             /** MessageOptions uninterpretedOption */
             uninterpretedOption?: (google.protobuf.IUninterpretedOption[]|null);
+
+            /** MessageOptions .eventName */
+            ".eventName"?: (string|null);
         }
 
         /** Represents a MessageOptions. */
@@ -1115,6 +1118,9 @@ export namespace google {
 
             /** MessageOptions uninterpretedOption. */
             public uninterpretedOption: google.protobuf.IUninterpretedOption[];
+
+            /** MessageOptions .eventName. */
+            public eventName: string;
 
             /**
              * Encodes the specified MessageOptions message. Does not implicitly {@link google.protobuf.MessageOptions.verify|verify} messages.
@@ -1322,6 +1328,9 @@ export namespace google {
 
             /** EnumValueOptions uninterpretedOption */
             uninterpretedOption?: (google.protobuf.IUninterpretedOption[]|null);
+
+            /** EnumValueOptions .entryName */
+            ".entryName"?: (string|null);
         }
 
         /** Represents an EnumValueOptions. */
@@ -1338,6 +1347,9 @@ export namespace google {
 
             /** EnumValueOptions uninterpretedOption. */
             public uninterpretedOption: google.protobuf.IUninterpretedOption[];
+
+            /** EnumValueOptions .entryName. */
+            public entryName: string;
 
             /**
              * Encodes the specified EnumValueOptions message. Does not implicitly {@link google.protobuf.EnumValueOptions.verify|verify} messages.
@@ -6167,4 +6179,125 @@ export namespace whisk {
             }
         }
     }
+
+    /** Namespace local. */
+    namespace local {
+
+        /** Properties of a Message. */
+        interface IMessage {
+
+            /** Message id */
+            id?: (ISendMessage|null);
+
+            /** Message type */
+            type?: (App|null);
+        }
+
+        /** Represents a Message. */
+        class Message implements IMessage {
+
+            /**
+             * Constructs a new Message.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: whisk.local.IMessage);
+
+            /** Message id. */
+            public id?: (ISendMessage|null);
+
+            /** Message type. */
+            public type: App;
+
+            /**
+             * Encodes the specified Message message. Does not implicitly {@link whisk.local.Message.verify|verify} messages.
+             * @param message Message message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: whisk.local.IMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Message message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Message
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): whisk.local.Message;
+        }
+    }
+}
+
+/** App enum. */
+export enum App {
+    APP_UNSPECIFIED = 0,
+    APP_WEB = 1,
+    APP_ANDROID = 2,
+    APP_IOS = 3
+}
+
+/** Represents a SendMessage. */
+export class SendMessage implements ISendMessage {
+
+    /**
+     * Constructs a new SendMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ISendMessage);
+
+    /** SendMessage id. */
+    public id: string;
+
+    /**
+     * Encodes the specified SendMessage message. Does not implicitly {@link SendMessage.verify|verify} messages.
+     * @param message SendMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ISendMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a SendMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SendMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SendMessage;
+}
+
+/** Represents a Message. */
+export class Message implements IMessage {
+
+    /**
+     * Constructs a new Message.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IMessage);
+
+    /** Message id. */
+    public id?: (ISendMessage|null);
+
+    /** Message type. */
+    public type: App;
+
+    /**
+     * Encodes the specified Message message. Does not implicitly {@link Message.verify|verify} messages.
+     * @param message Message message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a Message message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Message
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Message;
 }

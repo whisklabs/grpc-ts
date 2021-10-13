@@ -2514,6 +2514,63 @@ const $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $
             }
           }
         }
+      },
+      local: {
+        nested: {
+          Message: {
+            fields: {
+              id: {
+                type: "SendMessage",
+                id: 1
+              },
+              type: {
+                type: "App",
+                id: 2
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  App: {
+    values: {
+      APP_UNSPECIFIED: 0,
+      APP_WEB: 1,
+      APP_ANDROID: 2,
+      APP_IOS: 3
+    }
+  },
+  SendMessage: {
+    options: {
+      "(event_name)": "Recipe Viewed"
+    },
+    fields: {
+      id: {
+        type: "string",
+        id: 1
+      }
+    }
+  },
+  entryName: {
+    type: "string",
+    id: 50000,
+    extend: "google.protobuf.EnumValueOptions"
+  },
+  eventName: {
+    type: "string",
+    id: 50001,
+    extend: "google.protobuf.MessageOptions"
+  },
+  Message: {
+    fields: {
+      id: {
+        type: "SendMessage",
+        id: 1
+      },
+      type: {
+        type: "App",
+        id: 2
       }
     }
   }

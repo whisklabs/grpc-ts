@@ -3,7 +3,7 @@ import { isText } from '@whisklabs/typeguards';
 import { Parser } from '../parser';
 import { pathField } from './field';
 import { MakeOuts } from './generator';
-import { safeString, toComment } from './utils';
+import { joinPath, toComment } from './utils';
 
 export function services(pack: string, out: MakeOuts, items: Parser.Service[] = []) {
   for (const msg of items) {
@@ -18,7 +18,7 @@ function service(pack: string, out: MakeOuts, item: Parser.Service) {
 }
 
 export function method(pack: string, out: MakeOuts, item: Parser.Method, serv: Parser.Service) {
-  const sName = `${safeString(pack)}_${serv.name}_${item.name}`;
+  const sName = joinPath(pack, serv.name, item.name);
   const input = pathField(item.inputType, pack, out);
   const output = pathField(item.outputType, pack, out);
 

@@ -2,11 +2,11 @@ import { isNumber, isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
 import { MakeOuts } from './generator';
-import { checkSame, safeString, toComment } from './utils';
+import { checkSame, joinPath, safeString, toComment } from './utils';
 
 export function enums(pack: string, out: MakeOuts, items: Parser.Enum[]) {
   for (const msg of items) {
-    enu(`${pack}_${msg.name}`, out, msg);
+    enu(joinPath(pack, msg.name), out, msg);
   }
 }
 

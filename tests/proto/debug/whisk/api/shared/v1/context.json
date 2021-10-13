@@ -1,0 +1,63 @@
+{
+  "syntax": 3,
+  "imports": [
+    "whisk/api/shared/v1/custom.proto"
+  ],
+  "enums": [
+    {
+      "name": "App",
+      "values": {
+        "APP_UNSPECIFIED": {
+          "value": 0,
+          "options": {}
+        },
+        "APP_WEB": {
+          "value": 1,
+          "options": {
+            "entry_name": "web"
+          }
+        },
+        "APP_ANDROID": {
+          "value": 2,
+          "options": {
+            "entry_name": "android"
+          }
+        },
+        "APP_IOS": {
+          "value": 3,
+          "options": {
+            "entry_name": "ios"
+          }
+        }
+      },
+      "options": {}
+    }
+  ],
+  "messages": [
+    {
+      "name": "SendMessage",
+      "enums": [],
+      "options": {
+        "event_name": "Recipe Viewed"
+      },
+      "messages": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": []
+    }
+  ],
+  "options": {},
+  "extends": [],
+  "services": []
+}
