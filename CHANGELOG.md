@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.1.1](https://github.com/whisklabs/grpc-ts/compare/v1.1.0...v1.1.1) (2021-10-13)
+
+### Bug Fixes
+
+- support empty package ([b38c24d](https://github.com/whisklabs/grpc-ts/commit/b38c24d86374bc0d650e94b595de633b755945cb))
+
 ## [v1.1.0](https://github.com/whisklabs/grpc-ts/compare/v1.0.9...v1.1.0) (2021-9-8)
 
 ### Documentation
