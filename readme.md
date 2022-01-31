@@ -178,7 +178,9 @@ import { grpcHTTP, StatusCode } from '@whisklabs/grpc';
 // Server gRPC instance
 export const grpc = grpcHTTP({
   // URL to API server [Required]
-  server: 'https://example.com',
+  server: 'https://example.com', // [default = `${server}/${methodName}`]
+  // or custom server url
+  server: (method) => `https://example.com/my/path/${method}?param_any=example`
   // Use or not credentials [default = true]
   credentials: true,
   // Send binary data of request/response to grpc-web devtools [default = false]

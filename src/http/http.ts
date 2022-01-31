@@ -28,7 +28,7 @@ export const grpcHTTP = <Meta = unknown>({
   debug = false,
   logger,
 }: ConfigGRPC<Meta>) => {
-  if (!isText(server)) {
+  if (!(isText(server) || isFunction(server))) {
     throw new Error('No "server" in GRPC config');
   }
 
@@ -44,7 +44,7 @@ export const grpcHTTP = <Meta = unknown>({
       delete cancels[cancel];
     }
 
-    const method = `${server}/${field.name}`;
+    const method = isFunction(server) ? server(field.name) : `${server}/${field.name}`;
     const xhr = new XMLHttpRequest();
 
     xhr.timeout = timeout ?? timeoutConfig ?? 0;

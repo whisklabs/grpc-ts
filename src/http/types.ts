@@ -42,7 +42,7 @@ export type GOutput<T> = GSuccess<T> | GError | GResult<T>;
 type LoggerFn = (message?: any, ...optionalParams: any[]) => void;
 
 export interface ConfigGRPC<Meta = unknown> {
-  server: string;
+  server: string | ((method: string) => string);
   credentials?: boolean;
   timeout?: number;
   devtool?: boolean;
