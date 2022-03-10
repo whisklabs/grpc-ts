@@ -58,6 +58,7 @@ export interface ConfigGRPC<Meta = unknown> {
     data: GOutput<T>;
     meta?: Meta;
   }): GOutput<T> | Promise<GOutput<T>>;
+  wireFormat?: 'binary' | 'base64'; // defaults to binary
 }
 
 export interface Cancel {

@@ -1,6 +1,6 @@
 {
   "name": "@whisklabs/grpc",
-  "version": "1.1.1",
+  "version": "1.1.1-SNAPSHOT",
   "description": "gRPC generator and http library for typescript",
   "license": "MIT",
   "author": {
@@ -68,6 +68,7 @@
   "dependencies": {
     "@whisklabs/deep-readonly": "~1.0.0",
     "@whisklabs/typeguards": "~1.0.0",
+    "base64-js": "1.5.1",
     "typescript": "~4.4.4"
   },
   "devDependencies": {
