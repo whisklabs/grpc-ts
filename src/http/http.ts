@@ -1,4 +1,5 @@
 import { isFunction, isObject, isPresent, isString, isText } from '@whisklabs/typeguards';
+import * as base64 from 'base64-js';
 
 import { Decode, Encode } from '../binary';
 import { Field, FieldGet, Service, ServiceRequest, ServiceResponse } from '../types';
@@ -27,12 +28,15 @@ export const grpcHTTP = <Meta = unknown>({
   devtool = false,
   debug = false,
   logger,
+  wireFormat,
 }: ConfigGRPC<Meta>) => {
   if (!isText(server)) {
     throw new Error('No "server" in GRPC config');
   }
 
   const cancels: Record<string, () => void> = {};
+
+  const isWireBinary = wireFormat !== 'base64';
 
   return (<T extends Field, K extends Field>(
     field: Service<T, K>,
@@ -83,7 +87,7 @@ export const grpcHTTP = <Meta = unknown>({
 
       xhr.responseType = 'arraybuffer';
 
-      xhr.setRequestHeader('content-type', 'application/grpc-web+proto');
+      xhr.setRequestHeader('content-type', isWireBinary ? 'application/grpc-web+proto' : 'application/grpc-web-text');
       xhr.setRequestHeader('x-grpc-web', '1');
       xhr.setRequestHeader('x-user-agent', 'grpc-web-ts/1.0');
 
@@ -136,7 +140,9 @@ export const grpcHTTP = <Meta = unknown>({
           });
         }
 
-        const byteSource = toInt8(xhr);
+        const uint8Resp = toInt8(xhr);
+        const byteSource =
+          !isWireBinary && uint8Resp !== false ? base64.toByteArray(new TextDecoder().decode(uint8Resp)) : uint8Resp;
 
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         if (!byteSource) {
@@ -226,7 +232,8 @@ export const grpcHTTP = <Meta = unknown>({
         logger?.warn(method, request);
       }
 
-      xhr.send(request);
+      const formatRequest = isWireBinary ? request : base64.fromByteArray(request);
+      xhr.send(formatRequest);
     })
       .then(data => {
         if (devtool) {
