@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [v1.1.2](https://github.com/whisklabs/grpc-ts/compare/v1.1.1...v1.1.2) (2024-3-4)
+
+### Bug Fixes
+
+- **web-2516**: add support reserved in enum (#17) ([65b0b96](https://github.com/whisklabs/grpc-ts/commit/65b0b96e9fb120b49693fcd0c7fdc51cbf8b2be3))
+
 ## [v1.1.1](https://github.com/whisklabs/grpc-ts/compare/v1.1.0...v1.1.1) (2021-10-13)
 
 ### Bug Fixes
