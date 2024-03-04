@@ -6,3 +6,20 @@ message Person {
     WORK = 2;
   }
 }
+
+
+// Check enum with reserved values
+message BannerIsDisplayed {
+  enum Promo {
+    // reserved values to align with BannerButtonClicked
+    reserved 4,5,6,7,8,9,10,11;
+
+    PROMO_UNKNOWN = 0;
+    PROMO_APP_INSTALL = 1;
+    PROMO_LEARN_HOW_TO_SAVE = 2;
+    PROMO_SHARE_RECIPE = 3;
+    PROMO_CONNECT_SAMSUNG_HEALTH_SDK = 12;
+  }
+
+  Promo promo = 1;
+}

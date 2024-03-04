@@ -27,7 +27,8 @@
           "options": {
             "allow_alias": true,
             "custom_option": true
-          }
+          },
+          "reserved": []
         }
       ],
       "options": {},
