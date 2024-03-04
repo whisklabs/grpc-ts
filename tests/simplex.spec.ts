@@ -8,6 +8,7 @@ util.Long = undefined;
 configure();
 
 import { Decode, Encode } from '../src';
+
 import { whisk_api_shared_v1_Test, whisk_api_user_v2_ActivityLevel, whisk_api_user_v2_GetMeResponse } from './proto';
 import { whisk } from './protobufjs/out';
 

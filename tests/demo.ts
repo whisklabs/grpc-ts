@@ -15,6 +15,7 @@ import {
   maskWrap,
   unwrap,
 } from '../src';
+
 import {
   whisk_api_user_v2_HealthGoal,
   whisk_api_user_v2_PersonalDetails,

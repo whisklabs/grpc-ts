@@ -6,6 +6,7 @@ import { extname, isAbsolute, join, parse as pathParse, relative } from 'path';
 import { CompilerOptions, ModuleKind, ModuleResolutionKind, ScriptTarget, transpileModule } from 'typescript';
 
 import { Parser, parser } from '../parser';
+
 import { collectEmuns, collectMessages, collectServices } from './collect';
 import { OPTION_MESSAGES_REQUIRED } from './constants';
 import { enums } from './enum';
@@ -188,6 +189,7 @@ export const packageTemplate = ({ packageName, packageVersion, packageUrl, packa
   "main": "./index.js",
   "module": "./esm.js",
   "types": "./index.d.ts",
+  "sideEffects": false,
   "peerDependencies": {
     "@whisklabs/grpc": "*"
   }

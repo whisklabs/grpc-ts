@@ -2,6 +2,7 @@ import { isFunction, isObject, isPresent, isString, isText } from '@whisklabs/ty
 
 import { Decode, Encode } from '../binary';
 import { Field, FieldGet, Service, ServiceRequest, ServiceResponse } from '../types';
+
 import { send } from './devtool';
 import { maskWrap } from './mask';
 import { Chunk, ChunkType, chunkParse } from './parser';
@@ -212,8 +213,8 @@ export const grpcHTTP = <Meta = unknown>({
         mask === true
           ? maskWrap(sendData)
           : isObject(mask) && isText(mask.field)
-          ? maskWrap(sendData, mask.field, mask.outField)
-          : sendData
+            ? maskWrap(sendData, mask.field, mask.outField)
+            : sendData
       );
       const request = encodeRequest(encoded);
 

@@ -3,6 +3,7 @@ import { Thrower } from '../thrower';
 import { Field } from '../types';
 import { ch, check, cut } from '../utils';
 import { isText } from '../validators';
+
 import { ParseField } from './field';
 
 export function ParseOneOf(tokens: string[]) {

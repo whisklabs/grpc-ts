@@ -3,6 +3,7 @@ import { Thrower } from '../thrower';
 import { Enum } from '../types';
 import { ch, check, cut, insertOption, semicolon } from '../utils';
 import { isNumber, isText } from '../validators';
+
 import { InnerOptions, ParseOptions } from './options';
 import { ParseReserved } from './reserved';
 

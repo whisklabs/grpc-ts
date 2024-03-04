@@ -8,6 +8,7 @@ util.Long = undefined;
 configure();
 
 import { Decode, Encode } from '../src';
+
 import {
   whisk_api_user_v2_Height_Unit,
   whisk_api_user_v2_SearchRecipesResponse,

@@ -181,18 +181,13 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: [
-          ['builtin', 'external'],
-          ['internal', 'unknown', 'object'],
-          ['parent', 'sibling', 'index'],
-        ],
+        groups: [['builtin', 'external'], ['internal', 'unknown', 'object'], ['parent'], ['sibling', 'index']],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
     'jsdoc/check-alignment': 'error',
     'jsdoc/check-indentation': 'error',
-    'jsdoc/newline-after-description': 'error',
     'linebreak-style': ['error', 'unix'],
     'max-classes-per-file': ['error', 1],
     'max-len': [

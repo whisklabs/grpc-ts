@@ -1,6 +1,7 @@
 import { next, setComment, writeComment } from '../comment';
 import { Thrower } from '../thrower';
 import { Field } from '../types';
+
 import { ParseMap } from './map';
 import { InnerOptions } from './options';
 

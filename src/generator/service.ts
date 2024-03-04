@@ -1,6 +1,7 @@
 import { isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
+
 import { pathField } from './field';
 import { MakeOuts } from './generator';
 import { joinPath, toComment } from './utils';
