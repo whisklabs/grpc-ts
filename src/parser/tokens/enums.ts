@@ -59,7 +59,7 @@ export function ParseEnums(tokens: string[]) {
       }
 
       case 'reserved':
-        (en.reserved ?? []).push(ParseReserved(tokens));
+        en.reserved.push(ParseReserved(tokens));
         break;
 
       case undefined:
