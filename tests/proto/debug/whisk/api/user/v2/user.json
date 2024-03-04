@@ -32,6 +32,7 @@
         }
       },
       "options": {},
+      "reserved": [],
       "comment": " Describes goals"
     },
     {
@@ -62,7 +63,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     },
     {
       "name": "Gender",
@@ -88,7 +90,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     },
     {
       "name": "OrganicPreference",
@@ -106,7 +109,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     },
     {
       "name": "CookingExperience",
@@ -128,7 +132,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     },
     {
       "name": "BudgetGoal",
@@ -150,7 +155,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     },
     {
       "name": "EthicalPreference",
@@ -184,7 +190,8 @@
           "options": {}
         }
       },
-      "options": {}
+      "options": {},
+      "reserved": []
     }
   ],
   "messages": [
@@ -500,7 +507,8 @@
               "options": {}
             }
           },
-          "options": {}
+          "options": {},
+          "reserved": []
         }
       ],
       "options": {},
@@ -548,7 +556,8 @@
               "options": {}
             }
           },
-          "options": {}
+          "options": {},
+          "reserved": []
         }
       ],
       "options": {},
@@ -864,7 +873,8 @@
               "options": {}
             }
           },
-          "options": {}
+          "options": {},
+          "reserved": []
         }
       ],
       "options": {},
@@ -1478,7 +1488,8 @@
                   "options": {}
                 }
               },
-              "options": {}
+              "options": {},
+              "reserved": []
             }
           ],
           "options": {},

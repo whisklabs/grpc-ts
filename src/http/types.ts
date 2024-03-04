@@ -102,6 +102,5 @@ export type FieldGetDeep<T extends Field<any>> = T extends Field<infer X> ? Deep
 
 export type ServiceRequestDeep<T extends Service<any, any>> = T extends Service<infer X, any> ? FieldGetDeep<X> : never;
 
-export type ServiceResponseDeep<T extends Service<any, any>> = T extends Service<any, infer X>
-  ? FieldGetDeep<X>
-  : never;
+export type ServiceResponseDeep<T extends Service<any, any>> =
+  T extends Service<any, infer X> ? FieldGetDeep<X> : never;

@@ -14,6 +14,7 @@ export interface Enum {
       comment?: string;
     };
   };
+  reserved: Reserved[][];
   options: Options;
   comment?: string;
 }

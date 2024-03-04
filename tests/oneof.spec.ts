@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 
 import { Decode, Encode, oneis, oneof } from '../src';
+
 import { whisk_api_user_v2_TestEmpty, whisk_api_user_v2_TestOneof } from './proto';
 import { whisk } from './protobufjs/out';
 

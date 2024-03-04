@@ -28,7 +28,8 @@
         }
       },
       "options": {},
-      "comment": " NumericEnum is one or zero."
+      "comment": " NumericEnum is one or zero.",
+      "reserved": []
     }
   ],
   "messages": [
@@ -70,6 +71,7 @@
                 }
               },
               "options": {},
+              "reserved": [],
               "comment": " DeepEnum is one or zero."
             }
           ],

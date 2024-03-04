@@ -8,6 +8,7 @@ util.Long = undefined;
 configure();
 
 import { Decode, Encode } from '../src';
+
 import {
   whisk_api_shared_v1_Big,
   whisk_api_shared_v1_Primitive,
@@ -65,6 +66,7 @@ describe('types', () => {
     expect(Decode(whisk_api_shared_v1_Primitive, binA)).toMatchObject(primitive);
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
   const nums = [2684354560, 26843545650, 2684354560234, 1241234241234234, 252413425324514232, 1844674407370951000];
 
   for (const num of nums) {

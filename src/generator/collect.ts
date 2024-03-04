@@ -1,6 +1,7 @@
 import { isString } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
+
 import { MakeOuts } from './generator';
 import { checkDublicate, joinPath, safeString } from './utils';
 

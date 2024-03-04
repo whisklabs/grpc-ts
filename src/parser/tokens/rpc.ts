@@ -3,6 +3,7 @@ import { Thrower } from '../thrower';
 import { Method } from '../types';
 import { ch, check, cut, insertOption, semicolon } from '../utils';
 import { isText } from '../validators';
+
 import { ParseOptions } from './options';
 
 export function ParseRPC(tokens: string[]) {

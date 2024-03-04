@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 
 import { Default } from '../src';
+
 import { whisk_api_user_v2_TestItem, whisk_api_user_v2_TestOneof } from './proto';
 
 describe('protobuf defualt', () => {

@@ -24,7 +24,8 @@
         }
       },
       "options": {},
-      "comment": " Gender is one or two."
+      "comment": " Gender is one or two.",
+      "reserved": []
     },
     {
       "name": "NumericEnum",
@@ -41,7 +42,8 @@
         }
       },
       "options": {},
-      "comment": " NumericEnum is one or zero."
+      "comment": " NumericEnum is one or zero.",
+      "reserved": []
     }
   ],
   "messages": [
@@ -164,7 +166,8 @@
               }
             }
           },
-          "options": {}
+          "options": {},
+          "reserved": []
         }
       ],
       "options": {},
@@ -173,6 +176,56 @@
       "extends": [],
       "extensions": [],
       "reserved": []
+    },
+    {
+      "name": "BannerIsDisplayed",
+      "options": {},
+      "enums": [
+        {
+          "name": "Promo",
+          "values": {
+            "PROMO_UNKNOWN": {
+              "value": 0,
+              "options": {},
+              "comment": " reserved values to align with BannerButtonClicked"
+            },
+            "PROMO_APP_INSTALL": {
+              "value": 1,
+              "options": {}
+            },
+            "PROMO_LEARN_HOW_TO_SAVE": {
+              "value": 2,
+              "options": {}
+            },
+            "PROMO_SHARE_RECIPE": {
+              "value": 3,
+              "options": {}
+            },
+            "PROMO_CONNECT_SAMSUNG_HEALTH_SDK": {
+              "value": 12,
+              "options": {}
+            }
+          },
+          "options": {},
+          "reserved": [[4, 5, 6, 7, 8, 9, 10, 11]]
+        }
+      ],
+      "messages": [],
+      "fields": [
+        {
+          "name": "promo",
+          "type": "Promo",
+          "tag": 1,
+          "required": false,
+          "repeated": false,
+          "optional": false,
+          "options": {}
+        }
+      ],
+      "extends": [],
+      "extensions": [],
+      "reserved": [],
+      "comment": " Check enum with reserved values"
     },
     {
       "name": "Test",

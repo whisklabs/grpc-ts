@@ -1,4 +1,5 @@
 import { snakeCase } from '../http/utils';
+
 import { camelCase } from './utils';
 
 describe('camelCase', () => {

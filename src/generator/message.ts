@@ -1,6 +1,7 @@
 import { isBoolean, isPresent, isString, isText } from '@whisklabs/typeguards';
 
 import { Parser } from '../parser';
+
 import { GOOGLE_WRAPPERS, OPTION_MESSAGE_REQUIRED } from './constants';
 import { enums } from './enum';
 import { getField, getStruct, isRequiredField } from './field';

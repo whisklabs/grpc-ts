@@ -5,7 +5,10 @@ export class Thrower {
   column = 0;
   range: Tokens = [];
 
-  constructor(public name: string, public message: [string, number][]) {}
+  constructor(
+    public name: string,
+    public message: [string, number][]
+  ) {}
 
   addLine(num: number) {
     this.line = num;

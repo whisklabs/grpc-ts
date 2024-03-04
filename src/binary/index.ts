@@ -3,6 +3,7 @@
 import { isArray, isFunction, isObject, isPresent, isString, isText } from '@whisklabs/typeguards';
 
 import { Field, FieldGet, FieldItem, FieldType } from '../types';
+
 import { Bytes, MapStruct, WrapperStruct } from './constant';
 import { getDefault } from './default';
 import { PACKED } from './packed';
@@ -125,14 +126,14 @@ const GetDefault = (item: FieldType) =>
   isString(item)
     ? getDefault(item)
     : isFunction(item)
-    ? DecodeDefault(item)
-    : item[0] === 'repeated'
-    ? []
-    : item[0] === 'map'
-    ? {}
-    : item[0] === 'wrapper'
-    ? getDefault(item[1])
-    : undefined;
+      ? DecodeDefault(item)
+      : item[0] === 'repeated'
+        ? []
+        : item[0] === 'map'
+          ? {}
+          : item[0] === 'wrapper'
+            ? getDefault(item[1])
+            : undefined;
 
 function DecodeHelper<T extends Record<string, any>>(
   b: BufRead,

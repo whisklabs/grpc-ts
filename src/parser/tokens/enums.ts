@@ -3,7 +3,9 @@ import { Thrower } from '../thrower';
 import { Enum } from '../types';
 import { ch, check, cut, insertOption, semicolon } from '../utils';
 import { isNumber, isText } from '../validators';
+
 import { InnerOptions, ParseOptions } from './options';
+import { ParseReserved } from './reserved';
 
 export function EnumVal(tokens: string[]) {
   const { results } = check({
@@ -36,6 +38,7 @@ export function ParseEnums(tokens: string[]) {
     name: results[0],
     values: {},
     options: {},
+    reserved: [],
   };
 
   writeComment(en);
@@ -55,6 +58,10 @@ export function ParseEnums(tokens: string[]) {
         insertOption(en.options, field, value);
         break;
       }
+
+      case 'reserved':
+        en.reserved.push(ParseReserved(tokens));
+        break;
 
       case undefined:
         continue;

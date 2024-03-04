@@ -18,7 +18,8 @@
       },
       "options": {
         "my_enum_option": true
-      }
+      },
+      "reserved": []
     }
   ],
   "messages": [

@@ -1,6 +1,7 @@
 import { isArray, isArrayBuffer, isDate, isObject, isPresent } from '@whisklabs/typeguards';
 
 import { readUtf8 } from '../binary/utf8';
+
 import { GError, GOutput } from './types';
 
 export const HEADER_SIZE = 5;
